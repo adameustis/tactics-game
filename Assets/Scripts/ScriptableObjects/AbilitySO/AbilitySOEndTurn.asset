@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f890e3277c2ec4d9e5f977af1bb406, type: 3}
+  m_Name: AbilitySOEndTurn
+  m_EditorClassIdentifier: 
+  abilityName: End Turn
+  description: Ends turn.
+  displayIcon: {fileID: 21300000, guid: 7408419848537164384bd6b6ad8cbb6b, type: 3}
+  investment: 0
+  energy: 0
+  range: 0
+  uses: 1
+  targetingType: {fileID: 0}

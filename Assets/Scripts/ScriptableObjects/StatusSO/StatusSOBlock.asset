@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbcef01f7f6684f45b803b6695cbb2be, type: 3}
+  m_Name: StatusSOBlock
+  m_EditorClassIdentifier: 
+  statusName: Block
+  description: 
+  displayIcon: {fileID: 0}
+  activateTrigger: {fileID: 11400000, guid: c13deefb657ce234d87c5be2736e1d1c, type: 2}
+  exhaustTrigger: {fileID: 11400000, guid: 40d7d4c6d118e8741b63d5a29c4aada6, type: 2}
+  effect: {fileID: 11400000, guid: 807cfe070089fa840bf6811a16147db6, type: 2}
+  status: {fileID: 0}

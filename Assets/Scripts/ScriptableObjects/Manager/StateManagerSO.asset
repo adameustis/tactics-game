@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ebc3caaaf750754c96ec5740910ccb0, type: 3}
+  m_Name: StateManagerSO
+  m_EditorClassIdentifier: 
+  stateSOIdol: {fileID: 11400000, guid: 9c44651a146f53745a6d7ad4a3bcb12b, type: 2}
+  stateSOSelected: {fileID: 11400000, guid: 70eb6dd5150998b45a03ec55beb2947d, type: 2}
+  stateSOUnitChoosingWhereToMove: {fileID: 11400000, guid: cc87245483670964fbed8588e16e3acd,
+    type: 2}
+  stateSOUnitMoving: {fileID: 11400000, guid: 1d94b5de925c63a4a97e59ecd6584c5f, type: 2}
+  stateSOUnitViewingAbilityMenu: {fileID: 11400000, guid: 56045a91ee540954ca8fa084f92e5f8e,
+    type: 2}
+  stateSOGameState: {fileID: 0}
+  stateSOBattleState: {fileID: 0}

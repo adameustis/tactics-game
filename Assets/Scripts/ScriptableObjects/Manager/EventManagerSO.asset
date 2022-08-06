@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4431247abc7ba8941b5ff35788bbcc35, type: 3}
+  m_Name: EventManagerSO
+  m_EditorClassIdentifier: 
+  eventCellInputCancel: {fileID: 11400000, guid: 92472baa1039d97498be4a24813f6f16,
+    type: 2}
+  eventCellInputDown: {fileID: 11400000, guid: 294fa7ce20a130a48a2292b07d229b2c, type: 2}
+  eventCellInputLeft: {fileID: 11400000, guid: 82d2d6054e183014caf80a9aadc73daa, type: 2}
+  eventCellInputMouseOff: {fileID: 11400000, guid: 69e9df7ac06b3df469f6724d70151846,
+    type: 2}
+  eventCellInputMouseOn: {fileID: 11400000, guid: 8c81c2052c2d66f4882cc86f230504c8,
+    type: 2}
+  eventCellInputRight: {fileID: 11400000, guid: cceb2d8a2b7d99540a90c3e0849d6f88,
+    type: 2}
+  eventCellInputSubmit: {fileID: 11400000, guid: ae9e6c3da32e09649b41f700317b9084,
+    type: 2}
+  eventCellInputUp: {fileID: 11400000, guid: 37318059f3127b2469dacea9738f2ac7, type: 2}

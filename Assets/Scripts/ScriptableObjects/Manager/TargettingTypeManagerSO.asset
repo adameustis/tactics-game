@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3754b044cf43869498ac42e1c8ee1988, type: 3}
+  m_Name: TargettingTypeManagerSO
+  m_EditorClassIdentifier: 
+  targetingTypeAdjacent: {fileID: 11400000, guid: fdfff77a6c45d234e86b516d1e204718,
+    type: 2}
+  targetingTypeAdjacentOrSelf: {fileID: 11400000, guid: 60696955a15fa6d4fbeafe7b002405fd,
+    type: 2}
+  targetingTypeInstant: {fileID: 11400000, guid: 0853e9b87882d284990952e7c2b1f30b,
+    type: 2}
+  targetingTypeMove: {fileID: 11400000, guid: 37cdaad4614cc714195432511f7ae577, type: 2}
+  targetingTypeRange: {fileID: 11400000, guid: 55454f202a560c5439b9a579bb127f8b, type: 2}
+  targetingTypeThrough: {fileID: 11400000, guid: 023977aab3f529549bd33a2e0ce9351e,
+    type: 2}

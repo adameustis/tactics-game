@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c9f3b33579e2f84290d054aa35175dc, type: 3}
+  m_Name: InstructionManagerSO
+  m_EditorClassIdentifier: 
+  doNothing: {fileID: 11400000, guid: b1da21936048bae48ada16695d787fe7, type: 2}
+  doubleSelect: {fileID: 11400000, guid: a8fbd5aa8be34864daf67a6b93d8b0b8, type: 2}
+  mouseOff: {fileID: 11400000, guid: 669e638ef8453ab449a78cc9b1bbea43, type: 2}
+  mouseOver: {fileID: 11400000, guid: bfb840a73aabff34dbdfcd076847b2b1, type: 2}
+  select: {fileID: 11400000, guid: 21ca4b87d37070b4eab996f91cadff1b, type: 2}

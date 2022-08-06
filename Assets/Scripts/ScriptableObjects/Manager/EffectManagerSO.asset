@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24772d168a3f7ee46bdf93219e8f0608, type: 3}
+  m_Name: EffectManagerSO
+  m_EditorClassIdentifier: 
+  effectBlock: {fileID: 11400000, guid: 807cfe070089fa840bf6811a16147db6, type: 2}
+  effectBurn: {fileID: 11400000, guid: a8508fbe406e9b4479ee5f8b89a64708, type: 2}
+  effectCounter: {fileID: 11400000, guid: 20166696c360cf24d9c77dcf1d083b7c, type: 2}
+  effectDamage: {fileID: 11400000, guid: c5b7be2fb0a2856419daf3b4ffe337c6, type: 2}
+  effectEndTurn: {fileID: 11400000, guid: 003ea84fe940a1b44bd64170a5af1d21, type: 2}
+  effectMove: {fileID: 11400000, guid: 25515958bafb95d44b07875cab55e9f6, type: 2}
+  effectNothing: {fileID: 11400000, guid: 52ed1545173106842956baa13a067b74, type: 2}

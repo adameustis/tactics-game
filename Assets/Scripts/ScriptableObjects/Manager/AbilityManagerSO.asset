@@ -1,0 +1,499 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8592c95560c104da7555cbf09db062, type: 3}
+  m_Name: AbilityManagerSO
+  m_EditorClassIdentifier: 
+  abilityEndTurn:
+  - state: {fileID: 0}
+    transformPosition: {x: 0, y: 0, z: 0}
+    transformRotation: {x: 0, y: 0, z: 0, w: 0}
+    type: {fileID: 0}
+    eventStateStart:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventStateStop:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTransformPositionChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTransformRotationChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTypeChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    ability: {fileID: 11400000, guid: a6ec9a2ff4b6d8e489d933d6d6f02c69, type: 2}
+    level: 0
+    investment: 0
+    effectiveEnergy: 0
+    effectiveRange: 0
+    effectiveUses: 0
+    effectiveTargettingType: {fileID: 11400000, guid: 0853e9b87882d284990952e7c2b1f30b,
+      type: 2}
+    targetEffectArray:
+    - effect: {fileID: 11400000, guid: 003ea84fe940a1b44bd64170a5af1d21, type: 2}
+      target: {fileID: 11400000, guid: f72cbb03ac815454395dc2f5f05b067a, type: 2}
+      power: 0
+    targetStatusArray: []
+    eventLevelChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventInvestmentChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventAbilityChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  abilityMove:
+  - state: {fileID: 0}
+    transformPosition: {x: 0, y: 0, z: 0}
+    transformRotation: {x: 0, y: 0, z: 0, w: 0}
+    type: {fileID: 0}
+    eventStateStart:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventStateStop:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTransformPositionChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTransformRotationChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTypeChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    ability: {fileID: 11400000, guid: 5dfd73f08f66abc4ab7a9c4c8bc07fdc, type: 2}
+    level: 0
+    investment: 0
+    effectiveEnergy: 1
+    effectiveRange: 5
+    effectiveUses: 1
+    effectiveTargettingType: {fileID: 11400000, guid: 37cdaad4614cc714195432511f7ae577,
+      type: 2}
+    targetEffectArray:
+    - effect: {fileID: 11400000, guid: 25515958bafb95d44b07875cab55e9f6, type: 2}
+      target: {fileID: 11400000, guid: f72cbb03ac815454395dc2f5f05b067a, type: 2}
+      power: 0
+    targetStatusArray: []
+    eventLevelChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventInvestmentChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventAbilityChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  abilityDefend:
+  - state: {fileID: 0}
+    transformPosition: {x: 0, y: 0, z: 0}
+    transformRotation: {x: 0, y: 0, z: 0, w: 0}
+    type: {fileID: 0}
+    eventStateStart:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventStateStop:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTransformPositionChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTransformRotationChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTypeChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    ability: {fileID: 11400000, guid: d9e56c3198ac0d14f830328dee4752a8, type: 2}
+    level: 0
+    investment: 0
+    effectiveEnergy: 2
+    effectiveRange: 0
+    effectiveUses: 1
+    effectiveTargettingType: {fileID: 11400000, guid: 0853e9b87882d284990952e7c2b1f30b,
+      type: 2}
+    targetEffectArray:
+    - effect: {fileID: 11400000, guid: 807cfe070089fa840bf6811a16147db6, type: 2}
+      target: {fileID: 11400000, guid: f72cbb03ac815454395dc2f5f05b067a, type: 2}
+      power: 1
+    targetStatusArray:
+    - status: {fileID: 11400000, guid: 26059c578524b8d4ab4ae1805f72d6af, type: 2}
+      exhaustValue: 0
+      target: {fileID: 11400000, guid: f72cbb03ac815454395dc2f5f05b067a, type: 2}
+      targetEffectArray:
+      - effect: {fileID: 11400000, guid: 807cfe070089fa840bf6811a16147db6, type: 2}
+        target: {fileID: 11400000, guid: f72cbb03ac815454395dc2f5f05b067a, type: 2}
+        power: 1
+      targetStatusArray: []
+    eventLevelChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventInvestmentChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventAbilityChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  abilitySword:
+  - state: {fileID: 0}
+    transformPosition: {x: 0, y: 0, z: 0}
+    transformRotation: {x: 0, y: 0, z: 0, w: 0}
+    type: {fileID: 0}
+    eventStateStart:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventStateStop:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTransformPositionChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTransformRotationChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTypeChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    ability: {fileID: 11400000, guid: 4778e2e326c33f04a86f4520b3b19419, type: 2}
+    level: 0
+    investment: 0
+    effectiveEnergy: 1
+    effectiveRange: 0
+    effectiveUses: 1
+    effectiveTargettingType: {fileID: 11400000, guid: fdfff77a6c45d234e86b516d1e204718,
+      type: 2}
+    targetEffectArray:
+    - effect: {fileID: 11400000, guid: c5b7be2fb0a2856419daf3b4ffe337c6, type: 2}
+      target: {fileID: 11400000, guid: cf82c24dda6729a43b962dee8f8aedd4, type: 2}
+      power: 2
+    targetStatusArray: []
+    eventLevelChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventInvestmentChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventAbilityChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  abilityBlock:
+  - state: {fileID: 0}
+    transformPosition: {x: 0, y: 0, z: 0}
+    transformRotation: {x: 0, y: 0, z: 0, w: 0}
+    type: {fileID: 0}
+    eventStateStart:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventStateStop:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTransformPositionChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTransformRotationChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTypeChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    ability: {fileID: 11400000, guid: c5986de21235af6419a9e88110518e5a, type: 2}
+    level: 0
+    investment: 0
+    effectiveEnergy: 1
+    effectiveRange: 0
+    effectiveUses: 1
+    effectiveTargettingType: {fileID: 11400000, guid: 0853e9b87882d284990952e7c2b1f30b,
+      type: 2}
+    targetEffectArray: []
+    targetStatusArray:
+    - status: {fileID: 11400000, guid: ec784bc8a8cc52e49bbdbeeaadf77422, type: 2}
+      exhaustValue: 1
+      target: {fileID: 11400000, guid: f72cbb03ac815454395dc2f5f05b067a, type: 2}
+      targetEffectArray:
+      - effect: {fileID: 11400000, guid: 807cfe070089fa840bf6811a16147db6, type: 2}
+        target: {fileID: 11400000, guid: f72cbb03ac815454395dc2f5f05b067a, type: 2}
+        power: 1
+      targetStatusArray: []
+    eventLevelChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventInvestmentChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventAbilityChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  abilityBow:
+  - state: {fileID: 0}
+    transformPosition: {x: 0, y: 0, z: 0}
+    transformRotation: {x: 0, y: 0, z: 0, w: 0}
+    type: {fileID: 0}
+    eventStateStart:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventStateStop:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTransformPositionChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTransformRotationChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTypeChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    ability: {fileID: 11400000, guid: b5e2cf20841c51d4ca02418a9c2daaec, type: 2}
+    level: 0
+    investment: 0
+    effectiveEnergy: 0
+    effectiveRange: 5
+    effectiveUses: 1
+    effectiveTargettingType: {fileID: 11400000, guid: 55454f202a560c5439b9a579bb127f8b,
+      type: 2}
+    targetEffectArray:
+    - effect: {fileID: 11400000, guid: c5b7be2fb0a2856419daf3b4ffe337c6, type: 2}
+      target: {fileID: 11400000, guid: cf82c24dda6729a43b962dee8f8aedd4, type: 2}
+      power: 1
+    targetStatusArray: []
+    eventLevelChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventInvestmentChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventAbilityChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  abilityCounter:
+  - state: {fileID: 0}
+    transformPosition: {x: 0, y: 0, z: 0}
+    transformRotation: {x: 0, y: 0, z: 0, w: 0}
+    type: {fileID: 0}
+    eventStateStart:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventStateStop:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTransformPositionChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTransformRotationChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTypeChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    ability: {fileID: 11400000, guid: aa633c9b2a19f1f41a50efafa7313c6b, type: 2}
+    level: 0
+    investment: 0
+    effectiveEnergy: 2
+    effectiveRange: 0
+    effectiveUses: 0
+    effectiveTargettingType: {fileID: 11400000, guid: 0853e9b87882d284990952e7c2b1f30b,
+      type: 2}
+    targetEffectArray: []
+    targetStatusArray:
+    - status: {fileID: 11400000, guid: d110b3369f0a472469ee818cf1a875c2, type: 2}
+      exhaustValue: 1
+      target: {fileID: 11400000, guid: f72cbb03ac815454395dc2f5f05b067a, type: 2}
+      targetEffectArray:
+      - effect: {fileID: 11400000, guid: 20166696c360cf24d9c77dcf1d083b7c, type: 2}
+        target: {fileID: 11400000, guid: e9d659d7444a37847b0c813a9d68ca7d, type: 2}
+        power: 0
+      targetStatusArray: []
+    eventLevelChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventInvestmentChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventAbilityChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  abilitySpear:
+  - state: {fileID: 0}
+    transformPosition: {x: 0, y: 0, z: 0}
+    transformRotation: {x: 0, y: 0, z: 0, w: 0}
+    type: {fileID: 0}
+    eventStateStart:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventStateStop:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTransformPositionChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTransformRotationChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventTypeChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    ability: {fileID: 11400000, guid: 4ae24dc1de22779499bff41eb843d2a6, type: 2}
+    level: 0
+    investment: 0
+    effectiveEnergy: 2
+    effectiveRange: 2
+    effectiveUses: 1
+    effectiveTargettingType: {fileID: 11400000, guid: 023977aab3f529549bd33a2e0ce9351e,
+      type: 2}
+    targetEffectArray:
+    - effect: {fileID: 11400000, guid: c5b7be2fb0a2856419daf3b4ffe337c6, type: 2}
+      target: {fileID: 11400000, guid: cf82c24dda6729a43b962dee8f8aedd4, type: 2}
+      power: 1
+    - effect: {fileID: 11400000, guid: c5b7be2fb0a2856419daf3b4ffe337c6, type: 2}
+      target: {fileID: 11400000, guid: 4d7cc71c08285bd4d9847c949afa7a77, type: 2}
+      power: 1
+    targetStatusArray: []
+    eventLevelChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventInvestmentChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    eventAbilityChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null

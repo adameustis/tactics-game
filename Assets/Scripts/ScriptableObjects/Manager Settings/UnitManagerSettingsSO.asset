@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa59ae66ad322b242b7a5045614593b8, type: 3}
+  m_Name: UnitManagerSettingsSO
+  m_EditorClassIdentifier: 
+  unitSettingsList:
+  - unitNumber: 1
+    unitName: Unit 1
+    point:
+      x: 0
+      y: 0
+    prefab: {fileID: 3846602971771041544, guid: 996ee250f57a5ae4b8595593ecbc4a56,
+      type: 3}
+    eventUnitNumberChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitNameChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventPointChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventPrefabChanged:
+      m_PersistentCalls:
+        m_Calls: []
+  - unitNumber: 2
+    unitName: Unit 2
+    point:
+      x: 11
+      y: 11
+    prefab: {fileID: 2319410762679789942, guid: 146fac696dfc6b94aa7b9c5aa8a4762b,
+      type: 3}
+    eventUnitNumberChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitNameChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventPointChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventPrefabChanged:
+      m_PersistentCalls:
+        m_Calls: []
