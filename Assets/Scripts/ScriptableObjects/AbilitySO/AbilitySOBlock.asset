@@ -20,3 +20,5 @@ MonoBehaviour:
   range: 0
   uses: 1
   targetingType: {fileID: 0}
+  castEvent: {fileID: 11400000, guid: 1e0ab97dc82a3ba4e816d22410a6b42b, type: 2}
+  stopCastEvent: {fileID: 11400000, guid: 1bd357ab9c293d446947a94046458566, type: 2}

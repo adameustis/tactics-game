@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 1721771767870305817}
   - component: {fileID: 4940441088112029617}
   - component: {fileID: 2971876982129210811}
+  - component: {fileID: 3478680441474049994}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Unit
@@ -270,6 +271,117 @@ MonoBehaviour:
   outlineAnimator: {fileID: 1186681952014887918}
   eventDeselect: {fileID: 11400000, guid: 5503fc64afdb5734f98468e23e024cd2, type: 2}
   eventSelect: {fileID: 11400000, guid: 4e5dc1f7e1114e5449a6a3c26ca821b3, type: 2}
+--- !u!114 &3478680441474049994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8623663878638903048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e66537b0dc6746b5b10a9bd505718ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model:
+    transformPosition: {x: 0, y: 0, z: 0}
+    unitNumber: 0
+    unitName: 
+    unitIcon: {fileID: 0}
+    unitHP: 0
+    unitMaxHP: 0
+    unitAbilities: []
+    unitStatuses: []
+    unitCanLandTraverse: 0
+    unitCanAirTraverse: 0
+    unitCanStopOnLand: 0
+    unitCanStopInAir: 0
+    unitHasCellResidence: 0
+    unitCellResidence:
+      transformPosition: {x: 0, y: 0, z: 0}
+      cellName: 
+      cellIcon: {fileID: 0}
+      cellDescription: 
+      cellGridPositionX: 0
+      cellGridPositionY: 0
+      cellIsLandTraversable: 0
+      cellIsAirTraversable: 0
+      cellIsLandDestination: 0
+      cellIsAirDestination: 0
+      cellHasResidentUnit: 0
+    unitOnTurn: 0
+    unitTurnWaitValue: 0
+    unitEnergyUsed: 0
+    hasCurrentDestination: 0
+    speed: 2
+    movePathLength: 0
+    eventTransformPositionChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitNumberChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitNameChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitIconChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitHPChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitMaxHPChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitAbilityAdded:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitAbilityRemoved:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitStatusAdded:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitStatusRemoved:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitCanLandTraverseChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitCanAirTraverseChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitCanStopOnLandChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitCanStopInAirChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitHasCellResidenceChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitCellResidenceChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitOnTurnChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitTurnWaitValueChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitEnergyUsedChanged:
+      m_PersistentCalls:
+        m_Calls: []
+  isMoving: 0
+  eventIsMoving:
+    m_PersistentCalls:
+      m_Calls: []
+  eventUnitSelected: {fileID: 11400000, guid: 4e5dc1f7e1114e5449a6a3c26ca821b3, type: 2}
+  eventUnitDoubleSelected: {fileID: 11400000, guid: 603e96527491d524797d6d1fb2ca443e,
+    type: 2}
+  eventUnitDeselected: {fileID: 11400000, guid: 5503fc64afdb5734f98468e23e024cd2,
+    type: 2}
+  eventCellMouseOn: {fileID: 11400000, guid: 63c7a68bd6819314bb29e560c8d11a07, type: 2}
 --- !u!1001 &751513562821134226
 PrefabInstance:
   m_ObjectHideFlags: 0

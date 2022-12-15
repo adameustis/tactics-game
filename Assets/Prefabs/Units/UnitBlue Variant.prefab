@@ -42,7 +42,7 @@ PrefabInstance:
     - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
         type: 3}
       propertyPath: model.unitAbilities.Array.size
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
         type: 3}
@@ -58,13 +58,13 @@ PrefabInstance:
         type: 3}
       propertyPath: model.unitAbilities.Array.data[0].ability
       value: 
-      objectReference: {fileID: 11400000, guid: 5dfd73f08f66abc4ab7a9c4c8bc07fdc,
+      objectReference: {fileID: 11400000, guid: 4778e2e326c33f04a86f4520b3b19419,
         type: 2}
     - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
         type: 3}
       propertyPath: model.unitAbilities.Array.data[1].ability
       value: 
-      objectReference: {fileID: 11400000, guid: 4778e2e326c33f04a86f4520b3b19419,
+      objectReference: {fileID: 11400000, guid: b5e2cf20841c51d4ca02418a9c2daaec,
         type: 2}
     - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
         type: 3}
@@ -76,7 +76,7 @@ PrefabInstance:
         type: 3}
       propertyPath: model.unitAbilities.Array.data[3].ability
       value: 
-      objectReference: {fileID: 11400000, guid: 4ae24dc1de22779499bff41eb843d2a6,
+      objectReference: {fileID: 11400000, guid: a6ec9a2ff4b6d8e489d933d6d6f02c69,
         type: 2}
     - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
         type: 3}

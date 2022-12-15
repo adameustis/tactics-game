@@ -36,7 +36,7 @@ MonoBehaviour:
     unitName: Unit 2
     point:
       x: 11
-      y: 11
+      y: 0
     prefab: {fileID: 2319410762679789942, guid: 146fac696dfc6b94aa7b9c5aa8a4762b,
       type: 3}
     eventUnitNumberChanged:

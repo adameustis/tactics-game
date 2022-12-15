@@ -70,37 +70,37 @@ public class CellManagerSO : ScriptableObject, ISerializationCallbackReceiver
 
     public CellModel GetCellModel(int x, int y)
     {
-        int listNumber = x * GridWidth + y;
+        int listNumber = x + GridHeight * y;
         return CellModelList[listNumber];
     }
 
     public void SetCellModel(CellModel cell, int x, int y)
     {
-        int listNumber = x * GridWidth + y;
+        int listNumber = x + GridHeight * y;
         CellModelList[listNumber] = cell;
     }
 
     public void RemoveCellModel(int x, int y)
     {
-        int listNumber = x * GridWidth + y;
+        int listNumber = x + GridHeight * y;
         CellModelList[listNumber] = null;
     }
 
     public CellBattleController GetCellBattleController(int x, int y)
     {
-        int listNumber = x * GridWidth + y;
+        int listNumber = x + GridHeight * y;
         return CellBattleControllerList[listNumber];
     }
 
     public void SetCellBattleController(CellBattleController cell, int x, int y)
     {
-        int listNumber = x * GridWidth + y;
+        int listNumber = x + GridHeight * y;
         CellBattleControllerList[listNumber] = cell;
     }
 
     public void RemoveCellBattleController(int x, int y)
     {
-        int listNumber = x * GridWidth + y;
+        int listNumber = x + GridHeight * y;
         CellBattleControllerList[listNumber] = null;
     }
 
