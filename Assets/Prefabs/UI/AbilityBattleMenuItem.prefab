@@ -17,8 +17,7 @@ GameObject:
   - component: {fileID: 3550134239851802966}
   - component: {fileID: 2676148756593114577}
   - component: {fileID: -4656211597845102601}
-  - component: {fileID: 1272728759179342076}
-  - component: {fileID: 4004716154470397905}
+  - component: {fileID: 5266242870176735953}
   m_Layer: 5
   m_Name: AbilityBattleMenuItem
   m_TagString: Untagged
@@ -181,7 +180,7 @@ MonoBehaviour:
     effectiveEnergy: 0
     effectiveRange: 0
     effectiveUses: 0
-    effectiveTargetingType: {fileID: 0}
+    effectiveTargeting: {fileID: 0}
     targetStatusArray: []
 --- !u!114 &3550134239851802966
 MonoBehaviour:
@@ -230,28 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventInputMouseOff: {fileID: 11400000, guid: c5262e817fad4d2428c21210f0f28cf6, type: 2}
   eventInputMouseOn: {fileID: 11400000, guid: 92d77d0989be4af4eb2ab4d56d87073b, type: 2}
---- !u!114 &1272728759179342076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3549059364838184896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a69a8494f8214044ba837560c7f14bd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  model:
-    isSelected: 0
-    eventIsSelectedChanged:
-      m_PersistentCalls:
-        m_Calls: []
-  selectedEvent: {fileID: 11400000, guid: 13ad4756a3676eb4f93382675d6d8175, type: 2}
-  doubleSelectedEvent: {fileID: 11400000, guid: f33678775f9e50e49babd01cd27a4c71,
-    type: 2}
-  deselectedEvent: {fileID: 11400000, guid: 1c82584514ed347448803b580881cfb6, type: 2}
---- !u!114 &4004716154470397905
+--- !u!114 &5266242870176735953
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,8 +241,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 451156e768914182a3bb1ca584a787fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventDeselect: {fileID: 11400000, guid: 1c82584514ed347448803b580881cfb6, type: 2}
-  eventSelect: {fileID: 11400000, guid: 13ad4756a3676eb4f93382675d6d8175, type: 2}
+  isTargeting: 0
+  targetPrefab: {fileID: 0}
+  inputSubmit: {fileID: 11400000, guid: a7ef27c6f97dc124d8f4c1d8681a738d, type: 2}
+  genericInputCancel: {fileID: 11400000, guid: 17b0e1da174f83b46835097e1b4a71ae, type: 2}
+  cellMouseOn: {fileID: 11400000, guid: 63c7a68bd6819314bb29e560c8d11a07, type: 2}
+  unitMouseOn: {fileID: 11400000, guid: 161a8dba23c6423498fa090f368fbf76, type: 2}
 --- !u!1 &3549503834555194520
 GameObject:
   m_ObjectHideFlags: 0

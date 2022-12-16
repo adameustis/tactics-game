@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 
 [System.Serializable]
@@ -16,7 +17,7 @@ public class AbilityModel
     [SerializeField] private int effectiveEnergy;
     [SerializeField] private int effectiveRange;
     [SerializeField] private int effectiveUses;
-    [SerializeField] private TargetingTypeSO effectiveTargetingType;
+    [FormerlySerializedAs("effectiveTargetingType")] [SerializeField] private TargetingSO effectiveTargeting;
     [SerializeField] private EffectModel[] targetEffectArray;
     [SerializeField] private StatusModel[] targetStatusArray;
 
@@ -83,7 +84,7 @@ public class AbilityModel
     public int EffectiveEnergy { get => effectiveEnergy; set => effectiveEnergy = value; }
     public int EffectiveRange { get => effectiveRange; set => effectiveRange = value; }
     public int EffectiveUses { get => effectiveUses; set => effectiveUses = value; }
-    public TargetingTypeSO EffectiveTargetingType { get => effectiveTargetingType; set => effectiveTargetingType = value; }
+    public TargetingSO EffectiveTargeting { get => effectiveTargeting; set => effectiveTargeting = value; }
     public EffectModel[] TargetEffectArray { get => targetEffectArray; set => targetEffectArray = value; }
     public StatusModel[] TargetStatusArray { get => targetStatusArray; set => targetStatusArray = value; }
 
@@ -166,7 +167,7 @@ public class AbilityModel
         copy.EffectiveEnergy = EffectiveEnergy;
         copy.EffectiveRange = EffectiveRange;
         copy.EffectiveUses = EffectiveUses;
-        copy.EffectiveTargetingType = EffectiveTargetingType;
+        copy.EffectiveTargeting = EffectiveTargeting;
 
         if (TargetEffectArray == null)
         {

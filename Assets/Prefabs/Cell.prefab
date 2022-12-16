@@ -57,7 +57,6 @@ GameObject:
   - component: {fileID: -930463139273015366}
   - component: {fileID: -5837797467928721577}
   - component: {fileID: 4259875240884556619}
-  - component: {fileID: 5699887432946335385}
   m_Layer: 0
   m_Name: Cell
   m_TagString: Cell
@@ -267,28 +266,6 @@ MonoBehaviour:
   highlightAnimator: {fileID: 543990905817078209}
   eventInputMouseOff: {fileID: 11400000, guid: 1be2853d78b6b6a4983e97d1447c2d9d, type: 2}
   eventInputMouseOn: {fileID: 11400000, guid: 63c7a68bd6819314bb29e560c8d11a07, type: 2}
---- !u!114 &5699887432946335385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1255014964867912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d42d63f52cd34f3eb93826881d3e6194, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetAnimator: {fileID: 987766497226351408}
-  model:
-    isActive: 0
-    eventIsActiveChanged:
-      m_PersistentCalls:
-        m_Calls: []
-  eventInputMouseOff: {fileID: 11400000, guid: 1be2853d78b6b6a4983e97d1447c2d9d, type: 2}
-  eventInputMouseOn: {fileID: 11400000, guid: 63c7a68bd6819314bb29e560c8d11a07, type: 2}
-  eventActive: {fileID: 11400000, guid: ca0fc9b0f1fe5b346a26a25fd51a3a5b, type: 2}
-  eventInactive: {fileID: 11400000, guid: 13e1fdfe98c47d241bd27170bf33bd93, type: 2}
 --- !u!1001 &458524032628445946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -520,12 +497,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71a7f3c3e734cf141b1c0b0b7a23c3fb, type: 3}
---- !u!95 &987766497226351408 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: -7342528307052581764, guid: 71a7f3c3e734cf141b1c0b0b7a23c3fb,
-    type: 3}
-  m_PrefabInstance: {fileID: 1706680697991991116}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6660857494900600114 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5467167176850432638, guid: 71a7f3c3e734cf141b1c0b0b7a23c3fb,

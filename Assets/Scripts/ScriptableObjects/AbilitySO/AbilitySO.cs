@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using MVC.Target;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 [CreateAssetMenu(fileName = "AbilitySO", menuName = "ScriptableObjects/AbilitySO")]
@@ -18,14 +21,11 @@ public class AbilitySO : ScriptableObject
     [SerializeField] private int energy;
     [SerializeField] private int range;
     [SerializeField] private int uses;
-    [SerializeField] private TargetingTypeSO targetingType;
+    [FormerlySerializedAs("targetingType")] [SerializeField] private TargetingSO targeting;
+    [SerializeField] private TargetController targetPrefab;
 
     #endregion
     #region Events
-    
-    [SerializeField] private EventAbstractSO<UnityEventPlayerModelAndTransform> castEvent;
-    [SerializeField] private EventAbstractSO<UnityEventPlayerModelAndTransform> stopCastEvent;
-    
     #endregion
     #region Properties
 
@@ -36,14 +36,16 @@ public class AbilitySO : ScriptableObject
     public int Energy { get => energy; private set => energy = value; }
     public int Range { get => range; private set => range = value; }
     public int Uses { get => uses; private set => uses = value; }
-    public TargetingTypeSO TargetingType { get => targetingType; private set => targetingType = value; }
+    public TargetingSO Targeting { get => targeting; private set => targeting = value; }
+
+    public TargetController TargetPrefab
+    {
+        get => targetPrefab;
+        set => targetPrefab = value;
+    }
 
     #endregion
     #region Event Properties
-    
-    public EventAbstractSO<UnityEventPlayerModelAndTransform> CastEvent { get => castEvent; set => castEvent = value; }
-    public EventAbstractSO<UnityEventPlayerModelAndTransform> StopCastEvent { get => castEvent; set => stopCastEvent = value; }
-    
     #endregion
     #region Constructors
     #endregion
@@ -59,7 +61,7 @@ public class AbilitySO : ScriptableObject
         formattedDescription = formattedDescription.Replace("{Energy}", Energy.ToString());
         formattedDescription = formattedDescription.Replace("{Range}", Range.ToString());
         formattedDescription = formattedDescription.Replace("{Uses}", Uses.ToString());
-        formattedDescription = formattedDescription.Replace("{TargettingTypeName}", TargetingType.TargetingTypeName);
+        formattedDescription = formattedDescription.Replace("{TargettingTypeName}", Targeting.TargetingTypeName);
 
         if (targetEffectArray == null)
         {

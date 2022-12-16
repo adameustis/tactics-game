@@ -1,118 +1,131 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using MVC.EventModel;
+﻿using MVC.EventModel;
 using UnityEngine;
-using UnityEngine.Events;
 
-[System.Serializable]
-public class TargetController : MonoBehaviour
+namespace MVC.Target
 {
-   #region Fields
+    [System.Serializable]
+    public class TargetController : MonoBehaviour
+    {
+        #region Fields
    
-   [SerializeField] protected Animator targetAnimator;
-   [SerializeField] protected TargetModel model;
+        [SerializeField] protected Animator targetAnimator;
+        [SerializeField] protected AbilityModel ability;
+        [SerializeField] protected bool destinationIsAUnit;
+        [SerializeField] protected UnitBattleController sourceUnit;
+        [SerializeField] protected UnitBattleController destinationUnit;
+        [SerializeField] protected CellBattleController destinationCell;
 
-   #endregion
-    #region Events
+        #endregion
+        #region Events
     
-    [SerializeField] private EventAbstractSO<UnityEventPlayerModelAndTransform> eventInputMouseOff;
-    [SerializeField] private EventAbstractSO<UnityEventPlayerModelAndTransform> eventInputMouseOn;
-    [SerializeField] private EventAbstractSO<UnityEventPlayerModelAndTransform> eventActive;
-    [SerializeField] private EventAbstractSO<UnityEventPlayerModelAndTransform> eventInactive;
+        [SerializeField] protected EventAbstractSO<UnityEventPlayerModelAndTransform> mouseOff;
+        [SerializeField] protected EventAbstractSO<UnityEventPlayerModelAndTransform> inputSubmit;
     
-    #endregion
-    #region Properties
+        #endregion
+        #region Properties
     
-    public virtual Animator OutlineAnimator { get => targetAnimator; set => targetAnimator = value; }
-    public virtual bool IsDisplaying { get => OutlineAnimator.GetBool("isDisplaying"); }
-    public TargetModel Model { get => model; set => model = value; }
-    
-    #endregion
-    #region Event Properties
-    
-    public EventAbstractSO<UnityEventPlayerModelAndTransform> EventInputMouseOff { get => eventInputMouseOff; set => eventInputMouseOff = value; }
-    public EventAbstractSO<UnityEventPlayerModelAndTransform> EventInputMouseOn { get => eventInputMouseOn; set => eventInputMouseOn = value; }
-    public EventAbstractSO<UnityEventPlayerModelAndTransform> EventActive { get => eventActive; set => eventActive = value; }
-    public EventAbstractSO<UnityEventPlayerModelAndTransform> EventInactive { get => eventInactive; set => eventInactive = value; }
-    
-    #endregion
-    #region Event Subscriptions
+        public virtual Animator TargetAnimator { get => targetAnimator; set => targetAnimator = value; }
 
-    public void SubscribeToEvents()
-    {
-        EventInputMouseOff.UnityEvent.AddListener(MouseOffEventHandler);
-        EventInputMouseOn.UnityEvent.AddListener(MouseOnEventHandler);
-        EventActive.UnityEvent.AddListener(ActiveHandler);
-        EventInactive.UnityEvent.AddListener(InactiveHandler);
-    }
+        public virtual AbilityModel Ability
+        {
+            get => ability;
+            set => ability = value;
+        }
 
-    public void UnsubscribeFromEvents()
-    {
-        EventInputMouseOff.UnityEvent.RemoveListener(MouseOffEventHandler);
-        EventInputMouseOn.UnityEvent.RemoveListener(MouseOnEventHandler);
-        EventActive.UnityEvent.RemoveListener(ActiveHandler);
-        EventInactive.UnityEvent.RemoveListener(InactiveHandler);
-    }
+        public bool DestinationIsAUnit
+        {
+            get => destinationIsAUnit;
+            set => destinationIsAUnit = value;
+        }
 
-    #endregion
-    #region Event Handlers
+        public virtual UnitBattleController SourceUnit
+        {
+            get => sourceUnit;
+            set => sourceUnit = value;
+        }
+
+        public virtual UnitBattleController DestinationUnit
+        {
+            get => destinationUnit;
+            set => destinationUnit = value;
+        }
+
+        public virtual CellBattleController DestinationCell
+        {
+            get => destinationCell;
+            set => destinationCell = value;
+        }
+
+        #endregion
+        #region Event Properties
     
-    public void MouseOffEventHandler(PlayerAndTransformEventModel eventModel)
-    {
-        if (eventModel.Tf != transform || !Model.IsActive) return;
-        StopDisplaying();
-    }
+        public virtual EventAbstractSO<UnityEventPlayerModelAndTransform> MouseOff { get => mouseOff; set => mouseOff = value; }
 
-    public void MouseOnEventHandler(PlayerAndTransformEventModel eventModel)
-    {
-        if (eventModel.Tf != transform || !Model.IsActive) return;
-        Display();
-    }
+        public virtual EventAbstractSO<UnityEventPlayerModelAndTransform> InputSubmit
+        {
+            get => inputSubmit;
+            set => inputSubmit = value;
+        }
+
+        #endregion
+        #region Event Subscriptions
+
+        public virtual void SubscribeToEvents()
+        {
+            MouseOff.UnityEvent.AddListener(MouseOffHandler);
+            InputSubmit.UnityEvent.AddListener(InputSubmitHandler);
+        }
+
+        public virtual void UnsubscribeFromEvents()
+        {
+            MouseOff.UnityEvent.RemoveListener(MouseOffHandler);
+            InputSubmit.UnityEvent.RemoveListener(InputSubmitHandler);
+        }
+
+        #endregion
+        #region Event Handlers
     
-    public void ActiveHandler(PlayerAndTransformEventModel eventModel)
-    {
-        Active();
-    }
-    
-    public void InactiveHandler(PlayerAndTransformEventModel eventModel)
-    {
-        Inactive();
-    }
-    
-    #endregion 
-    #region MonoBehaviour
+        public virtual void MouseOffHandler(PlayerAndTransformEventModel eventModel)
+        {
+            if (eventModel.Tf != transform) return;
+            Destroy(gameObject);
+        }
 
-    public void Start()
-    {
-        SubscribeToEvents();
-    }
+        public virtual void InputSubmitHandler(PlayerAndTransformEventModel eventModel)
+        {
+            
+        }
+        
+        #endregion 
+        #region MonoBehaviour
 
-    public void OnDestroy()
-    {
-        UnsubscribeFromEvents();
-    }
+        public virtual void Initialise(AbilityModel setAbility, UnitBattleController setSourceUnit, UnitBattleController setDestinationUnit, CellBattleController setDestinationCell)
+        {
+            Ability = setAbility;
+            SourceUnit = setSourceUnit;
+            DestinationUnit = setDestinationUnit;
+            DestinationCell = setDestinationCell;
+            DestinationIsAUnit = setDestinationUnit != null;
+            SubscribeToEvents();
+        }
 
-    #endregion
-    #region Methods
-    public void StopDisplaying()
-    {
-        OutlineAnimator.SetBool("isDisplaying", false);
-    }
+        public virtual void OnDestroy()
+        {
+            UnsubscribeFromEvents();
+        }
 
-    public void Display()
-    {
-        OutlineAnimator.SetBool("isDisplaying", true);
-    }
+        #endregion
+        #region Methods
+        public virtual void StopDisplaying()
+        {
+            TargetAnimator.SetBool("isDisplaying", false);
+        }
 
-    public void Active()
-    {
-        Model.IsActive = true;
+        public virtual void Display()
+        {
+            TargetAnimator.SetBool("isDisplaying", true);
+        }
+
+        #endregion
     }
-    
-    public void Inactive()
-    {
-        Model.IsActive = false;
-    }
-    
-    #endregion
 }
