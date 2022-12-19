@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using MVC.Target;
+using MVC.TargetCell;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -22,7 +23,8 @@ public class AbilitySO : ScriptableObject
     [SerializeField] private int range;
     [SerializeField] private int uses;
     [FormerlySerializedAs("targetingType")] [SerializeField] private TargetingSO targeting;
-    [SerializeField] private TargetController targetPrefab;
+    [SerializeField] private TargetUnitController targetUnitPrefab;
+    [SerializeField] private TargetCellController targetCellPrefab;
 
     #endregion
     #region Events
@@ -38,10 +40,16 @@ public class AbilitySO : ScriptableObject
     public int Uses { get => uses; private set => uses = value; }
     public TargetingSO Targeting { get => targeting; private set => targeting = value; }
 
-    public TargetController TargetPrefab
+    public TargetUnitController TargetUnitPrefab
     {
-        get => targetPrefab;
-        set => targetPrefab = value;
+        get => targetUnitPrefab;
+        set => targetUnitPrefab = value;
+    }
+
+    public TargetCellController TargetCellPrefab
+    {
+        get => targetCellPrefab;
+        set => targetCellPrefab = value;
     }
 
     #endregion

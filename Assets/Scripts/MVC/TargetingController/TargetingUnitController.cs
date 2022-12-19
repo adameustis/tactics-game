@@ -5,22 +5,24 @@ using UnityEngine;
 namespace MVC.TargetingController
 {
     [System.Serializable]
-    public class TargetingController  : MonoBehaviour
+    public class TargetingUnitController  : MonoBehaviour
     {
         #region Fields
 
         [SerializeField] private bool isTargeting;
-        [SerializeField] private TargetController targetPrefab;
-        [SerializeField] private TargetController target;
+        [SerializeField] private TargetUnitController targetUnit;
         [SerializeField] private UnitBattleController sourceUnit;
+        [SerializeField] private AbilityModel ability;
 
         #endregion
         #region Events
     
         [SerializeField] private EventPlayerModelAndTransformSO inputSubmit;
         [SerializeField] private EventAbstractSO<UnityEventPlayerModelAndTransform> genericInputCancel;
-        [SerializeField] private EventPlayerModelAndTransformSO cellMouseOn;
         [SerializeField] private EventPlayerModelAndTransformSO unitMouseOn;
+        [SerializeField] private EventPlayerModelAndTransformSO beginTargetingEvent;
+        [SerializeField] private EventPlayerModelAndTransformSO cancelTargetingEvent;
+        [SerializeField] private EventPlayerModelAndTransformSO finishTargetingEvent;
         
         #endregion
         #region Properties
@@ -31,22 +33,22 @@ namespace MVC.TargetingController
             set => isTargeting = value;
         }
 
-        public TargetController TargetPrefab
+        public TargetUnitController TargetUnit
         {
-            get => targetPrefab;
-            set => targetPrefab = value;
-        }
-
-        public TargetController Target
-        {
-            get => target;
-            set => target = value;
+            get => targetUnit;
+            set => targetUnit = value;
         }
 
         public UnitBattleController SourceUnit
         {
             get => sourceUnit;
             set => sourceUnit = value;
+        }
+
+        public AbilityModel Ability
+        {
+            get => ability;
+            set => ability = value;
         }
 
         #endregion
@@ -64,16 +66,28 @@ namespace MVC.TargetingController
             set => genericInputCancel = value;
         }
 
-        public EventPlayerModelAndTransformSO CellMouseOn
-        {
-            get => cellMouseOn;
-            set => cellMouseOn = value;
-        }
-
         public EventPlayerModelAndTransformSO UnitMouseOn
         {
             get => unitMouseOn;
             set => unitMouseOn = value;
+        }
+
+        public EventPlayerModelAndTransformSO BeginTargetingEvent
+        {
+            get => beginTargetingEvent;
+            set => beginTargetingEvent = value;
+        }
+
+        public EventPlayerModelAndTransformSO CancelTargetingEvent
+        {
+            get => cancelTargetingEvent;
+            set => cancelTargetingEvent = value;
+        }
+
+        public EventPlayerModelAndTransformSO FinishTargetingEvent
+        {
+            get => finishTargetingEvent;
+            set => finishTargetingEvent = value;
         }
 
         #endregion
@@ -93,13 +107,11 @@ namespace MVC.TargetingController
 
         public void SubscribeToTargetEvents()
         {
-            CellMouseOn.UnityEvent.AddListener(CellMouseOnHandler);
             UnitMouseOn.UnityEvent.AddListener(UnitMouseOnHandler);
         }
         
         public void UnsubscribeFromTargetEvents()
         {
-            CellMouseOn.UnityEvent.RemoveListener(CellMouseOnHandler);
             UnitMouseOn.UnityEvent.AddListener(UnitMouseOnHandler);
         }
         
@@ -112,7 +124,7 @@ namespace MVC.TargetingController
             
             if (eventModel.Tf != transform) return;
         
-            StartTargeting(eventModel);
+            BeginTargeting(eventModel);
         }
 
         public void InputCancelHandler(PlayerAndTransformEventModel eventModel)
@@ -124,18 +136,10 @@ namespace MVC.TargetingController
             CancelTargeting(eventModel);
         }
 
-        public void CellMouseOnHandler(PlayerAndTransformEventModel eventModel)
-        {
-            if (!IsTargeting) return;
-            
-            DisplayTarget(eventModel);
-        }
-        
         public void UnitMouseOnHandler(PlayerAndTransformEventModel eventModel)
         {
             if (!IsTargeting) return;
-            
-            DisplayTarget(eventModel);
+            DisplayTarget(Ability, SourceUnit, eventModel.Tf.GetComponent<UnitBattleController>());
         }
         
         #endregion 
@@ -144,7 +148,6 @@ namespace MVC.TargetingController
         public void OnEnable()
         {
             SubscribeToEvents();
-            TargetPrefab = GetComponent<AbilityController>().Model.Ability.TargetPrefab;
         }
 
         public void OnDestroy()
@@ -155,39 +158,43 @@ namespace MVC.TargetingController
         #endregion
         #region Methods
 
-        public void Initialise(TargetController setTargetPrefab, UnitBattleController setSourceUnit)
+        public void Initialise(AbilityModel setAbility, UnitBattleController setSourceUnit)
         {
-            
+            Ability = setAbility;
+            SourceUnit = setSourceUnit;
         }
         
-        public void StartTargeting(PlayerAndTransformEventModel eventModel)
+        public void BeginTargeting(PlayerAndTransformEventModel eventModel)
         {
             IsTargeting = true;
             SubscribeToTargetEvents();
+            BeginTargetingEvent.UnityEvent.Invoke(eventModel);
         }
     
         public void CancelTargeting(PlayerAndTransformEventModel eventModel)
         {
             UnsubscribeFromTargetEvents();
             
-            if (Target != null)
-                Destroy(Target);
+            if (TargetUnit != null)
+                Destroy(TargetUnit);
 
-            Target = null;
+            TargetUnit = null;
             IsTargeting = false;
+            CancelTargetingEvent.UnityEvent.Invoke(eventModel);
         }
 
         public void FinishTargeting(PlayerAndTransformEventModel eventModel, Transform target)
         {
             UnsubscribeFromTargetEvents();
+            FinishTargetingEvent.UnityEvent.Invoke(eventModel);
         }
 
-        public void DisplayTarget(PlayerAndTransformEventModel eventModel)
+        public void DisplayTarget(AbilityModel abilityCast, UnitBattleController castingUnit, UnitBattleController destinationUnit)
         {
-            Target = Instantiate(TargetPrefab, eventModel.Tf.position, Quaternion.identity);
-            Target.Initialise()
+            TargetUnit = Instantiate(abilityCast.Ability.TargetUnitPrefab, destinationUnit.transform.position - new Vector3(0,0,3), Quaternion.identity);
+            TargetUnit.Initialise(abilityCast, castingUnit, destinationUnit);
         }
-        
+
         #endregion
     }
 }

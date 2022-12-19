@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2684141270415290466}
   - component: {fileID: 1154256845249583593}
   - component: {fileID: 2289460660503403212}
+  - component: {fileID: 7297311068816818022}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -140,3 +141,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventInputMouseOff: {fileID: 11400000, guid: b386298641851014283324d00ed93042, type: 2}
   eventInputMouseOn: {fileID: 11400000, guid: 09d1f8462e72fc9449613afa308b3df9, type: 2}
+--- !u!65 &7297311068816818022
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279043268168821648}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}

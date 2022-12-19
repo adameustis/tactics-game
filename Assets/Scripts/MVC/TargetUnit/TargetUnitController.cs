@@ -4,23 +4,22 @@ using UnityEngine;
 namespace MVC.Target
 {
     [System.Serializable]
-    public class TargetController : MonoBehaviour
+    public class TargetUnitController : MonoBehaviour
     {
         #region Fields
    
         [SerializeField] protected Animator targetAnimator;
         [SerializeField] protected AbilityModel ability;
-        [SerializeField] protected bool destinationIsAUnit;
         [SerializeField] protected UnitBattleController sourceUnit;
         [SerializeField] protected UnitBattleController destinationUnit;
-        [SerializeField] protected CellBattleController destinationCell;
 
         #endregion
         #region Events
     
         [SerializeField] protected EventAbstractSO<UnityEventPlayerModelAndTransform> mouseOff;
         [SerializeField] protected EventAbstractSO<UnityEventPlayerModelAndTransform> inputSubmit;
-    
+        protected static readonly int Valid = Animator.StringToHash("valid");
+
         #endregion
         #region Properties
     
@@ -30,12 +29,6 @@ namespace MVC.Target
         {
             get => ability;
             set => ability = value;
-        }
-
-        public bool DestinationIsAUnit
-        {
-            get => destinationIsAUnit;
-            set => destinationIsAUnit = value;
         }
 
         public virtual UnitBattleController SourceUnit
@@ -48,12 +41,6 @@ namespace MVC.Target
         {
             get => destinationUnit;
             set => destinationUnit = value;
-        }
-
-        public virtual CellBattleController DestinationCell
-        {
-            get => destinationCell;
-            set => destinationCell = value;
         }
 
         #endregion
@@ -99,13 +86,11 @@ namespace MVC.Target
         #endregion 
         #region MonoBehaviour
 
-        public virtual void Initialise(AbilityModel setAbility, UnitBattleController setSourceUnit, UnitBattleController setDestinationUnit, CellBattleController setDestinationCell)
+        public virtual void Initialise(AbilityModel setAbility, UnitBattleController setSourceUnit, UnitBattleController setDestinationUnit)
         {
             Ability = setAbility;
             SourceUnit = setSourceUnit;
             DestinationUnit = setDestinationUnit;
-            DestinationCell = setDestinationCell;
-            DestinationIsAUnit = setDestinationUnit != null;
             SubscribeToEvents();
         }
 
@@ -116,14 +101,10 @@ namespace MVC.Target
 
         #endregion
         #region Methods
-        public virtual void StopDisplaying()
-        {
-            TargetAnimator.SetBool("isDisplaying", false);
-        }
 
         public virtual void Display()
         {
-            TargetAnimator.SetBool("isDisplaying", true);
+            TargetAnimator.SetBool(Valid, true);
         }
 
         #endregion

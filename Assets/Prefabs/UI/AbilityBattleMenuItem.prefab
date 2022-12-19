@@ -242,11 +242,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTargeting: 0
-  targetPrefab: {fileID: 0}
+  targetUnit: {fileID: 0}
+  sourceUnit: {fileID: 0}
+  ability:
+    ability: {fileID: 0}
+    level: 0
+    investment: 0
+    effectiveEnergy: 0
+    effectiveRange: 0
+    effectiveUses: 0
+    effectiveTargeting: {fileID: 0}
+    targetStatusArray: []
   inputSubmit: {fileID: 11400000, guid: a7ef27c6f97dc124d8f4c1d8681a738d, type: 2}
   genericInputCancel: {fileID: 11400000, guid: 17b0e1da174f83b46835097e1b4a71ae, type: 2}
-  cellMouseOn: {fileID: 11400000, guid: 63c7a68bd6819314bb29e560c8d11a07, type: 2}
   unitMouseOn: {fileID: 11400000, guid: 161a8dba23c6423498fa090f368fbf76, type: 2}
+  beginTargetingEvent: {fileID: 11400000, guid: e9aec88bb502a054c96dc4fda2d30fb6,
+    type: 2}
+  cancelTargetingEvent: {fileID: 11400000, guid: 5a5d7f51166b92642b02ad1c02b1f419,
+    type: 2}
+  finishTargetingEvent: {fileID: 11400000, guid: 8f233b97b2f991c439b66fb16ad27457,
+    type: 2}
 --- !u!1 &3549503834555194520
 GameObject:
   m_ObjectHideFlags: 0

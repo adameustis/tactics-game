@@ -19,6 +19,7 @@ MonoBehaviour:
   energy: 1
   range: 1
   uses: 1
-  targetingType: {fileID: 0}
-  castEvent: {fileID: 11400000, guid: 0a5bcbd322b71814eab42f4091c4714a, type: 2}
-  stopCastEvent: {fileID: 11400000, guid: ffb3b751f8e44fe4089216fed9f29ab0, type: 2}
+  targeting: {fileID: 0}
+  targetUnitPrefab: {fileID: 8851691072029601012, guid: be6c946a0bbea914b90d55f2e850ab50,
+    type: 3}
+  targetCellPrefab: {fileID: 0}

@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 5279043268168821648, guid: 3adfb0000e424754b8e13208caaa96b0,
         type: 3}
       propertyPath: m_Name
-      value: SwordTarget
+      value: SwordTargetUnit
       objectReference: {fileID: 0}
     - target: {fileID: 7600492520799665507, guid: 3adfb0000e424754b8e13208caaa96b0,
         type: 3}
@@ -74,3 +74,41 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3adfb0000e424754b8e13208caaa96b0, type: 3}
+--- !u!95 &3291447586285211220 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2684141270415290466, guid: 3adfb0000e424754b8e13208caaa96b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 617677490638913078}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4742435017934230950 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5279043268168821648, guid: 3adfb0000e424754b8e13208caaa96b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 617677490638913078}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8851691072029601012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4742435017934230950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce1265e866d47cd8123af53fed02ac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetAnimator: {fileID: 3291447586285211220}
+  ability:
+    ability: {fileID: 0}
+    level: 0
+    investment: 0
+    effectiveEnergy: 0
+    effectiveRange: 0
+    effectiveUses: 0
+    effectiveTargeting: {fileID: 0}
+    targetStatusArray: []
+  sourceUnit: {fileID: 0}
+  destinationUnit: {fileID: 0}
+  mouseOff: {fileID: 11400000, guid: b386298641851014283324d00ed93042, type: 2}
+  inputSubmit: {fileID: 11400000, guid: 14a894954e6e1574f94f6473f5d4a265, type: 2}

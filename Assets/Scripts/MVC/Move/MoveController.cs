@@ -17,11 +17,13 @@ public class MoveController : MonoBehaviour
     #region Events
 
     [Header("Events")]
-    [SerializeField] private UnityEvent eventIsMoving;
+    [SerializeField] private EventPlayerModelAndTransformSO beginMovingEvent;
     [SerializeField] private EventPlayerModelAndTransformSO eventUnitSelected;
     [SerializeField] private EventPlayerModelAndTransformSO eventUnitDoubleSelected;
     [SerializeField] private EventPlayerModelAndTransformSO eventUnitDeselected;
     [SerializeField] private EventPlayerModelAndTransformSO eventCellMouseOn;
+    [SerializeField] private EventPlayerModelAndTransformSO beginTargeting;
+    [SerializeField] private EventPlayerModelAndTransformSO cancelTargeting;
 
     #endregion
     #region Properties
@@ -32,21 +34,10 @@ public class MoveController : MonoBehaviour
     #endregion
     #region Event Properties
 
-    public UnityEvent EventIsMoving
+    public EventPlayerModelAndTransformSO BeginMovingEvent
     {
-        get
-        {
-            if (eventIsMoving == null)
-            {
-                eventIsMoving = new UnityEvent();
-            }
-            return eventIsMoving;
-        }
-
-        set
-        {
-            eventIsMoving = value;
-        }
+        get => beginMovingEvent;
+        set => beginMovingEvent = value;
     }
 
     public EventPlayerModelAndTransformSO UnitSelected
@@ -73,6 +64,18 @@ public class MoveController : MonoBehaviour
         set => eventCellMouseOn = value;
     }
 
+    public EventPlayerModelAndTransformSO BeginTargeting
+    {
+        get => beginTargeting;
+        set => beginTargeting = value;
+    }
+
+    public EventPlayerModelAndTransformSO CancelTargeting
+    {
+        get => cancelTargeting;
+        set => cancelTargeting = value;
+    }
+
     #endregion
     #region Event Subscriptions
 
@@ -82,6 +85,8 @@ public class MoveController : MonoBehaviour
         UnitDoubleSelected.UnityEvent.AddListener(HandleUnitDoubleSelected);
         UnitDeselected.UnityEvent.AddListener(HandleUnitDeselected);
         CellMouseOn.UnityEvent.AddListener(HandleCellMouseOn);
+        BeginTargeting.UnityEvent.AddListener(HandleBeginTargeting);
+        CancelTargeting.UnityEvent.AddListener(HandleCancelTargeting);
     }
 
     public void UnsubscribeFromEvents()
@@ -90,6 +95,8 @@ public class MoveController : MonoBehaviour
         UnitDoubleSelected.UnityEvent.RemoveListener(HandleUnitDoubleSelected);
         UnitDeselected.UnityEvent.RemoveListener(HandleUnitDeselected);
         CellMouseOn.UnityEvent.RemoveListener(HandleCellMouseOn);
+        BeginTargeting.UnityEvent.RemoveListener(HandleBeginTargeting);
+        CancelTargeting.UnityEvent.RemoveListener(HandleCancelTargeting);
     }
 
     #endregion
@@ -103,7 +110,7 @@ public class MoveController : MonoBehaviour
         if (context.Tf != transform)
             return;
 
-        StartMoving();
+        BeginMoving(context);
     }
 
     public void HandleUnitDoubleSelected(PlayerAndTransformEventModel context)
@@ -135,6 +142,20 @@ public class MoveController : MonoBehaviour
 
         Model.TransformPosition = context.Tf.position;
     }
+
+    public void HandleBeginTargeting(PlayerAndTransformEventModel context)
+    {
+        if (!IsMoving) return;
+        
+        StopMoving();
+    }
+
+    public void HandleCancelTargeting(PlayerAndTransformEventModel context)
+    {
+        if (IsMoving) return;
+        
+        BeginMoving(new PlayerAndTransformEventModel(context.Player, transform));
+    }
     
     #endregion
     #region Monobehaviour
@@ -153,10 +174,10 @@ public class MoveController : MonoBehaviour
     #endregion
     #region Methods
 
-    public void StartMoving()
+    public void BeginMoving(PlayerAndTransformEventModel context)
     {
         IsMoving = true;
-        EventIsMoving?.Invoke();
+        BeginMovingEvent.UnityEvent.Invoke(context);
     }
 
     public void StopMoving()

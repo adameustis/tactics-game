@@ -33,51 +33,36 @@ public class AbilityModel
 
     public int Level
     {
-        get
-        {
-            return level;
-        }
+        get => level;
 
         set
         {
-            if (level != value)
-            {
-                level = value;
-                EventLevelChanged.Invoke();
-            }
+            if (level == value) return;
+            level = value;
+            EventLevelChanged.Invoke();
         }
     }
     public int Investment
     {
-        get
-        {
-            return investment;
-        }
+        get => investment;
 
         set
         {
-            if (investment != value)
-            {
-                investment = value;
-                EventInvestmentChanged.Invoke();
-            }
+            if (investment == value) return;
+            investment = value;
+            EventInvestmentChanged.Invoke();
         }
     }
 
     public AbilitySO Ability
     {
-        get
-        {
-            return ability;
-        }
+        get => ability;
 
         set
         {
-            if (ability != value)
-            {
-                ability = value;
-                EventAbilityChanged.Invoke();
-            }
+            if (ability == value) return;
+            ability = value;
+            EventAbilityChanged.Invoke();
         }
     }
 
@@ -141,11 +126,7 @@ public class AbilityModel
             eventAbilityChanged = value;
         }
     }
-
-
-
-
-
+    
     #endregion
     #region Constructors
     #endregion
@@ -153,6 +134,15 @@ public class AbilityModel
     #endregion
     #region Methods
 
+    // This should be called when the ability is equipped or at the start of battle. Not sure yet.
+    public void Initialise()
+    {
+        EffectiveEnergy = Ability.Energy;
+        EffectiveRange = Ability.Range;
+        EffectiveTargeting = Ability.Targeting;
+        EffectiveUses = Ability.Uses;
+    }
+    
     public AbilityModel ShallowCopy()
     {
         return (AbilityModel)this.MemberwiseClone();
@@ -194,8 +184,7 @@ public class AbilityModel
                 copy.TargetStatusArray[i] = TargetStatusArray[i].DeepCopy();
             }
         }
-
-
+        
         // If non-value objects not int, double etc. need to add code like examples below
         // copy.PropertyNameHere = new ClassNameHere(PropertyNameHere);
         // copy.AbilityName = String.Copy(AbilityName);

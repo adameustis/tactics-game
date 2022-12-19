@@ -128,7 +128,7 @@ namespace MVC.AbilityBattleMenu
         {
             AbilityController abilityController = (AbilityController)Instantiate(MenuItemDisplayPrefab, TransformForeground);
             abilityController.Initialise(abilityModel);
-            abilityController.GetComponent<TargetingController.TargetingController>().Initialise(abilityModel.Ability.TargetPrefab, unit);
+            abilityController.GetComponent<TargetingController.TargetingUnitController>().Initialise(abilityModel, unit);
             MenuItemList.Add(abilityController);
         }
 

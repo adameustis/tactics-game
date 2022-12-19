@@ -373,15 +373,15 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   isMoving: 0
-  eventIsMoving:
-    m_PersistentCalls:
-      m_Calls: []
+  beginMovingEvent: {fileID: 11400000, guid: 079da7463d5049e42b701b649536d99d, type: 2}
   eventUnitSelected: {fileID: 11400000, guid: 4e5dc1f7e1114e5449a6a3c26ca821b3, type: 2}
   eventUnitDoubleSelected: {fileID: 11400000, guid: 603e96527491d524797d6d1fb2ca443e,
     type: 2}
   eventUnitDeselected: {fileID: 11400000, guid: 5503fc64afdb5734f98468e23e024cd2,
     type: 2}
   eventCellMouseOn: {fileID: 11400000, guid: 63c7a68bd6819314bb29e560c8d11a07, type: 2}
+  beginTargeting: {fileID: 11400000, guid: e9aec88bb502a054c96dc4fda2d30fb6, type: 2}
+  cancelTargeting: {fileID: 11400000, guid: 5a5d7f51166b92642b02ad1c02b1f419, type: 2}
 --- !u!1001 &751513562821134226
 PrefabInstance:
   m_ObjectHideFlags: 0

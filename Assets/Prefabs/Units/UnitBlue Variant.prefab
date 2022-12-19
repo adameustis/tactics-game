@@ -80,6 +80,86 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
         type: 3}
+      propertyPath: model.unitAbilities.Array.data[0].investment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[1].investment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[2].investment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[3].investment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[0].effectiveUses
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[1].effectiveUses
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[2].effectiveUses
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[3].effectiveUses
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[0].effectiveRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[1].effectiveRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[2].effectiveRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[3].effectiveRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[0].effectiveEnergy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[1].effectiveEnergy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[2].effectiveEnergy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[3].effectiveEnergy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
       propertyPath: model.eventTransformPositionChanged.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
