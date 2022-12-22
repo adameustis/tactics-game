@@ -141,6 +141,7 @@ public class MoveController : MonoBehaviour
             return;
 
         Model.TransformPosition = context.Tf.position;
+        Model.UnitCellResidence = context.Tf.GetComponent<CellBattleController>().Model;
     }
 
     public void HandleBeginTargeting(PlayerAndTransformEventModel context)

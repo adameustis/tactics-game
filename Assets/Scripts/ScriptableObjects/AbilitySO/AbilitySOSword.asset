@@ -22,4 +22,5 @@ MonoBehaviour:
   targeting: {fileID: 0}
   targetUnitPrefab: {fileID: 8851691072029601012, guid: be6c946a0bbea914b90d55f2e850ab50,
     type: 3}
-  targetCellPrefab: {fileID: 0}
+  targetCellPrefab: {fileID: 4324330489364877713, guid: d6d19f75ac7b3e7438b2e77e5893f6d7,
+    type: 3}

@@ -4,20 +4,21 @@ using UnityEngine;
 namespace MVC.Target
 {
     [System.Serializable]
-    public class TargetUnitController : MonoBehaviour
+    public class TargetController : MonoBehaviour
     {
         #region Fields
    
         [SerializeField] protected Animator targetAnimator;
         [SerializeField] protected AbilityModel ability;
         [SerializeField] protected UnitBattleController sourceUnit;
-        [SerializeField] protected UnitBattleController destinationUnit;
+        [SerializeField] protected Transform target;
 
         #endregion
         #region Events
     
         [SerializeField] protected EventAbstractSO<UnityEventPlayerModelAndTransform> mouseOff;
         [SerializeField] protected EventAbstractSO<UnityEventPlayerModelAndTransform> inputSubmit;
+        [SerializeField] protected EventPlayerModelAndTransformSO cancelTargeting;
         protected static readonly int Valid = Animator.StringToHash("valid");
 
         #endregion
@@ -37,10 +38,10 @@ namespace MVC.Target
             set => sourceUnit = value;
         }
 
-        public virtual UnitBattleController DestinationUnit
+        public virtual Transform Target
         {
-            get => destinationUnit;
-            set => destinationUnit = value;
+            get => target;
+            set => target = value;
         }
 
         #endregion
@@ -54,6 +55,12 @@ namespace MVC.Target
             set => inputSubmit = value;
         }
 
+        public EventPlayerModelAndTransformSO CancelTargeting
+        {
+            get => cancelTargeting;
+            set => cancelTargeting = value;
+        }
+
         #endregion
         #region Event Subscriptions
 
@@ -61,12 +68,14 @@ namespace MVC.Target
         {
             MouseOff.UnityEvent.AddListener(MouseOffHandler);
             InputSubmit.UnityEvent.AddListener(InputSubmitHandler);
+            CancelTargeting.UnityEvent.AddListener(CancelTargetingHandler);
         }
 
         public virtual void UnsubscribeFromEvents()
         {
             MouseOff.UnityEvent.RemoveListener(MouseOffHandler);
             InputSubmit.UnityEvent.RemoveListener(InputSubmitHandler);
+            CancelTargeting.UnityEvent.RemoveListener(CancelTargetingHandler);
         }
 
         #endregion
@@ -82,16 +91,22 @@ namespace MVC.Target
         {
             
         }
+
+        public virtual void CancelTargetingHandler(PlayerAndTransformEventModel eventModel)
+        {
+            Destroy(gameObject);
+        }
         
         #endregion 
         #region MonoBehaviour
 
-        public virtual void Initialise(AbilityModel setAbility, UnitBattleController setSourceUnit, UnitBattleController setDestinationUnit)
+        public virtual void Initialise(AbilityModel setAbility, UnitBattleController setSourceUnit, Transform setTarget)
         {
             Ability = setAbility;
             SourceUnit = setSourceUnit;
-            DestinationUnit = setDestinationUnit;
+            Target = setTarget;
             SubscribeToEvents();
+            Display();
         }
 
         public virtual void OnDestroy()

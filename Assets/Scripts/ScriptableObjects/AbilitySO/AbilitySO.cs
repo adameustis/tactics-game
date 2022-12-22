@@ -23,8 +23,8 @@ public class AbilitySO : ScriptableObject
     [SerializeField] private int range;
     [SerializeField] private int uses;
     [FormerlySerializedAs("targetingType")] [SerializeField] private TargetingSO targeting;
-    [SerializeField] private TargetUnitController targetUnitPrefab;
-    [SerializeField] private TargetCellController targetCellPrefab;
+    [SerializeField] private TargetController targetUnitPrefab;
+    [SerializeField] private TargetController targetCellPrefab;
 
     #endregion
     #region Events
@@ -40,13 +40,13 @@ public class AbilitySO : ScriptableObject
     public int Uses { get => uses; private set => uses = value; }
     public TargetingSO Targeting { get => targeting; private set => targeting = value; }
 
-    public TargetUnitController TargetUnitPrefab
+    public TargetController TargetUnitPrefab
     {
         get => targetUnitPrefab;
         set => targetUnitPrefab = value;
     }
 
-    public TargetCellController TargetCellPrefab
+    public TargetController TargetCellPrefab
     {
         get => targetCellPrefab;
         set => targetCellPrefab = value;
