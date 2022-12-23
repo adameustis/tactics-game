@@ -8,112 +8,80 @@ using UnityEngine.Events;
 public class MoveController : MonoBehaviour
 {
     #region Fields
-
-    [Header("Fields")]
-    [SerializeField] private UnitModel model;
-    [SerializeField] private bool isMoving;
-
     #endregion
     #region Events
-
-    [Header("Events")]
-    [SerializeField] private EventPlayerModelAndTransformSO beginMovingEvent;
-    [SerializeField] private EventPlayerModelAndTransformSO eventUnitSelected;
-    [SerializeField] private EventPlayerModelAndTransformSO eventUnitDoubleSelected;
-    [SerializeField] private EventPlayerModelAndTransformSO eventUnitDeselected;
-    [SerializeField] private EventPlayerModelAndTransformSO eventCellMouseOn;
-    [SerializeField] private EventPlayerModelAndTransformSO beginTargeting;
-    [SerializeField] private EventPlayerModelAndTransformSO cancelTargeting;
-
     #endregion
     #region Properties
-
-    public UnitModel Model { get => model; set => model = value; }
-    public bool IsMoving { get => isMoving; set => isMoving = value; }
+    [Header("Fields")]
+    [field: SerializeField] public UnitModel Model { get; private set; }
+    [field: SerializeField] public bool IsMoving { get; private set; }
+    [field: SerializeField] public bool IsLocked { get; private set; }
 
     #endregion
     #region Event Properties
-
-    public EventPlayerModelAndTransformSO BeginMovingEvent
-    {
-        get => beginMovingEvent;
-        set => beginMovingEvent = value;
-    }
-
-    public EventPlayerModelAndTransformSO UnitSelected
-    {
-        get => eventUnitSelected;
-        set => eventUnitSelected = value;
-    }
-
-    public EventPlayerModelAndTransformSO UnitDoubleSelected
-    {
-        get => eventUnitDoubleSelected;
-        set => eventUnitDoubleSelected = value;
-    }
-
-    public EventPlayerModelAndTransformSO UnitDeselected
-    {
-        get => eventUnitDeselected;
-        set => eventUnitDeselected = value;
-    }
-
-    public EventPlayerModelAndTransformSO CellMouseOn
-    {
-        get => eventCellMouseOn;
-        set => eventCellMouseOn = value;
-    }
-
-    public EventPlayerModelAndTransformSO BeginTargeting
-    {
-        get => beginTargeting;
-        set => beginTargeting = value;
-    }
-
-    public EventPlayerModelAndTransformSO CancelTargeting
-    {
-        get => cancelTargeting;
-        set => cancelTargeting = value;
-    }
+    [Header("Events")]
+    [field: SerializeField] public EventPlayerModelAndTransformSO InputSubmit { get; private set; }
+    [field: SerializeField] public EventPlayerModelAndTransformSO InputCancel { get; private set; }
+    [field: SerializeField] public EventPlayerModelAndTransformSO BeginMovingEvent { get; private set; }
+    [field: SerializeField] public EventPlayerModelAndTransformSO CellMouseOn { get; private set; }
+    [field: SerializeField] public EventPlayerModelAndTransformSO BeginTargeting { get; private set; }
+    [field: SerializeField] public EventPlayerModelAndTransformSO CancelTargeting { get; private set; }
 
     #endregion
     #region Event Subscriptions
 
-    public void SubscribeToEvents()
+    public void SubscribeToUnselectedOnTurnEvents()
     {
-        UnitSelected.UnityEvent.AddListener(HandleUnitSelected);
-        UnitDoubleSelected.UnityEvent.AddListener(HandleUnitDoubleSelected);
-        UnitDeselected.UnityEvent.AddListener(HandleUnitDeselected);
-        CellMouseOn.UnityEvent.AddListener(HandleCellMouseOn);
-        BeginTargeting.UnityEvent.AddListener(HandleBeginTargeting);
+        
+    }
+
+    public void UnsubscribeFromUnselectOnTurnEvents()
+    {
+        
+    }
+
+    public void SubscribeToMovingEvents()
+    {
+        CellMouseOn.UnityEvent.AddListener(HandleCellMouseOnWhilstMoving);
+        InputSubmit.UnityEvent.AddListener(HandleInputSubmitWhilstMoving);
+        InputCancel.UnityEvent.AddListener(HandleInputCancelWhilstMoving);
+        BeginTargeting.UnityEvent.AddListener(HandleBeginTargetingWhilstMoving);
+    }
+
+    public void UnsubscribeFromMovingEvents()
+    {
+        CellMouseOn.UnityEvent.RemoveListener(HandleCellMouseOnWhilstMoving);
+        InputSubmit.UnityEvent.RemoveListener(HandleInputSubmitWhilstMoving);
+        InputCancel.UnityEvent.RemoveListener(HandleInputCancelWhilstMoving);
+        BeginTargeting.UnityEvent.RemoveListener(HandleBeginTargetingWhilstMoving);
+    }
+
+    public void SubscribeToLockEvents()
+    {
+        InputCancel.UnityEvent.AddListener(HandleInputCancelWhilstLocked);
+        BeginTargeting.UnityEvent.AddListener(HandleBeginTargetingWhilstLocked);
+    }
+
+    public void UnsubscribeToLockEvents()
+    {
+        InputCancel.UnityEvent.RemoveListener(HandleInputCancelWhilstLocked);
+        BeginTargeting.UnityEvent.RemoveListener(HandleBeginTargetingWhilstLocked);
+    }
+    
+    public void SubscribeToTargetingEvents()
+    {
         CancelTargeting.UnityEvent.AddListener(HandleCancelTargeting);
     }
 
-    public void UnsubscribeFromEvents()
+    public void UnsubscribeFromTargetingEvents()
     {
-        UnitSelected.UnityEvent.RemoveListener(HandleUnitSelected);
-        UnitDoubleSelected.UnityEvent.RemoveListener(HandleUnitDoubleSelected);
-        UnitDeselected.UnityEvent.RemoveListener(HandleUnitDeselected);
-        CellMouseOn.UnityEvent.RemoveListener(HandleCellMouseOn);
-        BeginTargeting.UnityEvent.RemoveListener(HandleBeginTargeting);
         CancelTargeting.UnityEvent.RemoveListener(HandleCancelTargeting);
     }
-
+    
     #endregion
     #region Event Handlers
 
-    public void HandleUnitSelected(PlayerAndTransformEventModel context)
-    {
-        if (IsMoving)
-            return;
-        
-        if (context.Tf != transform)
-            return;
-
-        BeginMoving(context);
-    }
-
-    public void HandleUnitDoubleSelected(PlayerAndTransformEventModel context)
+    public void HandleInputSubmitWhilstMoving(PlayerAndTransformEventModel context)
     {
         if (!IsMoving)
             return;
@@ -121,10 +89,11 @@ public class MoveController : MonoBehaviour
         if (context.Tf != transform)
             return;
         
-        //StopMoving();
+        StopMovingState(context);
+        StartLockState(context);
     }
     
-    public void HandleUnitDeselected(PlayerAndTransformEventModel context)
+    public void HandleInputCancelWhilstMoving(PlayerAndTransformEventModel context)
     {
         if (!IsMoving)
             return;
@@ -132,10 +101,19 @@ public class MoveController : MonoBehaviour
         if (context.Tf != transform)
             return;
 
-        StopMoving();
+        StopMovingState(context);
     }
 
-    public void HandleCellMouseOn(PlayerAndTransformEventModel context)
+    public void HandleInputCancelWhilstLocked(PlayerAndTransformEventModel context)
+    {
+        if (!IsMoving)
+            return;
+
+        StopLockState(context);
+        StartMovingState(context);
+    }
+
+    public void HandleCellMouseOnWhilstMoving(PlayerAndTransformEventModel context)
     {
         if (!IsMoving)
             return;
@@ -144,18 +122,26 @@ public class MoveController : MonoBehaviour
         Model.UnitCellResidence = context.Tf.GetComponent<CellBattleController>().Model;
     }
 
-    public void HandleBeginTargeting(PlayerAndTransformEventModel context)
+    public void HandleBeginTargetingWhilstMoving(PlayerAndTransformEventModel context)
     {
         if (!IsMoving) return;
         
-        StopMoving();
+        StopMovingState(context);
+    }
+    
+    public void HandleBeginTargetingWhilstLocked(PlayerAndTransformEventModel context)
+    {
+        if (!IsLocked) return;
+        
+        StopLockState(context);
     }
 
     public void HandleCancelTargeting(PlayerAndTransformEventModel context)
     {
-        if (IsMoving) return;
-        
-        BeginMoving(new PlayerAndTransformEventModel(context.Player, transform));
+        if (IsLocked)
+           StartLockState(context); 
+        else
+            StartMovingState(context);
     }
     
     #endregion
@@ -163,29 +149,51 @@ public class MoveController : MonoBehaviour
 
     public void Start()
     {
-        Model = GetComponent<UnitBattleController>().Model;
-        SubscribeToEvents();
+        if (TryGetComponent(out UnitBattleController unit))
+            Model = unit.Model;
+
+        SubscribeToUnselectedOnTurnEvents();
     }
 
     public void OnDestroy()
     {
-        UnsubscribeFromEvents();
+        UnsubscribeFromUnselectOnTurnEvents();
     }
     
     #endregion
     #region Methods
 
-    public void BeginMoving(PlayerAndTransformEventModel context)
+    public void StartMovingState(PlayerAndTransformEventModel context)
     {
         IsMoving = true;
         BeginMovingEvent.UnityEvent.Invoke(context);
+        SubscribeToMovingEvents();
     }
 
-    public void StopMoving()
+    public void StopMovingState(PlayerAndTransformEventModel context)
     {
         IsMoving = false;
+        UnsubscribeFromMovingEvents();
+    }
+    
+    public void StartLockState(PlayerAndTransformEventModel context)
+    {
+        if (IsLocked)
+            return;
+
+        IsLocked = true;
+
     }
 
-    
+    public void StopLockState(PlayerAndTransformEventModel context)
+    {
+        if (!IsLocked)
+            return;
+
+        IsLocked = false;
+
+    }
+
+
     #endregion
 }
