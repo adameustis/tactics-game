@@ -9,7 +9,6 @@ public abstract class BaseModel
     #region Fields
 
     [Header("Base Fields")]
-    protected StateSO state;
     protected Vector3 transformPosition;
     protected Quaternion transformRotation;
     protected TypeSO type;
@@ -27,24 +26,6 @@ public abstract class BaseModel
 
     #endregion
     #region Properties
-
-    public virtual StateSO State
-    {
-        get
-        {
-            return state;
-        }
-
-        set
-        {
-            if (state != value)
-            {
-                EventStateStop.Invoke();
-                state = value;
-                EventStateStart.Invoke();
-            }
-        }
-    }
 
     public virtual Vector3 TransformPosition
     {

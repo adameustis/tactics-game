@@ -16,7 +16,6 @@ using UnityEngine;
     [SerializeField] private MouseOverManagerSO mouseOverManager;
     [SerializeField] private SceneManagerSO sceneManager;
     [SerializeField] private SelectionManagerSO selectionManager;
-    [SerializeField] private StateManagerSO stateManager;
     [SerializeField] private StatusManagerSO statusManager;
     [SerializeField] private TargetManagerSO targetManager;
     [SerializeField] private TargetingTypeManagerSO targetingTypeManager;
@@ -36,7 +35,6 @@ using UnityEngine;
     public MouseOverManagerSO MouseOverManager { get => mouseOverManager; set => mouseOverManager = value; }
     public SceneManagerSO SceneManager { get => sceneManager; set => sceneManager = value; }
     public SelectionManagerSO SelectionManager { get => selectionManager; set => selectionManager = value; }
-    public StateManagerSO StateManager { get => stateManager; set => stateManager = value; }
     public StatusManagerSO StatusManager { get => statusManager; set => statusManager = value; }
     public TargetManagerSO TargetManager { get => targetManager; set => targetManager = value; }
     public TargetingTypeManagerSO TargetingTypeManager { get => targetingTypeManager; set => targetingTypeManager = value; }
