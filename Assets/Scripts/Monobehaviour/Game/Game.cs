@@ -23,12 +23,12 @@ public class Game : MonoBehaviour
     // private void Awake()
     // {
     //     ////Check if a GameManager has already been assigned to static variable GameManager.instance or if it's still null
-    //     //if (BattleStateManagerSO.Instance == null)
+    //     //if (StateManagerSO.Instance == null)
     //     //{
     //     //    //Instantiate gameManager prefab
     //     //    Instantiate(BattleState);
     //     //}
-    //     //BattleStateManagerSO.Instance.StartBattleState(StateEnum.BattleInitialising, transform);
+    //     //StateManagerSO.Instance.StartBattleState(StateEnum.BattleInitialising, transform);
     // }
 
     //private void Update()

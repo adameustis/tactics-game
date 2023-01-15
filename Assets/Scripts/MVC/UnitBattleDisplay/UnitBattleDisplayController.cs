@@ -102,7 +102,7 @@ public class UnitBattleDisplayController : MonoBehaviour {
     //private void Start () {
     //    if (Unit != null)
     //    {
-    //        Initialise(Unit);
+    //        Init(Unit);
     //    }
     //}
     #endregion

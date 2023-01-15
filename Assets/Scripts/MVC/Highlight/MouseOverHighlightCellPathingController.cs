@@ -83,7 +83,7 @@ public class MouseOverHighlightCellPathingController : MonoBehaviour
     {
         // for (int count = 0; count < GameManager.CellManager.GridWidth * GameManager.CellManager.GridHeight; count++)
         // {
-        //     GameManager.CellManager.CellBattleControllerList[count].DisplayMouseOverPathing(Model.PathList[count]);
+        //     GameManager.CellManager.CellBattleControllerList[count].DisplayMouseOverPathing(Data.PathList[count]);
         // }
         // IsDisplayingMouseOverPathing = true;
     }

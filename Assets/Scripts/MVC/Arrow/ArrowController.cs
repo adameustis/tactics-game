@@ -44,7 +44,7 @@ public class ArrowController : MonoBehaviour
     
     public void StopDisplayingMoveArrow(CellModel cell)
     {
-        // if(Model.MovePathQueue.Count > 1)
+        // if(Data.MovePathQueue.Count > 1)
         // {
         //     GameManager.CellManager.GetCellBattleController(cell.CellGridPositionX, cell.CellGridPositionY).StopDisplayingMoveArrow();
         //     IsDisplayingMoveArrow = false;

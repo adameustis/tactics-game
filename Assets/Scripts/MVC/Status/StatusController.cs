@@ -29,15 +29,15 @@ public class StatusController : MonoBehaviour
 
     public void ActivateStartOfTurnStatuses()
     {
-        // if(Model.UnitStatuses == null)
+        // if(Data.UnitStatuses == null)
         // {
         //     // Do nothing
         // }
         // else
         // {
-        //     //foreach (StatusController controller in Model.UnitStatuses)
+        //     //foreach (StatusController controller in Data.UnitStatuses)
         //     //{
-        //     //    controller.StartOfTurn(Model);
+        //     //    controller.StartOfTurn(Data);
         //     //}
         // }
     }

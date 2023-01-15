@@ -32,15 +32,15 @@ public class EffectController : MonoBehaviour
         // if(effect.Effect == GameManager.EffectManager.EffectEndTurn)
         // {
         //     GameManager.TurnManager.EndTurn();
-        //     //Model.State = GameManager.StateManager.StateSOSelected;
+        //     //Data.StateBehaviour = GameManager.StateManager.StateSOSelected;
         // }
         // else if (effect.Effect == GameManager.EffectManager.EffectDamage)
         // {
-        //     Model.UnitHP = Model.UnitHP - effect.Power;
+        //     Data.UnitHP = Data.UnitHP - effect.Power;
         // }
         // else if (effect.Effect == GameManager.EffectManager.EffectBurn)
         // {
-        //     Model.UnitHP = Model.UnitHP - effect.Power;
+        //     Data.UnitHP = Data.UnitHP - effect.Power;
         // }
     }
 

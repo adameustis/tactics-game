@@ -1,99 +1,81 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using MVC.EventModel;
+﻿using MVC.EventModel;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.Serialization;
 
-public class SelectionController : MonoBehaviour
+namespace MVC.Selection
 {
-    #region Values
-    
-    [SerializeField] protected SelectionModel model;
-    
-    #endregion
-    #region Events
-    
-    [FormerlySerializedAs("eventSelected")] [SerializeField] protected EventAbstractSO<UnityEventPlayerModelAndTransform> selectedEvent;
-    [SerializeField] protected EventAbstractSO<UnityEventPlayerModelAndTransform> doubleSelectedEvent;
-    [FormerlySerializedAs("eventDeselected")] [SerializeField] protected EventAbstractSO<UnityEventPlayerModelAndTransform> deselectedEvent;
-
-    #endregion
-    #region Properties
-    
-    public SelectionModel Model { get => model; set => model = value; }
-    
-    #endregion
-    #region Event Properties
-    
-    public virtual EventAbstractSO<UnityEventPlayerModelAndTransform> SelectedEvent { get => selectedEvent; set => selectedEvent = value; }
-
-    public EventAbstractSO<UnityEventPlayerModelAndTransform> DoubleSelectedEvent
+    public class SelectionController : MonoBehaviour
     {
-        get => doubleSelectedEvent;
-        set => doubleSelectedEvent = value;
-    }
-
-    public virtual EventAbstractSO<UnityEventPlayerModelAndTransform> DeselectedEvent { get => deselectedEvent; set => deselectedEvent = value; }
-
-
-    #endregion
-    #region Event Subscriptions
-    #endregion
-    #region Event Handlers
-    #endregion
-    #region MonoBehaviour
+        #region Values
     
-    public void Start()
-    {
-        Initialise(Model);
-    }
-
-    #endregion
-    #region Methods
-
-    public void Initialise(SelectionModel setModel)
-    {
-        Model = setModel;
-    }
+        [FormerlySerializedAs("model")] [SerializeField] protected SelectionData data;
     
-    public void DisplaySelectionPathing(bool onTurn)
-    {
-        // for (int count = 0; count < GameManager.CellManager.GridWidth * GameManager.CellManager.GridHeight; count++)
-        // {
-        //     GameManager.CellManager.CellBattleControllerList[count].DisplaySelectionPathing(Model.PathList[count], onTurn);
-        // }
-        // IsDisplayingSelectionPathing = true;
-    }
-
-    public void StopDisplayingSelectionPathing()
-    {
-        // for (int count = 0; count < GameManager.CellManager.GridWidth * GameManager.CellManager.GridHeight; count++)
-        // {
-        //     GameManager.CellManager.CellBattleControllerList[count].StopDisplayingSelectionPathing();
-        // }
-        // IsDisplayingSelectionPathing = false;
-    }
+        #endregion
+        #region Events
     
-    public void Select(PlayerModel player)
-    {
-        if (Model.IsSelected) return;
-        Model.IsSelected = true;
-        SelectedEvent.UnityEvent?.Invoke(new PlayerAndTransformEventModel(player, transform));
-    }
+        [FormerlySerializedAs("eventSelected")] [SerializeField] protected EventAbstractSO<UnityEventPlayerModelAndTransform> selectedEvent;
+        [SerializeField] protected EventAbstractSO<UnityEventPlayerModelAndTransform> doubleSelectedEvent;
+        [FormerlySerializedAs("eventDeselected")] [SerializeField] protected EventAbstractSO<UnityEventPlayerModelAndTransform> deselectedEvent;
 
-    public void DoubleSelect(PlayerModel player)
-    {
-        if (!Model.IsSelected) return;
-        DoubleSelectedEvent.UnityEvent?.Invoke(new PlayerAndTransformEventModel(player, transform));
-    }
+        #endregion
+        #region Properties
     
-    public void Deselect(PlayerModel player)
-    {
-        if (!Model.IsSelected) return;
-        Model.IsSelected = false;
-        DeselectedEvent.UnityEvent?.Invoke(new PlayerAndTransformEventModel(player, transform));
-    }
+        public SelectionData Data { get => data; set => data = value; }
+    
+        #endregion
+        #region Event Properties
+    
+        public virtual EventAbstractSO<UnityEventPlayerModelAndTransform> SelectedEvent { get => selectedEvent; set => selectedEvent = value; }
 
-    #endregion
+        public EventAbstractSO<UnityEventPlayerModelAndTransform> DoubleSelectedEvent
+        {
+            get => doubleSelectedEvent;
+            set => doubleSelectedEvent = value;
+        }
+
+        public virtual EventAbstractSO<UnityEventPlayerModelAndTransform> DeselectedEvent { get => deselectedEvent; set => deselectedEvent = value; }
+
+
+        #endregion
+        #region Event Subscriptions
+        #endregion
+        #region Event Handlers
+        #endregion
+        #region MonoBehaviour
+    
+        public void Start()
+        {
+            Init(Data);
+        }
+
+        #endregion
+        #region Methods
+
+        public void Init(SelectionData setData)
+        {
+            Data = setData;
+        }
+
+        public void Select(PlayerModel player)
+        {
+            if (Data.IsSelected) return;
+            Data.IsSelected = true;
+            SelectedEvent.UnityEvent?.Invoke(new PlayerAndTransformEventModel(player, transform));
+        }
+
+        public void DoubleSelect(PlayerModel player)
+        {
+            if (!Data.IsSelected) return;
+            DoubleSelectedEvent.UnityEvent?.Invoke(new PlayerAndTransformEventModel(player, transform));
+        }
+    
+        public void Deselect(PlayerModel player)
+        {
+            if (!Data.IsSelected) return;
+            Data.IsSelected = false;
+            DeselectedEvent.UnityEvent?.Invoke(new PlayerAndTransformEventModel(player, transform));
+        }
+
+        #endregion
+    }
 }

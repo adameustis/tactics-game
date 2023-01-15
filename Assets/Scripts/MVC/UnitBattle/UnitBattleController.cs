@@ -67,25 +67,25 @@ public class UnitBattleController : MonoBehaviour
 
     // public void HandleModelStateStart()
     // {
-    //     if (Model.State == GameManager.StateManager.StateSOSelected)
+    //     if (Data.StateBehaviour == GameManager.StateManager.StateSOSelected)
     //     {
-    //         if (Model.UnitOnTurn)
+    //         if (Data.UnitOnTurn)
     //         {
-    //             Model.State = GameManager.StateManager.StateSOUnitViewingAbilityMenu;
+    //             Data.StateBehaviour = GameManager.StateManager.StateSOUnitViewingAbilityMenu;
     //         }
     //     }
-    //     else if (Model.State == GameManager.StateManager.StateSOUnitChoosingWhereToMove)
+    //     else if (Data.StateBehaviour == GameManager.StateManager.StateSOUnitChoosingWhereToMove)
     //     {
-    //         Model.CalculatePathing(GameManager.CellManager.GridWidth);
-    //         DiplaySelectionPathing(Model.UnitOnTurn);
+    //         Data.CalculatePathing(GameManager.CellManager.GridWidth);
+    //         DiplaySelectionPathing(Data.UnitOnTurn);
     //     }
-    //     else if (Model.State == GameManager.StateManager.StateSOUnitMoving)
+    //     else if (Data.StateBehaviour == GameManager.StateManager.StateSOUnitMoving)
     //     {
     //
     //     }
-    //     else if (Model.State == GameManager.StateManager.StateSOUnitViewingAbilityMenu)
+    //     else if (Data.StateBehaviour == GameManager.StateManager.StateSOUnitViewingAbilityMenu)
     //     {
-    //         DisplayAbilityMenu(Model.UnitAbilities);
+    //         DisplayAbilityMenu(Data.UnitAbilities);
     //     }
     // }
 
