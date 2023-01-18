@@ -78,17 +78,17 @@ public class MouseOverManagerSO : ScriptableObject, ISerializationCallbackReceiv
     {
         InstructionSO instruction;
         instruction = GameManager.InstructionManager.MouseOver;
-        if (BoolAnObjectHasMouseOver && MouseOverObject == setObject)
-        {
-            instruction = GameManager.InstructionManager.DoNothing;
-        }
-        else if (GameManager.SelectionManager.BoolAnObjectIsSelected)
-        {
-            if (GameManager.SelectionManager.SelectedObject != setObject)
-            {
-                instruction = GameManager.SelectionManager.SelectedObject.MouseOverOtherObject(setObject);
-            }
-        }
+        // if (BoolAnObjectHasMouseOver && MouseOverObject == setObject)
+        // {
+        //     instruction = GameManager.InstructionManager.DoNothing;
+        // }
+        // else if (GameManager.UnitSelectionManager.BoolAnObjectIsSelected)
+        // {
+        //     if (GameManager.UnitSelectionManager.SelectedObject != setObject)
+        //     {
+        //         instruction = GameManager.UnitSelectionManager.SelectedObject.MouseOverOtherObject(setObject);
+        //     }
+        // }
         MouseOverObject = setObject;
         return instruction;
     }
@@ -97,13 +97,13 @@ public class MouseOverManagerSO : ScriptableObject, ISerializationCallbackReceiv
     {
         InstructionSO instruction;
         instruction = GameManager.InstructionManager.MouseOff;
-        if (GameManager.SelectionManager.BoolAnObjectIsSelected)
-        {
-            if (GameManager.SelectionManager.SelectedObject != MouseOverObject)
-            {
-                instruction = GameManager.SelectionManager.SelectedObject.MouseOffOtherObject(MouseOverObject);
-            }
-        }
+        // if (GameManager.UnitSelectionManager.BoolAnObjectIsSelected)
+        // {
+        //     if (GameManager.UnitSelectionManager.SelectedObject != MouseOverObject)
+        //     {
+        //         instruction = GameManager.UnitSelectionManager.SelectedObject.MouseOffOtherObject(MouseOverObject);
+        //     }
+        // }
         MouseOverObject = null;
         return instruction;
     }

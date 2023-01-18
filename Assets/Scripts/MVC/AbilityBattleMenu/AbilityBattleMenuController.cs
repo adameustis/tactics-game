@@ -2,6 +2,7 @@
 using MVC.AbilityMenuItemDisplay;
 using MVC.TargetingController;
 using MVC.EventModel;
+using ScriptableObjects.EventSO;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -33,54 +34,49 @@ namespace MVC.AbilityBattleMenu
 
         public void SubscribeToEvents()
         {
-            DisplayEvent.UnityEvent.AddListener(DisplayEventHandler);
-            StopDisplay.UnityEvent.AddListener(StopDisplayHandler);
+            // DisplayEvent.UnityEvent.AddListener(DisplayEventHandler);
+            // StopDisplay.UnityEvent.AddListener(StopDisplayHandler);
         }
 
         public void UnsubscribeFromEvents()
         {
-            DisplayEvent.UnityEvent.RemoveListener(DisplayEventHandler);
-            StopDisplay.UnityEvent.RemoveListener(StopDisplayHandler);
+            // DisplayEvent.UnityEvent.RemoveListener(DisplayEventHandler);
+            // StopDisplay.UnityEvent.RemoveListener(StopDisplayHandler);
         }
 
         #endregion
         #region Event Handlers
     
-        public void DisplayEventHandler(PlayerAndTransformEventModel eventModel)
-        {
-            UnitBattleController unit = eventModel.Tf.GetComponent<UnitBattleController>();
-            List<AbilityModel> abilityModelArray = unit.Model.UnitAbilities;
-            if (abilityModelArray == null)
-                return;
-        
-            Display(abilityModelArray, unit);
-        }
-
-        public void StopDisplayHandler(PlayerAndTransformEventModel eventModel)
-        {
-            StopDisplaying();
-        }
+        // public void DisplayEventHandler(PlayerAndTransformEventModel eventModel)
+        // {
+        //     UnitBattleController unit = eventModel.Tf.GetComponent<UnitBattleController>();
+        //     List<AbilityModel> abilityModelArray = unit.Model.UnitAbilities;
+        //     if (abilityModelArray == null)
+        //         return;
+        //
+        //     Display(abilityModelArray, unit);
+        // }
+        //
+        // public void StopDisplayHandler(PlayerAndTransformEventModel eventModel)
+        // {
+        //     StopDisplaying();
+        // }
     
         #endregion 
         #region MonoBehaviour
 
-        public void Start()
+        public void OnEnable()
         {
-            Initialise();
+            SubscribeToEvents();
         }
 
-        public void OnDestroy()
+        public void OnDisable()
         {
             UnsubscribeFromEvents();
         }
 
         #endregion
         #region Methods
-
-        public void Initialise()
-        {
-            SubscribeToEvents();
-        }
 
         public void Display(List<AbilityModel> abilityModelArray, UnitBattleController unit)
         {
@@ -110,28 +106,21 @@ namespace MVC.AbilityBattleMenu
             else
                 abilityController = Instantiate(MenuItemAvailablePrefab, TransformForeground);
             
-            abilityController.Initialise(abilityModel, unit);
+            abilityController.Initialise(abilityModel);
             MenuItemList.Add(abilityController);
         }
 
         public void ClearMenuItems()
         {
-            if (MenuItemList == null)
+            if (MenuItemList == null) return;
+            if (MenuItemList.Count == 0) return;
+
+            foreach (AbilityBattleMenuItemController controller in MenuItemList)
             {
-                // Do nothing
+                Destroy(controller.gameObject);
             }
-            else if (MenuItemList.Count == 0)
-            {
-                // Do nothing
-            }
-            else
-            {
-                foreach (AbilityBattleMenuItemController controller in MenuItemList)
-                {
-                    Destroy(controller.gameObject);
-                }
-                MenuItemList.Clear();
-            }
+
+            MenuItemList.Clear();
         }
 
         #endregion

@@ -1,4 +1,5 @@
 ﻿using MVC.EventModel;
+using ScriptableObjects.EventSO;
 using UnityEngine;
 using UnityEngine.Serialization;
 

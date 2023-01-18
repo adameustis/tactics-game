@@ -9,7 +9,7 @@ namespace ScriptableObjects.TransitionDirectionSO
     {
         public override void TransitionToState(PlayerAndTransformEventModel context, StateBehaviour stateToTransitionTo)
         {
-            stateToTransitionTo.Controller.ReturnToPreviousState(context);
+            stateToTransitionTo.Machine.ReturnToPreviousState(context);
         }
     }
 }

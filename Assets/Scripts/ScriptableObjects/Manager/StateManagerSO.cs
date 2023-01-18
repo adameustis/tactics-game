@@ -12,7 +12,7 @@ namespace ScriptableObjects.Manager
         #endregion
         #region Properties
         [field: Header("Fields")]
-        [field: SerializeField] public Queue<StateBehaviour> BattleStateList { get; set; } = new();
+        [field: SerializeField] public List<StateBehaviour> BattleStateList { get; set; } = new();
         #endregion
         #region Constructors
         #endregion

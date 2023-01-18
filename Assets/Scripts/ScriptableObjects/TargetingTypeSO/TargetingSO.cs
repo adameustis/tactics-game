@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ScriptableObjects.EventSO;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "TargetingTypeSO", menuName = "ScriptableObjects/TargetingTypeSO")]

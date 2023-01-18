@@ -1,21 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "EventPlayerModelAndTransformSO", menuName = "ScriptableObjects/Events/EventPlayerModelAndTransformSO")]
-public class EventPlayerModelAndTransformSO : EventAbstractSO<UnityEventPlayerModelAndTransform>
+namespace ScriptableObjects.EventSO.EventPlayerModelAndTransformSO
 {
-    #region Fields
-    #endregion
-    #region Events
-    #endregion
-    #region Properties
-    #endregion
-    #region Event Properties
-    #endregion
-    #region MonoBehaviour
-    #endregion
-    #region Methods
-    #endregion
-
+    [CreateAssetMenu(fileName = "EventPlayerModelAndTransformSO", menuName = "ScriptableObjects/Events/EventPlayerModelAndTransformSO")]
+    public class EventPlayerModelAndTransformSO : EventAbstractSO<UnityEventPlayerModelAndTransform>
+    {
+        #region Fields
+        #endregion
+        #region Events
+        #endregion
+        #region Properties
+        #endregion
+        #region Event Properties
+        #endregion
+        #region MonoBehaviour
+        #endregion
+        #region Methods
+        #endregion
+    }
 }

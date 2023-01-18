@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using MVC.EventModel;
 using MVC.Selection;
+using ScriptableObjects.EventSO;
 using UnityEngine;
 using UnityEngine.Events;
 

@@ -1,4 +1,6 @@
 ﻿using MVC.EventModel;
+using ScriptableObjects.EventSO;
+using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using UnityEngine;
 
 namespace MVC.Target

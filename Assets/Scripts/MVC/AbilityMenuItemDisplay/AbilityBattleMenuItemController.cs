@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using MVC.EventModel;
+using MVC.State;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace MVC.AbilityMenuItemDisplay
@@ -13,7 +16,6 @@ namespace MVC.AbilityMenuItemDisplay
         #region Properties
         [field: Header("Fields")]
         [field: SerializeField] public AbilityModel Ability { get; private set; }
-        [field: SerializeField] public UnitBattleController SourceUnit { get; private set; }
         [field: SerializeField] public Text TextName { get; private set; }
         [field: SerializeField] public Text TextDescription { get; private set; }
         [field: SerializeField] public Image Icon { get; private set; }
@@ -26,13 +28,28 @@ namespace MVC.AbilityMenuItemDisplay
         #region Event Subscriptions
         #endregion
         #region Event Handlers
+        
+        public void HandleUnitSelected(PlayerAndTransformEventModel context)
+        {
+            List<AbilityModel> unitAbilities = context.Tf.GetComponent<UnitBattleController>().Model.UnitAbilities;
+            int siblingIndex = transform.GetSiblingIndex();
+
+            if (unitAbilities.Count < siblingIndex)
+            {
+                Ability = null;
+                return;
+            }
+
+            Ability = unitAbilities[siblingIndex];
+            UpdateDisplay(Ability);
+        }
+        
         #endregion
         #region Methods
 
-        public void Initialise(AbilityModel setAbility, UnitBattleController setUnit)
+        public void Initialise(AbilityModel setAbility)
         {
             Ability = setAbility;
-            SourceUnit = setUnit;
             UpdateDisplay(setAbility);
         }
 

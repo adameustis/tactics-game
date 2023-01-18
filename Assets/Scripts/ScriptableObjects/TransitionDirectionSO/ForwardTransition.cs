@@ -16,7 +16,7 @@ namespace ScriptableObjects.TransitionDirectionSO
 
         public override void TransitionToState(PlayerAndTransformEventModel context, StateBehaviour stateToTransitionTo)
         {
-            stateToTransitionTo.Controller.AdvanceToState(context, stateToTransitionTo, ClearHistory);
+            stateToTransitionTo.Machine.AdvanceToState(context, stateToTransitionTo, ClearHistory);
         }
         
         #endregion

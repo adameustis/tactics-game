@@ -7,129 +7,21 @@ using UnityEngine;
 {
 
     #region Fields
-
-    [Header("Fields")]
-    [SerializeField] private List<UnitModel> unitModelList;
-    [SerializeField] private List<UnitBattleController> unitBattleControllerList;
-
     #endregion
     #region Events
-
-    [Header("Events")]
-    [SerializeField] private UnityEventUnitModel eventUnitModelAdded;
-    [SerializeField] private UnityEventUnitModel eventUnitModelRemoved;
-    [SerializeField] private UnityEventUnitBattleController eventUnitBattleControllerAdded;
-    [SerializeField] private UnityEventUnitBattleController eventUnitBattleControllerRemoved;
-
     #endregion
     #region Properties
-
-    public List<UnitModel> UnitModelList
-    {
-        get
-        {
-            if (unitModelList == null)
-            {
-                unitModelList = new List<UnitModel>();
-            }
-            return unitModelList;
-        }
-
-        private set
-        {
-            unitModelList = value;
-        }
-    }
-
-    public List<UnitBattleController> UnitBattleControllerList
-    {
-        get
-        {
-            if (unitBattleControllerList == null)
-            {
-                unitBattleControllerList = new List<UnitBattleController>();
-            }
-            return unitBattleControllerList;
-        }
-
-        private set
-        {
-            unitBattleControllerList = value;
-        }
-    }
+    [field: Header("Fields")]
+    [field: SerializeField] public List<UnitModel> UnitModelList { get; private set; }
+    [field: SerializeField] public List<UnitBattleController> UnitBattleControllerList { get; private set; }
 
     #endregion
     #region Event Properties
-
-    public UnityEventUnitModel EventUnitModelAdded
-    {
-        get
-        {
-            if (eventUnitModelAdded == null)
-            {
-                eventUnitModelAdded = new UnityEventUnitModel();
-            }
-            return eventUnitModelAdded;
-        }
-
-        set
-        {
-            eventUnitModelAdded = value;
-        }
-    }
-
-    public UnityEventUnitModel EventUnitModelRemoved
-    {
-        get
-        {
-            if (eventUnitModelRemoved == null)
-            {
-                eventUnitModelRemoved = new UnityEventUnitModel();
-            }
-            return eventUnitModelRemoved;
-        }
-
-        set
-        {
-            eventUnitModelRemoved = value;
-        }
-    }
-
-    public UnityEventUnitBattleController EventUnitBattleControllerAdded
-    {
-        get
-        {
-            if (eventUnitBattleControllerAdded == null)
-            {
-                eventUnitBattleControllerAdded = new UnityEventUnitBattleController();
-            }
-            return eventUnitBattleControllerAdded;
-        }
-
-        set
-        {
-            eventUnitBattleControllerAdded = value;
-        }
-    }
-
-    public UnityEventUnitBattleController EventUnitBattleControllerRemoved
-    {
-        get
-        {
-            if (eventUnitBattleControllerRemoved == null)
-            {
-                eventUnitBattleControllerRemoved = new UnityEventUnitBattleController();
-            }
-            return eventUnitBattleControllerRemoved;
-        }
-
-        set
-        {
-            eventUnitBattleControllerRemoved = value;
-        }
-    }
-
-
+    [field: Header("Events")]
+    [field: SerializeField] public UnityEventUnitModel EventUnitModelAdded { get; private set; }
+    [field: SerializeField] public UnityEventUnitModel EventUnitModelRemoved { get; private set; }
+    [field: SerializeField] public UnityEventUnitBattleController EventUnitBattleControllerAdded { get; private set; }
+    [field: SerializeField] public UnityEventUnitBattleController EventUnitBattleControllerRemoved { get; private set; }
 
     #endregion
     #region Methods

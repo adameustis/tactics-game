@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using UnityEngine;
 using UnityEngine.Events;
 

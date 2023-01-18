@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using MVC.EventModel;
+using ScriptableObjects.EventSO;
 using UnityEngine;
 
 public class OutlineController : MonoBehaviour

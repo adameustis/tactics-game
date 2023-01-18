@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MVC.EventModel;
 using MVC.State;
-using ScriptableObjects.ConditionSO;
+using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using ScriptableObjects.TransitionDirectionSO;
 using UnityEngine;
 
@@ -14,8 +14,8 @@ namespace MVC.StateTransition
         [field: SerializeField] public StateBehaviour StateToTransitionTo { get; protected set; }
         [field: SerializeField] public TransitionDirectionSO TransitionDirection { get; protected set; }
         [field: Header("Condition List is optional.")]
-        [field: SerializeField] public List<ConditionSO> ConditionList { get; protected set; }
-
+        [field: SerializeField] public List<Condition.Condition> ConditionsList { get; protected set; }
+        
         #endregion
         #region Event Properties
         [field: SerializeField] public List<EventPlayerModelAndTransformSO> TriggerEventsList { get; protected set; }
@@ -48,7 +48,7 @@ namespace MVC.StateTransition
         protected virtual void TransitionToState(PlayerAndTransformEventModel context)
         {
             // Guard Clause: Check if any of the conditions are not met
-            if (ConditionList.Any(condition => !condition.IsMet(context, transform))) return;
+            if (ConditionsList.Any(condition => !condition.IsMet(context))) return;
         
             TransitionDirection.TransitionToState(context, StateToTransitionTo);
         }

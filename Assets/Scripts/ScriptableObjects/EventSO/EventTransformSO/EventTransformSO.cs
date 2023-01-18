@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using ScriptableObjects.EventSO;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "EventTransformSO", menuName = "ScriptableObjects/Events/EventTransformSO")]

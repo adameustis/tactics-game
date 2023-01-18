@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "GameManagerSO", menuName = "ScriptableObjects/Manager/GameManagerSO")]
 [System.Serializable] public class GameManagerSO : ScriptableObject
@@ -15,7 +16,7 @@ using UnityEngine;
     [SerializeField] private InstructionManagerSO instructionManager;
     [SerializeField] private MouseOverManagerSO mouseOverManager;
     [SerializeField] private SceneManagerSO sceneManager;
-    [SerializeField] private SelectionManagerSO selectionManager;
+    [FormerlySerializedAs("selectionManager")] [SerializeField] private UnitSelectionManagerSO unitSelectionManager;
     [SerializeField] private StatusManagerSO statusManager;
     [SerializeField] private TargetManagerSO targetManager;
     [SerializeField] private TargetingTypeManagerSO targetingTypeManager;
@@ -34,7 +35,7 @@ using UnityEngine;
     public InstructionManagerSO InstructionManager { get => instructionManager; set => instructionManager = value; }
     public MouseOverManagerSO MouseOverManager { get => mouseOverManager; set => mouseOverManager = value; }
     public SceneManagerSO SceneManager { get => sceneManager; set => sceneManager = value; }
-    public SelectionManagerSO SelectionManager { get => selectionManager; set => selectionManager = value; }
+    public UnitSelectionManagerSO UnitSelectionManager { get => unitSelectionManager; set => unitSelectionManager = value; }
     public StatusManagerSO StatusManager { get => statusManager; set => statusManager = value; }
     public TargetManagerSO TargetManager { get => targetManager; set => targetManager = value; }
     public TargetingTypeManagerSO TargetingTypeManager { get => targetingTypeManager; set => targetingTypeManager = value; }

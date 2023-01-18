@@ -1,5 +1,7 @@
 using MVC.EventModel;
 using MVC.Target;
+using ScriptableObjects.EventSO;
+using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using UnityEngine;
 
 namespace MVC.TargetingController

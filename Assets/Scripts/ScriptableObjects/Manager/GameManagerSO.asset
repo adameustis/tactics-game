@@ -16,12 +16,11 @@ MonoBehaviour:
   cellManager: {fileID: 11400000, guid: e344b079e90898e4faa7eb58a977cdc1, type: 2}
   effectManager: {fileID: 11400000, guid: f3725b451f23a124393322d39ab69fb7, type: 2}
   eventManager: {fileID: 11400000, guid: 2fe5038a3f368924ba7b6768332af3a9, type: 2}
-  inputManager: {fileID: 11400000, guid: 9c0d91ac01979e849b12d1c66018a0e4, type: 2}
   instructionManager: {fileID: 11400000, guid: 239791bc9496a6946aec092af2c4581e, type: 2}
   mouseOverManager: {fileID: 11400000, guid: 5260c7c26780cac4aa2e580a68335018, type: 2}
   sceneManager: {fileID: 11400000, guid: dc33c58c41b88994aa4db9b1f1f9d0f6, type: 2}
-  selectionManager: {fileID: 11400000, guid: 4d43e93b2c0f488479431a4a97042e64, type: 2}
-  stateManager: {fileID: 11400000, guid: 4b47809a2efa48c47b52963b558cf549, type: 2}
+  unitSelectionManager: {fileID: 11400000, guid: fe76705f07607ef4da9b5d78dae4f036,
+    type: 2}
   statusManager: {fileID: 11400000, guid: 77bf157bbe43af14c9645e1fb936fe85, type: 2}
   targetManager: {fileID: 11400000, guid: 54ce3bdd0a7efe140abaff2f9317e961, type: 2}
   targetingTypeManager: {fileID: 11400000, guid: 4e61c787124ba21489b204ed37d8bc92,

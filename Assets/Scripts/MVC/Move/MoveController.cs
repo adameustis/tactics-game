@@ -1,4 +1,5 @@
 ﻿using MVC.EventModel;
+using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using UnityEngine;
 
 namespace MVC.Move

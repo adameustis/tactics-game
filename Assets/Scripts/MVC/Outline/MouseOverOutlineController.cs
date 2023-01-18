@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using MVC.EventModel;
+using ScriptableObjects.EventSO;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,13 +17,14 @@ public class MouseOverOutlineController : MonoBehaviour
     
     [SerializeField] private EventAbstractSO<UnityEventPlayerModelAndTransform> eventInputMouseOff;
     [SerializeField] private EventAbstractSO<UnityEventPlayerModelAndTransform> eventInputMouseOn;
+    private static readonly int Displaying = Animator.StringToHash("isDisplaying");
 
     #endregion
     #region Properties
     
     public virtual Animator OutlineAnimator { get => outlineAnimator; set => outlineAnimator = value; }
-    public virtual bool IsDisplaying { get => OutlineAnimator.GetBool("isDisplaying"); }
-    
+    public virtual bool IsDisplaying => OutlineAnimator.GetBool(Displaying);
+
     #endregion
     #region Event Properties
     
@@ -78,12 +80,12 @@ public class MouseOverOutlineController : MonoBehaviour
     #region Methods
     public void StopDisplayingOutline()
     {
-        OutlineAnimator.SetBool("isDisplaying", false);
+        OutlineAnimator.SetBool(Displaying, false);
     }
 
     public void DisplayOutline()
     {
-        OutlineAnimator.SetBool("isDisplaying", true);
+        OutlineAnimator.SetBool(Displaying, true);
     }
 
     #endregion
