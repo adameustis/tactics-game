@@ -129,10 +129,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Machine>k__BackingField: {fileID: 884741606109068631}
   <DataQueue>k__BackingField: []
-  <OnEnter>k__BackingField: {fileID: 11400000, guid: d11689270ec165f4e8967ad9c2e016a7,
+  <PublicOnEnter>k__BackingField: {fileID: 11400000, guid: d11689270ec165f4e8967ad9c2e016a7,
     type: 2}
-  <OnExit>k__BackingField: {fileID: 11400000, guid: ddf602b64c95acd45b732b6acc8c9985,
+  <PublicOnExit>k__BackingField: {fileID: 11400000, guid: ddf602b64c95acd45b732b6acc8c9985,
     type: 2}
+  <LocalOnEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2971876982129210811}
+        m_TargetAssemblyTypeName: SelectionOutlineController, Assembly-CSharp
+        m_MethodName: SelectEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  <LocalOnExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2971876982129210811}
+        m_TargetAssemblyTypeName: SelectionOutlineController, Assembly-CSharp
+        m_MethodName: DeselectEventHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4311138177280669463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,10 +228,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Machine>k__BackingField: {fileID: 884741606109068631}
   <DataQueue>k__BackingField: []
-  <OnEnter>k__BackingField: {fileID: 11400000, guid: c8307b2b16a5cf64b8b34e0e84885b07,
+  <PublicOnEnter>k__BackingField: {fileID: 11400000, guid: c8307b2b16a5cf64b8b34e0e84885b07,
     type: 2}
-  <OnExit>k__BackingField: {fileID: 11400000, guid: c9a06cf660a5e3f4ca896c553fdd8a6f,
+  <PublicOnExit>k__BackingField: {fileID: 11400000, guid: c9a06cf660a5e3f4ca896c553fdd8a6f,
     type: 2}
+  <LocalOnEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalOnExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5565761192219368339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,11 +300,9 @@ GameObject:
   - component: {fileID: 8623663878638903050}
   - component: {fileID: 3392093265840437045}
   - component: {fileID: 5506917230696726362}
-  - component: {fileID: 5162598756785785180}
-  - component: {fileID: 1721771767870305817}
   - component: {fileID: 4940441088112029617}
   - component: {fileID: 2971876982129210811}
-  - component: {fileID: 3478680441474049994}
+  - component: {fileID: 7930300779256189927}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Unit
@@ -422,45 +456,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventInputMouseOff: {fileID: 11400000, guid: d6f71004edc3d8f4a82d213987eebbf2, type: 2}
   eventInputMouseOn: {fileID: 11400000, guid: 161a8dba23c6423498fa090f368fbf76, type: 2}
---- !u!114 &5162598756785785180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8623663878638903048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40e52bb032cfbad41b362a8898ee51c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventInputCancel: {fileID: 11400000, guid: 095ed5e1959bd044a85305a63efb49b7, type: 2}
-  eventInputDown: {fileID: 11400000, guid: 25fee3c549025894480bbe80631700e7, type: 2}
-  eventInputLeft: {fileID: 11400000, guid: 2bb608eb5dd248643bf6e4b821cbc8fb, type: 2}
-  eventInputRight: {fileID: 11400000, guid: 5bfe26b04a8402244a5aec65ccab790b, type: 2}
-  eventInputSubmit: {fileID: 11400000, guid: 3841df6e360c8d14c968c013701042ba, type: 2}
-  eventInputUp: {fileID: 11400000, guid: a34c914e29acc0e43afffff11181a7f5, type: 2}
---- !u!114 &1721771767870305817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8623663878638903048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a69a8494f8214044ba837560c7f14bd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data:
-    isSelected: 0
-    isSelectedChanged:
-      m_PersistentCalls:
-        m_Calls: []
-  selectedEvent: {fileID: 11400000, guid: 4e5dc1f7e1114e5449a6a3c26ca821b3, type: 2}
-  doubleSelectedEvent: {fileID: 11400000, guid: 603e96527491d524797d6d1fb2ca443e,
-    type: 2}
-  deselectedEvent: {fileID: 11400000, guid: 5503fc64afdb5734f98468e23e024cd2, type: 2}
 --- !u!114 &4940441088112029617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,9 +484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineAnimator: {fileID: 1186681952014887918}
-  eventDeselect: {fileID: 11400000, guid: 5503fc64afdb5734f98468e23e024cd2, type: 2}
-  eventSelect: {fileID: 11400000, guid: 4e5dc1f7e1114e5449a6a3c26ca821b3, type: 2}
---- !u!114 &3478680441474049994
+--- !u!114 &7930300779256189927
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -500,106 +493,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8623663878638903048}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e66537b0dc6746b5b10a9bd505718ce0, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a443e5f823a4999b71dc7fd4ac2a444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Model>k__BackingField:
-    transformPosition: {x: 0, y: 0, z: 0}
-    unitNumber: 0
-    unitName: 
-    unitIcon: {fileID: 0}
-    unitHP: 0
-    unitMaxHP: 0
-    unitAbilities: []
-    unitStatuses: []
-    unitCanLandTraverse: 0
-    unitCanAirTraverse: 0
-    unitCanStopOnLand: 0
-    unitCanStopInAir: 0
-    unitHasCellResidence: 0
-    unitCellResidence:
-      transformPosition: {x: 0, y: 0, z: 0}
-      cellName: 
-      cellIcon: {fileID: 0}
-      cellDescription: 
-      cellGridPositionX: 0
-      cellGridPositionY: 0
-      cellIsLandTraversable: 0
-      cellIsAirTraversable: 0
-      cellIsLandDestination: 0
-      cellIsAirDestination: 0
-      cellHasResidentUnit: 0
-    unitOnTurn: 0
-    unitTurnWaitValue: 0
-    unitEnergyUsed: 0
-    hasCurrentDestination: 0
-    speed: 2
-    movePathLength: 0
-    eventTransformPositionChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitNumberChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitNameChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitIconChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitHPChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitMaxHPChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitAbilityAdded:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitAbilityRemoved:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitStatusAdded:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitStatusRemoved:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitCanLandTraverseChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitCanAirTraverseChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitCanStopOnLandChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitCanStopInAirChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitHasCellResidenceChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitCellResidenceChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitOnTurnChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitTurnWaitValueChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitEnergyUsedChanged:
-      m_PersistentCalls:
-        m_Calls: []
-  <IsMoving>k__BackingField: 0
-  <IsLocked>k__BackingField: 0
-  <InputSubmit>k__BackingField: {fileID: 0}
-  <InputCancel>k__BackingField: {fileID: 0}
-  <BeginMovingEvent>k__BackingField: {fileID: 0}
-  <CellMouseOn>k__BackingField: {fileID: 0}
-  <BeginTargeting>k__BackingField: {fileID: 0}
-  <CancelTargeting>k__BackingField: {fileID: 0}
+  <PublicInput>k__BackingField: {fileID: 11400000, guid: 3841df6e360c8d14c968c013701042ba,
+    type: 2}
+  <LocalInput>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9077995630187692400
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,10 +547,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Machine>k__BackingField: {fileID: 884741606109068631}
   <DataQueue>k__BackingField: []
-  <OnEnter>k__BackingField: {fileID: 11400000, guid: 4fbd60193df313448bdebeeddc5f48b6,
+  <PublicOnEnter>k__BackingField: {fileID: 11400000, guid: 4fbd60193df313448bdebeeddc5f48b6,
     type: 2}
-  <OnExit>k__BackingField: {fileID: 11400000, guid: 7038b046298afd346a3737dc1cec325d,
+  <PublicOnExit>k__BackingField: {fileID: 11400000, guid: 7038b046298afd346a3737dc1cec325d,
     type: 2}
+  <LocalOnEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalOnExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &751513562821134226
 PrefabInstance:
   m_ObjectHideFlags: 0

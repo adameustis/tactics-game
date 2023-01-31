@@ -274,12 +274,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 802697503}
+  - component: {fileID: 802697516}
   - component: {fileID: 802697502}
   - component: {fileID: 802697501}
-  - component: {fileID: 802697504}
-  - component: {fileID: 802697505}
-  - component: {fileID: 802697506}
-  - component: {fileID: 802697507}
+  - component: {fileID: 802697517}
+  - component: {fileID: 802697519}
+  - component: {fileID: 802697518}
+  - component: {fileID: 802697514}
+  - component: {fileID: 802697515}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -357,7 +359,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &802697504
+--- !u!114 &802697514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -366,26 +368,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 802697500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1fefa77bf13c5249a86c26cb3ce4c62, type: 3}
+  m_Script: {fileID: 11500000, guid: dde61b624b6c46bd914b4fe7f35f6a67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model:
+  <OnEnableIsTriggered>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 802697515}
+        m_TargetAssemblyTypeName: MVC.Miscellaneous.DontDestroyOnSceneChange, Assembly-CSharp
+        m_MethodName: DontDestroyGameObjectOnLoad
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &802697515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802697500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a95172d70a4213956672b8750b7333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <TheGameObject>k__BackingField: {fileID: 802697500}
+--- !u!114 &802697516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802697500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49be23280d7a4ef7a74b52d2552693f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Model>k__BackingField:
     intPlayerNumber: 1
     strPlayerName: Human 1
     playerIcon: {fileID: 21300000, guid: e0fc4e5ebb39e6546905a857258a1b4f, type: 3}
-  genericInputCancelEvent: {fileID: 11400000, guid: 17b0e1da174f83b46835097e1b4a71ae,
-    type: 2}
-  genericInputDownEvent: {fileID: 11400000, guid: 92d2b48c3499f4d4bbe1c05c0b17604d,
-    type: 2}
-  genericInputLeftEvent: {fileID: 11400000, guid: 56a836234f57d1d4488070a6f0525623,
-    type: 2}
-  genericInputRightEvent: {fileID: 11400000, guid: 610bd98e92cd7594886805ffc5113d5a,
-    type: 2}
-  genericInputSubmitEvent: {fileID: 11400000, guid: 7de4ebb9566eadc40bcdb2fb7620cdfb,
-    type: 2}
-  genericInputUpEvent: {fileID: 11400000, guid: e1ff530b4a5726845950870d5ff0d2b6,
-    type: 2}
---- !u!114 &802697505
+--- !u!114 &802697517
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -394,19 +424,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 802697500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fc0c363f18e4f8d9912bccc03f20a33, type: 3}
+  m_Script: {fileID: 11500000, guid: f713ff993e054ac19e8a45a1e717e83e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model:
-    intPlayerNumber: 1
-    strPlayerName: Human 1
-    playerIcon: {fileID: 21300000, guid: e0fc4e5ebb39e6546905a857258a1b4f, type: 3}
-  mouseOver: {fileID: 0}
-  genericMouseOnEvent: {fileID: 11400000, guid: 40b1dd1696045ab4ca8bc542abef2fd9,
-    type: 2}
-  genericMouseOffEvent: {fileID: 11400000, guid: 9c88ae46a13bf134fadf75dfce5e8b82,
-    type: 2}
---- !u!114 &802697506
+  <MouseCanOverride>k__BackingField: 1
+  <EventSystem>k__BackingField: {fileID: 802697502}
+  <Raycaster>k__BackingField: {fileID: 1904161712}
+  <MainCamera>k__BackingField: {fileID: 1812853794}
+  <RayMaxDistance>k__BackingField: 100
+  <RayLayerMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 0
+  <OnRaycastHitsChanged>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 802697518}
+        m_TargetAssemblyTypeName: MVC.Player.NewPlayerMouseOverController, Assembly-CSharp
+        m_MethodName: HandleRaycastHitsChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  <OnUIRaycastResultsChanged>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 802697518}
+        m_TargetAssemblyTypeName: MVC.Player.NewPlayerMouseOverController, Assembly-CSharp
+        m_MethodName: HandleUIRaycastResultsChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &802697518
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -415,28 +474,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 802697500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c02277ef3b34480daafdd02f890732ef, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e3bbce1e37441a7882d2cb65470fff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model:
-    intPlayerNumber: 0
-    strPlayerName: 
-    playerIcon: {fileID: 0}
-  m_Raycaster: {fileID: 1904161712}
-  m_EventSystem: {fileID: 802697502}
-  genericInputCancelEvent: {fileID: 11400000, guid: 17b0e1da174f83b46835097e1b4a71ae,
-    type: 2}
-  genericInputDownEvent: {fileID: 11400000, guid: 92d2b48c3499f4d4bbe1c05c0b17604d,
-    type: 2}
-  genericInputLeftEvent: {fileID: 11400000, guid: 56a836234f57d1d4488070a6f0525623,
-    type: 2}
-  genericInputRightEvent: {fileID: 11400000, guid: 610bd98e92cd7594886805ffc5113d5a,
-    type: 2}
-  genericInputSubmitEvent: {fileID: 11400000, guid: 7de4ebb9566eadc40bcdb2fb7620cdfb,
-    type: 2}
-  genericInputUpEvent: {fileID: 11400000, guid: e1ff530b4a5726845950870d5ff0d2b6,
-    type: 2}
---- !u!114 &802697507
+  <Player>k__BackingField: {fileID: 802697516}
+  <Pointer>k__BackingField: {fileID: 802697517}
+  <MouseOverList>k__BackingField: []
+  <UIMouseOverList>k__BackingField: []
+--- !u!114 &802697519
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -445,18 +490,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 802697500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39634a7f695944b9bd3f27e6afc90da3, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fc46c26cf134f89bf881d54c0a541df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  genericInputSubmitEvent: {fileID: 11400000, guid: 7de4ebb9566eadc40bcdb2fb7620cdfb,
+  <ThePlayer>k__BackingField: {fileID: 802697516}
+  <Pointer>k__BackingField: {fileID: 802697517}
+  <GenericInputCancelEvent>k__BackingField: {fileID: 11400000, guid: 17b0e1da174f83b46835097e1b4a71ae,
     type: 2}
-  genericInputCancelEvent: {fileID: 11400000, guid: 17b0e1da174f83b46835097e1b4a71ae,
+  <GenericInputDownEvent>k__BackingField: {fileID: 11400000, guid: 92d2b48c3499f4d4bbe1c05c0b17604d,
     type: 2}
-  genericSelectedEvent: {fileID: 11400000, guid: 694944e5d83bf2543be337832108e824,
+  <GenericInputLeftEvent>k__BackingField: {fileID: 11400000, guid: 56a836234f57d1d4488070a6f0525623,
     type: 2}
-  genericDoubleSelectedEvent: {fileID: 11400000, guid: 3c1b9270a5fc79b4f9fdfef04d906b78,
+  <GenericInputRightEvent>k__BackingField: {fileID: 11400000, guid: 610bd98e92cd7594886805ffc5113d5a,
     type: 2}
-  genericDeselectedEvent: {fileID: 11400000, guid: a13aae5c77bb1b84594682181588db2e,
+  <GenericInputSubmitEvent>k__BackingField: {fileID: 11400000, guid: 7de4ebb9566eadc40bcdb2fb7620cdfb,
+    type: 2}
+  <GenericInputUpEvent>k__BackingField: {fileID: 11400000, guid: e1ff530b4a5726845950870d5ff0d2b6,
     type: 2}
 --- !u!1 &858763460
 GameObject:

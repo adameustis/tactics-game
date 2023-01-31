@@ -13,7 +13,7 @@ namespace ScriptableObjects.ConditionSO
         #region Methods
         public override bool IsMet(PlayerAndTransformEventModel context, Transform componentTransform)
         {
-            return context.Tf == componentTransform.GetComponentInParent<AbilityBattleMenuItemController>().transform;
+            return context.Tf == componentTransform.GetComponentInParent<AbilityDisplayController>().transform;
         }
         
         #endregion

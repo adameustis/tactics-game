@@ -19,9 +19,9 @@ namespace MVC.AbilityBattleMenu
         [field: Header("Fields")]
         [field: SerializeField] public Transform TransformBackground { get; private set; }
         [field: SerializeField] public Transform TransformForeground { get; private set; }
-        [field: SerializeField] public AbilityBattleMenuItemController MenuItemAvailablePrefab { get; private set; }
-        [field: SerializeField] public AbilityBattleMenuItemController MenuItemNoUsesPrefab { get; private set; }
-        [field: SerializeField] public List<AbilityBattleMenuItemController> MenuItemList { get; private set; }
+        [field: SerializeField] public AbilityController MenuItemAvailablePrefab { get; private set; }
+        [field: SerializeField] public AbilityController MenuItemNoUsesPrefab { get; private set; }
+        [field: SerializeField] public List<AbilityController> MenuItemList { get; private set; }
 
         #endregion
         #region Event Properties
@@ -50,7 +50,7 @@ namespace MVC.AbilityBattleMenu
         // public void DisplayEventHandler(PlayerAndTransformEventModel eventModel)
         // {
         //     UnitBattleController unit = eventModel.Tf.GetComponent<UnitBattleController>();
-        //     List<AbilityModel> abilityModelArray = unit.Model.UnitAbilities;
+        //     List<AbilityModel> abilityModelArray = unit.ThePlayer.UnitAbilities;
         //     if (abilityModelArray == null)
         //         return;
         //
@@ -100,7 +100,7 @@ namespace MVC.AbilityBattleMenu
 
         public void AddMenuItem(AbilityModel abilityModel, UnitBattleController unit)
         {
-            AbilityBattleMenuItemController abilityController;
+            AbilityController abilityController;
             if (abilityModel.EffectiveUses < 1)
                 abilityController = Instantiate(MenuItemNoUsesPrefab, TransformForeground);
             else
@@ -115,7 +115,7 @@ namespace MVC.AbilityBattleMenu
             if (MenuItemList == null) return;
             if (MenuItemList.Count == 0) return;
 
-            foreach (AbilityBattleMenuItemController controller in MenuItemList)
+            foreach (AbilityController controller in MenuItemList)
             {
                 Destroy(controller.gameObject);
             }

@@ -1,121 +1,91 @@
-﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using MVC.EventModel;
 using ScriptableObjects.EventSO;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
-[System.Serializable]
-public class PlayerMouseOverController : MonoBehaviour
+namespace MVC.Player
 {
-    #region Fields
-
-    [SerializeField] private PlayerModel model; // This will need to come from somewhere in future
-    [SerializeField] private Controls view;
-    [SerializeField] private MouseOverController mouseOver;
-
-    #endregion
-    #region Events
-    
-    [SerializeField] private EventAbstractSO<UnityEventPlayerModelAndTransform> genericMouseOnEvent;
-    [SerializeField] private EventAbstractSO<UnityEventPlayerModelAndTransform> genericMouseOffEvent;
-    
-    #endregion
-    #region Properties
-
-    public PlayerModel Model { get => model; set => model = value; }
-    public Controls View { get => view; set => view = value; }
-    public MouseOverController MouseOver { get => mouseOver; set => mouseOver = value; }
-
-    #endregion
-    #region Event Properties
-
-    public EventAbstractSO<UnityEventPlayerModelAndTransform> GenericMouseOnEvent
+    public class PlayerMouseOverController : MonoBehaviour
     {
-        get => genericMouseOnEvent;
-        set => genericMouseOnEvent = value;
-    }
+        #region Fields
+        #endregion
+        #region Events
+        #endregion
+        #region Properties
 
-    public EventAbstractSO<UnityEventPlayerModelAndTransform> GenericMouseOffEvent
-    {
-        get => genericMouseOffEvent;
-        set => genericMouseOffEvent = value;
-    }
+        [field: SerializeField] public PlayerController Player  { get; private set; }
+        [field: SerializeField] public PlayerPointer Pointer { get; private set; }
 
-    #endregion
-    #region MonoBehaviour
-    #endregion
-    #region Methods
+        [field: SerializeField] public List<MouseOverController> MouseOverList { get; private set; } = new();
+        [field: SerializeField] public List<MouseOverController> UIMouseOverList { get; private set; } = new();
 
-    public void OnDisable()
-    {
-        UnsubscribeFromActions();
-        View.Player.Disable();
-    }
+        #endregion
+        #region Event Properties
+        #endregion
+        #region MonoBehaviour
+        #endregion
+        #region Methods
 
-    public void OnEnable()
-    {
-        DontDestroyOnLoad(this.gameObject);
-        View = new Controls();
-        SubscribeToActions();
-        View.Player.Enable();
-    }
+        public void HandleRaycastHitsChanged(RaycastHit[] raycastHits)
+        {
+            List<MouseOverController> newMouseOverList = new();
+            
+            // Check for mouse over components to add to a new list
+            foreach (var hit in raycastHits.Where(hit => hit.collider.enabled))
+            {
+                if (hit.transform.TryGetComponent(out MouseOverController mouseOverController))
+                    newMouseOverList.Add(mouseOverController);
+            }
 
-    public void SubscribeToActions()
-    {
-        View.Player.Cursor.performed += HandleInputCursor;
-    }
-
-    public void UnsubscribeFromActions()
-    {
-        View.Player.Cursor.performed -= HandleInputCursor;
-    }
-    
-    public void HandleInputCursor(InputAction.CallbackContext context)
-    {
-        if (Camera.main == null) return;
+            CheckForMouseOff(MouseOverList, newMouseOverList);
+            CheckForMouseOn(MouseOverList, newMouseOverList);
+            MouseOverList = newMouseOverList;
+        }
         
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-        //RaycastHit[] hits = Physics.RaycastAll(ray);
-        if (Physics.Raycast(ray, out hit, 100.0f))
+        // UI
+        public void HandleUIRaycastResultsChanged(List<RaycastResult> uIRayCastResults)
         {
-            Debug.Log(hit);
-            MouseOverController hitController = hit.transform.GetComponent<MouseOverController>();
-            if (hitController == null)
+            List<MouseOverController> newMouseOverList = new();
+
+            // Check for mouse over components to add to a new list
+            foreach (var result in uIRayCastResults.Where(result => result.gameObject.activeSelf))
             {
-                MouseOff();
+                if (result.gameObject.TryGetComponent(out MouseOverController mouseOverController))
+                    newMouseOverList.Add(mouseOverController);
             }
-            else
-            {
-                MouseOn(hitController);
-            }
+            
+            CheckForMouseOff(UIMouseOverList, newMouseOverList);
+            CheckForMouseOn(UIMouseOverList, newMouseOverList);
+            UIMouseOverList = newMouseOverList;
         }
-        else
+
+        private void CheckForMouseOn(List<MouseOverController> existingList, List<MouseOverController> newList)
         {
-            MouseOff();
+            // Check if there are any new list mouse over components not in the existing
+            foreach (var mouseOnController in newList.Except(existingList))
+                MouseOn(mouseOnController);
         }
-    }
+        
+        private void CheckForMouseOff(List<MouseOverController> existingList, List<MouseOverController> newList)
+        {
+            // Check if there are any existing mouse over components not in the new list
+            foreach (var mouseOffController in existingList.Except(newList)) 
+                MouseOff(mouseOffController);
+        }
 
-    public void MouseOff()
-    {
-        if (MouseOver == null) return;
-        PlayerAndTransformEventModel eventModel = new PlayerAndTransformEventModel(Model, MouseOver.transform);
-        MouseOver.EventInputMouseOff.UnityEvent?.Invoke(eventModel);
-        GenericMouseOffEvent.UnityEvent.Invoke(eventModel);
-        MouseOver = null;
-    }
+        private void MouseOn(MouseOverController mouseOnController)
+        {
+            mouseOnController.EventInputMouseOn.UnityEvent.Invoke(new PlayerAndTransformEventModel(Player.Model, mouseOnController.transform));
+        }
 
-    public void MouseOn(MouseOverController hitController)
-    {
-        if (MouseOver == hitController) return;
-        MouseOff();
-        MouseOver = hitController;
-        PlayerAndTransformEventModel eventModel = new PlayerAndTransformEventModel(Model, hitController.transform);
-        hitController.EventInputMouseOn.UnityEvent?.Invoke(eventModel);
-        GenericMouseOnEvent.UnityEvent.Invoke(eventModel);
+        private void MouseOff(MouseOverController mouseOffController)
+        {
+            mouseOffController.EventInputMouseOff.UnityEvent.Invoke(new PlayerAndTransformEventModel(Player.Model, mouseOffController.transform));
+        }
+        
+        #endregion
     }
-
-    #endregion
 }

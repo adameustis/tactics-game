@@ -17,7 +17,7 @@ namespace ScriptableObjects.ConditionSO
         public override bool IsMet(PlayerAndTransformEventModel context, Transform componentTransform)
         {
             List<AbilityModel> unitAbilities = context.Tf.GetComponent<UnitBattleController>().Model.UnitAbilities;
-            int transformIndex = componentTransform.GetComponentInParent<AbilityBattleMenuItemController>().transform.GetSiblingIndex();
+            int transformIndex = componentTransform.GetComponentInParent<AbilityDisplayController>().transform.GetSiblingIndex();
 
             if (unitAbilities.Count < transformIndex) return false;
             

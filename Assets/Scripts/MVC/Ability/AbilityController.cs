@@ -21,11 +21,11 @@ public class AbilityController: MonoBehaviour, IEventSubscriptions {
     #region Constructors
     #endregion
     #region MonoBehaviour
-    public virtual void Start()
+    public virtual void OnEnable()
     {
-        Initialise(Model);
+        SubscribeToEvents();
     }
-    public void OnDestroy()
+    public void OnDisable()
     {
         UnsubscribeFromEvents();
     }
@@ -60,7 +60,6 @@ public class AbilityController: MonoBehaviour, IEventSubscriptions {
     public void Initialise(AbilityModel setModel)
     {
         Model = setModel;
-        SubscribeToEvents();
     }
 
     #endregion

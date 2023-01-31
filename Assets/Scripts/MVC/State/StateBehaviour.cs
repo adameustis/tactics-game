@@ -4,6 +4,7 @@ using MVC.EventModel;
 using UnityEngine;
 using MVC.StateController;
 using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
+using UnityEngine.Events;
 
 namespace MVC.State
 {
@@ -16,8 +17,10 @@ namespace MVC.State
         #endregion
         #region Event Properties
         [field: Header("Events")]
-        [field: SerializeField] public EventPlayerModelAndTransformSO OnEnter { get; protected set; }
-        [field: SerializeField] public EventPlayerModelAndTransformSO OnExit { get; protected set; }
+        [field: SerializeField] public EventPlayerModelAndTransformSO PublicOnEnter { get; protected set; }
+        [field: SerializeField] public EventPlayerModelAndTransformSO PublicOnExit { get; protected set; }
+        [field: SerializeField] public UnityEvent<PlayerAndTransformEventModel> LocalOnEnter { get; protected set; }
+        [field: SerializeField] public UnityEvent<PlayerAndTransformEventModel> LocalOnExit { get; protected set; }
         #endregion
         #region MonoBehaviour
 
@@ -34,13 +37,15 @@ namespace MVC.State
         {
             gameObject.SetActive(true);
             DataQueue.Add(new StateData(context)); // Can record more than context if necessary
-            OnEnter.UnityEvent.Invoke(context);
+            PublicOnEnter.UnityEvent.Invoke(context);
+            LocalOnEnter.Invoke(context);
         }
 
         public virtual void ReturnToState(PlayerAndTransformEventModel context)
         {
             gameObject.SetActive(true);
-            OnEnter.UnityEvent.Invoke(context);
+            PublicOnEnter.UnityEvent.Invoke(context);
+            LocalOnEnter.Invoke(context);
         }
         
         public virtual void ExitState(PlayerAndTransformEventModel context, bool save)
@@ -48,7 +53,8 @@ namespace MVC.State
             if (!save)
                 DataQueue.RemoveAt(DataQueue.Count - 1);
             
-            OnExit.UnityEvent.Invoke(context);
+            PublicOnExit.UnityEvent.Invoke(context);
+            LocalOnExit.Invoke(context);
             gameObject.SetActive(false);
         }
 

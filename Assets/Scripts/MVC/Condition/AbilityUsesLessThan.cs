@@ -9,7 +9,7 @@ namespace MVC.Condition
     {
         #region Properties
         [field: Header("Fields")]
-        [field: SerializeField] public AbilityBattleMenuItemController Controller { get; private set; }
+        [field: SerializeField] public AbilityController Controller { get; private set; }
         [field: SerializeField] public int LessThan { get; private set; }
 
         #endregion
@@ -17,7 +17,7 @@ namespace MVC.Condition
         
         public override bool IsMet(PlayerAndTransformEventModel context)
         {
-            return Controller.Ability.EffectiveUses < LessThan;
+            return Controller.Model.EffectiveUses < LessThan;
         }
         
         #endregion

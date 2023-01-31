@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MVC.EventModel;
 using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,30 +10,68 @@ public class InputController : MonoBehaviour
     #region Fields
     #endregion
     #region Events
-
-    [SerializeField] private EventPlayerModelAndTransformSO eventInputCancel;
-    [SerializeField] private EventPlayerModelAndTransformSO eventInputDown;
-    [SerializeField] private EventPlayerModelAndTransformSO eventInputLeft;
-    [SerializeField] private EventPlayerModelAndTransformSO eventInputRight;
-    [SerializeField] private EventPlayerModelAndTransformSO eventInputSubmit;
-    [SerializeField] private EventPlayerModelAndTransformSO eventInputUp;
-
     #endregion
     #region Properties
 
     #endregion
     #region Event Properties
 
-    public EventPlayerModelAndTransformSO EventInputCancel { get => eventInputCancel; set => eventInputCancel = value; }
-    public EventPlayerModelAndTransformSO EventInputDown { get => eventInputDown; set => eventInputDown = value; }
-    public EventPlayerModelAndTransformSO EventInputLeft { get => eventInputLeft; set => eventInputLeft = value; }
-    public EventPlayerModelAndTransformSO EventInputRight { get => eventInputRight; set => eventInputRight = value; }
-    public EventPlayerModelAndTransformSO EventInputSubmit { get => eventInputSubmit; set => eventInputSubmit = value; }
-    public EventPlayerModelAndTransformSO EventInputUp { get => eventInputUp; set => eventInputUp = value; }
+    [field: Header("Public Events")]
+    [field: SerializeField] public EventPlayerModelAndTransformSO EventInputCancel { get; private set; }
+    [field: SerializeField] public EventPlayerModelAndTransformSO EventInputDown { get; private set; }
+    [field: SerializeField] public EventPlayerModelAndTransformSO EventInputLeft { get; private set; }
+    [field: SerializeField] public EventPlayerModelAndTransformSO EventInputRight { get; private set; }
+    [field: SerializeField] public EventPlayerModelAndTransformSO EventInputSubmit { get; private set; }
+    [field: SerializeField] public EventPlayerModelAndTransformSO EventInputUp { get; private set; }
+    
+    [field: Header("Local Events")]
+    [field: SerializeField] public UnityEvent<PlayerAndTransformEventModel> LocalInputCancel { get; private set; }
+    [field: SerializeField] public UnityEvent<PlayerAndTransformEventModel> LocalInputDown { get; private set; }
+    [field: SerializeField] public UnityEvent<PlayerAndTransformEventModel> LocalInputLeft { get; private set; }
+    [field: SerializeField] public UnityEvent<PlayerAndTransformEventModel> LocalInputRight { get; private set; }
+    [field: SerializeField] public UnityEvent<PlayerAndTransformEventModel> LocalInputSubmit { get; private set; }
+    [field: SerializeField] public UnityEvent<PlayerAndTransformEventModel> LocalInputUp { get; private set; }
 
     #endregion
     #region MonoBehaviour
     #endregion
     #region Methods
+    
+    public void InvokeInputCancel(PlayerAndTransformEventModel context)
+    {
+        EventInputCancel.UnityEvent?.Invoke(context);
+        LocalInputCancel?.Invoke(context);
+    }
+    
+    public void InvokeInputDown(PlayerAndTransformEventModel context)
+    {
+        EventInputDown.UnityEvent?.Invoke(context);
+        LocalInputDown?.Invoke(context);
+    }
+    
+    public void InvokeInputLeft(PlayerAndTransformEventModel context)
+    {
+        EventInputLeft.UnityEvent?.Invoke(context);
+        LocalInputLeft?.Invoke(context);
+    }
+    
+    public void InvokeInputRight(PlayerAndTransformEventModel context)
+    {
+        EventInputRight.UnityEvent?.Invoke(context);
+        LocalInputRight?.Invoke(context);
+    }
+    
+    public void InvokeInputSubmit(PlayerAndTransformEventModel context)
+    {
+        EventInputSubmit.UnityEvent?.Invoke(context);
+        LocalInputSubmit?.Invoke(context);
+    }
+    
+    public void InvokeInputUp(PlayerAndTransformEventModel context)
+    {
+        EventInputUp.UnityEvent?.Invoke(context);
+        LocalInputUp?.Invoke(context);
+    }
+    
     #endregion
 }

@@ -49,7 +49,6 @@ GameObject:
   - component: {fileID: 4453633436354516}
   - component: {fileID: 65871995062682306}
   - component: {fileID: 4522351997147720382}
-  - component: {fileID: 9065201428391111866}
   - component: {fileID: 7976643282348615478}
   - component: {fileID: -7568009581832451006}
   - component: {fileID: 5423929733690287866}
@@ -57,6 +56,7 @@ GameObject:
   - component: {fileID: -930463139273015366}
   - component: {fileID: -5837797467928721577}
   - component: {fileID: 4259875240884556619}
+  - component: {fileID: 5972404942948725330}
   m_Layer: 0
   m_Name: Cell
   m_TagString: Cell
@@ -118,24 +118,6 @@ MonoBehaviour:
     cellIsAirDestination: 0
     cellHasResidentUnit: 0
   gameManager: {fileID: 11400000, guid: f8798db92ab8b644ba8e5728d7a283e1, type: 2}
---- !u!114 &9065201428391111866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1255014964867912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40e52bb032cfbad41b362a8898ee51c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventInputCancel: {fileID: 11400000, guid: 42503fcc2ca6db84996a9b700cacda97, type: 2}
-  eventInputDown: {fileID: 11400000, guid: cd95af7bfb4ec89429bb8c7f6ae3989c, type: 2}
-  eventInputLeft: {fileID: 11400000, guid: 69d133e3899aede42bb6c39ef0e14783, type: 2}
-  eventInputRight: {fileID: 11400000, guid: b38efa3cc81a48643a975c86c12b819e, type: 2}
-  eventInputSubmit: {fileID: 11400000, guid: 316499cd1ffa6e44e8f6a22fe2d86759, type: 2}
-  eventInputUp: {fileID: 11400000, guid: e5112e5fe6bec63469a0c14c2f3fa5e9, type: 2}
 --- !u!114 &7976643282348615478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,9 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69a8494f8214044ba837560c7f14bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model:
+  data:
     isSelected: 0
-    eventIsSelectedChanged:
+    isSelectedChanged:
       m_PersistentCalls:
         m_Calls: []
   selectedEvent: {fileID: 11400000, guid: 8ac2772ce8f04fa491952bc598f9aafb, type: 2}
@@ -199,8 +181,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineAnimator: {fileID: 4673033686670993102}
-  eventDeselect: {fileID: 11400000, guid: 72866b4226614d01b6a6d97544d054ca, type: 2}
-  eventSelect: {fileID: 11400000, guid: 8ac2772ce8f04fa491952bc598f9aafb, type: 2}
 --- !u!114 &-930463139273015366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +246,23 @@ MonoBehaviour:
   highlightAnimator: {fileID: 543990905817078209}
   eventInputMouseOff: {fileID: 11400000, guid: 1be2853d78b6b6a4983e97d1447c2d9d, type: 2}
   eventInputMouseOn: {fileID: 11400000, guid: 63c7a68bd6819314bb29e560c8d11a07, type: 2}
+--- !u!114 &5972404942948725330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255014964867912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a443e5f823a4999b71dc7fd4ac2a444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <PublicInput>k__BackingField: {fileID: 11400000, guid: 316499cd1ffa6e44e8f6a22fe2d86759,
+    type: 2}
+  <LocalInput>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &458524032628445946
 PrefabInstance:
   m_ObjectHideFlags: 0

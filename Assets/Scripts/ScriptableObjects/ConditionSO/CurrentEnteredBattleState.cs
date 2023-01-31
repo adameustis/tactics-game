@@ -21,7 +21,7 @@ namespace ScriptableObjects.ConditionSO
         #endregion
         public override bool IsMet(PlayerAndTransformEventModel context, Transform componentTransform)
         {
-            return Manager.BattleStateList.Last().OnEnter == RequiredEnteredState;
+            return Manager.BattleStateList.Last().PublicOnEnter == RequiredEnteredState;
         }
     }
 }
