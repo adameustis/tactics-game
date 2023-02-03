@@ -25,6 +25,12 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
         type: 3}
+      propertyPath: model.staticData
+      value: 
+      objectReference: {fileID: 11400000, guid: 26cd2ed4e6522cc4aa4c7cfee922b2a7,
+        type: 2}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
       propertyPath: controller.model.unitIcon
       value: 
       objectReference: {fileID: 21300000, guid: 95162c504f8a0bb45a000b830884b0fc,
@@ -149,12 +155,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40e52bb032cfbad41b362a8898ee51c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventInputCancel: {fileID: 11400000, guid: 095ed5e1959bd044a85305a63efb49b7, type: 2}
-  eventInputDown: {fileID: 11400000, guid: 25fee3c549025894480bbe80631700e7, type: 2}
-  eventInputLeft: {fileID: 11400000, guid: 2bb608eb5dd248643bf6e4b821cbc8fb, type: 2}
-  eventInputRight: {fileID: 11400000, guid: 5bfe26b04a8402244a5aec65ccab790b, type: 2}
-  eventInputSubmit: {fileID: 11400000, guid: 3841df6e360c8d14c968c013701042ba, type: 2}
-  eventInputUp: {fileID: 11400000, guid: a34c914e29acc0e43afffff11181a7f5, type: 2}
+  <EventInputCancel>k__BackingField: {fileID: 0}
+  <EventInputDown>k__BackingField: {fileID: 0}
+  <EventInputLeft>k__BackingField: {fileID: 0}
+  <EventInputRight>k__BackingField: {fileID: 0}
+  <EventInputSubmit>k__BackingField: {fileID: 0}
+  <EventInputUp>k__BackingField: {fileID: 0}
+  <LocalInputCancel>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalInputDown>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalInputLeft>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalInputRight>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalInputSubmit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalInputUp>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &4337215191576331937
 PrefabInstance:
   m_ObjectHideFlags: 0

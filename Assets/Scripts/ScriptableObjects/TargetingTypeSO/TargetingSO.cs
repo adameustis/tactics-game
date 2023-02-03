@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ScriptableObjects.EventSO;
 using UnityEngine;
+using UnityEvents;
 
 [CreateAssetMenu(fileName = "TargetingTypeSO", menuName = "ScriptableObjects/TargetingTypeSO")]
 [System.Serializable]

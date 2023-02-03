@@ -1,5 +1,4 @@
 using MVC.EventModel;
-using ScriptableObjects.ConditionSO;
 using ScriptableObjects.Manager;
 using UnityEngine;
 

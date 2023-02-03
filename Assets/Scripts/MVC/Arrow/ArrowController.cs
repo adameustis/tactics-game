@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MVC.Cell;
 using UnityEngine;
 
 [System.Serializable]
@@ -31,7 +32,7 @@ public class ArrowController : MonoBehaviour
     #region MonoBehaviour
     public virtual void Start()
     {
-        Initialise(transform.GetComponent<CellBattleController>().Model);
+        Initialise(transform.GetComponent<CellController>().Model);
     }
 
     #endregion

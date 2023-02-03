@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using MVC.Unit;
 
 [CreateAssetMenu(fileName = "TurnManagerSO", menuName = "ScriptableObjects/Manager/TurnManagerSO")]
 public class TurnManagerSO : ScriptableObject, ISerializationCallbackReceiver

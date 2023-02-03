@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using MVC.EventModel;
 using UnityEngine;
-using MVC.StateController;
 using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using UnityEngine.Events;
 
@@ -12,7 +11,7 @@ namespace MVC.State
     {
         #region Properties
         [field: Header("Fields")]
-        [field: SerializeField] public StateController.StateMachine Machine { get; protected set; }
+        [field: SerializeField] public StateMachine.StateMachine Machine { get; protected set; }
         [field: SerializeField] public List<StateData> DataQueue { get; protected set; } = new();
         #endregion
         #region Event Properties

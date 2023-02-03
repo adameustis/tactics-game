@@ -1,4 +1,6 @@
-﻿using MVC.EventModel;
+﻿using MVC.Cell;
+using MVC.EventModel;
+using MVC.Unit;
 using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using UnityEngine;
 
@@ -118,7 +120,7 @@ namespace MVC.Move
                 return;
 
             Model.TransformPosition = context.Tf.position;
-            Model.UnitCellResidence = context.Tf.GetComponent<CellBattleController>().Model;
+            Model.UnitCellResidence = context.Tf.GetComponent<CellController>().Model;
         }
 
         public void HandleBeginTargetingWhilstMoving(PlayerAndTransformEventModel context)
@@ -148,7 +150,7 @@ namespace MVC.Move
 
         public void Start()
         {
-            if (TryGetComponent(out UnitBattleController unit))
+            if (TryGetComponent(out UnitController unit))
                 Model = unit.Model;
 
             SubscribeToUnselectedOnTurnEvents();

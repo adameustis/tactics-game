@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using MVC.Ability;
 using MVC.Target;
 using MVC.TargetCell;
+using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -52,6 +54,8 @@ public class AbilitySO : ScriptableObject
         set => targetCellPrefab = value;
     }
 
+    [field: SerializeField] public AbilityController TargetingPrefab { get; private set; }
+    
     #endregion
     #region Event Properties
     #endregion

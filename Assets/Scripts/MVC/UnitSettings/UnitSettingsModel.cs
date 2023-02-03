@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MVC.Unit;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,7 +13,7 @@ public class UnitSettingsModel
     [SerializeField] private int unitNumber;
     [SerializeField] private string unitName;
     [SerializeField] private PointStruct point;
-    [SerializeField] private UnitBattleController prefab;
+    [SerializeField] private UnitController prefab;
 
     #endregion
     #region Events
@@ -76,7 +77,7 @@ public class UnitSettingsModel
         }
     }
 
-    public UnitBattleController Prefab
+    public UnitController Prefab
     {
         get
         {

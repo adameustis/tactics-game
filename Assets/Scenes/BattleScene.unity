@@ -157,8 +157,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Machine>k__BackingField: {fileID: 1698433602}
   <DataQueue>k__BackingField: []
-  <OnEnter>k__BackingField: {fileID: 0}
-  <OnExit>k__BackingField: {fileID: 0}
+  <PublicOnEnter>k__BackingField: {fileID: 0}
+  <PublicOnExit>k__BackingField: {fileID: 0}
+  <LocalOnEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalOnExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &35903165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,8 +262,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Machine>k__BackingField: {fileID: 1698433602}
   <DataQueue>k__BackingField: []
-  <OnEnter>k__BackingField: {fileID: 0}
-  <OnExit>k__BackingField: {fileID: 0}
+  <PublicOnEnter>k__BackingField: {fileID: 0}
+  <PublicOnExit>k__BackingField: {fileID: 0}
+  <LocalOnEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalOnExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &173645655
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 173645656}
   m_Layer: 0
-  m_Name: Targetting
+  m_Name: Targeting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -508,7 +520,7 @@ PrefabInstance:
     - target: {fileID: 224527125746491698, guid: 62625907ade588548bbb7830f8bff038,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 577.5
+      value: 1340
       objectReference: {fileID: 0}
     - target: {fileID: 224527125746491698, guid: 62625907ade588548bbb7830f8bff038,
         type: 3}
@@ -580,7 +592,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1080619815}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &386363069
 MonoBehaviour:
@@ -596,10 +608,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Machine>k__BackingField: {fileID: 1080619816}
   <DataQueue>k__BackingField: []
-  <OnEnter>k__BackingField: {fileID: 11400000, guid: 5b8869d896507bb4cbe865e1e8a3ab3e,
-    type: 2}
-  <OnExit>k__BackingField: {fileID: 11400000, guid: f40a54b4176f6c74780f9c4aab24e8e9,
-    type: 2}
+  <PublicOnEnter>k__BackingField: {fileID: 0}
+  <PublicOnExit>k__BackingField: {fileID: 0}
+  <LocalOnEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalOnExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!224 &412593472 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8645515983801492694, guid: 73c1353bb25977d4080c46f66205bfd7,
@@ -636,7 +652,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1080619815}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &414417716
 MonoBehaviour:
@@ -652,10 +668,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Machine>k__BackingField: {fileID: 1080619816}
   <DataQueue>k__BackingField: []
-  <OnEnter>k__BackingField: {fileID: 11400000, guid: 5b8869d896507bb4cbe865e1e8a3ab3e,
-    type: 2}
-  <OnExit>k__BackingField: {fileID: 11400000, guid: f40a54b4176f6c74780f9c4aab24e8e9,
-    type: 2}
+  <PublicOnEnter>k__BackingField: {fileID: 0}
+  <PublicOnExit>k__BackingField: {fileID: 0}
+  <LocalOnEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalOnExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &462590621
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,10 +724,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Machine>k__BackingField: {fileID: 1698433602}
   <DataQueue>k__BackingField: []
-  <OnEnter>k__BackingField: {fileID: 11400000, guid: 3b7501768077fca4e9a5bcb726081219,
+  <PublicOnEnter>k__BackingField: {fileID: 11400000, guid: 3b7501768077fca4e9a5bcb726081219,
     type: 2}
-  <OnExit>k__BackingField: {fileID: 11400000, guid: 44ee276d1708eba48b053a41b8c5f4f6,
+  <PublicOnExit>k__BackingField: {fileID: 11400000, guid: 44ee276d1708eba48b053a41b8c5f4f6,
     type: 2}
+  <LocalOnEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalOnExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &462590625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,7 +751,7 @@ MonoBehaviour:
     type: 2}
   <ConditionsList>k__BackingField: []
   <TriggerEventsList>k__BackingField:
-  - {fileID: 11400000, guid: a7ef27c6f97dc124d8f4c1d8681a738d, type: 2}
+  - {fileID: 11400000, guid: 13ad4756a3676eb4f93382675d6d8175, type: 2}
 --- !u!114 &462590626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -874,10 +900,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Machine>k__BackingField: {fileID: 1698433602}
   <DataQueue>k__BackingField: []
-  <OnEnter>k__BackingField: {fileID: 11400000, guid: 8ff6fb927c6cd5241ab18dfb8477cc88,
+  <PublicOnEnter>k__BackingField: {fileID: 11400000, guid: 8ff6fb927c6cd5241ab18dfb8477cc88,
     type: 2}
-  <OnExit>k__BackingField: {fileID: 11400000, guid: 3aadabb6b9107bd4fa7e871937fcc617,
+  <PublicOnExit>k__BackingField: {fileID: 11400000, guid: 3aadabb6b9107bd4fa7e871937fcc617,
     type: 2}
+  <LocalOnEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalOnExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &851463284
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,10 +957,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Machine>k__BackingField: {fileID: 1698433602}
   <DataQueue>k__BackingField: []
-  <OnEnter>k__BackingField: {fileID: 11400000, guid: 2e64c5b7f04d4484e89cd0b524792780,
+  <PublicOnEnter>k__BackingField: {fileID: 11400000, guid: 2e64c5b7f04d4484e89cd0b524792780,
     type: 2}
-  <OnExit>k__BackingField: {fileID: 11400000, guid: 5fd82af6394636641b47b1d234fc387f,
+  <PublicOnExit>k__BackingField: {fileID: 11400000, guid: 5fd82af6394636641b47b1d234fc387f,
     type: 2}
+  <LocalOnEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalOnExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &851463287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -977,7 +1015,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1080619815}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &925300791
 MonoBehaviour:
@@ -993,10 +1031,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Machine>k__BackingField: {fileID: 1080619816}
   <DataQueue>k__BackingField: []
-  <OnEnter>k__BackingField: {fileID: 11400000, guid: 5b8869d896507bb4cbe865e1e8a3ab3e,
-    type: 2}
-  <OnExit>k__BackingField: {fileID: 11400000, guid: f40a54b4176f6c74780f9c4aab24e8e9,
-    type: 2}
+  <PublicOnEnter>k__BackingField: {fileID: 0}
+  <PublicOnExit>k__BackingField: {fileID: 0}
+  <LocalOnEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalOnExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &958146084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,10 +1085,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Machine>k__BackingField: {fileID: 1698433602}
   <DataQueue>k__BackingField: []
-  <OnEnter>k__BackingField: {fileID: 11400000, guid: c8497450537891e458b0549ab7a8034f,
+  <PublicOnEnter>k__BackingField: {fileID: 11400000, guid: c8497450537891e458b0549ab7a8034f,
     type: 2}
-  <OnExit>k__BackingField: {fileID: 11400000, guid: 6afb06766ca631642b2604613185e936,
+  <PublicOnExit>k__BackingField: {fileID: 11400000, guid: 6afb06766ca631642b2604613185e936,
     type: 2}
+  <LocalOnEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalOnExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &984089280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,7 +1219,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1080619815}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1001254797
 MonoBehaviour:
@@ -1187,10 +1235,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Machine>k__BackingField: {fileID: 1080619816}
   <DataQueue>k__BackingField: []
-  <OnEnter>k__BackingField: {fileID: 11400000, guid: 5b8869d896507bb4cbe865e1e8a3ab3e,
-    type: 2}
-  <OnExit>k__BackingField: {fileID: 11400000, guid: f40a54b4176f6c74780f9c4aab24e8e9,
-    type: 2}
+  <PublicOnEnter>k__BackingField: {fileID: 0}
+  <PublicOnExit>k__BackingField: {fileID: 0}
+  <LocalOnEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalOnExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1028204235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,10 +1293,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Machine>k__BackingField: {fileID: 1698433602}
   <DataQueue>k__BackingField: []
-  <OnEnter>k__BackingField: {fileID: 11400000, guid: 945bde2fd929a814da28a77a55e4e5e3,
+  <PublicOnEnter>k__BackingField: {fileID: 11400000, guid: 945bde2fd929a814da28a77a55e4e5e3,
     type: 2}
-  <OnExit>k__BackingField: {fileID: 11400000, guid: 4211f2d5bb3e1fe45add5c7dafec9f5e,
+  <PublicOnExit>k__BackingField: {fileID: 11400000, guid: 4211f2d5bb3e1fe45add5c7dafec9f5e,
     type: 2}
+  <LocalOnEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalOnExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1028204239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1447,6 +1505,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1221915514}
+  - {fileID: 1586749415}
   - {fileID: 414417715}
   - {fileID: 1267615257}
   - {fileID: 925300790}
@@ -1502,7 +1561,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1080619815}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1132593401
 MonoBehaviour:
@@ -1518,10 +1577,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Machine>k__BackingField: {fileID: 1080619816}
   <DataQueue>k__BackingField: []
-  <OnEnter>k__BackingField: {fileID: 11400000, guid: 5b8869d896507bb4cbe865e1e8a3ab3e,
-    type: 2}
-  <OnExit>k__BackingField: {fileID: 11400000, guid: f40a54b4176f6c74780f9c4aab24e8e9,
-    type: 2}
+  <PublicOnEnter>k__BackingField: {fileID: 0}
+  <PublicOnExit>k__BackingField: {fileID: 0}
+  <LocalOnEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalOnExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1221915512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,6 +1595,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1221915514}
   - component: {fileID: 1221915513}
+  - component: {fileID: 1221915515}
   m_Layer: 0
   m_Name: Idle
   m_TagString: Untagged
@@ -1553,10 +1617,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Machine>k__BackingField: {fileID: 1080619816}
   <DataQueue>k__BackingField: []
-  <OnEnter>k__BackingField: {fileID: 11400000, guid: 93690edc83157ea45b142ca7f133bc9d,
+  <PublicOnEnter>k__BackingField: {fileID: 11400000, guid: 93690edc83157ea45b142ca7f133bc9d,
     type: 2}
-  <OnExit>k__BackingField: {fileID: 11400000, guid: ed059dcd3c3a641418ad6a91858cada3,
+  <PublicOnExit>k__BackingField: {fileID: 11400000, guid: ed059dcd3c3a641418ad6a91858cada3,
     type: 2}
+  <LocalOnEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalOnExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1221915514
 Transform:
   m_ObjectHideFlags: 0
@@ -1572,6 +1642,24 @@ Transform:
   m_Father: {fileID: 1080619815}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1221915515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221915512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddef07d05e8a4838b4f3c23c45ab9de6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <StateToTransitionTo>k__BackingField: {fileID: 1586749412}
+  <TransitionDirection>k__BackingField: {fileID: 11400000, guid: 687958ba1a94a9e41b9c81ba3da309a7,
+    type: 2}
+  <ConditionsList>k__BackingField: []
+  <TriggerEventsList>k__BackingField:
+  - {fileID: 11400000, guid: c8497450537891e458b0549ab7a8034f, type: 2}
 --- !u!1 &1267615256
 GameObject:
   m_ObjectHideFlags: 0
@@ -1602,7 +1690,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1080619815}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1267615258
 MonoBehaviour:
@@ -1618,10 +1706,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Machine>k__BackingField: {fileID: 1080619816}
   <DataQueue>k__BackingField: []
-  <OnEnter>k__BackingField: {fileID: 11400000, guid: 5b8869d896507bb4cbe865e1e8a3ab3e,
-    type: 2}
-  <OnExit>k__BackingField: {fileID: 11400000, guid: f40a54b4176f6c74780f9c4aab24e8e9,
-    type: 2}
+  <PublicOnEnter>k__BackingField: {fileID: 0}
+  <PublicOnExit>k__BackingField: {fileID: 0}
+  <LocalOnEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalOnExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1382960635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,7 +1744,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1080619815}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1382960637
 MonoBehaviour:
@@ -1668,10 +1760,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Machine>k__BackingField: {fileID: 1080619816}
   <DataQueue>k__BackingField: []
-  <OnEnter>k__BackingField: {fileID: 11400000, guid: 5b8869d896507bb4cbe865e1e8a3ab3e,
-    type: 2}
-  <OnExit>k__BackingField: {fileID: 11400000, guid: f40a54b4176f6c74780f9c4aab24e8e9,
-    type: 2}
+  <PublicOnEnter>k__BackingField: {fileID: 0}
+  <PublicOnExit>k__BackingField: {fileID: 0}
+  <LocalOnEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalOnExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1383449637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,7 +1798,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1080619815}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1383449639
 MonoBehaviour:
@@ -1718,10 +1814,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Machine>k__BackingField: {fileID: 1080619816}
   <DataQueue>k__BackingField: []
-  <OnEnter>k__BackingField: {fileID: 11400000, guid: 5b8869d896507bb4cbe865e1e8a3ab3e,
-    type: 2}
-  <OnExit>k__BackingField: {fileID: 11400000, guid: f40a54b4176f6c74780f9c4aab24e8e9,
-    type: 2}
+  <PublicOnEnter>k__BackingField: {fileID: 0}
+  <PublicOnExit>k__BackingField: {fileID: 0}
+  <LocalOnEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalOnExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1519214834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2133,6 +2233,119 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1586749411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1586749415}
+  - component: {fileID: 1586749412}
+  - component: {fileID: 1586749414}
+  - component: {fileID: 1586749413}
+  m_Layer: 0
+  m_Name: Targeting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1586749412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586749411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7f9dcdb17ac6b94fb22c35f5cbed2a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Machine>k__BackingField: {fileID: 1080619816}
+  <DataQueue>k__BackingField: []
+  <PublicOnEnter>k__BackingField: {fileID: 11400000, guid: 5b8869d896507bb4cbe865e1e8a3ab3e,
+    type: 2}
+  <PublicOnExit>k__BackingField: {fileID: 11400000, guid: f40a54b4176f6c74780f9c4aab24e8e9,
+    type: 2}
+  <LocalOnEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1586749413}
+        m_TargetAssemblyTypeName: MVC.Targeting.TargetingFactory, Assembly-CSharp
+        m_MethodName: SpawnTargeting
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  <LocalOnExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1586749413}
+        m_TargetAssemblyTypeName: MVC.Targeting.TargetingFactory, Assembly-CSharp
+        m_MethodName: DestroyTargeting
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1586749413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586749411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2a0975bd01145b2ac2d9f8090415623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <SpawnedTargeting>k__BackingField: {fileID: 0}
+--- !u!114 &1586749414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586749411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddef07d05e8a4838b4f3c23c45ab9de6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <StateToTransitionTo>k__BackingField: {fileID: 1221915513}
+  <TransitionDirection>k__BackingField: {fileID: 11400000, guid: 71ae047bcff4c5b44a39b2bb385b0a32,
+    type: 2}
+  <ConditionsList>k__BackingField: []
+  <TriggerEventsList>k__BackingField:
+  - {fileID: 11400000, guid: 6afb06766ca631642b2604613185e936, type: 2}
+--- !u!4 &1586749415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586749411}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1080619815}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1698433600
 GameObject:
   m_ObjectHideFlags: 0
@@ -2189,10 +2402,6 @@ MonoBehaviour:
   <DefaultState>k__BackingField: {fileID: 1028204238}
   <Manager>k__BackingField: {fileID: 11400000, guid: 5b8a56d5bfa83ed43867059ced9994b1,
     type: 2}
-  <MenuState>k__BackingField: {fileID: 0}
-  <UnitSelectedState>k__BackingField: {fileID: 0}
-  <TargetingState>k__BackingField: {fileID: 0}
-  <PerformingAbilityState>k__BackingField: {fileID: 601128330}
 --- !u!1 &1783924179
 GameObject:
   m_ObjectHideFlags: 0
@@ -2294,7 +2503,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Machine>k__BackingField: {fileID: 1698433602}
   <DataQueue>k__BackingField: []
-  <OnEnter>k__BackingField: {fileID: 11400000, guid: d507a205e16bc094898a8815687be0a5,
+  <PublicOnEnter>k__BackingField: {fileID: 11400000, guid: d507a205e16bc094898a8815687be0a5,
     type: 2}
-  <OnExit>k__BackingField: {fileID: 11400000, guid: 62b6936e88e8aaa44b1ab1eb27b36e60,
+  <PublicOnExit>k__BackingField: {fileID: 11400000, guid: 62b6936e88e8aaa44b1ab1eb27b36e60,
     type: 2}
+  <LocalOnEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <LocalOnExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []

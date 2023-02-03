@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MVC.Cell;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CellMapSO", menuName = "ScriptableObjects/Settings/CellMapSO")]
@@ -10,7 +11,7 @@ using UnityEngine;
     [Header("Values")]
     [SerializeField] private int gridWidth;
     [SerializeField] private int gridHeight;
-    [SerializeField] private CellBattleController[] prefabArray;
+    [SerializeField] private CellController[] prefabArray;
 
     #endregion
 
@@ -40,13 +41,13 @@ using UnityEngine;
         }
     }
 
-    public CellBattleController[] PrefabArray
+    public CellController[] PrefabArray
     {
         get
         {
             if(prefabArray == null)
             {
-                prefabArray = new CellBattleController[GridWidth * GridHeight];
+                prefabArray = new CellController[GridWidth * GridHeight];
             }
             return prefabArray;
         }

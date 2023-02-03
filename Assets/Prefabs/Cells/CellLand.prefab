@@ -234,6 +234,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4522351997147720382, guid: 6d859f50704f26c49b5889bd0ced90f4,
         type: 3}
+      propertyPath: model.staticData
+      value: 
+      objectReference: {fileID: 11400000, guid: 44c4eb67aec6d5244a3167a93335df72,
+        type: 2}
+    - target: {fileID: 4522351997147720382, guid: 6d859f50704f26c49b5889bd0ced90f4,
+        type: 3}
       propertyPath: controller.model.cellIcon
       value: 
       objectReference: {fileID: 21300000, guid: 9e6bff31165fa3d49807add6e2e05df9,

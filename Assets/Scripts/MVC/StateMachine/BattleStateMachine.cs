@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
 using MVC.EventModel;
-using MVC.State;
 using ScriptableObjects.Manager;
 using UnityEngine;
 
-namespace MVC.StateController
+namespace MVC.StateMachine
 {
     public class BattleStateMachine : StateMachine
     {
@@ -15,11 +12,6 @@ namespace MVC.StateController
         [field: Header("Fields")]
         [field: SerializeField] public StateManagerSO Manager { get; private set; }
 
-        [field: SerializeField] public StateBehaviour MenuState { get; private set; }
-        [field: SerializeField] public StateBehaviour UnitSelectedState { get; private set; }
-        [field: SerializeField] public StateBehaviour TargetingState { get; private set; }
-        [field: SerializeField] public StateBehaviour PerformingAbilityState { get; private set; }
-        
         #endregion
         #region MonoBehaviour
 
@@ -28,11 +20,9 @@ namespace MVC.StateController
             if (StateQueue.Count > 0)
                 return;
             StateQueue = Manager.BattleStateList;
-            Manager.BattleStateList.Add(DefaultState);
-            DefaultState.EnterState(new PlayerAndTransformEventModel(new PlayerModel(), transform)); // Player will need to come from somewhere
+            AdvanceToState(new PlayerAndTransformEventModel(new PlayerModel(), transform), DefaultState, false); // Player will need to come from somewhere
         }
         
         #endregion
-
     }
 }

@@ -45,14 +45,14 @@ public class Battle : MonoBehaviour
         GameManager.CellManager.CreateBattleCells(CellMap);
         GameManager.UnitManager.CreateUnits(UnitManagerSettings, GameManager.CellManager);
         GameManager.TurnManager.Initialise(GameManager.UnitManager.UnitModelList);
-        GameManager.UnitManager.UnitModelList[0].AddAbility(GameManager.AbilityManager.AbilityMove[0].DeepCopy());
-        GameManager.UnitManager.UnitModelList[0].AddAbility(GameManager.AbilityManager.AbilitySword[0].DeepCopy());
-        GameManager.UnitManager.UnitModelList[0].AddAbility(GameManager.AbilityManager.AbilityDefend[0].DeepCopy());
-        GameManager.UnitManager.UnitModelList[0].AddAbility(GameManager.AbilityManager.AbilityEndTurn[0].DeepCopy());
-        GameManager.UnitManager.UnitModelList[1].AddAbility(GameManager.AbilityManager.AbilityMove[0].DeepCopy());
-        GameManager.UnitManager.UnitModelList[1].AddAbility(GameManager.AbilityManager.AbilitySword[0].DeepCopy());
-        GameManager.UnitManager.UnitModelList[1].AddAbility(GameManager.AbilityManager.AbilityDefend[0].DeepCopy());
-        GameManager.UnitManager.UnitModelList[1].AddAbility(GameManager.AbilityManager.AbilityEndTurn[0].DeepCopy());
+        // GameManager.UnitManager.UnitModelList[0].AddAbility(GameManager.AbilityManager.AbilityMove[0].DeepCopy());
+        // GameManager.UnitManager.UnitModelList[0].AddAbility(GameManager.AbilityManager.AbilitySword[0].DeepCopy());
+        // GameManager.UnitManager.UnitModelList[0].AddAbility(GameManager.AbilityManager.AbilityDefend[0].DeepCopy());
+        // GameManager.UnitManager.UnitModelList[0].AddAbility(GameManager.AbilityManager.AbilityEndTurn[0].DeepCopy());
+        // GameManager.UnitManager.UnitModelList[1].AddAbility(GameManager.AbilityManager.AbilityMove[0].DeepCopy());
+        // GameManager.UnitManager.UnitModelList[1].AddAbility(GameManager.AbilityManager.AbilitySword[0].DeepCopy());
+        // GameManager.UnitManager.UnitModelList[1].AddAbility(GameManager.AbilityManager.AbilityDefend[0].DeepCopy());
+        // GameManager.UnitManager.UnitModelList[1].AddAbility(GameManager.AbilityManager.AbilityEndTurn[0].DeepCopy());
     }
     #endregion
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MVC.EventModel;
 using ScriptableObjects.EventSO;
 using UnityEngine;
+using UnityEvents;
 
 public class MouseOverHighlightCellPathingController : MonoBehaviour
 {

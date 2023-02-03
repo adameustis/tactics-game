@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MVC.Unit;
 using UnityEngine;
 
 [System.Serializable]
@@ -11,6 +12,7 @@ public class PlayerModel
     [SerializeField] private string strPlayerName;
     [SerializeField] private Sprite playerIcon;
     [SerializeField] private TeamModel team;
+    [SerializeField] private List<UnitModel> units;
 
     #endregion
     #region Events
@@ -21,7 +23,7 @@ public class PlayerModel
     public string StrPlayerName { get => strPlayerName; set => strPlayerName = value; }
     public Sprite PlayerIcon { get => playerIcon; set => playerIcon = value; }
     public TeamModel Team { get => team; set => team = value; }
-
+    public List<UnitModel> Units { get => units; set => units = value; }
 
     #endregion
     #region Event Properties

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MVC.Cell;
 using UnityEngine;
 
 public class PathModel : System.Object {

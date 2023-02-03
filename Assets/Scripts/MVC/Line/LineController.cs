@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MVC.Cell;
 using UnityEngine;
 
 public class LineController : MonoBehaviour
@@ -29,7 +30,7 @@ public class LineController : MonoBehaviour
     #region MonoBehaviour
     public virtual void Start()
     {
-        Initialise(transform.GetComponent<CellBattleController>().Model);
+        Initialise(transform.GetComponent<CellController>().Model);
     }
 
     #endregion

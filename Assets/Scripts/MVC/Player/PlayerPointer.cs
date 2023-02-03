@@ -112,8 +112,13 @@ namespace MVC.Player
         {
             RaycastHit[] newRaycastHits = Physics.RaycastAll(setRay, rayMaxDistance, rayLayerMask);
 
+            foreach (var hit in newRaycastHits)
+            {
+                Debug.Log(hit.transform.gameObject.name);
+            }
+            
             // Check if there hasn't been a change
-            if (!newRaycastHits.All(RaycastHits.Contains) || !RaycastHits.All(newRaycastHits.Contains)) return;
+            if (newRaycastHits.All(RaycastHits.Contains) && RaycastHits.All(newRaycastHits.Contains)) return;
 
             RaycastHits = newRaycastHits;
             OnRaycastHitsChanged.Invoke(newRaycastHits);
@@ -122,12 +127,17 @@ namespace MVC.Player
         private void SetUIRaycastHits(GraphicRaycaster setRaycaster, PointerEventData setPointerData)
         {
             List<RaycastResult> newUIRaycastResults = new();
-
+            
             //Raycast using the Graphics Raycaster and mouse click position
             setRaycaster.Raycast(setPointerData, newUIRaycastResults);
+
+            foreach (var hit in newUIRaycastResults)
+            {
+                Debug.Log(hit.gameObject.name);
+            }
             
             // Check if there hasn't been a change
-            if (!newUIRaycastResults.All(UIRaycastResults.Contains) || !UIRaycastResults.All(newUIRaycastResults.Contains)) return;
+            if (newUIRaycastResults.All(UIRaycastResults.Contains) && UIRaycastResults.All(newUIRaycastResults.Contains)) return;
 
             UIRaycastResults = newUIRaycastResults;
             OnUIRaycastResultsChanged.Invoke(newUIRaycastResults);

@@ -371,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dde61b624b6c46bd914b4fe7f35f6a67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <OnEnableIsTriggered>k__BackingField:
+  <OnTriggered>k__BackingField:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 802697515}
@@ -434,7 +434,7 @@ MonoBehaviour:
   <RayMaxDistance>k__BackingField: 100
   <RayLayerMask>k__BackingField:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2147483647
   <OnRaycastHitsChanged>k__BackingField:
     m_PersistentCalls:
       m_Calls:

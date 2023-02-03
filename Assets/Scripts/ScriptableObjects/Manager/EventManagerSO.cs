@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEvents;
 
 [CreateAssetMenu(fileName = "EventManagerSO", menuName = "ScriptableObjects/Manager/EventManagerSO")]
 [System.Serializable] public class EventManagerSO : ScriptableObject, ISerializationCallbackReceiver

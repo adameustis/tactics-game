@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using MVC.Ability;
 using ScriptableObjects.Manager;
 using UnityEngine;
 
@@ -12,7 +13,6 @@ namespace MVC.AbilityMenuItemDisplay
         [field: SerializeField] public UnitSelectionManagerSO UnitSelectionManager { get; private set; }
     
         #endregion
-        
         
         public void UpdateAbility()
         {

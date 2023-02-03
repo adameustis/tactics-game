@@ -1,6 +1,8 @@
-﻿using MVC.EventModel;
+﻿using MVC.Ability;
+using MVC.EventModel;
 using ScriptableObjects.EventSO;
 using UnityEngine;
+using UnityEvents;
 
 namespace ScriptableObjects.Manager
 {

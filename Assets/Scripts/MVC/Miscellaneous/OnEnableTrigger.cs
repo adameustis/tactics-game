@@ -7,11 +7,11 @@ namespace MVC.Miscellaneous
     {
         #region Event Properties
         [field: Header("Triggers")]
-        [field: SerializeField] public UnityEvent OnEnableIsTriggered { get; protected set; }
+        [field: SerializeField] public UnityEvent OnTriggered { get; protected set; }
 
         #endregion
         #region Monobehaviour
-        private void OnEnable() => OnEnableIsTriggered.Invoke();
+        private void OnEnable() => OnTriggered.Invoke();
         #endregion
         #region Methods
         #endregion

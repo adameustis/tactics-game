@@ -19,6 +19,8 @@ MonoBehaviour:
   energy: 1
   range: 10
   uses: 1
-  targetingType: {fileID: 0}
-  castEvent: {fileID: 11400000, guid: ca0fc9b0f1fe5b346a26a25fd51a3a5b, type: 2}
-  stopCastEvent: {fileID: 11400000, guid: 13e1fdfe98c47d241bd27170bf33bd93, type: 2}
+  targeting: {fileID: 0}
+  targetUnitPrefab: {fileID: 0}
+  targetCellPrefab: {fileID: 0}
+  <TargetingPrefab>k__BackingField: {fileID: 3287414364099740128, guid: f56f01777bb7a684993999454f3e68c4,
+    type: 3}

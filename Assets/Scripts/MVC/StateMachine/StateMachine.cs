@@ -4,7 +4,7 @@ using MVC.EventModel;
 using MVC.State;
 using UnityEngine;
 
-namespace MVC.StateController
+namespace MVC.StateMachine
 {
     public class StateMachine : MonoBehaviour
     {
@@ -26,8 +26,7 @@ namespace MVC.StateController
             if (StateQueue.Count > 0)
                 return;
             
-            StateQueue.Add(DefaultState);
-            DefaultState.EnterState(new PlayerAndTransformEventModel(new PlayerModel(), transform)); // Player will need to come from somewhere
+            AdvanceToState(new PlayerAndTransformEventModel(new PlayerModel(), transform), DefaultState, false); // Player will need to come from somewhere
         }
 
         #endregion

@@ -1,6 +1,5 @@
 using System.Linq;
 using MVC.EventModel;
-using ScriptableObjects.ConditionSO;
 using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using ScriptableObjects.Manager;
 using UnityEngine;

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
+using MVC.Ability;
 using MVC.AbilityMenuItemDisplay;
 using MVC.EventModel;
-using ScriptableObjects.ConditionSO;
 using UnityEngine;
 
 namespace MVC.Condition

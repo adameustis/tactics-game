@@ -5,6 +5,7 @@ using ScriptableObjects.EventSO;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEvents;
 
 namespace MVC.Player
 {

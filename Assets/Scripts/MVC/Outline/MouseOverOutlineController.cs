@@ -4,6 +4,7 @@ using MVC.EventModel;
 using ScriptableObjects.EventSO;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEvents;
 
 [System.Serializable]
 public class MouseOverOutlineController : MonoBehaviour

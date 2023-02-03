@@ -1,6 +1,8 @@
 ﻿using MVC.EventModel;
+using MVC.Unit;
 using ScriptableObjects.EventSO;
 using UnityEngine;
+using UnityEvents;
 
 namespace ScriptableObjects.Manager
 {
@@ -9,7 +11,7 @@ namespace ScriptableObjects.Manager
     {
         #region Properties
         [field: Header("Fields")]
-        [field: SerializeField] public UnitBattleController SelectedUnit { get; private set; }
+        [field: SerializeField] public UnitController SelectedUnit { get; private set; }
         #endregion
         #region Event Properties
         [field: Header("Events")]
@@ -24,7 +26,7 @@ namespace ScriptableObjects.Manager
 
         public void UnitSelectedStateHandler(PlayerAndTransformEventModel context)
         {
-            SelectedUnit = context.Tf.GetComponent<UnitBattleController>();
+            SelectedUnit = context.Tf.GetComponent<UnitController>();
         }
     
         #endregion
