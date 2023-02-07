@@ -303,6 +303,9 @@ GameObject:
   - component: {fileID: 4940441088112029617}
   - component: {fileID: 2971876982129210811}
   - component: {fileID: 7930300779256189927}
+  - component: {fileID: 9070512818242857395}
+  - component: {fileID: 7033025604189673271}
+  - component: {fileID: 7422206543935342964}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Unit
@@ -353,31 +356,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model:
+    staticData: {fileID: 0}
     transformPosition: {x: 0, y: 0, z: 0}
+    gridPositionX: 0
+    gridPositionY: 0
     unitNumber: 0
     unitName: 
     unitIcon: {fileID: 0}
-    unitHP: 0
-    unitMaxHP: 0
+    unitHealth: 0
+    unitMaxHealth: 0
     unitAbilities: []
     unitStatuses: []
     unitCanLandTraverse: 0
     unitCanAirTraverse: 0
     unitCanStopOnLand: 0
     unitCanStopInAir: 0
-    unitHasCellResidence: 0
-    unitCellResidence:
-      transformPosition: {x: 0, y: 0, z: 0}
-      cellName: 
-      cellIcon: {fileID: 0}
-      cellDescription: 
-      cellGridPositionX: 0
-      cellGridPositionY: 0
-      cellIsLandTraversable: 0
-      cellIsAirTraversable: 0
-      cellIsLandDestination: 0
-      cellIsAirDestination: 0
-      cellHasResidentUnit: 0
     unitOnTurn: 0
     unitTurnWaitValue: 0
     unitEnergyUsed: 0
@@ -396,10 +389,10 @@ MonoBehaviour:
     eventUnitIconChanged:
       m_PersistentCalls:
         m_Calls: []
-    eventUnitHPChanged:
+    eventUnitHealthChanged:
       m_PersistentCalls:
         m_Calls: []
-    eventUnitMaxHPChanged:
+    eventUnitMaxHealthChanged:
       m_PersistentCalls:
         m_Calls: []
     eventUnitAbilityAdded:
@@ -441,7 +434,6 @@ MonoBehaviour:
     eventUnitEnergyUsedChanged:
       m_PersistentCalls:
         m_Calls: []
-  gameManager: {fileID: 11400000, guid: f8798db92ab8b644ba8e5728d7a283e1, type: 2}
 --- !u!114 &5506917230696726362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,6 +448,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventInputMouseOff: {fileID: 11400000, guid: d6f71004edc3d8f4a82d213987eebbf2, type: 2}
   eventInputMouseOn: {fileID: 11400000, guid: 161a8dba23c6423498fa090f368fbf76, type: 2}
+  onDisabled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4940441088112029617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,6 +496,74 @@ MonoBehaviour:
   <LocalInput>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &9070512818242857395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8623663878638903048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b4bbf2a5984814a3b03dd7a2ac78db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theTransform: {fileID: 8623663878638903061}
+  unit: {fileID: 3392093265840437045}
+--- !u!114 &7033025604189673271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8623663878638903048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde61b624b6c46bd914b4fe7f35f6a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <OnTriggered>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9070512818242857395}
+        m_TargetAssemblyTypeName: MVC.Miscellaneous.UnitTransformController, Assembly-CSharp
+        m_MethodName: SubscribeToEvents
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7422206543935342964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8623663878638903048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55fdac84e1af4e36bd6246fdaae9536b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <OnTriggered>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9070512818242857395}
+        m_TargetAssemblyTypeName: MVC.Miscellaneous.UnitTransformController, Assembly-CSharp
+        m_MethodName: UnsubscribeFromEvents
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &9077995630187692400
 GameObject:
   m_ObjectHideFlags: 0

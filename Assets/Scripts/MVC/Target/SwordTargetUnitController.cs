@@ -1,8 +1,7 @@
 using System;
-using MVC.Target;
 using MVC.Unit;
 
-namespace MVC.TargetUnit
+namespace MVC.Target
 {
     public class SwordTargetUnitController : TargetController
     {
@@ -12,8 +11,8 @@ namespace MVC.TargetUnit
         {
             UnitController targetUnit = Target.GetComponent<UnitController>();
             
-            int sourceX = SourceUnit.Model.UnitCellResidence.CellGridPositionX;
-            int destinationX = targetUnit.Model.UnitCellResidence.CellGridPositionX;
+            int sourceX = SourceUnit.Model.GridPositionX;
+            int destinationX = targetUnit.Model.GridPositionX;
 
             bool valid = Math.Abs(sourceX - destinationX) == 1;
             

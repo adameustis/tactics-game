@@ -138,7 +138,7 @@ public class AbilityModel
     public void Initialise()
     {
         EffectiveEnergy = Ability.Energy;
-        EffectiveRange = Ability.Range;
+        EffectiveRange = Ability.MinimumRange;
         EffectiveTargeting = Ability.Targeting;
         EffectiveUses = Ability.Uses;
     }

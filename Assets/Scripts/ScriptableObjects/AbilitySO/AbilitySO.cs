@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using MVC.Ability;
+using MVC.PerformingAbility;
 using MVC.Target;
-using MVC.TargetCell;
 using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -13,8 +13,6 @@ using UnityEngine.Serialization;
 
 public class AbilitySO : ScriptableObject
 {
-    #region Delegates
-    #endregion
     #region Fields
 
     [SerializeField] private string abilityName;
@@ -22,11 +20,17 @@ public class AbilitySO : ScriptableObject
     [SerializeField] private Sprite displayIcon;
     [SerializeField] private int investment;
     [SerializeField] private int energy;
-    [SerializeField] private int range;
+    [FormerlySerializedAs("range")] [SerializeField] private int minimumRange;
+    [SerializeField] private int maximumRange;
+    [SerializeField] private bool canTargetUnit;
+    [SerializeField] private bool canTargetLand;
+    [SerializeField] private bool canTargetAir;
     [SerializeField] private int uses;
     [FormerlySerializedAs("targetingType")] [SerializeField] private TargetingSO targeting;
     [SerializeField] private TargetController targetUnitPrefab;
     [SerializeField] private TargetController targetCellPrefab;
+    [SerializeField] private AbilityController targetingPrefab;
+    [SerializeField] private PerformingAbilityController performingPrefab;
 
     #endregion
     #region Events
@@ -38,24 +42,18 @@ public class AbilitySO : ScriptableObject
     public Sprite DisplayIcon { get => displayIcon; private set => displayIcon = value; }
     public int Investment { get => investment; private set => investment = value; }
     public int Energy { get => energy; private set => energy = value; }
-    public int Range { get => range; private set => range = value; }
+    public int MinimumRange { get => minimumRange; private set => minimumRange = value; }
+    public int MaximumRange { get => maximumRange; private set => maximumRange = value; }
+    public bool CanTargetUnit { get => canTargetUnit; private set => canTargetUnit = value; }
+    public bool CanTargetLand { get => canTargetLand; private set => canTargetLand = value; }
+    public bool CanTargetAir { get => canTargetAir; private set => canTargetAir = value; }
     public int Uses { get => uses; private set => uses = value; }
     public TargetingSO Targeting { get => targeting; private set => targeting = value; }
+    public TargetController TargetUnitPrefab { get => targetUnitPrefab; private set => targetUnitPrefab = value; }
+    public TargetController TargetCellPrefab { get => targetCellPrefab; private set => targetCellPrefab = value; }
+    public AbilityController TargetingPrefab { get => targetingPrefab; private set => targetingPrefab = value; }
+    public PerformingAbilityController PerformingPrefab { get => performingPrefab; set => performingPrefab = value; }
 
-    public TargetController TargetUnitPrefab
-    {
-        get => targetUnitPrefab;
-        set => targetUnitPrefab = value;
-    }
-
-    public TargetController TargetCellPrefab
-    {
-        get => targetCellPrefab;
-        set => targetCellPrefab = value;
-    }
-
-    [field: SerializeField] public AbilityController TargetingPrefab { get; private set; }
-    
     #endregion
     #region Event Properties
     #endregion
@@ -71,7 +69,7 @@ public class AbilitySO : ScriptableObject
         formattedDescription = formattedDescription.Replace("{AbilityName}", AbilityName);
         formattedDescription = formattedDescription.Replace("{Investment}", Investment.ToString());
         formattedDescription = formattedDescription.Replace("{Energy}", Energy.ToString());
-        formattedDescription = formattedDescription.Replace("{Range}", Range.ToString());
+        formattedDescription = formattedDescription.Replace("{MinimumRange}", MinimumRange.ToString());
         formattedDescription = formattedDescription.Replace("{Uses}", Uses.ToString());
         formattedDescription = formattedDescription.Replace("{TargettingTypeName}", Targeting.TargetingTypeName);
 

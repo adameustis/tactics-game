@@ -1,7 +1,7 @@
+using System;
 using System.Collections.Generic;
-using MVC.Cell;
-using MVC.EventModel;
-using ScriptableObjects.Manager;
+using MVC.Ability;
+using MVC.Unit;
 using UnityEngine;
 
 namespace MVC.Target
@@ -9,16 +9,23 @@ namespace MVC.Target
     public class TargetAreaFactory : MonoBehaviour
     {
         #region Fields
+        [Header("Fields")]
+        [SerializeField] private AbilityController ability;
+        [SerializeField] private UnitController sourceUnit;
+        [SerializeField] private List<TargetAreaController> spawnedTargets;
+        [SerializeField] private TargetAreaController validTargetPrefab;
+        [SerializeField] private CellManagerSO cellManager;
+        
         #endregion
         #region Events
         #endregion
         #region Properties
-        [field: Header("Fields")]
-        [field: SerializeField] public List<GameObject> SpawnedTargets { get; private set; }
-        [field: SerializeField] public GameObject ValidTargetPrefab { get; private set; }
-        [field: SerializeField] public GameObject InvalidTargetPrefab { get; private set; }
-        [field: SerializeField] public CellManagerSO CellManager { get; private set; }
-        [field: SerializeField] public UnitSelectionManagerSO UnitSelectionManager { get; private set; }
+
+        public AbilityController Ability { get => ability; private set => ability = value; }
+        public UnitController SourceUnit { get => sourceUnit; private set => sourceUnit = value; }
+        public List<TargetAreaController> SpawnedTargets { get => spawnedTargets; private set => spawnedTargets = value; }
+        public TargetAreaController ValidTargetPrefab { get => validTargetPrefab; private set => validTargetPrefab = value; }
+        public CellManagerSO CellManager { get => cellManager; private set => cellManager = value; }
 
         #endregion
         #region Event Properties
@@ -31,7 +38,8 @@ namespace MVC.Target
 
         private void OnEnable()
         {
-            if (SpawnedTargets == null) SpawnedTargets = new List<GameObject>();
+            if (SpawnedTargets == null) 
+                SpawnedTargets = new List<TargetAreaController>();
         }
 
         #endregion
@@ -41,15 +49,17 @@ namespace MVC.Target
         {
             foreach (var cell in CellManager.CellModelList)
             {
-                if (cell == UnitSelectionManager.SelectedUnit.Model.UnitCellResidence) continue;
-
-                if (cell.CellHasResidentUnit)
-                {
-                    SpawnedTargets.Add(Instantiate(InvalidTargetPrefab, cell.TransformPosition, Quaternion.identity));
-                    continue;
-                }
+                int distance = Math.Abs(cell.CellGridPositionX - SourceUnit.Model.GridPositionX);
                 
-                SpawnedTargets.Add(Instantiate(ValidTargetPrefab, cell.TransformPosition, Quaternion.identity));
+                if (distance > Ability.Model.Ability.MaximumRange) continue;
+                if (distance < Ability.Model.Ability.MinimumRange) continue;
+                if (cell.CellHasResidentUnit && !Ability.Model.Ability.CanTargetUnit) continue;
+                if (cell.StaticData.CellIsLandDestination && !Ability.Model.Ability.CanTargetLand) continue;
+                if (!cell.StaticData.CellIsLandDestination && cell.StaticData.CellIsAirDestination && !Ability.Model.Ability.CanTargetAir) continue;
+
+                var targetArea = Instantiate(ValidTargetPrefab, cell.TransformPosition, Quaternion.identity);
+                targetArea.Initialise(Ability.Model, SourceUnit.Model, cell);
+                SpawnedTargets.Add(targetArea);
             }
         }
 
@@ -59,7 +69,7 @@ namespace MVC.Target
 
             foreach (var target in SpawnedTargets)
             {
-                Destroy(target);
+                Destroy(target.gameObject);
             }
             
             SpawnedTargets.Clear();

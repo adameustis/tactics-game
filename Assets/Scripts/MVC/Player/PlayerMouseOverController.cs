@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using MVC.EventModel;
 using ScriptableObjects.EventSO;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
@@ -29,8 +31,10 @@ namespace MVC.Player
         #endregion
         #region Methods
 
-        public void HandleRaycastHitsChanged(RaycastHit[] raycastHits)
+        public void HandleCursorInput(InputAction.CallbackContext context)
         {
+            RaycastHit[] raycastHits = Pointer.GetRayCastHits();
+            
             List<MouseOverController> newMouseOverList = new();
             
             // Check for mouse over components to add to a new list
@@ -39,15 +43,23 @@ namespace MVC.Player
                 if (hit.transform.TryGetComponent(out MouseOverController mouseOverController))
                     newMouseOverList.Add(mouseOverController);
             }
+            
+            // Check if there are any existing mouse over components not in the new list
+            foreach (var mouseOffController in MouseOverList.Except(newMouseOverList))
+                MouseOff(mouseOffController, RemoveFromMouseOverList);
 
-            CheckForMouseOff(MouseOverList, newMouseOverList);
-            CheckForMouseOn(MouseOverList, newMouseOverList);
+            // Check if there are any new list mouse over components not in the existing
+            foreach (var mouseOnController in newMouseOverList.Except(MouseOverList))
+                MouseOn(mouseOnController, RemoveFromMouseOverList);
+
             MouseOverList = newMouseOverList;
         }
         
         // UI
-        public void HandleUIRaycastResultsChanged(List<RaycastResult> uIRayCastResults)
+        public void HandleCursorInputUI(InputAction.CallbackContext context)
         {
+            List<RaycastResult> uIRayCastResults = Pointer.GetUIRaycastHits();
+            
             List<MouseOverController> newMouseOverList = new();
 
             // Check for mouse over components to add to a new list
@@ -57,33 +69,39 @@ namespace MVC.Player
                     newMouseOverList.Add(mouseOverController);
             }
             
-            CheckForMouseOff(UIMouseOverList, newMouseOverList);
-            CheckForMouseOn(UIMouseOverList, newMouseOverList);
+            // Check if there are any existing mouse over components not in the new list
+            foreach (var mouseOffController in UIMouseOverList.Except(newMouseOverList))
+                MouseOff(mouseOffController, RemoveFromUIMouseOverList);
+
+            // Check if there are any new list mouse over components not in the existing
+            foreach (var mouseOnController in newMouseOverList.Except(UIMouseOverList))
+                MouseOn(mouseOnController, RemoveFromUIMouseOverList);
+            
             UIMouseOverList = newMouseOverList;
         }
-
-        private void CheckForMouseOn(List<MouseOverController> existingList, List<MouseOverController> newList)
-        {
-            // Check if there are any new list mouse over components not in the existing
-            foreach (var mouseOnController in newList.Except(existingList))
-                MouseOn(mouseOnController);
-        }
         
-        private void CheckForMouseOff(List<MouseOverController> existingList, List<MouseOverController> newList)
-        {
-            // Check if there are any existing mouse over components not in the new list
-            foreach (var mouseOffController in existingList.Except(newList)) 
-                MouseOff(mouseOffController);
-        }
-
-        private void MouseOn(MouseOverController mouseOnController)
-        {
-            mouseOnController.EventInputMouseOn.UnityEvent.Invoke(new PlayerAndTransformEventModel(Player.Model, mouseOnController.transform));
-        }
-
-        private void MouseOff(MouseOverController mouseOffController)
+        private void MouseOff(MouseOverController mouseOffController, UnityAction<MouseOverController> handleOnDisableMethod)
         {
             mouseOffController.EventInputMouseOff.UnityEvent.Invoke(new PlayerAndTransformEventModel(Player.Model, mouseOffController.transform));
+            mouseOffController.OnDisabled.RemoveListener(handleOnDisableMethod);
+        }
+        
+        private void MouseOn(MouseOverController mouseOnController, UnityAction<MouseOverController> handleOnDisableMethod)
+        {
+            mouseOnController.EventInputMouseOn.UnityEvent.Invoke(new PlayerAndTransformEventModel(Player.Model, mouseOnController.transform));
+            mouseOnController.OnDisabled.AddListener(handleOnDisableMethod);
+        }
+        
+        private void RemoveFromMouseOverList(MouseOverController controller)
+        {
+            MouseOverList.Remove(controller);
+            MouseOff(controller, RemoveFromMouseOverList);
+        }
+        
+        private void RemoveFromUIMouseOverList(MouseOverController controller)
+        {
+            UIMouseOverList.Remove(controller);
+            MouseOff(controller, RemoveFromMouseOverList);
         }
         
         #endregion

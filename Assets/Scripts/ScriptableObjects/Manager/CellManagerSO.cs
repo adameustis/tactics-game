@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using MVC.Cell;
+﻿using MVC.Cell;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CellManagerSO", menuName = "ScriptableObjects/Manager/CellManagerSO")]
@@ -19,32 +17,8 @@ public class CellManagerSO : ScriptableObject
     #endregion
     #region Properties
 
-    public int GridWidth
-    {
-        get
-        {
-            return gridWidth;
-        }
-
-        set
-        {
-            gridWidth = value;
-        }
-    }
-
-    public int GridHeight
-    {
-        get
-        {
-            return gridHeight;
-        }
-
-        set
-        {
-            gridHeight = value;
-        }
-    }
-
+    public int GridWidth { get => gridWidth; set => gridWidth = value; }
+    public int GridHeight { get => gridHeight; set => gridHeight = value; }
     public CellModel[] CellModelList { get => cellModelList; private set => cellModelList = value; }
 
     #endregion
@@ -52,20 +26,10 @@ public class CellManagerSO : ScriptableObject
     #endregion
     #region Methods
 
-    public void OnAfterDeserialize()
+    private void OnDisable()
     {
         Clear();
     }
-
-    //public void OnEnable()
-    //{
-
-    //}
-
-    //public void OnDestroy()
-    //{
-
-    //}
 
     public CellModel GetCellModel(int x, int y)
     {
@@ -121,6 +85,7 @@ public class CellManagerSO : ScriptableObject
         CellModel model = controller.Model;
         model.CellGridPositionX = x;
         model.CellGridPositionY = y;
+        model.TransformPosition = position;
         controller.transform.gameObject.name = model.StaticData.CellName + " " + x + "," + y;
         SetCellModel(model, x, y);
     }

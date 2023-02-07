@@ -19,7 +19,7 @@ namespace MVC.Player
         #region Properties
 
         [field: SerializeField] public PlayerController ThePlayer { get; private set; }
-        [field: SerializeField] public Controls View { get; private set; }
+        //[field: SerializeField] public Controls View { get; private set; }
         
         [field: SerializeField] public PlayerPointer Pointer { get; private set; }
 
@@ -36,68 +36,97 @@ namespace MVC.Player
         #endregion
         #region Methods
 
-        private void OnDisable()
+        // private void OnDisable()
+        // {
+        //     UnsubscribeFromEvents();
+        //     View.Player.Disable();
+        // }
+
+        // private void OnEnable()
+        // {
+        //     View = new Controls();
+        //     SubscribeToEvents();
+        //     View.Player.Enable();
+        // }
+
+        // private void SubscribeToEvents()
+        // {
+        //     View.Player.Cancel.performed += HandleInputCancel;
+        //     View.Player.Down.performed += HandleInputDown;
+        //     View.Player.Left.performed += HandleInputLeft;
+        //     View.Player.Right.performed += HandleInputRight;
+        //     View.Player.Submit.performed += HandleInputSubmit;
+        //     View.Player.Up.performed += HandleInputUp;
+        //     View.Player.Cancel.performed += HandleInput<InputCancel>;
+        //     View.Player.Down.performed += HandleInput<InputDown>;
+        //     View.Player.Left.performed += HandleInput<InputLeft>;
+        //     View.Player.Right.performed += HandleInput<InputRight>;
+        //     View.Player.Submit.performed += HandleInput<InputSubmit>;
+        //     View.Player.Up.performed += HandleInput<InputUp>;
+        // }
+
+        // private void UnsubscribeFromEvents()
+        // {
+        //     View.Player.Cancel.performed -= HandleInputCancel;
+        //     View.Player.Down.performed -= HandleInputDown;
+        //     View.Player.Left.performed -= HandleInputLeft;
+        //     View.Player.Right.performed -= HandleInputRight;
+        //     View.Player.Submit.performed -= HandleInputSubmit;
+        //     View.Player.Up.performed -= HandleInputUp;
+        //     View.Player.Cancel.performed -= HandleInput<InputCancel>;
+        //     View.Player.Down.performed -= HandleInput<InputDown>;
+        //     View.Player.Left.performed -= HandleInput<InputLeft>;
+        //     View.Player.Right.performed -= HandleInput<InputRight>;
+        //     View.Player.Submit.performed -= HandleInput<InputSubmit>;
+        //     View.Player.Up.performed -= HandleInput<InputUp>;
+        // }
+
+        public void HandleInputCancel(InputAction.CallbackContext context)
         {
-            UnsubscribeFromEvents();
-            View.Player.Disable();
+            GenericInputCancelEvent.UnityEvent.Invoke(new PlayerAndTransformEventModel(ThePlayer.Model, null));
+            HandleInput<InputCancel>(context);
         }
 
-        private void OnEnable()
+        public void HandleInputDown(InputAction.CallbackContext context)
         {
-            View = new Controls();
-            SubscribeToEvents();
-            View.Player.Enable();
-        }
+            GenericInputDownEvent.UnityEvent.Invoke(new PlayerAndTransformEventModel(ThePlayer.Model, null));
+            HandleInput<InputDown>(context);
+        } 
 
-        private void SubscribeToEvents()
+        public void HandleInputLeft(InputAction.CallbackContext context)
         {
-            View.Player.Cancel.performed += HandleInputCancel;
-            View.Player.Down.performed += HandleInputDown;
-            View.Player.Left.performed += HandleInputLeft;
-            View.Player.Right.performed += HandleInputRight;
-            View.Player.Submit.performed += HandleInputSubmit;
-            View.Player.Up.performed += HandleInputUp;
-            View.Player.Cancel.performed += HandleInput<InputCancel>;
-            View.Player.Down.performed += HandleInput<InputDown>;
-            View.Player.Left.performed += HandleInput<InputLeft>;
-            View.Player.Right.performed += HandleInput<InputRight>;
-            View.Player.Submit.performed += HandleInput<InputSubmit>;
-            View.Player.Up.performed += HandleInput<InputUp>;
-        }
+            GenericInputLeftEvent.UnityEvent.Invoke(new PlayerAndTransformEventModel(ThePlayer.Model, null));
+            HandleInput<InputLeft>(context);
+        } 
 
-        private void UnsubscribeFromEvents()
+        public void HandleInputRight(InputAction.CallbackContext context)
         {
-            View.Player.Cancel.performed -= HandleInputCancel;
-            View.Player.Down.performed -= HandleInputDown;
-            View.Player.Left.performed -= HandleInputLeft;
-            View.Player.Right.performed -= HandleInputRight;
-            View.Player.Submit.performed -= HandleInputSubmit;
-            View.Player.Up.performed -= HandleInputUp;
-            View.Player.Cancel.performed -= HandleInput<InputCancel>;
-            View.Player.Down.performed -= HandleInput<InputDown>;
-            View.Player.Left.performed -= HandleInput<InputLeft>;
-            View.Player.Right.performed -= HandleInput<InputRight>;
-            View.Player.Submit.performed -= HandleInput<InputSubmit>;
-            View.Player.Up.performed -= HandleInput<InputUp>;
-        }
-        
-        private void HandleInputCancel(InputAction.CallbackContext context) => GenericInputCancelEvent.UnityEvent.Invoke(new PlayerAndTransformEventModel(ThePlayer.Model, null));
-        private void HandleInputDown(InputAction.CallbackContext context) => GenericInputDownEvent.UnityEvent.Invoke(new PlayerAndTransformEventModel(ThePlayer.Model, null));
-        private void HandleInputLeft(InputAction.CallbackContext context) => GenericInputLeftEvent.UnityEvent.Invoke(new PlayerAndTransformEventModel(ThePlayer.Model, null));
-        private void HandleInputRight(InputAction.CallbackContext context) => GenericInputRightEvent.UnityEvent.Invoke(new PlayerAndTransformEventModel(ThePlayer.Model, null));
-        private void HandleInputSubmit(InputAction.CallbackContext context) => GenericInputSubmitEvent.UnityEvent.Invoke(new PlayerAndTransformEventModel(ThePlayer.Model, null));
-        private void HandleInputUp(InputAction.CallbackContext context) => GenericInputUpEvent.UnityEvent.Invoke(new PlayerAndTransformEventModel(ThePlayer.Model, null));
+            GenericInputRightEvent.UnityEvent.Invoke(new PlayerAndTransformEventModel(ThePlayer.Model, null));
+            HandleInput<InputRight>(context);
+        } 
+
+        public void HandleInputSubmit(InputAction.CallbackContext context)
+        {
+            GenericInputSubmitEvent.UnityEvent.Invoke(new PlayerAndTransformEventModel(ThePlayer.Model, null));
+            HandleInput<InputSubmit>(context);
+        } 
+
+        public void HandleInputUp(InputAction.CallbackContext context)
+        {
+            GenericInputUpEvent.UnityEvent.Invoke(new PlayerAndTransformEventModel(ThePlayer.Model, null));
+            HandleInput<InputUp>(context);
+        } 
 
         private void HandleInput<T>(InputAction.CallbackContext context) where T : Input.Input
         {
-            foreach (var hit in Pointer.RaycastHits.Where(hit => hit.collider.enabled))
+            foreach (var hit in Pointer.GetRayCastHits().Where(hit => hit.collider.enabled))
             {
                 if (hit.transform.TryGetComponent(out T inputController))
                     inputController.InvokeInput(new PlayerAndTransformEventModel(ThePlayer.Model, inputController.transform));
             }
-            
+            // result.gameObject != null &&
             // UI
-            foreach (var result in Pointer.UIRaycastResults.Where(result => result.gameObject.activeSelf))
+            foreach (var result in Pointer.GetUIRaycastHits().Where(result => result.gameObject.activeSelf))
             {
                 if (result.gameObject.TryGetComponent(out T inputController))
                     inputController.InvokeInput(new PlayerAndTransformEventModel(ThePlayer.Model, inputController.transform));

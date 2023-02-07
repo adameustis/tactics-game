@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 114898535252688964}
   - component: {fileID: 114855843562267604}
   m_Layer: 5
-  m_Name: MenuAbilityBackground
+  m_Name: MouseOverMenuAbilityBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,11 +35,11 @@ RectTransform:
   m_Father: {fileID: 224527125746491698}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -321.2, y: -44}
-  m_SizeDelta: {x: -652, y: -367}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 150, y: 149}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &222598864293642684
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -129,7 +129,7 @@ RectTransform:
   m_GameObject: {fileID: 1596297437498828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 224488899870189206}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 114771177339104578}
   - component: {fileID: 114354330445957868}
   m_Layer: 5
-  m_Name: MenuAbilityForeground
+  m_Name: MouseOverMenuAbilityForeground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

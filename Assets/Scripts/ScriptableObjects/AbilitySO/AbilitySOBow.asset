@@ -17,8 +17,13 @@ MonoBehaviour:
   displayIcon: {fileID: 21300000, guid: 49b7fcaeed172af49bb729fc3abd9e7d, type: 3}
   investment: 1
   energy: 1
-  range: 5
+  minimumRange: 1
+  maximumRange: 4
+  canTargetUnit: 1
+  canTargetLand: 1
+  canTargetAir: 1
   uses: 1
-  targetingType: {fileID: 0}
-  castEvent: {fileID: 11400000, guid: 238ade57ea2474147a798a6787affa56, type: 2}
-  stopCastEvent: {fileID: 11400000, guid: 62fed18b50fca0942b8f3cd85fc9a3bb, type: 2}
+  targeting: {fileID: 0}
+  targetUnitPrefab: {fileID: 0}
+  targetCellPrefab: {fileID: 0}
+  <TargetingPrefab>k__BackingField: {fileID: 0}

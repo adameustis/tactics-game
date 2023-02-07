@@ -278,6 +278,7 @@ GameObject:
   - component: {fileID: 802697502}
   - component: {fileID: 802697501}
   - component: {fileID: 802697517}
+  - component: {fileID: 802697520}
   - component: {fileID: 802697519}
   - component: {fileID: 802697518}
   - component: {fileID: 802697514}
@@ -411,10 +412,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49be23280d7a4ef7a74b52d2552693f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Model>k__BackingField:
-    intPlayerNumber: 1
-    strPlayerName: Human 1
-    playerIcon: {fileID: 21300000, guid: e0fc4e5ebb39e6546905a857258a1b4f, type: 3}
+  model:
+    intPlayerNumber: 0
+    strPlayerName: 
+    playerIcon: {fileID: 0}
+    units: []
 --- !u!114 &802697517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,7 +429,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f713ff993e054ac19e8a45a1e717e83e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MouseCanOverride>k__BackingField: 1
   <EventSystem>k__BackingField: {fileID: 802697502}
   <Raycaster>k__BackingField: {fileID: 1904161712}
   <MainCamera>k__BackingField: {fileID: 1812853794}
@@ -437,34 +438,10 @@ MonoBehaviour:
     m_Bits: 2147483647
   <OnRaycastHitsChanged>k__BackingField:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 802697518}
-        m_TargetAssemblyTypeName: MVC.Player.NewPlayerMouseOverController, Assembly-CSharp
-        m_MethodName: HandleRaycastHitsChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   <OnUIRaycastResultsChanged>k__BackingField:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 802697518}
-        m_TargetAssemblyTypeName: MVC.Player.NewPlayerMouseOverController, Assembly-CSharp
-        m_MethodName: HandleUIRaycastResultsChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &802697518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,6 +484,173 @@ MonoBehaviour:
     type: 2}
   <GenericInputUpEvent>k__BackingField: {fileID: 11400000, guid: e1ff530b4a5726845950870d5ff0d2b6,
     type: 2}
+--- !u!114 &802697520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802697500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 451393422645fed44a0462496f95af92,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 802697519}
+        m_TargetAssemblyTypeName: MVC.Player.HumanPlayerInputController, Assembly-CSharp
+        m_MethodName: HandleInputSubmit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6e89e472-a613-4ec9-9807-8b0b4579e570
+    m_ActionName: Player/Submit[/Mouse/leftButton,/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 802697519}
+        m_TargetAssemblyTypeName: MVC.Player.HumanPlayerInputController, Assembly-CSharp
+        m_MethodName: HandleInputCancel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6587034b-2f0e-422c-97f9-3556d407d7d1
+    m_ActionName: Player/Cancel[/Mouse/rightButton,/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 802697517}
+        m_TargetAssemblyTypeName: MVC.Player.PlayerPointer, Assembly-CSharp
+        m_MethodName: HandleInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c0b0bbcc-518b-4228-bdec-ff9cf04544f6
+    m_ActionName: Player/Up[/Keyboard/upArrow,/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 802697519}
+        m_TargetAssemblyTypeName: MVC.Player.HumanPlayerInputController, Assembly-CSharp
+        m_MethodName: HandleInputDown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4298c4c3-1e3a-4d3b-94bd-e8c4b3a336bb
+    m_ActionName: Player/Down[/Keyboard/downArrow,/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 802697519}
+        m_TargetAssemblyTypeName: MVC.Player.HumanPlayerInputController, Assembly-CSharp
+        m_MethodName: HandleInputLeft
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2440199a-57c1-4283-adcf-9455b6819a05
+    m_ActionName: Player/Left[/Keyboard/leftArrow,/Keyboard/a]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 802697519}
+        m_TargetAssemblyTypeName: MVC.Player.HumanPlayerInputController, Assembly-CSharp
+        m_MethodName: HandleInputRight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4ea90314-93ec-43d3-941c-3550f2f40f6c
+    m_ActionName: Player/Right[/Keyboard/rightArrow,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 802697517}
+        m_TargetAssemblyTypeName: MVC.Player.PlayerPointer, Assembly-CSharp
+        m_MethodName: HandleInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 802697518}
+        m_TargetAssemblyTypeName: MVC.Player.PlayerMouseOverController, Assembly-CSharp
+        m_MethodName: HandleCursorInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 802697518}
+        m_TargetAssemblyTypeName: MVC.Player.PlayerMouseOverController, Assembly-CSharp
+        m_MethodName: HandleCursorInputUI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ee6273ae-84c1-46fc-a0a9-669e8ae3ce2e
+    m_ActionName: Player/Cursor[/Mouse/position]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &858763460
 GameObject:
   m_ObjectHideFlags: 0

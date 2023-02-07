@@ -3,6 +3,7 @@ using MVC.Cell;
 using ScriptableObjects.UnitSO;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using UnityEvents;
 
 namespace MVC.Unit
@@ -10,18 +11,18 @@ namespace MVC.Unit
     [System.Serializable]
     public class UnitModel
     {
-        #region Delegates
-        #endregion
         #region Fields
 
         [field: Header("Fields")]
         [SerializeField] private UnitSO staticData;
         [SerializeField] private Vector3 transformPosition;
+        [SerializeField] private int gridPositionX;
+        [SerializeField] private int gridPositionY;
         [SerializeField] private int unitNumber;
         [SerializeField] private string unitName;
         [SerializeField] private Sprite unitIcon;
-        [SerializeField] private int unitHP;
-        [SerializeField] private int unitMaxHP;
+        [FormerlySerializedAs("unitHP")] [SerializeField] private int unitHealth;
+        [FormerlySerializedAs("unitMaxHP")] [SerializeField] private int unitMaxHealth;
 
         [SerializeField] private List<AbilityModel> unitAbilities;
         [SerializeField] private List<StatusModel> unitStatuses;
@@ -30,8 +31,6 @@ namespace MVC.Unit
         [SerializeField] private bool unitCanAirTraverse;
         [SerializeField] private bool unitCanStopOnLand;
         [SerializeField] private bool unitCanStopInAir;
-        [SerializeField] private bool unitHasCellResidence;
-        [SerializeField] private CellModel unitCellResidence;
 
         [SerializeField] private bool unitOnTurn;
         [SerializeField] private int unitTurnWaitValue;
@@ -47,12 +46,12 @@ namespace MVC.Unit
         #endregion
         #region Events
 
-        [SerializeField] private UnityEvent eventTransformPositionChanged;
+        [SerializeField] private UnityEvent<Vector3> eventTransformPositionChanged;
         [SerializeField] private UnityEvent eventUnitNumberChanged;
         [SerializeField] private UnityEvent eventUnitNameChanged;
         [SerializeField] private UnityEvent eventUnitIconChanged;
-        [SerializeField] private UnityEvent eventUnitHPChanged;
-        [SerializeField] private UnityEvent eventUnitMaxHPChanged;
+        [FormerlySerializedAs("eventUnitHPChanged")] [SerializeField] private UnityEvent eventUnitHealthChanged;
+        [FormerlySerializedAs("eventUnitMaxHPChanged")] [SerializeField] private UnityEvent eventUnitMaxHealthChanged;
         [SerializeField] private UnityEventAbilityModel eventUnitAbilityAdded;
         [SerializeField] private UnityEventAbilityModel eventUnitAbilityRemoved;
         [SerializeField] private UnityEventStatusModel eventUnitStatusAdded;
@@ -74,312 +73,175 @@ namespace MVC.Unit
 
         public virtual Vector3 TransformPosition
         {
-            get
-            {
-                return transformPosition;
-            }
+            get => transformPosition;
 
             set
             {
-                if (transformPosition != value)
-                {
-                    transformPosition = value;
-                    EventTransformPositionChanged.Invoke();
-                }
+                if (transformPosition == value) return;
+                transformPosition = value;
+                EventTransformPositionChanged.Invoke(transformPosition);
             }
         }
+
+        public int GridPositionX { get => gridPositionX; set => gridPositionX = value; }
+        public int GridPositionY { get => gridPositionY; set => gridPositionY = value; }
+
         public int UnitNumber
         {
-            get
-            {
-                return unitNumber;
-            }
+            get => unitNumber;
 
             set
             {
-                if (unitNumber != value)
-                {
-                    unitNumber = value;
-                    EventUnitNumberChanged.Invoke();
-                }
+                if (unitNumber == value) return;
+                unitNumber = value;
+                EventUnitNumberChanged.Invoke();
             }
         }
 
         public string UnitName
         {
-            get
-            {
-                return unitName;
-            }
+            get => unitName;
 
             set
             {
-                if (unitName != value)
-                {
-                    unitName = value;
-                    EventUnitNameChanged.Invoke();
-                }
+                if (unitName == value) return;
+                unitName = value;
+                EventUnitNameChanged.Invoke();
             }
         }
 
         public Sprite UnitIcon
         {
-            get
-            {
-                return unitIcon;
-            }
+            get => unitIcon;
 
             set
             {
-                if (unitIcon != value)
-                {
-                    unitIcon = value;
-                    EventUnitIconChanged.Invoke();
-                }
+                if (unitIcon == value) return;
+                unitIcon = value;
+                EventUnitIconChanged.Invoke();
             }
         }
 
-        public int UnitHP
+        public int UnitHealth
         {
-            get
-            {
-                return unitHP;
-            }
+            get => unitHealth;
 
-            set
+            private set
             {
-                if (unitHP != value)
-                {
-                    if(value < 0)
-                    {
-                        unitHP = 0;
-                    }
-                    else
-                    {
-                        unitHP = value;
-                    }
-                    EventUnitHPChanged.Invoke();
-                }
+                if (unitHealth == value) return;
+                unitHealth = value < 0 ? 0 : value;
+                EventUnitHealthChanged.Invoke();
             }
         }
 
-        public int UnitMaxHP
+        public int UnitMaxHealth
         {
-            get
-            {
-                return unitMaxHP;
-            }
+            get => unitMaxHealth;
 
             set
             {
-                if (unitMaxHP != value)
-                {
-                    if (value < 0)
-                    {
-                        unitMaxHP = 0;
-                    }
-                    else
-                    {
-                        unitMaxHP = value;
-                    }
-                    EventUnitMaxHPChanged.Invoke();
-                }
+                if (unitMaxHealth == value) return;
+                unitMaxHealth = value < 0 ? 0 : value;
+                EventUnitMaxHealthChanged.Invoke();
             }
         }
 
         public List<AbilityModel> UnitAbilities
         {
-            get
-            {
-                return unitAbilities;
-            }
-
-            private set // Private because if events are put here they won't fire for .Add() method etc.
-            {
-                unitAbilities = value;
-            }
+            get => unitAbilities;
+            // Private because if events are put here they won't fire for .Add() method etc.
+            private set => unitAbilities = value;
         }
 
         public List<StatusModel> UnitStatuses
         {
-            get
-            {
-                return unitStatuses;
-            }
-
-            private set // Private because if events are put here they won't fire for .Add() method etc.
-            {
-                unitStatuses = value;
-            }
+            get => unitStatuses;
+            // Private because if events are put here they won't fire for .Add() method etc.
+            private set => unitStatuses = value;
         }
 
         public bool UnitCanLandTraverse
         {
-            get
-            {
-                return unitCanLandTraverse;
-            }
+            get => unitCanLandTraverse;
 
             set
             {
-                if (unitCanLandTraverse != value)
-                {
-                    unitCanLandTraverse = value;
-                    EventUnitCanLandTraverseChanged.Invoke();
-                }
+                if (unitCanLandTraverse == value) return;
+                unitCanLandTraverse = value;
+                EventUnitCanLandTraverseChanged.Invoke();
             }
         }
 
         public bool UnitCanAirTraverse
         {
-            get
-            {
-                return unitCanAirTraverse;
-            }
+            get => unitCanAirTraverse;
 
             set
             {
-                if (unitCanAirTraverse != value)
-                {
-                    unitCanAirTraverse = value;
-                    EventUnitCanAirTraverseChanged.Invoke();
-                }
+                if (unitCanAirTraverse == value) return;
+                unitCanAirTraverse = value;
+                EventUnitCanAirTraverseChanged.Invoke();
             }
         }
 
         public bool UnitCanStopOnLand
         {
-            get
-            {
-                return unitCanStopOnLand;
-            }
+            get => unitCanStopOnLand;
 
             set
             {
-                if (unitCanStopOnLand != value)
-                {
-                    unitCanStopOnLand = value;
-                    EventUnitCanStopOnLandChanged.Invoke();
-                }
+                if (unitCanStopOnLand == value) return;
+                unitCanStopOnLand = value;
+                EventUnitCanStopOnLandChanged.Invoke();
             }
         }
 
         public bool UnitCanStopInAir
         {
-            get
-            {
-                return unitCanStopInAir;
-            }
+            get => unitCanStopInAir;
 
             set
             {
-                if (unitCanStopInAir != value)
-                {
-                    unitCanStopInAir = value;
-                    EventUnitCanStopInAirChanged.Invoke();
-                }
-            }
-        }
-
-        public bool UnitHasCellResidence
-        {
-            get
-            {
-                return unitHasCellResidence;
-            }
-
-            set
-            {
-                if (unitHasCellResidence != value)
-                {
-                    unitHasCellResidence = value;
-                    EventUnitHasCellResidenceChanged.Invoke();
-                }
-            }
-        }
-
-        public CellModel UnitCellResidence
-        {
-            get
-            {
-                return unitCellResidence;
-            }
-
-            set
-            {
-                if (unitCellResidence != value)
-                {
-                    if (value == null)
-                    {
-                        unitCellResidence = value;
-                        UnitHasCellResidence = false;
-                    }
-                    else if(unitCellResidence == null)
-                    {
-                        unitCellResidence = value;
-                        UnitHasCellResidence = true;
-                    }
-                    else
-                    {
-                        unitCellResidence = value;
-                        EventUnitCellResidenceChanged.Invoke();
-                    }
-                }
+                if (unitCanStopInAir == value) return;
+                unitCanStopInAir = value;
+                EventUnitCanStopInAirChanged.Invoke();
             }
         }
 
         public bool UnitOnTurn
         {
-            get
-            {
-                return unitOnTurn;
-            }
+            get => unitOnTurn;
 
-            set
+            private set
             {
-                if (unitOnTurn != value)
-                {
-                    unitOnTurn = value;
-                    EventUnitOnTurnChanged.Invoke();
-                }
+                if (unitOnTurn == value) return;
+                unitOnTurn = value;
+                EventUnitOnTurnChanged.Invoke();
             }
         }
 
         public int UnitTurnWaitValue
         {
-            get
-            {
-                return unitTurnWaitValue;
-            }
+            get => unitTurnWaitValue;
 
             set
             {
-                if (unitTurnWaitValue != value)
-                {
-                    unitTurnWaitValue = value;
-                    if (unitTurnWaitValue < 0)
-                    {
-                        unitTurnWaitValue = 0;
-                    }
-                    EventUnitTurnWaitValueChanged.Invoke();
-                }
+                if (unitTurnWaitValue == value) return;
+                
+                unitTurnWaitValue = unitTurnWaitValue < 0 ? 0 : value;
+                EventUnitTurnWaitValueChanged.Invoke();
             }
         }
 
         public int UnitEnergyUsed
         {
-            get
-            {
-                return unitEnergyUsed;
-            }
+            get => unitEnergyUsed;
 
             set
             {
-                if (unitEnergyUsed != value)
-                {
-                    unitEnergyUsed = value;
-                    EventUnitEnergyUsedChanged.Invoke();
-                }
+                if (unitEnergyUsed == value) return;
+                unitEnergyUsed = value;
+                EventUnitEnergyUsedChanged.Invoke();
             }
         }
 
@@ -387,22 +249,9 @@ namespace MVC.Unit
         public float Speed { get => speed; set => speed = value; }
         public Queue<PathModel> MovePathQueue
         {
-            get
-            {
-                return movePathQueue;
-            }
+            get => movePathQueue;
 
-            set
-            {
-                if (value != null)
-                {
-                    movePathQueue = new Queue<PathModel>(value);
-                }
-                else
-                {
-                    movePathQueue = null;
-                }
-            }
+            set { movePathQueue = value != null ? new Queue<PathModel>(value) : null; }
         }
         public PathModel MoveCurrentPath { get => moveCurrentPath; set => moveCurrentPath = value; }
 
@@ -411,329 +260,25 @@ namespace MVC.Unit
         #endregion
         #region Events Properties
 
-        public UnityEvent EventTransformPositionChanged
-        {
-            get
-            {
-                if (eventTransformPositionChanged == null)
-                {
-                    eventTransformPositionChanged = new UnityEvent();
-                }
-                return eventTransformPositionChanged;
-            }
-
-            set
-            {
-                eventTransformPositionChanged = value;
-            }
-        }
-        public UnityEvent EventUnitNumberChanged
-        {
-            get
-            {
-                if (eventUnitNumberChanged == null)
-                {
-                    eventUnitNumberChanged = new UnityEvent();
-                }
-                return eventUnitNumberChanged;
-            }
-
-            set
-            {
-                eventUnitNumberChanged = value;
-            }
-        }
-
-        public UnityEvent EventUnitNameChanged
-        {
-            get
-            {
-                if (eventUnitNameChanged == null)
-                {
-                    eventUnitNameChanged = new UnityEvent();
-                }
-                return eventUnitNameChanged;
-            }
-
-            set
-            {
-                eventUnitNameChanged = value;
-            }
-        }
-
-        public UnityEvent EventUnitIconChanged
-        {
-            get
-            {
-                if (eventUnitIconChanged == null)
-                {
-                    eventUnitIconChanged = new UnityEvent();
-                }
-                return eventUnitIconChanged;
-            }
-
-            set
-            {
-                eventUnitIconChanged = value;
-            }
-        }
-
-        public UnityEvent EventUnitHPChanged
-        {
-            get
-            {
-                if (eventUnitHPChanged == null)
-                {
-                    eventUnitHPChanged = new UnityEvent();
-                }
-                return eventUnitHPChanged;
-            }
-
-            set
-            {
-                eventUnitHPChanged = value;
-            }
-        }
-
-        public UnityEvent EventUnitMaxHPChanged
-        {
-            get
-            {
-                if (eventUnitMaxHPChanged == null)
-                {
-                    eventUnitMaxHPChanged = new UnityEvent();
-                }
-                return eventUnitMaxHPChanged;
-            }
-
-            set
-            {
-                eventUnitMaxHPChanged = value;
-            }
-        }
-
-        public UnityEventAbilityModel EventUnitAbilityAdded
-        {
-            get
-            {
-                if (eventUnitAbilityAdded == null)
-                {
-                    eventUnitAbilityAdded = new UnityEventAbilityModel();
-                }
-                return eventUnitAbilityAdded;
-            }
-
-            set
-            {
-                eventUnitAbilityAdded = value;
-            }
-        }
-
-        public UnityEventAbilityModel EventUnitAbilityRemoved
-        {
-            get
-            {
-                if (eventUnitAbilityRemoved == null)
-                {
-                    eventUnitAbilityRemoved = new UnityEventAbilityModel();
-                }
-                return eventUnitAbilityRemoved;
-            }
-
-            set
-            {
-                eventUnitAbilityRemoved = value;
-            }
-        }
-
-        public UnityEventStatusModel EventUnitStatusAdded
-        {
-            get
-            {
-                if (eventUnitStatusAdded == null)
-                {
-                    eventUnitStatusAdded = new UnityEventStatusModel();
-                }
-                return eventUnitStatusAdded;
-            }
-
-            set
-            {
-                eventUnitStatusAdded = value;
-            }
-        }
-
-        public UnityEventStatusModel EventUnitStatusRemoved
-        {
-            get
-            {
-                if (eventUnitStatusRemoved == null)
-                {
-                    eventUnitStatusRemoved = new UnityEventStatusModel();
-                }
-                return eventUnitStatusRemoved;
-            }
-
-            set
-            {
-                eventUnitStatusRemoved = value;
-            }
-        }
-
-        public UnityEvent EventUnitCanLandTraverseChanged
-        {
-            get
-            {
-                if (eventUnitCanLandTraverseChanged == null)
-                {
-                    eventUnitCanLandTraverseChanged = new UnityEvent();
-                }
-                return eventUnitCanLandTraverseChanged;
-            }
-
-            set
-            {
-                eventUnitCanLandTraverseChanged = value;
-            }
-        }
-
-        public UnityEvent EventUnitCanAirTraverseChanged
-        {
-            get
-            {
-                if (eventUnitCanAirTraverseChanged == null)
-                {
-                    eventUnitCanAirTraverseChanged = new UnityEvent();
-                }
-                return eventUnitCanAirTraverseChanged;
-            }
-
-            set
-            {
-                eventUnitCanAirTraverseChanged = value;
-            }
-        }
-
-        public UnityEvent EventUnitCanStopOnLandChanged
-        {
-            get
-            {
-                if (eventUnitCanStopOnLandChanged == null)
-                {
-                    eventUnitCanStopOnLandChanged = new UnityEvent();
-                }
-                return eventUnitCanStopOnLandChanged;
-            }
-
-            set
-            {
-                eventUnitCanStopOnLandChanged = value;
-            }
-        }
-
-        public UnityEvent EventUnitCanStopInAirChanged
-        {
-            get
-            {
-                if (eventUnitCanStopInAirChanged == null)
-                {
-                    eventUnitCanStopInAirChanged = new UnityEvent();
-                }
-                return eventUnitCanStopInAirChanged;
-            }
-
-            set
-            {
-                eventUnitCanStopInAirChanged = value;
-            }
-        }
-
-        public UnityEvent EventUnitHasCellResidenceChanged
-        {
-            get
-            {
-                if (eventUnitHasCellResidenceChanged == null)
-                {
-                    eventUnitHasCellResidenceChanged = new UnityEvent();
-                }
-                return eventUnitHasCellResidenceChanged;
-            }
-
-            set
-            {
-                eventUnitHasCellResidenceChanged = value;
-            }
-        }
-
-        public UnityEvent EventUnitCellResidenceChanged
-        {
-            get
-            {
-                if (eventUnitCellResidenceChanged == null)
-                {
-                    eventUnitCellResidenceChanged = new UnityEvent();
-                }
-                return eventUnitCellResidenceChanged;
-            }
-
-            set
-            {
-                eventUnitCellResidenceChanged = value;
-            }
-        }
-
-        public UnityEvent EventUnitOnTurnChanged
-        {
-            get
-            {
-                if (eventUnitOnTurnChanged == null)
-                {
-                    eventUnitOnTurnChanged = new UnityEvent();
-                }
-                return eventUnitOnTurnChanged;
-            }
-
-            set
-            {
-                eventUnitOnTurnChanged = value;
-            }
-        }
-
-        public UnityEvent EventUnitTurnWaitValueChanged
-        {
-            get
-            {
-                if (eventUnitTurnWaitValueChanged == null)
-                {
-                    eventUnitTurnWaitValueChanged = new UnityEvent();
-                }
-                return eventUnitTurnWaitValueChanged;
-            }
-
-            set
-            {
-                eventUnitTurnWaitValueChanged = value;
-            }
-        }
-
-        public UnityEvent EventUnitEnergyUsedChanged
-        {
-            get
-            {
-                if (eventUnitEnergyUsedChanged == null)
-                {
-                    eventUnitEnergyUsedChanged = new UnityEvent();
-                }
-                return eventUnitEnergyUsedChanged;
-            }
-
-            set
-            {
-                eventUnitEnergyUsedChanged = value;
-            }
-        }
-
-
+        public UnityEvent<Vector3> EventTransformPositionChanged { get => eventTransformPositionChanged; set => eventTransformPositionChanged = value; }
+        public UnityEvent EventUnitNumberChanged { get => eventUnitNumberChanged; set => eventUnitNumberChanged = value; }
+        public UnityEvent EventUnitNameChanged { get => eventUnitNameChanged; set => eventUnitNameChanged = value; }
+        public UnityEvent EventUnitIconChanged { get => eventUnitIconChanged; set => eventUnitIconChanged = value; }
+        public UnityEvent EventUnitHealthChanged { get => eventUnitHealthChanged; set => eventUnitHealthChanged = value; }
+        public UnityEvent EventUnitMaxHealthChanged { get => eventUnitMaxHealthChanged; set => eventUnitMaxHealthChanged = value; }
+        public UnityEventAbilityModel EventUnitAbilityAdded { get => eventUnitAbilityAdded; set => eventUnitAbilityAdded = value; }
+        public UnityEventAbilityModel EventUnitAbilityRemoved { get => eventUnitAbilityRemoved; set => eventUnitAbilityRemoved = value; }
+        public UnityEventStatusModel EventUnitStatusAdded { get => eventUnitStatusAdded; set => eventUnitStatusAdded = value; }
+        public UnityEventStatusModel EventUnitStatusRemoved { get => eventUnitStatusRemoved; set => eventUnitStatusRemoved = value; }
+        public UnityEvent EventUnitCanLandTraverseChanged { get => eventUnitCanLandTraverseChanged; set => eventUnitCanLandTraverseChanged = value; }
+        public UnityEvent EventUnitCanAirTraverseChanged { get => eventUnitCanAirTraverseChanged; set => eventUnitCanAirTraverseChanged = value; }
+        public UnityEvent EventUnitCanStopOnLandChanged { get => eventUnitCanStopOnLandChanged; set => eventUnitCanStopOnLandChanged = value; }
+        public UnityEvent EventUnitCanStopInAirChanged { get => eventUnitCanStopInAirChanged; set => eventUnitCanStopInAirChanged = value; }
+        public UnityEvent EventUnitHasCellResidenceChanged { get => eventUnitHasCellResidenceChanged; set => eventUnitHasCellResidenceChanged = value; }
+        public UnityEvent EventUnitCellResidenceChanged { get => eventUnitCellResidenceChanged; set => eventUnitCellResidenceChanged = value; }
+        public UnityEvent EventUnitOnTurnChanged { get => eventUnitOnTurnChanged; set => eventUnitOnTurnChanged = value; }
+        public UnityEvent EventUnitTurnWaitValueChanged { get => eventUnitTurnWaitValueChanged; set => eventUnitTurnWaitValueChanged = value; }
+        public UnityEvent EventUnitEnergyUsedChanged { get => eventUnitEnergyUsedChanged; set => eventUnitEnergyUsedChanged = value; }
 
         #endregion
         #region Constructors
@@ -806,6 +351,25 @@ namespace MVC.Unit
             EventUnitStatusRemoved.Invoke(status);
         }
 
+        public void InitialiseTurn()
+        {
+            UnitOnTurn = true;
+            foreach (var ability in UnitAbilities)
+                ability.EffectiveUses = ability.Ability.Uses;
+        }
+        
+        public void EndTurn()
+        {
+            UnitOnTurn = false;
+            foreach (var ability in UnitAbilities)
+                ability.EffectiveUses = 0;
+        }
+
+        public void DamageUnit(int amount)
+        {
+            UnitHealth -= amount;
+        }
+        
         // public void InitialisePathList(CellManagerSO cellManager)
         // {
         //     PathList = new PathModel[cellManager.GridWidth * cellManager.GridHeight];
@@ -824,37 +388,37 @@ namespace MVC.Unit
         //     }
         // }
 
-        public void CalculatePathing(int gridWidth)
-        {
-            ClearPathing();
-            PathModel pathCurrentlyChecking = GetPath(unitCellResidence.CellGridPositionX, unitCellResidence.CellGridPositionY, gridWidth);
-            pathCurrentlyChecking.StartPath();
-            Queue<PathModel> pathsToCheckQueue = new Queue<PathModel>();
-            pathsToCheckQueue.Enqueue(pathCurrentlyChecking);
-            while(pathsToCheckQueue.Count > 0)
-            {
-                pathCurrentlyChecking = pathsToCheckQueue.Dequeue();
-                foreach (PathModel adjacentPath in pathCurrentlyChecking.AdjacentPaths)
-                {
-                    if (!adjacentPath.HasPath || (adjacentPath.HasPath && adjacentPath.PathLength > pathCurrentlyChecking.PathLength + 1))
-                    {
-                        adjacentPath.PathQueue = pathCurrentlyChecking.PathQueue;
-                        if (adjacentPath.Cell.StaticData.CellIsLandDestination) // Can set future conditions for flying etc.
-                        {
-                            pathCurrentlyChecking.CanStop = true;
-                        }
-                        if (adjacentPath.Cell.StaticData.CellIsLandTraversable) // If can't pass through don't add to the checking queue. Also add more in future.
-                        {
-                            pathCurrentlyChecking.CanPassThrough = true;
-                            if (!pathsToCheckQueue.Contains(adjacentPath)) // If adjacent path isn't already in Paths To Check Queue add adjacent path to the queue
-                            {
-                                pathsToCheckQueue.Enqueue(adjacentPath);
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        // public void CalculatePathing(int gridWidth)
+        // {
+        //     ClearPathing();
+        //     PathModel pathCurrentlyChecking = GetPath(unitCellResidence.CellGridPositionX, unitCellResidence.CellGridPositionY, gridWidth);
+        //     pathCurrentlyChecking.StartPath();
+        //     Queue<PathModel> pathsToCheckQueue = new Queue<PathModel>();
+        //     pathsToCheckQueue.Enqueue(pathCurrentlyChecking);
+        //     while(pathsToCheckQueue.Count > 0)
+        //     {
+        //         pathCurrentlyChecking = pathsToCheckQueue.Dequeue();
+        //         foreach (PathModel adjacentPath in pathCurrentlyChecking.AdjacentPaths)
+        //         {
+        //             if (!adjacentPath.HasPath || (adjacentPath.HasPath && adjacentPath.PathLength > pathCurrentlyChecking.PathLength + 1))
+        //             {
+        //                 adjacentPath.PathQueue = pathCurrentlyChecking.PathQueue;
+        //                 if (adjacentPath.Cell.StaticData.CellIsLandDestination) // Can set future conditions for flying etc.
+        //                 {
+        //                     pathCurrentlyChecking.CanStop = true;
+        //                 }
+        //                 if (adjacentPath.Cell.StaticData.CellIsLandTraversable) // If can't pass through don't add to the checking queue. Also add more in future.
+        //                 {
+        //                     pathCurrentlyChecking.CanPassThrough = true;
+        //                     if (!pathsToCheckQueue.Contains(adjacentPath)) // If adjacent path isn't already in Paths To Check Queue add adjacent path to the queue
+        //                     {
+        //                         pathsToCheckQueue.Enqueue(adjacentPath);
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
 
         public void ClearPathing()
         {

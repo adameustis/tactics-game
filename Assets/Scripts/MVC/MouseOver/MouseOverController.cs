@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjects.EventSO;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using UnityEvents;
 
 public class MouseOverController : MonoBehaviour
@@ -13,6 +15,7 @@ public class MouseOverController : MonoBehaviour
     
     [SerializeField] private EventAbstractSO<UnityEventPlayerModelAndTransform> eventInputMouseOff;
     [SerializeField] private EventAbstractSO<UnityEventPlayerModelAndTransform> eventInputMouseOn;
+    [SerializeField] private UnityEvent<MouseOverController> onDisabled;
 
     #endregion
     #region Properties
@@ -20,11 +23,18 @@ public class MouseOverController : MonoBehaviour
     #endregion
     #region Event Properties
     
-    public EventAbstractSO<UnityEventPlayerModelAndTransform> EventInputMouseOff { get => eventInputMouseOff; set => eventInputMouseOff = value; }
-    public EventAbstractSO<UnityEventPlayerModelAndTransform> EventInputMouseOn { get => eventInputMouseOn; set => eventInputMouseOn = value; }
+    public EventAbstractSO<UnityEventPlayerModelAndTransform> EventInputMouseOff { get => eventInputMouseOff; private set => eventInputMouseOff = value; }
+    public EventAbstractSO<UnityEventPlayerModelAndTransform> EventInputMouseOn { get => eventInputMouseOn; private set => eventInputMouseOn = value; }
+    public UnityEvent<MouseOverController> OnDisabled { get => onDisabled; private set => onDisabled = value; }
 
     #endregion
     #region MonoBehaviour
+
+    private void OnDisable()
+    {
+        OnDisabled.Invoke(this);
+    }
+
     #endregion
     #region Methods
     #endregion

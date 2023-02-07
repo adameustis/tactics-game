@@ -17,10 +17,15 @@ MonoBehaviour:
   displayIcon: {fileID: 21300000, guid: 7f6b08ca404bdcf4c8a092b1e5296c5a, type: 3}
   investment: 1
   energy: 1
-  range: 10
+  minimumRange: 1
+  maximumRange: 7777
+  canTargetUnit: 0
+  canTargetLand: 1
+  canTargetAir: 0
   uses: 1
   targeting: {fileID: 0}
   targetUnitPrefab: {fileID: 0}
   targetCellPrefab: {fileID: 0}
-  <TargetingPrefab>k__BackingField: {fileID: 3287414364099740128, guid: f56f01777bb7a684993999454f3e68c4,
+  targetingPrefab: {fileID: 0}
+  performingPrefab: {fileID: 1128774071884308008, guid: 74fe3fcb650559a488e9db4ce99f1df5,
     type: 3}

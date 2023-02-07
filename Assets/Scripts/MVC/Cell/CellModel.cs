@@ -19,7 +19,7 @@ namespace MVC.Cell
         [SerializeField] private int cellGridPositionY;
         [SerializeField] private bool cellHasResidentUnit;
         [System.NonSerialized] private UnitModel cellResidentUnit;
-        [System.NonSerialized] private List<CellModel> cellAdjacentCells;
+        //[System.NonSerialized] private List<CellModel> cellAdjacentCells;
 
         #endregion
         #region Events
@@ -29,9 +29,17 @@ namespace MVC.Cell
         public Vector3 TransformPosition { get => transformPosition; set => transformPosition = value; }
         public int CellGridPositionX { get => cellGridPositionX; set => cellGridPositionX = value; }
         public int CellGridPositionY { get => cellGridPositionY; set => cellGridPositionY = value; }
-        public bool CellHasResidentUnit { get => cellHasResidentUnit; set => cellHasResidentUnit = value; }
-        public UnitModel CellResidentUnit { get => cellResidentUnit; set => cellResidentUnit = value; }
-        public List<CellModel> CellAdjacentCells { get => cellAdjacentCells; private set => cellAdjacentCells = value; }
+        public bool CellHasResidentUnit { get => cellHasResidentUnit; private set => cellHasResidentUnit = value; }
+        public UnitModel CellResidentUnit
+        {
+            get => cellResidentUnit;
+            set
+            {
+                CellHasResidentUnit = value != null;
+                cellResidentUnit = value;
+            }
+        }
+        //public List<CellModel> CellAdjacentCells { get => cellAdjacentCells; private set => cellAdjacentCells = value; }
 
         #endregion
         #region Event Properties
@@ -42,27 +50,27 @@ namespace MVC.Cell
         #endregion
         #region Methods
 
-        public void AddAdjacentCell(CellModel cell)
-        {
-            if (cell == null)
-            {
-                return;
-            }
-            CellAdjacentCells.Add(cell);
-        }
+        // public void AddAdjacentCell(CellModel cell)
+        // {
+        //     if (cell == null)
+        //     {
+        //         return;
+        //     }
+        //     CellAdjacentCells.Add(cell);
+        // }
 
-        public void RemoveAdjacentCell(CellModel cell)
-        {
-            if (cell == null)
-            {
-                return;
-            }
-            if (!CellAdjacentCells.Contains(cell))
-            {
-                return;
-            }
-            CellAdjacentCells.Remove(cell);
-        }
+        // public void RemoveAdjacentCell(CellModel cell)
+        // {
+        //     if (cell == null)
+        //     {
+        //         return;
+        //     }
+        //     if (!CellAdjacentCells.Contains(cell))
+        //     {
+        //         return;
+        //     }
+        //     CellAdjacentCells.Remove(cell);
+        // }
 
         #endregion
     }

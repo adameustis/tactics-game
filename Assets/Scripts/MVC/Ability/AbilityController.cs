@@ -63,6 +63,12 @@ namespace MVC.Ability
             Model = setModel;
         }
 
+        public void SetAbilityBasedOnContextAbilityController(PlayerAndTransformEventModel context)
+        { 
+            if (context.Tf.TryGetComponent(out AbilityController controller))
+                Model = controller.Model;
+        }
+        
         // public void SetAbilityBasedOnUnitSelectedAndSiblingIndex(PlayerAndTransformEventModel context)
         // {
         //     Model = null;

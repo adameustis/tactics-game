@@ -36,11 +36,11 @@ public class EffectController : MonoBehaviour
         // }
         // else if (effect.Effect == GameManager.EffectManager.EffectDamage)
         // {
-        //     Data.UnitHP = Data.UnitHP - effect.Power;
+        //     Data.UnitHealth = Data.UnitHealth - effect.Power;
         // }
         // else if (effect.Effect == GameManager.EffectManager.EffectBurn)
         // {
-        //     Data.UnitHP = Data.UnitHP - effect.Power;
+        //     Data.UnitHealth = Data.UnitHealth - effect.Power;
         // }
     }
 

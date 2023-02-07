@@ -45,7 +45,7 @@ namespace MVC.StateTransition
             }
         }
 
-        protected virtual void TransitionToState(PlayerAndTransformEventModel context)
+        public virtual void TransitionToState(PlayerAndTransformEventModel context)
         {
             // Guard Clause: Check if any of the conditions are not met
             if (ConditionsList.Any(condition => !condition.IsMet(context))) return;

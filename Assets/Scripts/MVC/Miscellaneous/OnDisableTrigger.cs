@@ -11,7 +11,7 @@ namespace MVC.Miscellaneous
 
         #endregion
         #region Monobehaviour
-        private void OnEnable() => OnTriggered.Invoke();
+        private void OnDisable() => OnTriggered.Invoke();
         #endregion
         #region Methods
         #endregion

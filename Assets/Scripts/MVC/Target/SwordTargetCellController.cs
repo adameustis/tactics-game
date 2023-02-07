@@ -1,9 +1,7 @@
 using System;
 using MVC.Cell;
-using MVC.Target;
-using UnityEngine;
 
-namespace MVC.TargetCell
+namespace MVC.Target
 {
     public class SwordTargetCellController : TargetController
     {
@@ -12,7 +10,7 @@ namespace MVC.TargetCell
         {
             CellController targetCell = target.GetComponent<CellController>();
             
-            int sourceX = SourceUnit.Model.UnitCellResidence.CellGridPositionX;
+            int sourceX = SourceUnit.Model.GridPositionX;
             int destinationX = targetCell.Model.CellGridPositionX;
 
             bool valid = Math.Abs(sourceX - destinationX) == 1;
