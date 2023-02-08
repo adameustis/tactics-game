@@ -1796,6 +1796,8 @@ GameObject:
   - component: {fileID: 1059319881}
   - component: {fileID: 1059319880}
   - component: {fileID: 1059319879}
+  - component: {fileID: 1059319883}
+  - component: {fileID: 1059319882}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -1886,6 +1888,61 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1059319882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059319877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 451393422645fed44a0462496f95af92,
+    type: 3}
+  m_PointAction: {fileID: -7924980479364982499, guid: 451393422645fed44a0462496f95af92,
+    type: 3}
+  m_MoveAction: {fileID: -5767140722567131532, guid: 451393422645fed44a0462496f95af92,
+    type: 3}
+  m_SubmitAction: {fileID: 5935341983125541708, guid: 451393422645fed44a0462496f95af92,
+    type: 3}
+  m_CancelAction: {fileID: 3232535095952180620, guid: 451393422645fed44a0462496f95af92,
+    type: 3}
+  m_LeftClickAction: {fileID: 5098751425957230473, guid: 451393422645fed44a0462496f95af92,
+    type: 3}
+  m_MiddleClickAction: {fileID: 1963819901794759436, guid: 451393422645fed44a0462496f95af92,
+    type: 3}
+  m_RightClickAction: {fileID: 114217284556898902, guid: 451393422645fed44a0462496f95af92,
+    type: 3}
+  m_ScrollWheelAction: {fileID: -7097673843864382208, guid: 451393422645fed44a0462496f95af92,
+    type: 3}
+  m_TrackedDevicePositionAction: {fileID: 3374961474938213474, guid: 451393422645fed44a0462496f95af92,
+    type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: -9012224217766788029, guid: 451393422645fed44a0462496f95af92,
+    type: 3}
+  m_DeselectOnBackgroundClick: 0
+  m_PointerBehavior: 0
+--- !u!114 &1059319883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059319877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16c6f78230fa4964a222622d8aae332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+  m_PlayerRoot: {fileID: 0}
 --- !u!1 &1080619814
 GameObject:
   m_ObjectHideFlags: 0

@@ -54,10 +54,12 @@ namespace MVC.AbilityMenu
         private void Display(UnitModel unit)
         {
             var abilityList = unit.UnitAbilities;
-            if (abilityList == null) return;
+            if (abilityList == null || !abilityList.Any()) return;
                 
             foreach (var ability in abilityList)
                 AddMenuItem(ability, unit);
+            
+            MenuItemList[0].UIButton.Select();
         }
 
         private void AddMenuItem(AbilityModel ability, UnitModel unit)

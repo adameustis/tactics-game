@@ -107,6 +107,7 @@ namespace MVC.Player
 
         public void HandleInputSubmit(InputAction.CallbackContext context)
         {
+            Debug.Log("Handling Input Submit");
             GenericInputSubmitEvent.UnityEvent.Invoke(new PlayerAndTransformEventModel(ThePlayer.Model, null));
             HandleInput<InputSubmit>(context);
         } 

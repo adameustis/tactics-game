@@ -34,7 +34,7 @@ namespace MVC.Event
             LocalAnnouncement.Invoke(context);
             PublicAnnouncement.UnityEvent.Invoke(context);
         }
-        
+
         #endregion
     }
 }

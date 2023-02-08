@@ -129,9 +129,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e66537b0dc6746b5b10a9bd505718ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability: {fileID: 0}
   sourceUnit: {fileID: 6748401045201888398}
   destinationCell: {fileID: 4584168812152191877}
-  onMoveComplete:
+  onComplete:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1128774071884308008}
@@ -147,3 +148,5 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  speed: 3
+  minimumDistanceDifference: 0.001

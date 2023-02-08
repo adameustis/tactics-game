@@ -275,14 +275,12 @@ GameObject:
   m_Component:
   - component: {fileID: 802697503}
   - component: {fileID: 802697516}
-  - component: {fileID: 802697502}
-  - component: {fileID: 802697501}
   - component: {fileID: 802697517}
   - component: {fileID: 802697520}
-  - component: {fileID: 802697519}
   - component: {fileID: 802697518}
   - component: {fileID: 802697514}
   - component: {fileID: 802697515}
+  - component: {fileID: 802697521}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -290,61 +288,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &802697501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802697500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MoveRepeatDelay: 0.5
-  m_MoveRepeatRate: 0.1
-  m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_SubmitAction: {fileID: 2064916234097673511, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_CancelAction: {fileID: -1967631576421560919, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_LeftClickAction: {fileID: 8056856818456041789, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_MiddleClickAction: {fileID: 3279352641294131588, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_RightClickAction: {fileID: 3837173908680883260, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_ScrollWheelAction: {fileID: 4502412055082496612, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
-  m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
---- !u!114 &802697502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802697500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b16c6f78230fa4964a222622d8aae332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
-  m_PlayerRoot: {fileID: 0}
 --- !u!4 &802697503
 Transform:
   m_ObjectHideFlags: 0
@@ -429,19 +372,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f713ff993e054ac19e8a45a1e717e83e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <EventSystem>k__BackingField: {fileID: 802697502}
+  onUpdatePosition: {fileID: 11400000, guid: 1f523beb174713347ab89e7daddc1ab0, type: 2}
+  <EventSystem>k__BackingField: {fileID: 0}
   <Raycaster>k__BackingField: {fileID: 1904161712}
   <MainCamera>k__BackingField: {fileID: 1812853794}
   <RayMaxDistance>k__BackingField: 100
   <RayLayerMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 2147483647
-  <OnRaycastHitsChanged>k__BackingField:
-    m_PersistentCalls:
-      m_Calls: []
-  <OnUIRaycastResultsChanged>k__BackingField:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &802697518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,32 +396,6 @@ MonoBehaviour:
   <Pointer>k__BackingField: {fileID: 802697517}
   <MouseOverList>k__BackingField: []
   <UIMouseOverList>k__BackingField: []
---- !u!114 &802697519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802697500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fc46c26cf134f89bf881d54c0a541df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <ThePlayer>k__BackingField: {fileID: 802697516}
-  <Pointer>k__BackingField: {fileID: 802697517}
-  <GenericInputCancelEvent>k__BackingField: {fileID: 11400000, guid: 17b0e1da174f83b46835097e1b4a71ae,
-    type: 2}
-  <GenericInputDownEvent>k__BackingField: {fileID: 11400000, guid: 92d2b48c3499f4d4bbe1c05c0b17604d,
-    type: 2}
-  <GenericInputLeftEvent>k__BackingField: {fileID: 11400000, guid: 56a836234f57d1d4488070a6f0525623,
-    type: 2}
-  <GenericInputRightEvent>k__BackingField: {fileID: 11400000, guid: 610bd98e92cd7594886805ffc5113d5a,
-    type: 2}
-  <GenericInputSubmitEvent>k__BackingField: {fileID: 11400000, guid: 7de4ebb9566eadc40bcdb2fb7620cdfb,
-    type: 2}
-  <GenericInputUpEvent>k__BackingField: {fileID: 11400000, guid: e1ff530b4a5726845950870d5ff0d2b6,
-    type: 2}
 --- !u!114 &802697520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,7 +424,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 802697519}
+      - m_Target: {fileID: 802697521}
         m_TargetAssemblyTypeName: MVC.Player.HumanPlayerInputController, Assembly-CSharp
         m_MethodName: HandleInputSubmit
         m_Mode: 0
@@ -528,7 +440,7 @@ MonoBehaviour:
     m_ActionName: Player/Submit[/Mouse/leftButton,/Keyboard/e]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 802697519}
+      - m_Target: {fileID: 802697521}
         m_TargetAssemblyTypeName: MVC.Player.HumanPlayerInputController, Assembly-CSharp
         m_MethodName: HandleInputCancel
         m_Mode: 0
@@ -544,9 +456,9 @@ MonoBehaviour:
     m_ActionName: Player/Cancel[/Mouse/rightButton,/Keyboard/q]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 802697517}
-        m_TargetAssemblyTypeName: MVC.Player.PlayerPointer, Assembly-CSharp
-        m_MethodName: HandleInput
+      - m_Target: {fileID: 802697521}
+        m_TargetAssemblyTypeName: MVC.Player.HumanPlayerInputController, Assembly-CSharp
+        m_MethodName: HandleInputUp
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -560,7 +472,7 @@ MonoBehaviour:
     m_ActionName: Player/Up[/Keyboard/upArrow,/Keyboard/w]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 802697519}
+      - m_Target: {fileID: 802697521}
         m_TargetAssemblyTypeName: MVC.Player.HumanPlayerInputController, Assembly-CSharp
         m_MethodName: HandleInputDown
         m_Mode: 0
@@ -576,7 +488,7 @@ MonoBehaviour:
     m_ActionName: Player/Down[/Keyboard/downArrow,/Keyboard/s]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 802697519}
+      - m_Target: {fileID: 802697521}
         m_TargetAssemblyTypeName: MVC.Player.HumanPlayerInputController, Assembly-CSharp
         m_MethodName: HandleInputLeft
         m_Mode: 0
@@ -592,7 +504,7 @@ MonoBehaviour:
     m_ActionName: Player/Left[/Keyboard/leftArrow,/Keyboard/a]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 802697519}
+      - m_Target: {fileID: 802697521}
         m_TargetAssemblyTypeName: MVC.Player.HumanPlayerInputController, Assembly-CSharp
         m_MethodName: HandleInputRight
         m_Mode: 0
@@ -610,7 +522,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 802697517}
         m_TargetAssemblyTypeName: MVC.Player.PlayerPointer, Assembly-CSharp
-        m_MethodName: HandleInput
+        m_MethodName: HandlePlayerCursor
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -646,11 +558,89 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ee6273ae-84c1-46fc-a0a9-669e8ae3ce2e
     m_ActionName: Player/Cursor[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b456af62-290b-46aa-8449-dfe20b2792ac
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 802697521}
+        m_TargetAssemblyTypeName: MVC.Player.HumanPlayerInputController, Assembly-CSharp
+        m_MethodName: HandleInputSubmit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5b02e754-0125-4e98-bdf8-b5d3e104a6a4
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a39527e7-ac1f-446b-8ae2-0d9c3881f46e
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: def3b59a-80e6-4875-b08e-8b915f7463ff
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4151b66c-097b-452e-b7b1-a83f9c8d2ab1
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cc897aee-d15b-46c5-9291-4d4f6521d07f
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cf2fe64e-aa7c-45f4-b487-e5c32fb3c1a2
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 24020d82-f674-4edc-9506-d35eaaa8c216
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 818a5f90-287f-42ee-b10e-74a906421b90
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ee1d2815-ef31-474f-88ca-92765422a175
+    m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &802697521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802697500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc46c26cf134f89bf881d54c0a541df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ThePlayer>k__BackingField: {fileID: 802697516}
+  <Pointer>k__BackingField: {fileID: 802697517}
+  <GenericInputCancelEvent>k__BackingField: {fileID: 11400000, guid: 17b0e1da174f83b46835097e1b4a71ae,
+    type: 2}
+  <GenericInputDownEvent>k__BackingField: {fileID: 11400000, guid: 92d2b48c3499f4d4bbe1c05c0b17604d,
+    type: 2}
+  <GenericInputLeftEvent>k__BackingField: {fileID: 11400000, guid: 56a836234f57d1d4488070a6f0525623,
+    type: 2}
+  <GenericInputRightEvent>k__BackingField: {fileID: 11400000, guid: 610bd98e92cd7594886805ffc5113d5a,
+    type: 2}
+  <GenericInputSubmitEvent>k__BackingField: {fileID: 11400000, guid: 7de4ebb9566eadc40bcdb2fb7620cdfb,
+    type: 2}
+  <GenericInputUpEvent>k__BackingField: {fileID: 11400000, guid: e1ff530b4a5726845950870d5ff0d2b6,
+    type: 2}
 --- !u!1 &858763460
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,6 +733,7 @@ GameObject:
   - component: {fileID: 1037883286}
   - component: {fileID: 1037883285}
   - component: {fileID: 1037883284}
+  - component: {fileID: 1037883287}
   m_Layer: 5
   m_Name: ButtonQuit
   m_TagString: Untagged
@@ -764,7 +755,7 @@ RectTransform:
   m_Children:
   - {fileID: 122123660}
   m_Father: {fileID: 1904161715}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -795,7 +786,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0, g: 1, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -865,6 +856,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037883282}
   m_CullTransparentMesh: 0
+--- !u!114 &1037883287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037883282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880968cdd91d4f4c80cb9f6dc37edac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventInputMouseOn: {fileID: 11400000, guid: 16d3819a287be654c87eb5630f36823b, type: 2}
+  eventInputMouseOff: {fileID: 11400000, guid: 7522a16f08bca59479024f08d4d70f5b, type: 2}
+  onMouseOn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1037883284}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMouseOff:
+    m_PersistentCalls:
+      m_Calls: []
+  onDisabled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1812853792
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,6 +987,7 @@ GameObject:
   - component: {fileID: 1860341755}
   - component: {fileID: 1860341754}
   - component: {fileID: 1860341753}
+  - component: {fileID: 1860341756}
   m_Layer: 5
   m_Name: ButtonCustomGame
   m_TagString: Untagged
@@ -982,7 +1009,7 @@ RectTransform:
   m_Children:
   - {fileID: 858763461}
   m_Father: {fileID: 1904161715}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1011,9 +1038,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0, g: 1, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1083,6 +1110,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860341751}
   m_CullTransparentMesh: 0
+--- !u!114 &1860341756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860341751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880968cdd91d4f4c80cb9f6dc37edac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventInputMouseOn: {fileID: 11400000, guid: 16d3819a287be654c87eb5630f36823b, type: 2}
+  eventInputMouseOff: {fileID: 11400000, guid: 7522a16f08bca59479024f08d4d70f5b, type: 2}
+  onMouseOn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1860341753}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMouseOff:
+    m_PersistentCalls:
+      m_Calls: []
+  onDisabled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1904161711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,6 +1157,8 @@ GameObject:
   - component: {fileID: 1904161714}
   - component: {fileID: 1904161713}
   - component: {fileID: 1904161712}
+  - component: {fileID: 1904161717}
+  - component: {fileID: 1904161716}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -1175,8 +1239,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1037883283}
   - {fileID: 1860341752}
+  - {fileID: 1037883283}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1185,3 +1249,58 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1904161716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904161711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_SubmitAction: {fileID: 2064916234097673511, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_CancelAction: {fileID: -1967631576421560919, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_LeftClickAction: {fileID: 8056856818456041789, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_MiddleClickAction: {fileID: 3279352641294131588, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_RightClickAction: {fileID: 3837173908680883260, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_ScrollWheelAction: {fileID: 4502412055082496612, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+--- !u!114 &1904161717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904161711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16c6f78230fa4964a222622d8aae332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 1860341751}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+  m_PlayerRoot: {fileID: 0}

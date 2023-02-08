@@ -80,18 +80,17 @@ namespace MVC.Player
             UIMouseOverList = newMouseOverList;
         }
         
-        private void MouseOff(MouseOverController mouseOffController, UnityAction<MouseOverController> handleOnDisableMethod)
-        {
-            mouseOffController.EventInputMouseOff.UnityEvent.Invoke(new PlayerAndTransformEventModel(Player.Model, mouseOffController.transform));
-            mouseOffController.OnDisabled.RemoveListener(handleOnDisableMethod);
-        }
-        
         private void MouseOn(MouseOverController mouseOnController, UnityAction<MouseOverController> handleOnDisableMethod)
         {
-            mouseOnController.EventInputMouseOn.UnityEvent.Invoke(new PlayerAndTransformEventModel(Player.Model, mouseOnController.transform));
+            mouseOnController.InvokeMouseOn(new PlayerAndTransformEventModel(Player.Model, mouseOnController.transform));
             mouseOnController.OnDisabled.AddListener(handleOnDisableMethod);
         }
         
+        private void MouseOff(MouseOverController mouseOffController, UnityAction<MouseOverController> handleOnDisableMethod)
+        {
+            mouseOffController.InvokeMouseOff(new PlayerAndTransformEventModel(Player.Model, mouseOffController.transform));
+            mouseOffController.OnDisabled.RemoveListener(handleOnDisableMethod);
+        }
         private void RemoveFromMouseOverList(MouseOverController controller)
         {
             MouseOverList.Remove(controller);

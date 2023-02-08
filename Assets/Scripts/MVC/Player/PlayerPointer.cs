@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using MVC.EventModel;
+using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace MVC.Player
@@ -16,6 +18,8 @@ namespace MVC.Player
         #region Fields
         #endregion
         #region Events
+
+        [FormerlySerializedAs("playerPointerUpdatePosition")] [SerializeField] private EventPlayerModelAndTransformSO onUpdatePosition;
         #endregion
         #region Properties
         //[field: SerializeField] public bool MouseCanOverride { get; private set; }
@@ -31,12 +35,15 @@ namespace MVC.Player
         [field: SerializeField] public LayerMask RayLayerMask { get; private set; }
         #endregion
         #region Event Properties
-        [field: SerializeField] public UnityEvent<RaycastHit[]> OnRaycastHitsChanged { get; private set; }
-        [field: SerializeField] public UnityEvent<List<RaycastResult>> OnUIRaycastResultsChanged { get; private set; }
+        // [field: SerializeField] public UnityEvent<RaycastHit[]> OnRaycastHitsChanged { get; private set; }
+        // [field: SerializeField] public UnityEvent<List<RaycastResult>> OnUIRaycastResultsChanged { get; private set; }
+        public EventPlayerModelAndTransformSO OnUpdatePosition { get => onUpdatePosition; private set => onUpdatePosition = value; }
+
         #endregion
         #region Event Handlers
-        public void HandleInput(InputAction.CallbackContext context) => SetPointerPosition(Mouse.current.position.ReadValue());
-
+        public void HandlePlayerCursor(InputAction.CallbackContext context) => SetPointerPosition(Mouse.current.position.ReadValue());
+        public void HandleUpdatePosition(PlayerAndTransformEventModel context) => SetPointerPosition(context.Tf.position);
+        
         private void SceneLoadedHandler(Scene newScene, LoadSceneMode mode)
         {
             if (MainCamera == null) MainCamera = Camera.main;
@@ -54,6 +61,7 @@ namespace MVC.Player
         private void SubscribeToEvents()
         {
             SceneManager.sceneLoaded += SceneLoadedHandler;
+            OnUpdatePosition.UnityEvent.AddListener(HandleUpdatePosition);
             
             // if (!MouseCanOverride) return;
             // Control.Player.Cursor.performed += HandleInput;
@@ -61,6 +69,7 @@ namespace MVC.Player
         private void UnsubscribeFromEvents()
         {
             SceneManager.sceneLoaded += SceneLoadedHandler;
+            OnUpdatePosition.UnityEvent.RemoveListener(HandleUpdatePosition);
             
             // if (!MouseCanOverride) return;
             // Control.Player.Cursor.performed -= HandleInput;
