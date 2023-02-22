@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using MVC.EventModel;
+using MVC.EventData;
 using ScriptableObjects.EventSO;
 using UnityEngine;
 using UnityEvents;
@@ -51,18 +51,18 @@ public class MouseOverHighlightCellPathingController : MonoBehaviour
     #endregion
     #region Event Handlers
     
-    public void MouseOffEventHandler(PlayerAndTransformEventModel eventModel)
+    public void MouseOffEventHandler(PlayerAndTransformEventData eventData)
     {
-        if (eventModel.Tf != transform) return;
+        if (eventData.Tf != transform) return;
         
-        StopDisplaying(eventModel.Player);
+        StopDisplaying(eventData.Player);
     }
 
-    public void MouseOnEventHandler(PlayerAndTransformEventModel eventModel)
+    public void MouseOnEventHandler(PlayerAndTransformEventData eventData)
     {
-        if (eventModel.Tf != transform) return;
+        if (eventData.Tf != transform) return;
         
-        Display(eventModel.Player, true, true, true, true); // Need to update this. These need to be set somewhere.
+        Display(eventData.Player, true, true, true, true); // Need to update this. These need to be set somewhere.
     }
     
     #endregion 

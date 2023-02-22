@@ -6,12 +6,14 @@ namespace MVC.Image
     public class AbilityImageController : ImageController
     {
         #region Fields
+        [Header("Fields")]
+        [SerializeField] private AbilityModel ability;
         #endregion
         #region Events
         #endregion
         #region Properties
-        [field: Header("Fields")]
-        [field: SerializeField] public AbilityController Ability { get; private set; }
+
+        public AbilityModel Ability { get => ability; private set => ability = value; }
 
         #endregion
         #region Event Properties
@@ -24,7 +26,13 @@ namespace MVC.Image
         #endregion
         #region Methods
 
-        public void UpdateSprite() => ImageComponent.sprite = Ability.Model.Ability.DisplayIcon;
+        public void Initialise(AbilityModel setAbility)
+        {
+            Ability = setAbility;
+            UpdateSprite(setAbility.Ability.DisplayIcon);
+        }
+        
+        public void UpdateSprite(Sprite setSprite) => ImageComponent.sprite = setSprite;
 
         #endregion
     }

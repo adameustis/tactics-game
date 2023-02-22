@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using MVC.Ability;
-using MVC.EventModel;
+using MVC.Cell;
+using MVC.EventData;
+using MVC.SelectArea;
 using MVC.Unit;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -35,13 +37,19 @@ namespace MVC.AbilityMenu
         #endregion
         #region Event Handlers
     
-        public void DisplayEventHandler(PlayerAndTransformEventModel context)
+        public void HandleOnEnterState(PlayerAndTransformEventData context)
         {
-            if (context.Tf.TryGetComponent(out UnitController unit))
-                Display(unit.Model);
+            // if (context.Tf.TryGetComponent(out SelectAreaController selectArea))
+            //     Display(selectArea.Cell.CellResidentUnit, selectArea.Cell);
+            
+            if (context.GetType() != typeof(SelectAreaEventData)) return;
+            
+            var eventData = (SelectAreaEventData)context;
+            Display(eventData.Player, eventData.SourceCell.CellResidentUnit, eventData.SourceCell);
+            
         }
         
-        public void StopDisplayHandler(PlayerAndTransformEventModel context)
+        public void HandleOnExitState(PlayerAndTransformEventData context)
         {
             ClearMenuItems();
         }
@@ -51,24 +59,24 @@ namespace MVC.AbilityMenu
         #endregion
         #region Methods
 
-        private void Display(UnitModel unit)
+        private void Display(PlayerModel player, UnitModel sourceUnit, CellModel sourceCell)
         {
-            var abilityList = unit.UnitAbilities;
+            var abilityList = sourceUnit.UnitAbilities;
             if (abilityList == null || !abilityList.Any()) return;
                 
             foreach (var ability in abilityList)
-                AddMenuItem(ability, unit);
+                AddMenuItem(player, ability, sourceUnit, sourceCell);
             
             MenuItemList[0].UIButton.Select();
         }
 
-        private void AddMenuItem(AbilityModel ability, UnitModel unit)
+        private void AddMenuItem(PlayerModel player, AbilityModel ability, UnitModel unit, CellModel cell)
         {
             if (ability == null) return;
             
             var menuItem = Instantiate(ability.EffectiveUses > 0 ? UsableMenuItemPrefab : UnusableMenuItemPrefab, TransformToAttachMenuItemsTo);
-            //menuItem.transform.SetParent(TransformToAttachMenuItemsTo);
-            menuItem.Initialise(ability, unit);
+            //menuItem.transform.SetParent(TransformToAttachSelectAreasTo);
+            menuItem.Initialise(player, ability, unit, cell);
             MenuItemList.Add(menuItem);
         }
 

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using MVC.EventModel;
+using MVC.EventData;
 using UnityEngine;
 using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using UnityEngine.Events;
@@ -18,8 +18,8 @@ namespace MVC.State
         [field: Header("Events")]
         [field: SerializeField] public EventPlayerModelAndTransformSO PublicOnEnter { get; protected set; }
         [field: SerializeField] public EventPlayerModelAndTransformSO PublicOnExit { get; protected set; }
-        [field: SerializeField] public UnityEvent<PlayerAndTransformEventModel> LocalOnEnter { get; protected set; }
-        [field: SerializeField] public UnityEvent<PlayerAndTransformEventModel> LocalOnExit { get; protected set; }
+        [field: SerializeField] public UnityEvent<PlayerAndTransformEventData> LocalOnEnter { get; protected set; }
+        [field: SerializeField] public UnityEvent<PlayerAndTransformEventData> LocalOnExit { get; protected set; }
         #endregion
         #region MonoBehaviour
 
@@ -32,7 +32,7 @@ namespace MVC.State
         protected virtual void SubscribeToEvents() {}
         protected virtual void UnsubscribeFromEvents() {}
         
-        public virtual void EnterState(PlayerAndTransformEventModel context)
+        public virtual void EnterState(PlayerAndTransformEventData context)
         {
             gameObject.SetActive(true);
             DataQueue.Add(new StateData(context)); // Can record more than context if necessary
@@ -40,14 +40,14 @@ namespace MVC.State
             LocalOnEnter.Invoke(context);
         }
 
-        public virtual void ReturnToState(PlayerAndTransformEventModel context)
+        public virtual void ReturnToState(PlayerAndTransformEventData context)
         {
             gameObject.SetActive(true);
             PublicOnEnter.UnityEvent.Invoke(context);
             LocalOnEnter.Invoke(context);
         }
         
-        public virtual void ExitState(PlayerAndTransformEventModel context, bool save)
+        public virtual void ExitState(PlayerAndTransformEventData context, bool save)
         {
             if (!save)
                 DataQueue.RemoveAt(DataQueue.Count - 1);

@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using MVC.EventModel;
+using MVC.EventData;
 using ScriptableObjects.EventSO;
 using UnityEngine;
 using UnityEvents;
@@ -46,16 +46,16 @@ public class OutlineController : MonoBehaviour
     #endregion
     #region Methods
 
-    public virtual void DisplayOutline(PlayerAndTransformEventModel eventModel)
+    public virtual void DisplayOutline(PlayerAndTransformEventData eventData)
     {
-        if (eventModel.Tf != transform) return;
+        if (eventData.Tf != transform) return;
         
         OutlineAnimator.SetBool("isDisplaying", true);
     }
 
-    public virtual void StopDisplayingOutline(PlayerAndTransformEventModel eventModel)
+    public virtual void StopDisplayingOutline(PlayerAndTransformEventData eventData)
     {
-        if (eventModel.Tf != transform) return;
+        if (eventData.Tf != transform) return;
         
         OutlineAnimator.SetBool("isDisplaying", false);
     }

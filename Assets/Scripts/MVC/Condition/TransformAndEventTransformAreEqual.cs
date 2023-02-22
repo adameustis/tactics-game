@@ -1,4 +1,4 @@
-using MVC.EventModel;
+using MVC.EventData;
 using UnityEngine;
 
 namespace MVC.Condition
@@ -12,7 +12,7 @@ namespace MVC.Condition
         #endregion
         #region Methods
         
-        public override bool IsMet(PlayerAndTransformEventModel context)
+        public override bool IsMet(PlayerAndTransformEventData context)
         {
             return context.Tf == TransformToCompare;
         }

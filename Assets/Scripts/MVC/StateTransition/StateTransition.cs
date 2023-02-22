@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using MVC.EventModel;
+using MVC.EventData;
 using MVC.State;
 using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using ScriptableObjects.TransitionDirectionSO;
@@ -45,7 +45,7 @@ namespace MVC.StateTransition
             }
         }
 
-        public virtual void TransitionToState(PlayerAndTransformEventModel context)
+        public virtual void TransitionToState(PlayerAndTransformEventData context)
         {
             // Guard Clause: Check if any of the conditions are not met
             if (ConditionsList.Any(condition => !condition.IsMet(context))) return;

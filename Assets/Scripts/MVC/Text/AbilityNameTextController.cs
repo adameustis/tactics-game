@@ -6,12 +6,14 @@ namespace MVC.Text
     public class AbilityNameTextController : TextController
     {
         #region Fields
+        [Header("Fields")]
+        [SerializeField] private AbilityModel ability;
         #endregion
         #region Events
         #endregion
         #region Properties
-        [field: Header("Fields")]
-        [field: SerializeField] public AbilityController Ability { get; private set; }
+
+        public AbilityModel Ability { get => ability; private set => ability = value; }
 
         #endregion
         #region Event Properties
@@ -24,7 +26,13 @@ namespace MVC.Text
         #endregion
         #region Methods
 
-        public void UpdateText() => TextComponent.text = Ability.Model.Ability.AbilityName;
+        public void Initialise(AbilityModel setAbility)
+        {
+            Ability = setAbility;
+            UpdateText(setAbility.Ability.AbilityName);
+        }
+        
+        public void UpdateText(string setText) => TextComponent.text = setText;
 
         #endregion
     }

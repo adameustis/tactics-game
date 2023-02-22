@@ -1,14 +1,14 @@
 using UnityEngine;
 
-namespace MVC.EventModel
+namespace MVC.EventData
 {
     [System.Serializable]
-    public class PlayerAndTransformEventModel
+    public class PlayerAndTransformEventData
     {
         #region Fields
         
-        private PlayerModel player;
-        private Transform tf;
+        protected PlayerModel player;
+        protected Transform tf;
         
         #endregion
         #region Properties
@@ -19,7 +19,7 @@ namespace MVC.EventModel
         #endregion
         #region Constructors
         
-        public PlayerAndTransformEventModel(PlayerModel player, Transform tf)
+        public PlayerAndTransformEventData(PlayerModel player, Transform tf)
         {
             this.player = player;
             this.tf = tf;

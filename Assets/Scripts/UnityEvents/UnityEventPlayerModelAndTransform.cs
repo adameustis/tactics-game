@@ -1,8 +1,8 @@
-﻿using MVC.EventModel;
+﻿using MVC.EventData;
 using UnityEngine.Events;
 
 namespace UnityEvents
 {
     [System.Serializable]
-    public class UnityEventPlayerModelAndTransform : UnityEvent<PlayerAndTransformEventModel> { }
+    public class UnityEventPlayerModelAndTransform : UnityEvent<PlayerAndTransformEventData> { }
 }

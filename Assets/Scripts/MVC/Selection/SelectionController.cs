@@ -1,4 +1,4 @@
-﻿using MVC.EventModel;
+﻿using MVC.EventData;
 using ScriptableObjects.EventSO;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -62,20 +62,20 @@ namespace MVC.Selection
         {
             if (Data.IsSelected) return;
             Data.IsSelected = true;
-            SelectedEvent.UnityEvent?.Invoke(new PlayerAndTransformEventModel(player, transform));
+            SelectedEvent.UnityEvent?.Invoke(new PlayerAndTransformEventData(player, transform));
         }
 
         public void DoubleSelect(PlayerModel player)
         {
             if (!Data.IsSelected) return;
-            DoubleSelectedEvent.UnityEvent?.Invoke(new PlayerAndTransformEventModel(player, transform));
+            DoubleSelectedEvent.UnityEvent?.Invoke(new PlayerAndTransformEventData(player, transform));
         }
     
         public void Deselect(PlayerModel player)
         {
             if (!Data.IsSelected) return;
             Data.IsSelected = false;
-            DeselectedEvent.UnityEvent?.Invoke(new PlayerAndTransformEventModel(player, transform));
+            DeselectedEvent.UnityEvent?.Invoke(new PlayerAndTransformEventData(player, transform));
         }
 
         #endregion

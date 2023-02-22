@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using MVC.EventModel;
+using MVC.EventData;
 using ScriptableObjects.EventSO;
 using UnityEngine;
 using UnityEngine.Events;
@@ -50,16 +50,16 @@ public class MouseOverOutlineController : MonoBehaviour
     #endregion
     #region Event Handlers
     
-    public void MouseOffEventHandler(PlayerAndTransformEventModel eventModel)
+    public void MouseOffEventHandler(PlayerAndTransformEventData eventData)
     {
-        if (eventModel.Tf != transform) return;
+        if (eventData.Tf != transform) return;
         
         StopDisplayingOutline();
     }
 
-    public void MouseOnEventHandler(PlayerAndTransformEventModel eventModel)
+    public void MouseOnEventHandler(PlayerAndTransformEventData eventData)
     {
-        if (eventModel.Tf != transform) return;
+        if (eventData.Tf != transform) return;
         
         DisplayOutline();
     }

@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using MVC.EventModel;
+using MVC.EventData;
 using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using UnityEngine;
 using UnityEngine.Events;
@@ -25,49 +25,49 @@ public class InputController : MonoBehaviour
     [field: SerializeField] public EventPlayerModelAndTransformSO EventInputUp { get; private set; }
     
     [field: Header("Local Events")]
-    [field: SerializeField] public UnityEvent<PlayerAndTransformEventModel> LocalInputCancel { get; private set; }
-    [field: SerializeField] public UnityEvent<PlayerAndTransformEventModel> LocalInputDown { get; private set; }
-    [field: SerializeField] public UnityEvent<PlayerAndTransformEventModel> LocalInputLeft { get; private set; }
-    [field: SerializeField] public UnityEvent<PlayerAndTransformEventModel> LocalInputRight { get; private set; }
-    [field: SerializeField] public UnityEvent<PlayerAndTransformEventModel> LocalInputSubmit { get; private set; }
-    [field: SerializeField] public UnityEvent<PlayerAndTransformEventModel> LocalInputUp { get; private set; }
+    [field: SerializeField] public UnityEvent<PlayerAndTransformEventData> LocalInputCancel { get; private set; }
+    [field: SerializeField] public UnityEvent<PlayerAndTransformEventData> LocalInputDown { get; private set; }
+    [field: SerializeField] public UnityEvent<PlayerAndTransformEventData> LocalInputLeft { get; private set; }
+    [field: SerializeField] public UnityEvent<PlayerAndTransformEventData> LocalInputRight { get; private set; }
+    [field: SerializeField] public UnityEvent<PlayerAndTransformEventData> LocalInputSubmit { get; private set; }
+    [field: SerializeField] public UnityEvent<PlayerAndTransformEventData> LocalInputUp { get; private set; }
 
     #endregion
     #region MonoBehaviour
     #endregion
     #region Methods
     
-    public void InvokeInputCancel(PlayerAndTransformEventModel context)
+    public void InvokeInputCancel(PlayerAndTransformEventData context)
     {
         EventInputCancel.UnityEvent?.Invoke(context);
         LocalInputCancel?.Invoke(context);
     }
     
-    public void InvokeInputDown(PlayerAndTransformEventModel context)
+    public void InvokeInputDown(PlayerAndTransformEventData context)
     {
         EventInputDown.UnityEvent?.Invoke(context);
         LocalInputDown?.Invoke(context);
     }
     
-    public void InvokeInputLeft(PlayerAndTransformEventModel context)
+    public void InvokeInputLeft(PlayerAndTransformEventData context)
     {
         EventInputLeft.UnityEvent?.Invoke(context);
         LocalInputLeft?.Invoke(context);
     }
     
-    public void InvokeInputRight(PlayerAndTransformEventModel context)
+    public void InvokeInputRight(PlayerAndTransformEventData context)
     {
         EventInputRight.UnityEvent?.Invoke(context);
         LocalInputRight?.Invoke(context);
     }
     
-    public void InvokeInputSubmit(PlayerAndTransformEventModel context)
+    public void InvokeInputSubmit(PlayerAndTransformEventData context)
     {
         EventInputSubmit.UnityEvent?.Invoke(context);
         LocalInputSubmit?.Invoke(context);
     }
     
-    public void InvokeInputUp(PlayerAndTransformEventModel context)
+    public void InvokeInputUp(PlayerAndTransformEventData context)
     {
         EventInputUp.UnityEvent?.Invoke(context);
         LocalInputUp?.Invoke(context);

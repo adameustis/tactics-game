@@ -1,4 +1,4 @@
-using MVC.EventModel;
+using MVC.EventData;
 using MVC.State;
 using UnityEngine;
 
@@ -14,7 +14,7 @@ namespace ScriptableObjects.TransitionDirectionSO
         #endregion
         #region Methods
 
-        public override void TransitionToState(PlayerAndTransformEventModel context, StateBehaviour stateToTransitionTo)
+        public override void TransitionToState(PlayerAndTransformEventData context, StateBehaviour stateToTransitionTo)
         {
             stateToTransitionTo.Machine.AdvanceToState(context, stateToTransitionTo, ClearHistory);
         }

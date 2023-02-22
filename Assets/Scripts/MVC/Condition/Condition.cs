@@ -1,4 +1,4 @@
-using MVC.EventModel;
+using MVC.EventData;
 using UnityEngine;
 
 namespace MVC.Condition
@@ -6,7 +6,7 @@ namespace MVC.Condition
     public abstract class Condition : MonoBehaviour
     {
         #region Methods
-        public abstract bool IsMet(PlayerAndTransformEventModel context);
+        public abstract bool IsMet(PlayerAndTransformEventData context);
         #endregion
     }
 }

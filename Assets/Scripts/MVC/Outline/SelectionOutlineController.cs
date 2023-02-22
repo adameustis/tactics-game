@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using MVC.EventModel;
+using MVC.EventData;
 using ScriptableObjects.EventSO;
 using UnityEngine;
 
@@ -28,16 +28,16 @@ public class SelectionOutlineController : MonoBehaviour
     #endregion
     #region Event Handlers
     
-    public void SelectEventHandler(PlayerAndTransformEventModel eventModel)
+    public void SelectEventHandler(PlayerAndTransformEventData eventData)
     {
-        if (eventModel.Tf != transform) return;
+        if (eventData.Tf != transform) return;
         
         StopDisplayingOutline();
     }
 
-    public void DeselectEventHandler(PlayerAndTransformEventModel eventModel)
+    public void DeselectEventHandler(PlayerAndTransformEventData eventData)
     {
-        if (eventModel.Tf != transform) return;
+        if (eventData.Tf != transform) return;
         
         DisplayOutline();
     }

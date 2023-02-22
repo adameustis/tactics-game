@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MVC.EventModel;
+using MVC.EventData;
 using ScriptableObjects.EventSO;
 using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using UnityEngine;
@@ -19,14 +19,14 @@ namespace MVC.Event
         #region Event Properties
         [field: Header("Events")]
         [field: SerializeField] public EventPlayerModelAndTransformSO PublicAnnouncement { get; private set; }
-        [field: SerializeField] public UnityEvent<PlayerAndTransformEventModel> LocalAnnouncement { get; private set; }
+        [field: SerializeField] public UnityEvent<PlayerAndTransformEventData> LocalAnnouncement { get; private set; }
         
         #endregion
         #region Monobehaviour
         #endregion
         #region Methods
 
-        public void Announce(PlayerAndTransformEventModel context)
+        public void Announce(PlayerAndTransformEventData context)
         {
             // Guard Clause: Check if any of the conditions are not met
             if (ConditionsList.Any(condition => !condition.IsMet(context))) return;

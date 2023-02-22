@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MVC.EventModel;
+using MVC.EventData;
 using ScriptableObjects.EventSO;
 using UnityEngine;
 using UnityEngine.Events;
@@ -82,13 +82,13 @@ namespace MVC.Player
         
         private void MouseOn(MouseOverController mouseOnController, UnityAction<MouseOverController> handleOnDisableMethod)
         {
-            mouseOnController.InvokeMouseOn(new PlayerAndTransformEventModel(Player.Model, mouseOnController.transform));
+            mouseOnController.InvokeMouseOn(new PlayerAndTransformEventData(Player.Model, mouseOnController.transform));
             mouseOnController.OnDisabled.AddListener(handleOnDisableMethod);
         }
         
         private void MouseOff(MouseOverController mouseOffController, UnityAction<MouseOverController> handleOnDisableMethod)
         {
-            mouseOffController.InvokeMouseOff(new PlayerAndTransformEventModel(Player.Model, mouseOffController.transform));
+            mouseOffController.InvokeMouseOff(new PlayerAndTransformEventData(Player.Model, mouseOffController.transform));
             mouseOffController.OnDisabled.RemoveListener(handleOnDisableMethod);
         }
         private void RemoveFromMouseOverList(MouseOverController controller)

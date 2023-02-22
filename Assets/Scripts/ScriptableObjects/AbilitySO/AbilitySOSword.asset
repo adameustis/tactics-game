@@ -28,4 +28,6 @@ MonoBehaviour:
     type: 3}
   targetCellPrefab: {fileID: 4324330489364877713, guid: d6d19f75ac7b3e7438b2e77e5893f6d7,
     type: 3}
-  <TargetingPrefab>k__BackingField: {fileID: 0}
+  targetingPrefab: {fileID: 0}
+  performingPrefab: {fileID: 7636856612393828573, guid: b99533ce72c116445a7ac59fa780f2fc,
+    type: 3}

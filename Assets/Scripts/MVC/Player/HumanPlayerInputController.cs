@@ -1,5 +1,5 @@
 using System.Linq;
-using MVC.EventModel;
+using MVC.EventData;
 using MVC.Input;
 using ScriptableObjects.EventSO;
 using UnityEngine;
@@ -83,38 +83,38 @@ namespace MVC.Player
 
         public void HandleInputCancel(InputAction.CallbackContext context)
         {
-            GenericInputCancelEvent.UnityEvent.Invoke(new PlayerAndTransformEventModel(ThePlayer.Model, null));
+            GenericInputCancelEvent.UnityEvent.Invoke(new PlayerAndTransformEventData(ThePlayer.Model, null));
             HandleInput<InputCancel>(context);
         }
 
         public void HandleInputDown(InputAction.CallbackContext context)
         {
-            GenericInputDownEvent.UnityEvent.Invoke(new PlayerAndTransformEventModel(ThePlayer.Model, null));
+            GenericInputDownEvent.UnityEvent.Invoke(new PlayerAndTransformEventData(ThePlayer.Model, null));
             HandleInput<InputDown>(context);
         } 
 
         public void HandleInputLeft(InputAction.CallbackContext context)
         {
-            GenericInputLeftEvent.UnityEvent.Invoke(new PlayerAndTransformEventModel(ThePlayer.Model, null));
+            GenericInputLeftEvent.UnityEvent.Invoke(new PlayerAndTransformEventData(ThePlayer.Model, null));
             HandleInput<InputLeft>(context);
         } 
 
         public void HandleInputRight(InputAction.CallbackContext context)
         {
-            GenericInputRightEvent.UnityEvent.Invoke(new PlayerAndTransformEventModel(ThePlayer.Model, null));
+            GenericInputRightEvent.UnityEvent.Invoke(new PlayerAndTransformEventData(ThePlayer.Model, null));
             HandleInput<InputRight>(context);
         } 
 
         public void HandleInputSubmit(InputAction.CallbackContext context)
         {
             Debug.Log("Handling Input Submit");
-            GenericInputSubmitEvent.UnityEvent.Invoke(new PlayerAndTransformEventModel(ThePlayer.Model, null));
+            GenericInputSubmitEvent.UnityEvent.Invoke(new PlayerAndTransformEventData(ThePlayer.Model, null));
             HandleInput<InputSubmit>(context);
         } 
 
         public void HandleInputUp(InputAction.CallbackContext context)
         {
-            GenericInputUpEvent.UnityEvent.Invoke(new PlayerAndTransformEventModel(ThePlayer.Model, null));
+            GenericInputUpEvent.UnityEvent.Invoke(new PlayerAndTransformEventData(ThePlayer.Model, null));
             HandleInput<InputUp>(context);
         } 
 
@@ -123,14 +123,14 @@ namespace MVC.Player
             foreach (var hit in Pointer.GetRayCastHits().Where(hit => hit.collider.enabled))
             {
                 if (hit.transform.TryGetComponent(out T inputController))
-                    inputController.InvokeInput(new PlayerAndTransformEventModel(ThePlayer.Model, inputController.transform));
+                    inputController.InvokeInput(new PlayerAndTransformEventData(ThePlayer.Model, inputController.transform));
             }
             // result.gameObject != null &&
             // UI
             foreach (var result in Pointer.GetUIRaycastHits().Where(result => result.gameObject.activeSelf))
             {
                 if (result.gameObject.TryGetComponent(out T inputController))
-                    inputController.InvokeInput(new PlayerAndTransformEventModel(ThePlayer.Model, inputController.transform));
+                    inputController.InvokeInput(new PlayerAndTransformEventData(ThePlayer.Model, inputController.transform));
             }
         }
         #endregion

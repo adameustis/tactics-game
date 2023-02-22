@@ -31,6 +31,16 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
         type: 3}
+      propertyPath: model.unitHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitMaxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
       propertyPath: controller.model.unitIcon
       value: 
       objectReference: {fileID: 21300000, guid: 9bafafdeae3ee364497bca1afc9721b0,

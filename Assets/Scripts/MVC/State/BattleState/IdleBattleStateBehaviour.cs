@@ -1,4 +1,3 @@
-using MVC.EventModel;
 using UnityEngine;
 
 namespace MVC.State.BattleState

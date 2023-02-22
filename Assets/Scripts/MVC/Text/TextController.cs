@@ -5,13 +5,14 @@ namespace MVC.Text
     public class TextController : MonoBehaviour
     {
         #region Fields
+        [Header("Fields")]
+        [SerializeField] protected UnityEngine.UI.Text textComponent;
         #endregion
         #region Events
         #endregion
         #region Properties
-        [field: Header("Fields")]
-        [field: SerializeField] public UnityEngine.UI.Text TextComponent { get; private set; }
-    
+        public UnityEngine.UI.Text TextComponent { get => textComponent; protected set => textComponent = value; }
+
         #endregion
         #region Event Properties
         #endregion

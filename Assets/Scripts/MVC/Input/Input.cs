@@ -1,4 +1,4 @@
-using MVC.EventModel;
+using MVC.EventData;
 using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using UnityEngine;
 using UnityEngine.Events;
@@ -20,14 +20,14 @@ namespace MVC.Input
         [field: SerializeField] public EventPlayerModelAndTransformSO PublicInput { get; private set; }
 
         [field: Header("Local Events")]
-        [field: SerializeField] public UnityEvent<PlayerAndTransformEventModel> LocalInput { get; private set; }
+        [field: SerializeField] public UnityEvent<PlayerAndTransformEventData> LocalInput { get; private set; }
 
         #endregion
         #region MonoBehaviour
         #endregion
         #region Methods
     
-        public void InvokeInput(PlayerAndTransformEventModel context)
+        public void InvokeInput(PlayerAndTransformEventData context)
         {
             PublicInput.UnityEvent?.Invoke(context);
             LocalInput?.Invoke(context);

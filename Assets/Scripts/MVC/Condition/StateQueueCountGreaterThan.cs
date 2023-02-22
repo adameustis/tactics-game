@@ -1,4 +1,4 @@
-using MVC.EventModel;
+using MVC.EventData;
 using ScriptableObjects.Manager;
 using UnityEngine;
 
@@ -14,7 +14,7 @@ namespace MVC.Condition
         #endregion
         #region Methods
 
-        public override bool IsMet(PlayerAndTransformEventModel context)
+        public override bool IsMet(PlayerAndTransformEventData context)
         {
             return Manager.BattleStateList.Count > GreaterThan;
         }

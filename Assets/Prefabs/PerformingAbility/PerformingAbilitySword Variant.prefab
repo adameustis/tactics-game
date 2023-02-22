@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2404488983336946123, guid: 8451fcf8ff0d4034286a978d027c4d7d,
         type: 3}
       propertyPath: m_Name
-      value: PerformingAbilitySword
+      value: PerformingAbilitySword Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3301583908728752246, guid: 8451fcf8ff0d4034286a978d027c4d7d,
         type: 3}
@@ -69,3 +69,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8451fcf8ff0d4034286a978d027c4d7d, type: 3}
+--- !u!1 &1291073174815431502 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2404488983336946123, guid: 8451fcf8ff0d4034286a978d027c4d7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 3509612304914928261}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7430582133077052633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291073174815431502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ee4ee7e9124ea88bb5e0ac72138dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 7636856612393828573}
+  onComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7636856612393828573}
+        m_TargetAssemblyTypeName: MVC.PerformingAbility.PerformingAbilityController,
+          Assembly-CSharp
+        m_MethodName: InvokeOnPerformingComplete
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7636856612393828573 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6435421127884444248, guid: 8451fcf8ff0d4034286a978d027c4d7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 3509612304914928261}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291073174815431502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457142735ce9467b965812f4b6d6ed45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

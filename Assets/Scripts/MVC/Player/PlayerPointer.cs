@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using MVC.EventModel;
+using MVC.EventData;
 using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using UnityEngine;
 using UnityEngine.Events;
@@ -42,7 +42,7 @@ namespace MVC.Player
         #endregion
         #region Event Handlers
         public void HandlePlayerCursor(InputAction.CallbackContext context) => SetPointerPosition(Mouse.current.position.ReadValue());
-        public void HandleUpdatePosition(PlayerAndTransformEventModel context) => SetPointerPosition(context.Tf.position);
+        public void HandleUpdatePosition(PlayerAndTransformEventData context) => SetPointerPosition(context.Tf.position);
         
         private void SceneLoadedHandler(Scene newScene, LoadSceneMode mode)
         {

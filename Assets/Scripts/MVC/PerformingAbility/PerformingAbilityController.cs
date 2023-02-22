@@ -1,11 +1,12 @@
 using MVC.Ability;
 using MVC.Cell;
-using MVC.EventModel;
+using MVC.EventData;
 using MVC.Player;
 using MVC.Unit;
 using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace MVC.PerformingAbility
 {
@@ -13,10 +14,11 @@ namespace MVC.PerformingAbility
     {
         #region Fields
         [Header("Fields")]
-        [SerializeField] private PlayerController player;
-        [SerializeField] private AbilityController ability;
-        [SerializeField] private UnitController unit;
-        [SerializeField] private CellController cell;
+        [SerializeField] private PlayerModel player;
+        [SerializeField] private AbilityModel ability;
+        [FormerlySerializedAs("unit")] [SerializeField] private UnitModel sourceUnit;
+        [SerializeField] private CellModel sourceCell;
+        [FormerlySerializedAs("cell")] [SerializeField] private CellModel targetCell;
 
         #endregion
         #region Fields
@@ -26,10 +28,11 @@ namespace MVC.PerformingAbility
         #endregion
         #region Properties
 
-        public PlayerController Player { get => player; set => player = value; }
-        public AbilityController Ability { get => ability; private set => ability = value; }
-        public UnitController Unit { get => unit; private set => unit = value; }
-        public CellController Cell { get => cell; private set => cell = value; }
+        public PlayerModel Player { get => player; set => player = value; }
+        public AbilityModel Ability { get => ability; private set => ability = value; }
+        public UnitModel SourceUnit { get => sourceUnit; private set => sourceUnit = value; }
+        public CellModel SourceCell { get => sourceCell; set => sourceCell = value; }
+        public CellModel TargetCell { get => targetCell; private set => targetCell = value; }
 
         #endregion
         #region Event Properties
@@ -39,17 +42,18 @@ namespace MVC.PerformingAbility
         #endregion
         #region Methods
 
-        public void Initialise(PlayerModel setPlayer, AbilityModel setAbility, UnitModel setUnit, CellModel setCell)
+        public void Initialise(PlayerModel setPlayer, AbilityModel setAbility, UnitModel setSourceUnit, CellModel setSourceCell, CellModel setTargetCell)
         {
-            Player.Model = setPlayer;
-            Ability.Model = setAbility;
-            Unit.Model = setUnit;
-            Cell.Model = setCell;
+            Player = setPlayer;
+            Ability = setAbility;
+            SourceUnit = setSourceUnit;
+            SourceCell = setSourceCell;
+            TargetCell = setTargetCell;
         }
 
         public void InvokeOnPerformingComplete()
         {
-            OnPerformingComplete.UnityEvent.Invoke(new PlayerAndTransformEventModel(Player.Model, transform));
+            OnPerformingComplete.UnityEvent.Invoke(new PerformingAbilityEventData(Player, transform, Ability, SourceUnit, SourceCell, TargetCell));
         }
         
         #endregion

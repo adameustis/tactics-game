@@ -1,4 +1,4 @@
-using MVC.EventModel;
+using MVC.EventData;
 using UnityEngine;
 
 namespace MVC.State
@@ -7,11 +7,11 @@ namespace MVC.State
     public class StateData
     {
         #region Constructors
-        public StateData(PlayerAndTransformEventModel setContext) => Context = setContext;
+        public StateData(PlayerAndTransformEventData setContext) => Context = setContext;
         #endregion
         #region Properties
         [field: Header("Fields")]
-        [field: SerializeField] public PlayerAndTransformEventModel Context { get; set; }
+        [field: SerializeField] public PlayerAndTransformEventData Context { get; set; }
         #endregion
     }
 }

@@ -14,8 +14,6 @@ GameObject:
   - component: {fileID: 2392754598195013532}
   - component: {fileID: 3520924241841970728}
   - component: {fileID: 6705448059250994519}
-  - component: {fileID: 5544993617617390455}
-  - component: {fileID: 7939156361998165431}
   - component: {fileID: 434838137766486905}
   - component: {fileID: 5348530175884642849}
   - component: {fileID: 5469620374061197482}
@@ -131,7 +129,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3517890320920063442}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6705448059250994519}
+        m_TargetAssemblyTypeName: MVC.AbilityMenu.AbilityMenuItemController, Assembly-CSharp
+        m_MethodName: HandleOnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3520924241841970728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,22 +174,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379496e4dd674a8692fbaea587de2802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 5544993617617390455}
-  unit: {fileID: 7939156361998165431}
-  uIButton: {fileID: 2392754598195013532}
---- !u!114 &5544993617617390455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3549059364838184896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7099fc8c2219302448056a70bfa340da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  model:
+  player:
+    intPlayerNumber: 0
+    strPlayerName: 
+    playerIcon: {fileID: 0}
+    units: []
+  ability:
     ability: {fileID: 0}
     level: 0
     investment: 0
@@ -188,19 +188,7 @@ MonoBehaviour:
     effectiveUses: 0
     effectiveTargeting: {fileID: 0}
     targetStatusArray: []
---- !u!114 &7939156361998165431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3549059364838184896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f36fea8d6ed33a24c9d293ae20158502, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  model:
+  sourceUnit:
     staticData: {fileID: 0}
     transformPosition: {x: 0, y: 0, z: 0}
     gridPositionX: 0
@@ -279,6 +267,16 @@ MonoBehaviour:
     eventUnitEnergyUsedChanged:
       m_PersistentCalls:
         m_Calls: []
+  sourceCell:
+    staticData: {fileID: 0}
+    transformPosition: {x: 0, y: 0, z: 0}
+    cellGridPositionX: 0
+    cellGridPositionY: 0
+    cellHasResidentUnit: 0
+  uIButton: {fileID: 2392754598195013532}
+  imageController: {fileID: 1860803106945480516}
+  nameTextController: {fileID: 8401008877267076267}
+  onMenuItemClicked: {fileID: 11400000, guid: 56bc236f7c742624da9ccbbc97c87fa8, type: 2}
 --- !u!114 &434838137766486905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,7 +419,6 @@ GameObject:
   - component: {fileID: 3625709150836950894}
   - component: {fileID: 3518141903069853798}
   - component: {fileID: 8401008877267076267}
-  - component: {fileID: 5614370948189890424}
   - component: {fileID: 948690575745655058}
   m_Layer: 5
   m_Name: AbilityText
@@ -504,35 +501,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5ce4b211b2d4501adb14431966e5878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <TextComponent>k__BackingField: {fileID: 3518141903069853798}
-  <Ability>k__BackingField: {fileID: 5544993617617390455}
---- !u!114 &5614370948189890424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3549503834555194520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dde61b624b6c46bd914b4fe7f35f6a67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <OnTriggered>k__BackingField:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8401008877267076267}
-        m_TargetAssemblyTypeName: MVC.Text.AbilityNameTextController, Assembly-CSharp
-        m_MethodName: UpdateText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  textComponent: {fileID: 3518141903069853798}
+  ability:
+    ability: {fileID: 0}
+    level: 0
+    investment: 0
+    effectiveEnergy: 0
+    effectiveRange: 0
+    effectiveUses: 0
+    effectiveTargeting: {fileID: 0}
+    targetStatusArray: []
 --- !u!114 &948690575745655058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -565,7 +543,6 @@ GameObject:
   - component: {fileID: 3628952502472025200}
   - component: {fileID: 3518290447090066570}
   - component: {fileID: 1860803106945480516}
-  - component: {fileID: 3352618719841483947}
   - component: {fileID: 4683880722116643245}
   m_Layer: 5
   m_Name: AbilityIcon
@@ -644,35 +621,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96739a20186c486089b2d865f33b2d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ImageComponent>k__BackingField: {fileID: 3518290447090066570}
-  <Ability>k__BackingField: {fileID: 5544993617617390455}
---- !u!114 &3352618719841483947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3549627972261926208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dde61b624b6c46bd914b4fe7f35f6a67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <OnTriggered>k__BackingField:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1860803106945480516}
-        m_TargetAssemblyTypeName: MVC.Image.AbilityImageController, Assembly-CSharp
-        m_MethodName: UpdateSprite
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  imageComponent: {fileID: 3518290447090066570}
+  ability:
+    ability: {fileID: 0}
+    level: 0
+    investment: 0
+    effectiveEnergy: 0
+    effectiveRange: 0
+    effectiveUses: 0
+    effectiveTargeting: {fileID: 0}
+    targetStatusArray: []
 --- !u!114 &4683880722116643245
 MonoBehaviour:
   m_ObjectHideFlags: 0

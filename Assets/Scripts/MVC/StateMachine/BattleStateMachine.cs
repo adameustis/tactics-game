@@ -1,4 +1,4 @@
-using MVC.EventModel;
+using MVC.EventData;
 using ScriptableObjects.Manager;
 using UnityEngine;
 
@@ -20,7 +20,7 @@ namespace MVC.StateMachine
             if (StateQueue.Count > 0)
                 return;
             StateQueue = Manager.BattleStateList;
-            AdvanceToState(new PlayerAndTransformEventModel(new PlayerModel(), transform), DefaultState, false); // Player will need to come from somewhere
+            AdvanceToState(new PlayerAndTransformEventData(new PlayerModel(), transform), DefaultState, false); // Player will need to come from somewhere
         }
         
         #endregion

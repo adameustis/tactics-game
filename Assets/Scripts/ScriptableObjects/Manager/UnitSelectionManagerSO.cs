@@ -1,4 +1,4 @@
-﻿using MVC.EventModel;
+﻿using MVC.EventData;
 using MVC.Unit;
 using ScriptableObjects.EventSO;
 using UnityEngine;
@@ -24,7 +24,7 @@ namespace ScriptableObjects.Manager
         #endregion
         #region Event Handlers
 
-        public void UnitSelectedStateHandler(PlayerAndTransformEventModel context)
+        public void UnitSelectedStateHandler(PlayerAndTransformEventData context)
         {
             SelectedUnit = context.Tf.GetComponent<UnitController>();
         }

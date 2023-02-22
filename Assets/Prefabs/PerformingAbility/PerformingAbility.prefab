@@ -10,17 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3301583908728752246}
   - component: {fileID: 6435421127884444248}
-  - component: {fileID: 1728328963254171527}
-  - component: {fileID: 4774064353060498938}
-  - component: {fileID: 811247837532612862}
-  - component: {fileID: 7600737369415497717}
   m_Layer: 0
   m_Name: PerformingAbility
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3301583908728752246
 Transform:
   m_ObjectHideFlags: 0
@@ -48,42 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457142735ce9467b965812f4b6d6ed45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1728328963254171527}
-  ability: {fileID: 4774064353060498938}
-  unit: {fileID: 811247837532612862}
-  cell: {fileID: 7600737369415497717}
-  onPerformingComplete: {fileID: 11400000, guid: a61ff5e26719586478e80b019599cc94,
-    type: 2}
---- !u!114 &1728328963254171527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2404488983336946123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49be23280d7a4ef7a74b52d2552693f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Model>k__BackingField:
+  player:
     intPlayerNumber: 0
     strPlayerName: 
     playerIcon: {fileID: 0}
     units: []
---- !u!114 &4774064353060498938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2404488983336946123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7099fc8c2219302448056a70bfa340da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  model:
+  ability:
     ability: {fileID: 0}
     level: 0
     investment: 0
@@ -92,19 +58,7 @@ MonoBehaviour:
     effectiveUses: 0
     effectiveTargeting: {fileID: 0}
     targetStatusArray: []
---- !u!114 &811247837532612862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2404488983336946123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f36fea8d6ed33a24c9d293ae20158502, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  model:
+  sourceUnit:
     staticData: {fileID: 0}
     transformPosition: {x: 0, y: 0, z: 0}
     gridPositionX: 0
@@ -183,21 +137,17 @@ MonoBehaviour:
     eventUnitEnergyUsedChanged:
       m_PersistentCalls:
         m_Calls: []
---- !u!114 &7600737369415497717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2404488983336946123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b99e58340eaf1845a65351bb772be58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  model:
+  sourceCell:
     staticData: {fileID: 0}
     transformPosition: {x: 0, y: 0, z: 0}
     cellGridPositionX: 0
     cellGridPositionY: 0
     cellHasResidentUnit: 0
+  targetCell:
+    staticData: {fileID: 0}
+    transformPosition: {x: 0, y: 0, z: 0}
+    cellGridPositionX: 0
+    cellGridPositionY: 0
+    cellHasResidentUnit: 0
+  onPerformingComplete: {fileID: 11400000, guid: a61ff5e26719586478e80b019599cc94,
+    type: 2}

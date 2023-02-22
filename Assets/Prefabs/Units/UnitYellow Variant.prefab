@@ -31,6 +31,16 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
         type: 3}
+      propertyPath: model.unitHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitMaxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
       propertyPath: controller.model.unitIcon
       value: 
       objectReference: {fileID: 21300000, guid: 95162c504f8a0bb45a000b830884b0fc,
@@ -141,8 +151,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880968cdd91d4f4c80cb9f6dc37edac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventInputMouseOff: {fileID: 11400000, guid: d6f71004edc3d8f4a82d213987eebbf2, type: 2}
   eventInputMouseOn: {fileID: 11400000, guid: 161a8dba23c6423498fa090f368fbf76, type: 2}
+  eventInputMouseOff: {fileID: 11400000, guid: d6f71004edc3d8f4a82d213987eebbf2, type: 2}
+  onMouseOn:
+    m_PersistentCalls:
+      m_Calls: []
+  onMouseOff:
+    m_PersistentCalls:
+      m_Calls: []
+  onDisabled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1839694776704510525
 MonoBehaviour:
   m_ObjectHideFlags: 0

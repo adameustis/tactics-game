@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using MVC.Ability;
 using MVC.Cell;
-using MVC.EventModel;
+using MVC.EventData;
 using UnityEngine;
 
 namespace MVC.Target
@@ -37,7 +37,7 @@ namespace MVC.Target
         #endregion
         #region Methods
 
-        public void SpawnTargets(PlayerAndTransformEventModel context)
+        public void SpawnTargets(PlayerAndTransformEventData context)
         {
             if (!context.Tf.TryGetComponent(out CellController controller)) return;
             // work in progress
@@ -45,7 +45,7 @@ namespace MVC.Target
             // SpawnedTargets.Add(target);
         }
 
-        public void DestroyTargets(PlayerAndTransformEventModel context)
+        public void DestroyTargets(PlayerAndTransformEventData context)
         {
             if (SpawnedTargets == null) return;
 

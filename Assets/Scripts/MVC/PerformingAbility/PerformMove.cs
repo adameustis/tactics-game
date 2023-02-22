@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 namespace MVC.PerformingAbility
 {
-    public class MoveController : PerformAbilityController
+    public class PerformMove : Perform
     {
         #region Fields
         [Header("Fields")]
@@ -40,17 +40,19 @@ namespace MVC.PerformingAbility
         {
             // Move our position a step closer to the target.
             var step =  Speed * Time.deltaTime; // calculate distance to move
-            var unit = SourceUnit.Model;
-            var cell = DestinationCell.Model;
+            var sourceUnit = Controller.SourceUnit;
+            var targetCell = Controller.TargetCell;
             
-            unit.TransformPosition = Vector3.MoveTowards(unit.TransformPosition, cell.TransformPosition, step);
+            sourceUnit.TransformPosition = Vector3.MoveTowards(sourceUnit.TransformPosition, targetCell.TransformPosition, step);
 
             // Check if the position of the cube and sphere are approximately equal.
-            if (!(Vector3.Distance(unit.TransformPosition, cell.TransformPosition) < MinimumDistanceDifference)) return;
+            if (!(Vector3.Distance(sourceUnit.TransformPosition, targetCell.TransformPosition) < MinimumDistanceDifference)) return;
             // Finalise
-            unit.TransformPosition = cell.TransformPosition;
-            unit.GridPositionX = cell.CellGridPositionX;
-            unit.GridPositionY = cell.CellGridPositionY;
+            sourceUnit.TransformPosition = targetCell.TransformPosition;
+            sourceUnit.GridPositionX = targetCell.CellGridPositionX;
+            sourceUnit.GridPositionY = targetCell.CellGridPositionY;
+            Controller.SourceCell.CellResidentUnit = null;
+            targetCell.CellResidentUnit = sourceUnit;
             OnComplete.Invoke();
             this.enabled = false;
         }

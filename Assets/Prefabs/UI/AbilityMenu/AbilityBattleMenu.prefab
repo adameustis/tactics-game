@@ -245,7 +245,7 @@ MonoBehaviour:
       - m_Target: {fileID: 4080784885906404380}
         m_TargetAssemblyTypeName: MVC.AbilityBattleMenu.AbilityBattleMenuItemFactory,
           Assembly-CSharp
-        m_MethodName: DisplayEventHandler
+        m_MethodName: HandleOnEnterState
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -273,7 +273,7 @@ MonoBehaviour:
       - m_Target: {fileID: 4080784885906404380}
         m_TargetAssemblyTypeName: MVC.AbilityBattleMenu.AbilityBattleMenuItemFactory,
           Assembly-CSharp
-        m_MethodName: StopDisplayHandler
+        m_MethodName: HandleOnExitState
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

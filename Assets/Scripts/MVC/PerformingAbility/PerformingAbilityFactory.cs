@@ -1,6 +1,7 @@
 using MVC.Ability;
 using MVC.Cell;
-using MVC.EventModel;
+using MVC.EventData;
+using MVC.Target;
 using MVC.Unit;
 using UnityEngine;
 
@@ -24,19 +25,26 @@ namespace MVC.PerformingAbility
         #region Event Subscriptions
         #endregion
         #region Event Handlers
+        public void HandleOnEnterState(PlayerAndTransformEventData context)
+        {
+            if (context.Tf.TryGetComponent(out TargetAreaController targetArea))
+                SpawnPerformingAbility(context.Player, targetArea.Ability, targetArea.SourceUnit, targetArea.SourceCell, targetArea.TargetCell);
+        }
+        
+        public void HandleOnExitState(PlayerAndTransformEventData context)
+        {
+            DestroyPerformingAbility();
+        }
         #endregion 
         #region MonoBehaviour
         #endregion
         #region Methods
 
-        public void SpawnPerformingAbility(PlayerAndTransformEventModel context)
+        public void SpawnPerformingAbility(PlayerModel player, AbilityModel ability, UnitModel sourceUnit, CellModel sourceCell, CellModel targetCell)
         {
-            var ability = context.Tf.GetComponent<AbilityController>().Model;
-            var sourceUnit = context.Tf.GetComponent<UnitController>().Model;
-            var destinationCell = context.Tf.GetComponent<CellController>().Model;
-
             SpawnedPerformingAbility = Instantiate(ability.Ability.PerformingPrefab, transform);
-            SpawnedPerformingAbility.Initialise(context.Player, ability, sourceUnit, destinationCell);
+            SpawnedPerformingAbility.Initialise(player, ability, sourceUnit, sourceCell, targetCell);
+            SpawnedPerformingAbility.gameObject.SetActive(true);
         }
 
         public void DestroyPerformingAbility()

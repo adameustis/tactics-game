@@ -1,5 +1,5 @@
 using System.Linq;
-using MVC.EventModel;
+using MVC.EventData;
 using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using ScriptableObjects.Manager;
 using UnityEngine;
@@ -18,7 +18,7 @@ namespace MVC.Condition
         [field: SerializeField] public EventPlayerModelAndTransformSO RequiredEnteredState { get; private set; }
 
         #endregion
-        public override bool IsMet(PlayerAndTransformEventModel context)
+        public override bool IsMet(PlayerAndTransformEventData context)
         {
             return Manager.BattleStateList.Last().PublicOnEnter == RequiredEnteredState;
         }

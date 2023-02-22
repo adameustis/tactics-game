@@ -5,13 +5,15 @@ namespace MVC.Image
     public class ImageController : MonoBehaviour
     {
         #region Fields
+        [Header("Fields")]
+        [SerializeField] protected UnityEngine.UI.Image imageComponent;
         #endregion
         #region Events
         #endregion
         #region Properties
-        [field: Header("Fields")]
-        [field: SerializeField] public UnityEngine.UI.Image ImageComponent { get; private set; }
-    
+
+        public UnityEngine.UI.Image ImageComponent { get => imageComponent; protected set => imageComponent = value; }
+
         #endregion
         #region Event Properties
         #endregion

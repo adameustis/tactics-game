@@ -1,5 +1,5 @@
 using MVC.Ability;
-using MVC.EventModel;
+using MVC.EventData;
 using MVC.State;
 using UnityEngine;
 
@@ -24,11 +24,11 @@ namespace MVC.StateMachine
             if (StateQueue.Count > 0) return;
             
             if (Ability == null)
-                AdvanceToState(new PlayerAndTransformEventModel(new PlayerModel(), transform), DefaultState, false); // Player will need to come from somewhere
+                AdvanceToState(new PlayerAndTransformEventData(new PlayerModel(), transform), DefaultState, false); // Player will need to come from somewhere
             else if (Ability.Model.EffectiveUses > 0)
-                AdvanceToState(new PlayerAndTransformEventModel(new PlayerModel(), transform), Usable, false); // Player will need to come from somewhere
+                AdvanceToState(new PlayerAndTransformEventData(new PlayerModel(), transform), Usable, false); // Player will need to come from somewhere
             else
-                AdvanceToState(new PlayerAndTransformEventModel(new PlayerModel(), transform), Unusable, false); // Player will need to come from somewhere
+                AdvanceToState(new PlayerAndTransformEventData(new PlayerModel(), transform), Unusable, false); // Player will need to come from somewhere
         }
         
         #endregion

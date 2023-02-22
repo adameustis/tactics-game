@@ -1,5 +1,5 @@
 ﻿using MVC.Ability;
-using MVC.EventModel;
+using MVC.EventData;
 using ScriptableObjects.EventSO;
 using UnityEngine;
 using UnityEvents;
@@ -24,7 +24,7 @@ namespace ScriptableObjects.Manager
         #endregion
         #region Event Handlers
 
-        public void AbilitySelectedStateHandler(PlayerAndTransformEventModel context)
+        public void AbilitySelectedStateHandler(PlayerAndTransformEventData context)
         {
             SelectedAbility = context.Tf.GetComponent<AbilityController>().Model;
         }

@@ -1,5 +1,5 @@
 ﻿using MVC.Ability;
-using MVC.EventModel;
+using MVC.EventData;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -86,7 +86,7 @@ namespace MVC.Unit
         #endregion
         #region Methods
 
-        public void SetUnitBasedOnContextUnitController(PlayerAndTransformEventModel context)
+        public void SetUnitBasedOnContextUnitController(PlayerAndTransformEventData context)
         {
             if (context.Tf.TryGetComponent(out UnitController controller))
                 Model = controller.Model;

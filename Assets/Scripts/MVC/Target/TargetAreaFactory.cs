@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
 using MVC.Ability;
+using MVC.AbilityMenu;
+using MVC.Cell;
+using MVC.EventData;
 using MVC.Unit;
 using UnityEngine;
 
@@ -10,21 +13,21 @@ namespace MVC.Target
     {
         #region Fields
         [Header("Fields")]
-        [SerializeField] private AbilityController ability;
-        [SerializeField] private UnitController sourceUnit;
         [SerializeField] private List<TargetAreaController> spawnedTargets;
+        [SerializeField] private RectTransform targetAreaContainer;
         [SerializeField] private TargetAreaController validTargetPrefab;
+        [SerializeField] private TargetAreaController invalidTargetPrefab;
         [SerializeField] private CellManagerSO cellManager;
         
         #endregion
         #region Events
         #endregion
         #region Properties
-
-        public AbilityController Ability { get => ability; private set => ability = value; }
-        public UnitController SourceUnit { get => sourceUnit; private set => sourceUnit = value; }
         public List<TargetAreaController> SpawnedTargets { get => spawnedTargets; private set => spawnedTargets = value; }
+        public RectTransform TargetAreaContainer { get => targetAreaContainer; set => targetAreaContainer = value; }
         public TargetAreaController ValidTargetPrefab { get => validTargetPrefab; private set => validTargetPrefab = value; }
+        public TargetAreaController InvalidTargetPrefab { get => invalidTargetPrefab; private set => invalidTargetPrefab = value; }
+
         public CellManagerSO CellManager { get => cellManager; private set => cellManager = value; }
 
         #endregion
@@ -33,6 +36,18 @@ namespace MVC.Target
         #region Event Subscriptions
         #endregion
         #region Event Handlers
+
+        public void HandleOnEnterState(PlayerAndTransformEventData context)
+        {
+            if (context.Tf.TryGetComponent(out AbilityMenuItemController abilityMenuItem))
+                SpawnTargets(abilityMenuItem.Ability, abilityMenuItem.SourceUnit, abilityMenuItem.SourceCell);
+        }
+        
+        public void HandleOnExitState(PlayerAndTransformEventData context)
+        {
+            DestroyTargets();
+        }
+        
         #endregion 
         #region MonoBehaviour
 
@@ -45,22 +60,25 @@ namespace MVC.Target
         #endregion
         #region Methods
 
-        public void SpawnTargets()
+        public void SpawnTargets(AbilityModel ability, UnitModel sourceUnit, CellModel sourceCell)
         {
             foreach (var cell in CellManager.CellModelList)
             {
-                int distance = Math.Abs(cell.CellGridPositionX - SourceUnit.Model.GridPositionX);
-                
-                if (distance > Ability.Model.Ability.MaximumRange) continue;
-                if (distance < Ability.Model.Ability.MinimumRange) continue;
-                if (cell.CellHasResidentUnit && !Ability.Model.Ability.CanTargetUnit) continue;
-                if (cell.StaticData.CellIsLandDestination && !Ability.Model.Ability.CanTargetLand) continue;
-                if (!cell.StaticData.CellIsLandDestination && cell.StaticData.CellIsAirDestination && !Ability.Model.Ability.CanTargetAir) continue;
+                int distance = Math.Abs(cell.CellGridPositionX - sourceUnit.GridPositionX);
 
-                var targetArea = Instantiate(ValidTargetPrefab, cell.TransformPosition, Quaternion.identity);
-                targetArea.Initialise(Ability.Model, SourceUnit.Model, cell);
+                bool validTarget = true;
+                
+                if (distance > ability.Ability.MaximumRange) validTarget = false;
+                else if (distance < ability.Ability.MinimumRange) validTarget = false;
+                else if (cell.CellHasResidentUnit && !ability.Ability.CanTargetUnit) validTarget = false;
+                else if (cell.StaticData.CellIsLandDestination && !ability.Ability.CanTargetLand) validTarget = false;
+                else if (!cell.StaticData.CellIsLandDestination && cell.StaticData.CellIsAirDestination && !ability.Ability.CanTargetAir) validTarget = false;
+                
+                var targetArea = Instantiate(validTarget ? ValidTargetPrefab : InvalidTargetPrefab, TargetAreaContainer);
+                targetArea.Initialise(ability, sourceUnit, sourceCell, cell);
                 SpawnedTargets.Add(targetArea);
             }
+            SpawnedTargets[0].UIButton.Select();
         }
 
         public void DestroyTargets()

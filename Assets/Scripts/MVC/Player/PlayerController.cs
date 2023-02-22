@@ -1,4 +1,4 @@
-using MVC.EventModel;
+using MVC.EventData;
 using MVC.Unit;
 using UnityEngine;
 
@@ -23,7 +23,7 @@ namespace MVC.Player
         #endregion
         #region Methods
         
-        public void SetPlayerBasedOnContextPlayerModel(PlayerAndTransformEventModel context)
+        public void SetPlayerBasedOnContextPlayerModel(PlayerAndTransformEventData context)
         {
             Model = context.Player;
         }

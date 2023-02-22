@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using MVC.Ability;
-using MVC.EventModel;
+using MVC.EventData;
 using UnityEngine;
 
 namespace MVC.Targeting
@@ -26,7 +26,7 @@ namespace MVC.Targeting
         #endregion
         #region Methods
 
-        public void SpawnTargeting(PlayerAndTransformEventModel context)
+        public void SpawnTargeting(PlayerAndTransformEventData context)
         {
             if (!context.Tf.TryGetComponent(out AbilityController controller)) return;
             
@@ -35,7 +35,7 @@ namespace MVC.Targeting
             SpawnedTargeting = targeting;
         }
 
-        public void DestroyTargeting(PlayerAndTransformEventModel context)
+        public void DestroyTargeting(PlayerAndTransformEventData context)
         {
             if (SpawnedTargeting == null) return;
             

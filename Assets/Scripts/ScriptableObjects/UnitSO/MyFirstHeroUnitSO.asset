@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: MyFirstHeroUnitSO
   m_EditorClassIdentifier: 
   unitName: 
-  icon: {fileID: 0}
-  maxHP: 0
+  icon: {fileID: 21300000, guid: 9bafafdeae3ee364497bca1afc9721b0, type: 3}
+  maxHP: 5
   abilities: []
   statuses: []
-  canLandTraverse: 0
-  canAirTraverse: 0
-  canStopOnLand: 0
-  canStopInAir: 0
+  canLandTraverse: 1
+  canAirTraverse: 1
+  canStopOnLand: 1
+  canStopInAir: 1

@@ -1,4 +1,4 @@
-﻿using MVC.EventModel;
+﻿using MVC.EventData;
 using MVC.Unit;
 using ScriptableObjects.EventSO;
 using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
@@ -85,18 +85,18 @@ namespace MVC.Target
         #endregion
         #region Event Handlers
     
-        public virtual void MouseOffHandler(PlayerAndTransformEventModel eventModel)
+        public virtual void MouseOffHandler(PlayerAndTransformEventData eventData)
         {
-            if (eventModel.Tf != transform) return;
+            if (eventData.Tf != transform) return;
             Destroy(gameObject);
         }
 
-        public virtual void InputSubmitHandler(PlayerAndTransformEventModel eventModel)
+        public virtual void InputSubmitHandler(PlayerAndTransformEventData eventData)
         {
             
         }
 
-        public virtual void CancelTargetingHandler(PlayerAndTransformEventModel eventModel)
+        public virtual void CancelTargetingHandler(PlayerAndTransformEventData eventData)
         {
             Destroy(gameObject);
         }

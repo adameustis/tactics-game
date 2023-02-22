@@ -1,5 +1,5 @@
 using System;
-using MVC.EventModel;
+using MVC.EventData;
 using MVC.Player;
 using UnityEngine;
 
@@ -30,7 +30,7 @@ namespace MVC.Event
 
         public void ExtendedAnnounce()
         {
-            Announce(new PlayerAndTransformEventModel(ThePlayer, TheTransform));
+            Announce(new PlayerAndTransformEventData(ThePlayer, TheTransform));
         }
 
         #endregion

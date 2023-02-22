@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Interfaces;
-using MVC.EventModel;
+using MVC.EventData;
 using UnityEngine;
 
 namespace MVC.Ability
@@ -63,13 +63,13 @@ namespace MVC.Ability
             Model = setModel;
         }
 
-        public void SetAbilityBasedOnContextAbilityController(PlayerAndTransformEventModel context)
+        public void SetAbilityBasedOnContextAbilityController(PlayerAndTransformEventData context)
         { 
             if (context.Tf.TryGetComponent(out AbilityController controller))
                 Model = controller.Model;
         }
         
-        // public void SetAbilityBasedOnUnitSelectedAndSiblingIndex(PlayerAndTransformEventModel context)
+        // public void SetAbilityBasedOnUnitSelectedAndSiblingIndex(PlayerAndTransformEventData context)
         // {
         //     Model = null;
         //     List<AbilityModel> unitAbilities;
