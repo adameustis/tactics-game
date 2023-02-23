@@ -14,18 +14,14 @@ GameObject:
   - component: {fileID: 2392754598195013532}
   - component: {fileID: 3520924241841970728}
   - component: {fileID: 6705448059250994519}
-  - component: {fileID: 434838137766486905}
-  - component: {fileID: 5348530175884642849}
   - component: {fileID: 5469620374061197482}
-  - component: {fileID: 3421657674264563661}
-  - component: {fileID: 5846788377670356565}
   m_Layer: 5
   m_Name: AbilityBattleMenuItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3628263499650060392
 RectTransform:
   m_ObjectHideFlags: 0
@@ -174,161 +170,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379496e4dd674a8692fbaea587de2802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player:
-    intPlayerNumber: 0
-    strPlayerName: 
-    playerIcon: {fileID: 0}
-    units: []
-  ability:
-    ability: {fileID: 0}
-    level: 0
-    investment: 0
-    effectiveEnergy: 0
-    effectiveRange: 0
-    effectiveUses: 0
-    effectiveTargeting: {fileID: 0}
-    targetStatusArray: []
-  sourceUnit:
-    staticData: {fileID: 0}
-    transformPosition: {x: 0, y: 0, z: 0}
-    gridPositionX: 0
-    gridPositionY: 0
-    unitNumber: 0
-    unitName: 
-    unitIcon: {fileID: 0}
-    unitHealth: 0
-    unitMaxHealth: 0
-    unitAbilities: []
-    unitStatuses: []
-    unitCanLandTraverse: 0
-    unitCanAirTraverse: 0
-    unitCanStopOnLand: 0
-    unitCanStopInAir: 0
-    unitOnTurn: 0
-    unitTurnWaitValue: 0
-    unitEnergyUsed: 0
-    hasCurrentDestination: 0
-    speed: 2
-    movePathLength: 0
-    eventTransformPositionChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitNumberChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitNameChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitIconChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitHealthChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitMaxHealthChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitAbilityAdded:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitAbilityRemoved:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitStatusAdded:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitStatusRemoved:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitCanLandTraverseChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitCanAirTraverseChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitCanStopOnLandChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitCanStopInAirChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitHasCellResidenceChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitCellResidenceChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitOnTurnChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitTurnWaitValueChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    eventUnitEnergyUsedChanged:
-      m_PersistentCalls:
-        m_Calls: []
-  sourceCell:
-    staticData: {fileID: 0}
-    transformPosition: {x: 0, y: 0, z: 0}
-    cellGridPositionX: 0
-    cellGridPositionY: 0
-    cellHasResidentUnit: 0
+  data:
+    player:
+      intPlayerNumber: 0
+      strPlayerName: 
+      playerIcon: {fileID: 0}
+      units: []
+    tf: {fileID: 0}
+    sourceCell:
+      staticData: {fileID: 0}
+      transformPosition: {x: 0, y: 0, z: 0}
+      cellGridPositionX: 0
+      cellGridPositionY: 0
+      cellHasResidentUnit: 0
+    ability:
+      staticData: {fileID: 0}
+      level: 0
+      investment: 0
+      effectiveEnergy: 0
+      effectiveRange: 0
+      effectiveUses: 0
+      effectiveTargeting: {fileID: 0}
+      targetStatusArray: []
   uIButton: {fileID: 2392754598195013532}
   imageController: {fileID: 1860803106945480516}
   nameTextController: {fileID: 8401008877267076267}
   onMenuItemClicked: {fileID: 11400000, guid: 56bc236f7c742624da9ccbbc97c87fa8, type: 2}
---- !u!114 &434838137766486905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3549059364838184896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 880968cdd91d4f4c80cb9f6dc37edac9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventInputMouseOn: {fileID: 11400000, guid: 92d77d0989be4af4eb2ab4d56d87073b, type: 2}
-  eventInputMouseOff: {fileID: 11400000, guid: c5262e817fad4d2428c21210f0f28cf6, type: 2}
-  onMouseOn:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2392754598195013532}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: Select
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onMouseOff:
-    m_PersistentCalls:
-      m_Calls: []
-  onDisabled:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &5348530175884642849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3549059364838184896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a443e5f823a4999b71dc7fd4ac2a444, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <PublicInput>k__BackingField: {fileID: 11400000, guid: a7ef27c6f97dc124d8f4c1d8681a738d,
-    type: 2}
-  <LocalInput>k__BackingField:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &5469620374061197482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,58 +222,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &3421657674264563661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3549059364838184896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c45a92603f954b5f9acaf14066ec082f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <OnTriggered>k__BackingField:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5846788377670356565}
-        m_TargetAssemblyTypeName: MVC.Event.EventAnnouncerWithExtendedCustomisation,
-          Assembly-CSharp
-        m_MethodName: ExtendedAnnounce
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &5846788377670356565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3549059364838184896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd42b12dd4024b88bb8e2ca3061b0120, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <ConditionsList>k__BackingField: []
-  <PublicAnnouncement>k__BackingField: {fileID: 11400000, guid: 1f523beb174713347ab89e7daddc1ab0,
-    type: 2}
-  <LocalAnnouncement>k__BackingField:
-    m_PersistentCalls:
-      m_Calls: []
-  thePlayer:
-    intPlayerNumber: 0
-    strPlayerName: 
-    playerIcon: {fileID: 0}
-    units: []
-  theTransform: {fileID: 3628263499650060392}
 --- !u!1 &3549503834555194520
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,10 +257,10 @@ RectTransform:
   m_Father: {fileID: 3628263499650060392}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 283.5, y: -20}
+  m_SizeDelta: {x: 240, y: 30}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &3625709150836950894
 CanvasRenderer:
@@ -503,7 +318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 3518141903069853798}
   ability:
-    ability: {fileID: 0}
+    staticData: {fileID: 0}
     level: 0
     investment: 0
     effectiveEnergy: 0
@@ -566,10 +381,10 @@ RectTransform:
   m_Father: {fileID: 3628263499650060392}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 6.5, y: -20}
+  m_SizeDelta: {x: 32, y: 32}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &3628952502472025200
 CanvasRenderer:
@@ -623,7 +438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imageComponent: {fileID: 3518290447090066570}
   ability:
-    ability: {fileID: 0}
+    staticData: {fileID: 0}
     level: 0
     investment: 0
     effectiveEnergy: 0

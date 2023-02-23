@@ -7,11 +7,11 @@ namespace MVC.State
     public class StateData
     {
         #region Constructors
-        public StateData(PlayerAndTransformEventData setContext) => Context = setContext;
+        public StateData(PlayerAndTransformData setContext) => Context = setContext;
         #endregion
         #region Properties
         [field: Header("Fields")]
-        [field: SerializeField] public PlayerAndTransformEventData Context { get; set; }
+        [field: SerializeField] public PlayerAndTransformData Context { get; set; }
         #endregion
     }
 }

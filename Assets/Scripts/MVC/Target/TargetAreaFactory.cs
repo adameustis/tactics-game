@@ -37,13 +37,17 @@ namespace MVC.Target
         #endregion
         #region Event Handlers
 
-        public void HandleOnEnterState(PlayerAndTransformEventData context)
+        public void HandleOnEnterState(PlayerAndTransformData context)
         {
-            if (context.Tf.TryGetComponent(out AbilityMenuItemController abilityMenuItem))
-                SpawnTargets(abilityMenuItem.Ability, abilityMenuItem.SourceUnit, abilityMenuItem.SourceCell);
+            
+            // if (context.Tf.TryGetComponent(out AbilityMenuItemController abilityMenuItem))
+            //     SpawnTargets(abilityMenuItem.Ability, abilityMenuItem.SourceUnit, abilityMenuItem.SourceCell);
+            
+            if(context is AbilityMenuItemData eventData)
+                SpawnTargets(eventData);
         }
         
-        public void HandleOnExitState(PlayerAndTransformEventData context)
+        public void HandleOnExitState(PlayerAndTransformData context)
         {
             DestroyTargets();
         }
@@ -60,22 +64,23 @@ namespace MVC.Target
         #endregion
         #region Methods
 
-        public void SpawnTargets(AbilityModel ability, UnitModel sourceUnit, CellModel sourceCell)
+        public void SpawnTargets(AbilityMenuItemData data)
         {
             foreach (var cell in CellManager.CellModelList)
             {
-                int distance = Math.Abs(cell.CellGridPositionX - sourceUnit.GridPositionX);
+                int distance = Math.Abs(cell.CellGridPositionX - data.SourceCell.CellResidentUnit.GridPositionX);
 
                 bool validTarget = true;
-                
-                if (distance > ability.Ability.MaximumRange) validTarget = false;
-                else if (distance < ability.Ability.MinimumRange) validTarget = false;
-                else if (cell.CellHasResidentUnit && !ability.Ability.CanTargetUnit) validTarget = false;
-                else if (cell.StaticData.CellIsLandDestination && !ability.Ability.CanTargetLand) validTarget = false;
-                else if (!cell.StaticData.CellIsLandDestination && cell.StaticData.CellIsAirDestination && !ability.Ability.CanTargetAir) validTarget = false;
+
+                if (distance > data.Ability.Ability.MaximumRange) validTarget = false;
+                else if (distance < data.Ability.Ability.MinimumRange) validTarget = false;
+                else if (cell.CellHasResidentUnit && !data.Ability.Ability.CanTargetUnit) validTarget = false;
+                else if (cell.StaticData.CellIsLandDestination && !data.Ability.Ability.CanTargetLand) validTarget = false;
+                else if (!cell.StaticData.CellIsLandDestination && cell.StaticData.CellIsAirDestination && !data.Ability.Ability.CanTargetAir) validTarget = false;
                 
                 var targetArea = Instantiate(validTarget ? ValidTargetPrefab : InvalidTargetPrefab, TargetAreaContainer);
-                targetArea.Initialise(ability, sourceUnit, sourceCell, cell);
+                targetArea.Initialise(data, cell);
+                targetArea.gameObject.SetActive(true);
                 SpawnedTargets.Add(targetArea);
             }
             SpawnedTargets[0].UIButton.Select();

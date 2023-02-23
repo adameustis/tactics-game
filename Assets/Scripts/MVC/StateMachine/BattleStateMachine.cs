@@ -20,7 +20,7 @@ namespace MVC.StateMachine
             if (StateQueue.Count > 0)
                 return;
             StateQueue = Manager.BattleStateList;
-            AdvanceToState(new PlayerAndTransformEventData(new PlayerModel(), transform), DefaultState, false); // Player will need to come from somewhere
+            AdvanceToState(new PlayerAndTransformData(new PlayerModel(), transform), DefaultState, false); // Player will need to come from somewhere
         }
         
         #endregion

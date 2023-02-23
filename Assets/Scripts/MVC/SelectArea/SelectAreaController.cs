@@ -11,20 +11,22 @@ namespace MVC.SelectArea
     {
         #region Fields
         [Header("Fields")]
-        [SerializeField] private PlayerModel player;
-        [SerializeField] private CellModel cell;
+        [SerializeField] private SelectAreaData data;
+        // [SerializeField] private PlayerModel player;
+        // [SerializeField] private CellModel cell;
         [SerializeField] private Button uIButton;
 
         #endregion
-        #region Fields
+        #region Events
         [FormerlySerializedAs("onPerformingComplete")]
         [Header("Events")]
         [SerializeField] private EventPlayerModelAndTransformSO onAreaClicked;
 
         #endregion
         #region Properties
-        public PlayerModel Player { get => player; private set => player = value; }
-        public CellModel Cell { get => cell; private set => cell = value; }
+        public SelectAreaData Data { get => data; private set => data = value; }
+        // public PlayerModel Player { get => player; private set => player = value; }
+        // public CellModel Cell { get => cell; private set => cell = value; }
         public Button UIButton { get => uIButton; private set => uIButton = value; }
 
         #endregion
@@ -34,25 +36,14 @@ namespace MVC.SelectArea
         #endregion
         #region Event Handlers
 
-        public void HandleOnClick()
-        {
-            InvokeOnAreaClicked(Player, transform, Cell);
-        }
-        
+        public void HandleOnClick() => InvokeOnAreaClicked(Data);
+
         #endregion
         #region Methods
 
-        public void Initialise(PlayerModel setPlayer, CellModel setCell)
-        {
-            Player = setPlayer;
-            Cell = setCell;
-        }
-        
-        public void InvokeOnAreaClicked(PlayerModel setPlayer, Transform setTransform, CellModel setCell)
-        {
-            OnAreaClicked.UnityEvent.Invoke(new SelectAreaEventData(setPlayer, setTransform, setCell));
-        }
-        
+        public void Initialise(PlayerModel setPlayer, CellModel setSourceCell) => Data = new SelectAreaData(setPlayer, transform, setSourceCell);
+        public void InvokeOnAreaClicked(SelectAreaData setData) => OnAreaClicked.UnityEvent.Invoke(setData);
+
         #endregion
     }
 }

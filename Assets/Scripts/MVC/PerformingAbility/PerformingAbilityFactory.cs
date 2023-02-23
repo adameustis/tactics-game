@@ -25,13 +25,16 @@ namespace MVC.PerformingAbility
         #region Event Subscriptions
         #endregion
         #region Event Handlers
-        public void HandleOnEnterState(PlayerAndTransformEventData context)
+        public void HandleOnEnterState(PlayerAndTransformData context)
         {
-            if (context.Tf.TryGetComponent(out TargetAreaController targetArea))
-                SpawnPerformingAbility(context.Player, targetArea.Ability, targetArea.SourceUnit, targetArea.SourceCell, targetArea.TargetCell);
+            // if (context.Tf.TryGetComponent(out TargetAreaController targetArea))
+            //     SpawnPerformingAbility(context.Player, targetArea.Ability, targetArea.SourceUnit, targetArea.SourceCell, targetArea.TargetCell);
+            
+            if(context is TargetAreaData eventData)
+                SpawnPerformingAbility(eventData);
         }
         
-        public void HandleOnExitState(PlayerAndTransformEventData context)
+        public void HandleOnExitState(PlayerAndTransformData context)
         {
             DestroyPerformingAbility();
         }
@@ -40,10 +43,10 @@ namespace MVC.PerformingAbility
         #endregion
         #region Methods
 
-        public void SpawnPerformingAbility(PlayerModel player, AbilityModel ability, UnitModel sourceUnit, CellModel sourceCell, CellModel targetCell)
+        public void SpawnPerformingAbility(TargetAreaData data)
         {
-            SpawnedPerformingAbility = Instantiate(ability.Ability.PerformingPrefab, transform);
-            SpawnedPerformingAbility.Initialise(player, ability, sourceUnit, sourceCell, targetCell);
+            SpawnedPerformingAbility = Instantiate(data.Ability.Ability.PerformingPrefab, transform);
+            SpawnedPerformingAbility.Initialise(data);
             SpawnedPerformingAbility.gameObject.SetActive(true);
         }
 

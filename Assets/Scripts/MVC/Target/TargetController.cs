@@ -85,18 +85,18 @@ namespace MVC.Target
         #endregion
         #region Event Handlers
     
-        public virtual void MouseOffHandler(PlayerAndTransformEventData eventData)
+        public virtual void MouseOffHandler(PlayerAndTransformData data)
         {
-            if (eventData.Tf != transform) return;
+            if (data.Tf != transform) return;
             Destroy(gameObject);
         }
 
-        public virtual void InputSubmitHandler(PlayerAndTransformEventData eventData)
+        public virtual void InputSubmitHandler(PlayerAndTransformData data)
         {
             
         }
 
-        public virtual void CancelTargetingHandler(PlayerAndTransformEventData eventData)
+        public virtual void CancelTargetingHandler(PlayerAndTransformData data)
         {
             Destroy(gameObject);
         }

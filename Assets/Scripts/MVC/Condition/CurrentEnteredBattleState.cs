@@ -18,7 +18,7 @@ namespace MVC.Condition
         [field: SerializeField] public EventPlayerModelAndTransformSO RequiredEnteredState { get; private set; }
 
         #endregion
-        public override bool IsMet(PlayerAndTransformEventData context)
+        public override bool IsMet(PlayerAndTransformData context)
         {
             return Manager.BattleStateList.Last().PublicOnEnter == RequiredEnteredState;
         }

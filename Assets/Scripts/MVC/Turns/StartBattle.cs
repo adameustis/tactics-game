@@ -18,7 +18,7 @@ namespace MVC.Turns
         #endregion
         #region Events
         [Header("Events")]
-        [SerializeField] private UnityEvent<PlayerAndTransformEventData> onStarted;
+        [SerializeField] private UnityEvent<PlayerAndTransformData> onStarted;
 
         #endregion
         #region Properties
@@ -32,7 +32,7 @@ namespace MVC.Turns
         #endregion
         #region Event Properties
 
-        public UnityEvent<PlayerAndTransformEventData> OnStarted { get => onStarted; set => onStarted = value; }
+        public UnityEvent<PlayerAndTransformData> OnStarted { get => onStarted; set => onStarted = value; }
 
         #endregion
         #region MonoBehaviour
@@ -41,7 +41,7 @@ namespace MVC.Turns
         #endregion
         #region Methods
 
-        public void Initialise(PlayerAndTransformEventData context)
+        public void Initialise(PlayerAndTransformData context)
         {
             CellManager.CreateBattleCells(CellMap);
             UnitManager.CreateUnits(UnitManagerSettings, CellManager);

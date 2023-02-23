@@ -20,14 +20,14 @@ namespace MVC.Input
         [field: SerializeField] public EventPlayerModelAndTransformSO PublicInput { get; private set; }
 
         [field: Header("Local Events")]
-        [field: SerializeField] public UnityEvent<PlayerAndTransformEventData> LocalInput { get; private set; }
+        [field: SerializeField] public UnityEvent<PlayerAndTransformData> LocalInput { get; private set; }
 
         #endregion
         #region MonoBehaviour
         #endregion
         #region Methods
     
-        public void InvokeInput(PlayerAndTransformEventData context)
+        public void InvokeInput(PlayerAndTransformData context)
         {
             PublicInput.UnityEvent?.Invoke(context);
             LocalInput?.Invoke(context);

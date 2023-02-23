@@ -46,16 +46,16 @@ public class OutlineController : MonoBehaviour
     #endregion
     #region Methods
 
-    public virtual void DisplayOutline(PlayerAndTransformEventData eventData)
+    public virtual void DisplayOutline(PlayerAndTransformData data)
     {
-        if (eventData.Tf != transform) return;
+        if (data.Tf != transform) return;
         
         OutlineAnimator.SetBool("isDisplaying", true);
     }
 
-    public virtual void StopDisplayingOutline(PlayerAndTransformEventData eventData)
+    public virtual void StopDisplayingOutline(PlayerAndTransformData data)
     {
-        if (eventData.Tf != transform) return;
+        if (data.Tf != transform) return;
         
         OutlineAnimator.SetBool("isDisplaying", false);
     }

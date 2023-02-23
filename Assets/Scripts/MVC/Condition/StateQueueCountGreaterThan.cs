@@ -14,7 +14,7 @@ namespace MVC.Condition
         #endregion
         #region Methods
 
-        public override bool IsMet(PlayerAndTransformEventData context)
+        public override bool IsMet(PlayerAndTransformData context)
         {
             return Manager.BattleStateList.Count > GreaterThan;
         }

@@ -11,7 +11,7 @@ public class AbilityModel
     #region Delegates
     #endregion
     #region Fields
-    [SerializeField] private AbilitySO ability;
+    [FormerlySerializedAs("ability")] [SerializeField] private AbilitySO staticData;
     [SerializeField] private int level;
     [SerializeField] private int investment;
     [SerializeField] private int effectiveEnergy;
@@ -56,12 +56,12 @@ public class AbilityModel
 
     public AbilitySO Ability
     {
-        get => ability;
+        get => staticData;
 
         set
         {
-            if (ability == value) return;
-            ability = value;
+            if (staticData == value) return;
+            staticData = value;
             EventAbilityChanged.Invoke();
         }
     }

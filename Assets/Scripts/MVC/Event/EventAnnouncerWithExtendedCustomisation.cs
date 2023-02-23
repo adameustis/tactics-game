@@ -30,7 +30,7 @@ namespace MVC.Event
 
         public void ExtendedAnnounce()
         {
-            Announce(new PlayerAndTransformEventData(ThePlayer, TheTransform));
+            Announce(new PlayerAndTransformData(ThePlayer, TheTransform));
         }
 
         #endregion

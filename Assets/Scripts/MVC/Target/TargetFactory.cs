@@ -37,7 +37,7 @@ namespace MVC.Target
         #endregion
         #region Methods
 
-        public void SpawnTargets(PlayerAndTransformEventData context)
+        public void SpawnTargets(PlayerAndTransformData context)
         {
             if (!context.Tf.TryGetComponent(out CellController controller)) return;
             // work in progress
@@ -45,7 +45,7 @@ namespace MVC.Target
             // SpawnedTargets.Add(target);
         }
 
-        public void DestroyTargets(PlayerAndTransformEventData context)
+        public void DestroyTargets(PlayerAndTransformData context)
         {
             if (SpawnedTargets == null) return;
 

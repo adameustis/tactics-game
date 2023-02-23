@@ -24,7 +24,7 @@ namespace ScriptableObjects.Manager
         #endregion
         #region Event Handlers
 
-        public void UnitSelectedStateHandler(PlayerAndTransformEventData context)
+        public void UnitSelectedStateHandler(PlayerAndTransformData context)
         {
             SelectedUnit = context.Tf.GetComponent<UnitController>();
         }

@@ -82,13 +82,13 @@ namespace MVC.Player
         
         private void MouseOn(MouseOverController mouseOnController, UnityAction<MouseOverController> handleOnDisableMethod)
         {
-            mouseOnController.InvokeMouseOn(new PlayerAndTransformEventData(Player.Model, mouseOnController.transform));
+            mouseOnController.InvokeMouseOn(new PlayerAndTransformData(Player.Model, mouseOnController.transform));
             mouseOnController.OnDisabled.AddListener(handleOnDisableMethod);
         }
         
         private void MouseOff(MouseOverController mouseOffController, UnityAction<MouseOverController> handleOnDisableMethod)
         {
-            mouseOffController.InvokeMouseOff(new PlayerAndTransformEventData(Player.Model, mouseOffController.transform));
+            mouseOffController.InvokeMouseOff(new PlayerAndTransformData(Player.Model, mouseOffController.transform));
             mouseOffController.OnDisabled.RemoveListener(handleOnDisableMethod);
         }
         private void RemoveFromMouseOverList(MouseOverController controller)

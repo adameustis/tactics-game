@@ -50,16 +50,16 @@ public class MouseOverOutlineController : MonoBehaviour
     #endregion
     #region Event Handlers
     
-    public void MouseOffEventHandler(PlayerAndTransformEventData eventData)
+    public void MouseOffEventHandler(PlayerAndTransformData data)
     {
-        if (eventData.Tf != transform) return;
+        if (data.Tf != transform) return;
         
         StopDisplayingOutline();
     }
 
-    public void MouseOnEventHandler(PlayerAndTransformEventData eventData)
+    public void MouseOnEventHandler(PlayerAndTransformData data)
     {
-        if (eventData.Tf != transform) return;
+        if (data.Tf != transform) return;
         
         DisplayOutline();
     }

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MVC.EventData;
 using MVC.PerformingAbility;
+using MVC.Target;
 using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using ScriptableObjects.Manager;
 using UnityEngine;
@@ -38,42 +39,43 @@ namespace MVC.Turns
         #region MonoBehaviour
         #endregion
         #region Event Handlers
-        #endregion
-        #region Methods
-
-        public void Initialise(PlayerAndTransformEventData context)
+        public void HandleOnEnterState(PlayerAndTransformData context)
         {
             //if (!context.Tf.TryGetComponent(out PerformingAbilityController controller)) return;
             
-            if (context.GetType() != typeof(PerformingAbilityEventData)) return;
-            
-            var eventData = (PerformingAbilityEventData)context;
-            
-            if (eventData.Ability.Ability == EndTurnAbility)
+            if(context is TargetAreaData eventData)
+                Finalise(eventData);
+        }
+        #endregion
+        #region Methods
+
+        public void Finalise(TargetAreaData data)
+        {
+            if (data.Ability.Ability == EndTurnAbility)
             {
                 TurnManager.EndTurn();
-                OnEndTurn.UnityEvent.Invoke(context);
+                OnEndTurn.UnityEvent.Invoke(data);
                 return;
             }
             
-            if (MoveAbilities.Contains(eventData.Ability.Ability))
+            if (MoveAbilities.Contains(data.Ability.Ability))
             {
-                eventData.Ability.EffectiveUses = 0;
-                OnContinueTurn.UnityEvent.Invoke(context);
+                data.Ability.EffectiveUses = 0;
+                OnContinueTurn.UnityEvent.Invoke(data);
                 return;
             }
 
-            Debug.Log("Ability Name: " + eventData.Ability.Ability.AbilityName);
-            Debug.Log("Source Cell Name: " + eventData.SourceCell.StaticData.CellName);
-            Debug.Log("Target Cell Name: " + eventData.TargetCell.StaticData.CellName);
-            Debug.Log("Source Unit: " + eventData.SourceUnit.UnitName);
-            Debug.Log("Source Unit number of abilities: " + eventData.SourceUnit.UnitAbilities.Count);
-            Debug.Log("Source Unit number of abilities with conditions: " + eventData.SourceUnit.UnitAbilities.Count(ability => ability.Ability != EndTurnAbility && !MoveAbilities.Contains(ability.Ability)));
+            Debug.Log("Ability Name: " + data.Ability.Ability.AbilityName);
+            Debug.Log("Source Cell Name: " + data.SourceCell.StaticData.CellName);
+            Debug.Log("Target Cell Name: " + data.TargetCell.StaticData.CellName);
+            Debug.Log("Source Unit: " + data.SourceCell.CellResidentUnit.UnitName);
+            Debug.Log("Source Unit number of abilities: " + data.SourceCell.CellResidentUnit.UnitAbilities.Count);
+            Debug.Log("Source Unit number of abilities with conditions: " + data.SourceCell.CellResidentUnit.UnitAbilities.Count(ability => ability.Ability != EndTurnAbility && !MoveAbilities.Contains(ability.Ability)));
             
-            foreach (var ability in eventData.SourceUnit.UnitAbilities.Where(ability => ability.Ability != EndTurnAbility && !MoveAbilities.Contains(ability.Ability)))
+            foreach (var ability in data.SourceCell.CellResidentUnit.UnitAbilities.Where(ability => ability.Ability != EndTurnAbility && !MoveAbilities.Contains(ability.Ability)))
                 ability.EffectiveUses = 0;
 
-            OnContinueTurn.UnityEvent.Invoke(context);
+            OnContinueTurn.UnityEvent.Invoke(data);
         }
         #endregion
     }

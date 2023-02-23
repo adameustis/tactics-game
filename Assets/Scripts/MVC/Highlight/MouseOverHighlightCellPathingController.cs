@@ -51,18 +51,18 @@ public class MouseOverHighlightCellPathingController : MonoBehaviour
     #endregion
     #region Event Handlers
     
-    public void MouseOffEventHandler(PlayerAndTransformEventData eventData)
+    public void MouseOffEventHandler(PlayerAndTransformData data)
     {
-        if (eventData.Tf != transform) return;
+        if (data.Tf != transform) return;
         
-        StopDisplaying(eventData.Player);
+        StopDisplaying(data.Player);
     }
 
-    public void MouseOnEventHandler(PlayerAndTransformEventData eventData)
+    public void MouseOnEventHandler(PlayerAndTransformData data)
     {
-        if (eventData.Tf != transform) return;
+        if (data.Tf != transform) return;
         
-        Display(eventData.Player, true, true, true, true); // Need to update this. These need to be set somewhere.
+        Display(data.Player, true, true, true, true); // Need to update this. These need to be set somewhere.
     }
     
     #endregion 

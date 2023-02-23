@@ -2,6 +2,7 @@ using MVC.Ability;
 using MVC.Cell;
 using MVC.EventData;
 using MVC.Image;
+using MVC.SelectArea;
 using MVC.Text;
 using MVC.Unit;
 using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
@@ -15,10 +16,11 @@ namespace MVC.AbilityMenu
     {
         #region Fields
         [Header("Fields")]
-        [SerializeField] private PlayerModel player;
-        [SerializeField] private AbilityModel ability;
-        [FormerlySerializedAs("unit")] [SerializeField] private UnitModel sourceUnit;
-        [SerializeField] private CellModel sourceCell;
+        [SerializeField] private AbilityMenuItemData data;
+        // [SerializeField] private PlayerModel player;
+        // [SerializeField] private AbilityModel ability;
+        // [FormerlySerializedAs("unit")] [SerializeField] private UnitModel sourceUnit;
+        // [SerializeField] private CellModel sourceCell;
         [SerializeField] private Button uIButton;
         [SerializeField] private AbilityImageController imageController;
         [SerializeField] private AbilityNameTextController nameTextController;
@@ -30,10 +32,11 @@ namespace MVC.AbilityMenu
 
         #endregion
         #region Properties
-        public PlayerModel Player { get => player; set => player = value; }
-        public AbilityModel Ability { get => ability; private set => ability = value; }
-        public UnitModel SourceUnit { get => sourceUnit; private set => sourceUnit = value; }
-        public CellModel SourceCell { get => sourceCell; set => sourceCell = value; }
+        public AbilityMenuItemData Data { get => data; private set => data = value; }
+        // public PlayerModel Player { get => player; set => player = value; }
+        // public AbilityModel Ability { get => ability; private set => ability = value; }
+        // public UnitModel SourceUnit { get => sourceUnit; private set => sourceUnit = value; }
+        // public CellModel SourceCell { get => sourceCell; set => sourceCell = value; }
         public Button UIButton { get => uIButton; private set => uIButton = value; }
         public AbilityImageController ImageController { get => imageController; private set => imageController = value; }
         public AbilityNameTextController NameTextController { get => nameTextController; private set => nameTextController = value; }
@@ -45,29 +48,21 @@ namespace MVC.AbilityMenu
         #endregion
         #region Event Handlers
 
-        public void HandleOnClick()
-        {
-            InvokeMenuItemClicked(Player, transform, Ability, SourceUnit, SourceCell);
-        }
-        
+        public void HandleOnClick() => InvokeMenuItemClicked(Data);
+
         #endregion
         #region Methods
 
-        public void Initialise(PlayerModel setPlayer, AbilityModel setAbility, UnitModel setSourceUnit, CellModel setSourceCell)
+        public void Initialise(SelectAreaData areaData, AbilityModel setAbility)
         {
-            Player = setPlayer;
-            Ability = setAbility;
-            SourceUnit = setSourceUnit;
-            SourceCell = setSourceCell;
+            Data = new AbilityMenuItemData(areaData.Player, transform, areaData.SourceCell, setAbility);
             
             ImageController.Initialise(setAbility);
             NameTextController.Initialise(setAbility);
         }
         
-        public void InvokeMenuItemClicked(PlayerModel setPlayer, Transform setTransform, AbilityModel setAbility, UnitModel setSourceUnit, CellModel setSourceCell)
-        {
-            OnMenuItemClicked.UnityEvent.Invoke(new AbilityMenuItemEventData(setPlayer, setTransform, setAbility, setSourceUnit, setSourceCell));
-        }
+        public void InvokeMenuItemClicked(AbilityMenuItemData setData) => OnMenuItemClicked.UnityEvent.Invoke(setData);
+
         
         #endregion
     }

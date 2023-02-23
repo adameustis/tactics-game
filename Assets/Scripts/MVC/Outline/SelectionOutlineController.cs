@@ -28,16 +28,16 @@ public class SelectionOutlineController : MonoBehaviour
     #endregion
     #region Event Handlers
     
-    public void SelectEventHandler(PlayerAndTransformEventData eventData)
+    public void SelectEventHandler(PlayerAndTransformData data)
     {
-        if (eventData.Tf != transform) return;
+        if (data.Tf != transform) return;
         
         StopDisplayingOutline();
     }
 
-    public void DeselectEventHandler(PlayerAndTransformEventData eventData)
+    public void DeselectEventHandler(PlayerAndTransformData data)
     {
-        if (eventData.Tf != transform) return;
+        if (data.Tf != transform) return;
         
         DisplayOutline();
     }

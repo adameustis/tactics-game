@@ -36,12 +36,12 @@ namespace MVC.SelectArea
         #endregion
         #region Event Handlers
     
-        public void HandleOnEnterState(PlayerAndTransformEventData context)
+        public void HandleOnEnterState(PlayerAndTransformData context)
         {
             Display(context.Player, CellManager.CellModelList);
         }
         
-        public void HandleOnExitState(PlayerAndTransformEventData context)
+        public void HandleOnExitState(PlayerAndTransformData context)
         {
             Clear();
         }
@@ -60,7 +60,7 @@ namespace MVC.SelectArea
             {
                 var selectArea = Instantiate(cell.CellHasResidentUnit ? SelectAreaCellAndUnitPrefab : SelectAreaCellOnlyPrefab, SelectAreaContainer);
                 selectArea.Initialise(setPlayer, cell);
-                Debug.Log(selectArea);
+                selectArea.gameObject.SetActive(true);
                 SpawnedSelectAreas.Add(selectArea);
             }
 

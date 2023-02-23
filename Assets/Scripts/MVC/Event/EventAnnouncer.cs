@@ -19,14 +19,14 @@ namespace MVC.Event
         #region Event Properties
         [field: Header("Events")]
         [field: SerializeField] public EventPlayerModelAndTransformSO PublicAnnouncement { get; private set; }
-        [field: SerializeField] public UnityEvent<PlayerAndTransformEventData> LocalAnnouncement { get; private set; }
+        [field: SerializeField] public UnityEvent<PlayerAndTransformData> LocalAnnouncement { get; private set; }
         
         #endregion
         #region Monobehaviour
         #endregion
         #region Methods
 
-        public void Announce(PlayerAndTransformEventData context)
+        public void Announce(PlayerAndTransformData context)
         {
             // Guard Clause: Check if any of the conditions are not met
             if (ConditionsList.Any(condition => !condition.IsMet(context))) return;

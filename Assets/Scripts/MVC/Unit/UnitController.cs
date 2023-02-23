@@ -86,7 +86,7 @@ namespace MVC.Unit
         #endregion
         #region Methods
 
-        public void SetUnitBasedOnContextUnitController(PlayerAndTransformEventData context)
+        public void SetUnitBasedOnContextUnitController(PlayerAndTransformData context)
         {
             if (context.Tf.TryGetComponent(out UnitController controller))
                 Model = controller.Model;

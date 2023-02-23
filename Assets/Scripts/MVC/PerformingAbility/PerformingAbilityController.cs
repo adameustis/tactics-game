@@ -2,6 +2,7 @@ using MVC.Ability;
 using MVC.Cell;
 using MVC.EventData;
 using MVC.Player;
+using MVC.Target;
 using MVC.Unit;
 using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
 using UnityEngine;
@@ -14,11 +15,12 @@ namespace MVC.PerformingAbility
     {
         #region Fields
         [Header("Fields")]
-        [SerializeField] private PlayerModel player;
-        [SerializeField] private AbilityModel ability;
-        [FormerlySerializedAs("unit")] [SerializeField] private UnitModel sourceUnit;
-        [SerializeField] private CellModel sourceCell;
-        [FormerlySerializedAs("cell")] [SerializeField] private CellModel targetCell;
+        [SerializeField] private TargetAreaData data;
+        // [SerializeField] private PlayerModel player;
+        // [SerializeField] private AbilityModel ability;
+        // [FormerlySerializedAs("unit")] [SerializeField] private UnitModel sourceUnit;
+        // [SerializeField] private CellModel sourceCell;
+        // [FormerlySerializedAs("cell")] [SerializeField] private CellModel targetCell;
 
         #endregion
         #region Fields
@@ -27,12 +29,13 @@ namespace MVC.PerformingAbility
 
         #endregion
         #region Properties
-
-        public PlayerModel Player { get => player; set => player = value; }
-        public AbilityModel Ability { get => ability; private set => ability = value; }
-        public UnitModel SourceUnit { get => sourceUnit; private set => sourceUnit = value; }
-        public CellModel SourceCell { get => sourceCell; set => sourceCell = value; }
-        public CellModel TargetCell { get => targetCell; private set => targetCell = value; }
+        public TargetAreaData Data { get => data; private set => data = value; }
+        
+        // public PlayerModel Player { get => player; set => player = value; }
+        // public AbilityModel Ability { get => ability; private set => ability = value; }
+        // public UnitModel SourceUnit { get => sourceUnit; private set => sourceUnit = value; }
+        // public CellModel SourceCell { get => sourceCell; set => sourceCell = value; }
+        // public CellModel TargetCell { get => targetCell; private set => targetCell = value; }
 
         #endregion
         #region Event Properties
@@ -42,18 +45,11 @@ namespace MVC.PerformingAbility
         #endregion
         #region Methods
 
-        public void Initialise(PlayerModel setPlayer, AbilityModel setAbility, UnitModel setSourceUnit, CellModel setSourceCell, CellModel setTargetCell)
-        {
-            Player = setPlayer;
-            Ability = setAbility;
-            SourceUnit = setSourceUnit;
-            SourceCell = setSourceCell;
-            TargetCell = setTargetCell;
-        }
+        public void Initialise(TargetAreaData setData) => Data = setData;
 
         public void InvokeOnPerformingComplete()
         {
-            OnPerformingComplete.UnityEvent.Invoke(new PerformingAbilityEventData(Player, transform, Ability, SourceUnit, SourceCell, TargetCell));
+            OnPerformingComplete.UnityEvent.Invoke(Data);
         }
         
         #endregion

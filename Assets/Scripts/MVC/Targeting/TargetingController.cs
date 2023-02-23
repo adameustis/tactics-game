@@ -130,32 +130,32 @@ namespace MVC.TargetingController
         #endregion
         #region Event Handlers
     
-        public void InputSubmitHandler(PlayerAndTransformEventData eventData)
+        public void InputSubmitHandler(PlayerAndTransformData data)
         {
             if (IsTargeting) return;
             
-            if (eventData.Tf != transform) return;
+            if (data.Tf != transform) return;
         
-            BeginTargeting(eventData);
+            BeginTargeting(data);
         }
 
-        public void InputCancelHandler(PlayerAndTransformEventData eventData)
+        public void InputCancelHandler(PlayerAndTransformData data)
         {
             if (!IsTargeting) return;
             
-            CancelTargeting(eventData);
+            CancelTargeting(data);
         }
 
-        public void MouseOnUnitHandler(PlayerAndTransformEventData eventData)
+        public void MouseOnUnitHandler(PlayerAndTransformData data)
         {
             if (!IsTargeting) return;
-            DisplayTarget(Ability, SourceUnit, eventData.Tf, Ability.Ability.TargetUnitPrefab);
+            DisplayTarget(Ability, SourceUnit, data.Tf, Ability.Ability.TargetUnitPrefab);
         }
         
-        public void MouseOnCellHandler(PlayerAndTransformEventData eventData)
+        public void MouseOnCellHandler(PlayerAndTransformData data)
         {
             if (!IsTargeting) return;
-            DisplayTarget(Ability, SourceUnit, eventData.Tf, Ability.Ability.TargetCellPrefab);
+            DisplayTarget(Ability, SourceUnit, data.Tf, Ability.Ability.TargetCellPrefab);
         }
         
         #endregion 
@@ -180,25 +180,25 @@ namespace MVC.TargetingController
             SourceUnit = setSourceUnit;
         }
         
-        public void BeginTargeting(PlayerAndTransformEventData eventData)
+        public void BeginTargeting(PlayerAndTransformData data)
         {
             IsTargeting = true;
             SubscribeToTargetEvents();
-            BeginTargetingEvent.UnityEvent.Invoke(eventData);
+            BeginTargetingEvent.UnityEvent.Invoke(data);
         }
     
-        public void CancelTargeting(PlayerAndTransformEventData eventData)
+        public void CancelTargeting(PlayerAndTransformData data)
         {
             UnsubscribeFromTargetEvents();
             Target = null;
             IsTargeting = false;
-            CancelTargetingEvent.UnityEvent.Invoke(eventData);
+            CancelTargetingEvent.UnityEvent.Invoke(data);
         }
 
-        public void FinishTargeting(PlayerAndTransformEventData eventData, Transform targetTF)
+        public void FinishTargeting(PlayerAndTransformData data, Transform targetTF)
         {
             UnsubscribeFromTargetEvents();
-            FinishTargetingEvent.UnityEvent.Invoke(eventData);
+            FinishTargetingEvent.UnityEvent.Invoke(data);
         }
 
         public void DisplayTarget(AbilityModel abilityCast, UnitController castingUnit, Transform destination, TargetController prefab)

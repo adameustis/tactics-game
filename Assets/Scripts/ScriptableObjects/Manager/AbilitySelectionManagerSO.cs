@@ -24,7 +24,7 @@ namespace ScriptableObjects.Manager
         #endregion
         #region Event Handlers
 
-        public void AbilitySelectedStateHandler(PlayerAndTransformEventData context)
+        public void AbilitySelectedStateHandler(PlayerAndTransformData context)
         {
             SelectedAbility = context.Tf.GetComponent<AbilityController>().Model;
         }

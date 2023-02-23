@@ -24,11 +24,11 @@ namespace MVC.StateMachine
             if (StateQueue.Count > 0) return;
             
             if (Ability == null)
-                AdvanceToState(new PlayerAndTransformEventData(new PlayerModel(), transform), DefaultState, false); // Player will need to come from somewhere
+                AdvanceToState(new PlayerAndTransformData(new PlayerModel(), transform), DefaultState, false); // Player will need to come from somewhere
             else if (Ability.Model.EffectiveUses > 0)
-                AdvanceToState(new PlayerAndTransformEventData(new PlayerModel(), transform), Usable, false); // Player will need to come from somewhere
+                AdvanceToState(new PlayerAndTransformData(new PlayerModel(), transform), Usable, false); // Player will need to come from somewhere
             else
-                AdvanceToState(new PlayerAndTransformEventData(new PlayerModel(), transform), Unusable, false); // Player will need to come from somewhere
+                AdvanceToState(new PlayerAndTransformData(new PlayerModel(), transform), Unusable, false); // Player will need to come from somewhere
         }
         
         #endregion

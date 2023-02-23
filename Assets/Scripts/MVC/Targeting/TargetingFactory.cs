@@ -26,7 +26,7 @@ namespace MVC.Targeting
         #endregion
         #region Methods
 
-        public void SpawnTargeting(PlayerAndTransformEventData context)
+        public void SpawnTargeting(PlayerAndTransformData context)
         {
             if (!context.Tf.TryGetComponent(out AbilityController controller)) return;
             
@@ -35,7 +35,7 @@ namespace MVC.Targeting
             SpawnedTargeting = targeting;
         }
 
-        public void DestroyTargeting(PlayerAndTransformEventData context)
+        public void DestroyTargeting(PlayerAndTransformData context)
         {
             if (SpawnedTargeting == null) return;
             

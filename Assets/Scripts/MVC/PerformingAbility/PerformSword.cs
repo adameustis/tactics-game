@@ -33,9 +33,9 @@ namespace MVC.PerformingAbility
 
         public void DoAbility()
         {
-            if (Controller.TargetCell.CellHasResidentUnit)
+            if (Controller.Data.TargetCell.CellHasResidentUnit)
             {
-                Controller.TargetCell.CellResidentUnit.DamageUnit(1);
+                Controller.Data.TargetCell.CellResidentUnit.DamageUnit(1);
             }
             OnComplete.Invoke();
         }

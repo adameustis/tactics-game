@@ -23,7 +23,7 @@ namespace MVC.Player
         #endregion
         #region Methods
         
-        public void SetPlayerBasedOnContextPlayerModel(PlayerAndTransformEventData context)
+        public void SetPlayerBasedOnContextPlayerModel(PlayerAndTransformData context)
         {
             Model = context.Player;
         }

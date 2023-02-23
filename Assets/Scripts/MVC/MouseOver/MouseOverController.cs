@@ -18,8 +18,8 @@ public class MouseOverController : MonoBehaviour
     [SerializeField] private EventAbstractSO<UnityEventPlayerModelAndTransform> eventInputMouseOn;
     [SerializeField] private EventAbstractSO<UnityEventPlayerModelAndTransform> eventInputMouseOff;
     [field: Header("Local Events")]
-    [SerializeField] private UnityEvent<PlayerAndTransformEventData> onMouseOn;
-    [SerializeField] private UnityEvent<PlayerAndTransformEventData> onMouseOff;
+    [SerializeField] private UnityEvent<PlayerAndTransformData> onMouseOn;
+    [SerializeField] private UnityEvent<PlayerAndTransformData> onMouseOff;
     [SerializeField] private UnityEvent<MouseOverController> onDisabled;
 
     #endregion
@@ -29,8 +29,8 @@ public class MouseOverController : MonoBehaviour
     #region Event Properties
     public EventAbstractSO<UnityEventPlayerModelAndTransform> EventInputMouseOn { get => eventInputMouseOn; private set => eventInputMouseOn = value; }
     public EventAbstractSO<UnityEventPlayerModelAndTransform> EventInputMouseOff { get => eventInputMouseOff; private set => eventInputMouseOff = value; }
-    public UnityEvent<PlayerAndTransformEventData> OnMouseOn { get => onMouseOn; private set => onMouseOn = value; }
-    public UnityEvent<PlayerAndTransformEventData> OnMouseOff { get => onMouseOff; private set => onMouseOff = value; }
+    public UnityEvent<PlayerAndTransformData> OnMouseOn { get => onMouseOn; private set => onMouseOn = value; }
+    public UnityEvent<PlayerAndTransformData> OnMouseOff { get => onMouseOff; private set => onMouseOff = value; }
     public UnityEvent<MouseOverController> OnDisabled { get => onDisabled; private set => onDisabled = value; }
 
     #endregion
@@ -41,13 +41,13 @@ public class MouseOverController : MonoBehaviour
         OnDisabled.Invoke(this);
     }
 
-    public void InvokeMouseOn(PlayerAndTransformEventData context)
+    public void InvokeMouseOn(PlayerAndTransformData context)
     {
         EventInputMouseOn.UnityEvent.Invoke(context);
         OnMouseOn.Invoke(context);
     }
     
-    public void InvokeMouseOff(PlayerAndTransformEventData context)
+    public void InvokeMouseOff(PlayerAndTransformData context)
     {
         EventInputMouseOff.UnityEvent.Invoke(context);
         OnMouseOff.Invoke(context);

@@ -19,7 +19,7 @@ namespace MVC.EventListener
         #region Event Properties
         [field: Header("Events")]
         [field: SerializeField] public List<EventPlayerModelAndTransformSO> TriggerEventsList { get; private set; }
-        [field: SerializeField] public UnityEvent<PlayerAndTransformEventData> Handler { get; private set; }
+        [field: SerializeField] public UnityEvent<PlayerAndTransformData> Handler { get; private set; }
         
         #endregion
         #region Monobehaviour
@@ -46,7 +46,7 @@ namespace MVC.EventListener
             }
         }
 
-        private void Invoke(PlayerAndTransformEventData context)
+        private void Invoke(PlayerAndTransformData context)
         {
             // Guard Clause: Check if any of the conditions are not met
             if (ConditionsList.Any(condition => !condition.IsMet(context))) return;

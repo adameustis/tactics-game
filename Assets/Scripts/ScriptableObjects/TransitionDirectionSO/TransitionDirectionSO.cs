@@ -6,6 +6,6 @@ namespace ScriptableObjects.TransitionDirectionSO
 {
     public abstract class TransitionDirectionSO : ScriptableObject
     {
-        public abstract void TransitionToState(PlayerAndTransformEventData context, StateBehaviour stateToTransitionTo);
+        public abstract void TransitionToState(PlayerAndTransformData context, StateBehaviour stateToTransitionTo);
     }
 }

@@ -611,7 +611,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 290218621}
         m_TargetAssemblyTypeName: MVC.Turns.FinaliseTurn, Assembly-CSharp
-        m_MethodName: Initialise
+        m_MethodName: HandleOnEnterState
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

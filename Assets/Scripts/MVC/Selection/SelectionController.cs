@@ -62,20 +62,20 @@ namespace MVC.Selection
         {
             if (Data.IsSelected) return;
             Data.IsSelected = true;
-            SelectedEvent.UnityEvent?.Invoke(new PlayerAndTransformEventData(player, transform));
+            SelectedEvent.UnityEvent?.Invoke(new PlayerAndTransformData(player, transform));
         }
 
         public void DoubleSelect(PlayerModel player)
         {
             if (!Data.IsSelected) return;
-            DoubleSelectedEvent.UnityEvent?.Invoke(new PlayerAndTransformEventData(player, transform));
+            DoubleSelectedEvent.UnityEvent?.Invoke(new PlayerAndTransformData(player, transform));
         }
     
         public void Deselect(PlayerModel player)
         {
             if (!Data.IsSelected) return;
             Data.IsSelected = false;
-            DeselectedEvent.UnityEvent?.Invoke(new PlayerAndTransformEventData(player, transform));
+            DeselectedEvent.UnityEvent?.Invoke(new PlayerAndTransformData(player, transform));
         }
 
         #endregion

@@ -82,6 +82,21 @@ PrefabInstance:
       propertyPath: m_Colors.m_HighlightedColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1230489831634045699, guid: 0fb3637a825e06644b42ef65e28e3c99,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5040985617648774216}
+    - target: {fileID: 1230489831634045699, guid: 0fb3637a825e06644b42ef65e28e3c99,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HandleOnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230489831634045699, guid: 0fb3637a825e06644b42ef65e28e3c99,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MVC.Target.TargetAreaController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5069925826452656202, guid: 0fb3637a825e06644b42ef65e28e3c99,
         type: 3}
       propertyPath: m_Pivot.x
@@ -187,6 +202,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5593411764742971525, guid: 0fb3637a825e06644b42ef65e28e3c99,
+        type: 3}
+      propertyPath: onAreaClicked
+      value: 
+      objectReference: {fileID: 11400000, guid: d583e35a032664f49bc220d9a9edebff,
+        type: 2}
     - target: {fileID: 7284498396985316171, guid: 0fb3637a825e06644b42ef65e28e3c99,
         type: 3}
       propertyPath: <PublicAnnouncement>k__BackingField
@@ -195,3 +216,15 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fb3637a825e06644b42ef65e28e3c99, type: 3}
+--- !u!114 &5040985617648774216 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5593411764742971525, guid: 0fb3637a825e06644b42ef65e28e3c99,
+    type: 3}
+  m_PrefabInstance: {fileID: 606552098052508877}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f831516ca3324d0fbcddc200c7d3df42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

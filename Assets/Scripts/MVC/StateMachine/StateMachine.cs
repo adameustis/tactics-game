@@ -26,7 +26,7 @@ namespace MVC.StateMachine
             if (StateQueue.Count > 0)
                 return;
             
-            AdvanceToState(new PlayerAndTransformEventData(new PlayerModel(), transform), DefaultState, false); // Player will need to come from somewhere
+            AdvanceToState(new PlayerAndTransformData(new PlayerModel(), transform), DefaultState, false); // Player will need to come from somewhere
         }
 
         #endregion
@@ -34,7 +34,7 @@ namespace MVC.StateMachine
         #endregion
         #region Method
 
-        public virtual void AdvanceToState(PlayerAndTransformEventData context, StateBehaviour setStateBehaviour, bool clearHistory)
+        public virtual void AdvanceToState(PlayerAndTransformData context, StateBehaviour setStateBehaviour, bool clearHistory)
         {
             if (StateQueue.Count > 0)
             {
@@ -50,7 +50,7 @@ namespace MVC.StateMachine
             setStateBehaviour.EnterState(context);
         }
 
-        public virtual void ReturnToPreviousState(PlayerAndTransformEventData context)
+        public virtual void ReturnToPreviousState(PlayerAndTransformData context)
         {
             if (StateQueue.Count < 2)
                 return;

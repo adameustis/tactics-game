@@ -42,7 +42,7 @@ namespace MVC.Player
         #endregion
         #region Event Handlers
         public void HandlePlayerCursor(InputAction.CallbackContext context) => SetPointerPosition(Mouse.current.position.ReadValue());
-        public void HandleUpdatePosition(PlayerAndTransformEventData context) => SetPointerPosition(context.Tf.position);
+        public void HandleUpdatePosition(PlayerAndTransformData context) => SetPointerPosition(context.Tf.position);
         
         private void SceneLoadedHandler(Scene newScene, LoadSceneMode mode)
         {

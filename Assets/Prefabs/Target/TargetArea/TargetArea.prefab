@@ -13,14 +13,13 @@ GameObject:
   - component: {fileID: 6950909074063050031}
   - component: {fileID: 1230489831634045699}
   - component: {fileID: 5593411764742971525}
-  - component: {fileID: 7284498396985316171}
   m_Layer: 5
   m_Name: TargetArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5069925826452656202
 RectTransform:
   m_ObjectHideFlags: 0
@@ -123,10 +122,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7284498396985316171}
-        m_TargetAssemblyTypeName: MVC.Event.EventAnnouncerWithExtendedCustomisation,
-          Assembly-CSharp
-        m_MethodName: ExtendedAnnounce
+      - m_Target: {fileID: 5593411764742971525}
+        m_TargetAssemblyTypeName: MVC.Target.TargetAreaController, Assembly-CSharp
+        m_MethodName: HandleOnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -148,32 +146,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f831516ca3324d0fbcddc200c7d3df42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 0}
-  sourceUnit: {fileID: 0}
-  sourceCell: {fileID: 0}
-  targetCell: {fileID: 0}
+  data:
+    player:
+      intPlayerNumber: 0
+      strPlayerName: 
+      playerIcon: {fileID: 0}
+      units: []
+    tf: {fileID: 0}
+    sourceCell:
+      staticData: {fileID: 0}
+      transformPosition: {x: 0, y: 0, z: 0}
+      cellGridPositionX: 0
+      cellGridPositionY: 0
+      cellHasResidentUnit: 0
+    ability:
+      staticData: {fileID: 0}
+      level: 0
+      investment: 0
+      effectiveEnergy: 0
+      effectiveRange: 0
+      effectiveUses: 0
+      effectiveTargeting: {fileID: 0}
+      targetStatusArray: []
+    targetCell:
+      staticData: {fileID: 0}
+      transformPosition: {x: 0, y: 0, z: 0}
+      cellGridPositionX: 0
+      cellGridPositionY: 0
+      cellHasResidentUnit: 0
   uIButton: {fileID: 1230489831634045699}
---- !u!114 &7284498396985316171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1190422075799256131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd42b12dd4024b88bb8e2ca3061b0120, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <ConditionsList>k__BackingField: []
-  <PublicAnnouncement>k__BackingField: {fileID: 11400000, guid: fca1e9cbc7a41cf4eb5ca053d7f14c2b,
-    type: 2}
-  <LocalAnnouncement>k__BackingField:
-    m_PersistentCalls:
-      m_Calls: []
-  thePlayer:
-    intPlayerNumber: 0
-    strPlayerName: 
-    playerIcon: {fileID: 0}
-    units: []
-  theTransform: {fileID: 5069925826452656202}
+  onAreaClicked: {fileID: 0}

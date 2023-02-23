@@ -4,5 +4,5 @@ using UnityEngine.Events;
 namespace UnityEvents
 {
     [System.Serializable]
-    public class UnityEventPlayerModelAndTransform : UnityEvent<PlayerAndTransformEventData> { }
+    public class UnityEventPlayerModelAndTransform : UnityEvent<PlayerAndTransformData> { }
 }
