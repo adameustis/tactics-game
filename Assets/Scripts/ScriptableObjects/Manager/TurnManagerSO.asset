@@ -12,10 +12,312 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1c3c224a44bb746901ec776f33234b, type: 3}
   m_Name: TurnManagerSO
   m_EditorClassIdentifier: 
-  unitsInTurnOrderInitialValue: []
-  currentTurnUnitInitialValue: {fileID: 0}
-  unitManagerInitialValue: {fileID: 11400000, guid: a7e946a453e27d249a0a9989af6e63c6,
-    type: 2}
-  unitManager: {fileID: 11400000, guid: a7e946a453e27d249a0a9989af6e63c6, type: 2}
-  unitsInTurnOrder: []
-  currentTurnUnit: {fileID: 0}
+  unitsInTurnOrder:
+  - staticData: {fileID: 11400000, guid: 7fce7b71694295a458d406068a2adc5d, type: 2}
+    transformPosition: {x: 0, y: 0, z: 0}
+    gridPositionX: 0
+    gridPositionY: 0
+    unitNumber: 1
+    unitName: Unit 1
+    unitIcon: {fileID: 21300000, guid: 22cacc654a2cf844ba6c356d2aab9c59, type: 3}
+    unitHealth: 5
+    unitMaxHealth: 5
+    unitAbilities:
+    - staticData: {fileID: 11400000, guid: 5dfd73f08f66abc4ab7a9c4c8bc07fdc, type: 2}
+      level: 0
+      investment: 1
+      effectiveEnergy: 1
+      effectiveRange: 1
+      effectiveUses: 1
+      effectiveTargeting: {fileID: 0}
+      targetStatusArray: []
+    - staticData: {fileID: 11400000, guid: 4778e2e326c33f04a86f4520b3b19419, type: 2}
+      level: 0
+      investment: 1
+      effectiveEnergy: 1
+      effectiveRange: 1
+      effectiveUses: 1
+      effectiveTargeting: {fileID: 0}
+      targetStatusArray: []
+    - staticData: {fileID: 11400000, guid: d9e56c3198ac0d14f830328dee4752a8, type: 2}
+      level: 0
+      investment: 1
+      effectiveEnergy: 1
+      effectiveRange: 1
+      effectiveUses: 1
+      effectiveTargeting: {fileID: 0}
+      targetStatusArray: []
+    unitStatuses: []
+    unitCanLandTraverse: 0
+    unitCanAirTraverse: 0
+    unitCanStopOnLand: 0
+    unitCanStopInAir: 0
+    unitOnTurn: 1
+    unitTurnWaitValue: 0
+    unitEnergyUsed: 0
+    hasCurrentDestination: 0
+    speed: 2
+    movePathLength: 0
+    eventTransformPositionChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitNumberChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitNameChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitIconChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitHealthChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitMaxHealthChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitAbilityAdded:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitAbilityRemoved:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitStatusAdded:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitStatusRemoved:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitCanLandTraverseChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitCanAirTraverseChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitCanStopOnLandChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitCanStopInAirChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitHasCellResidenceChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitCellResidenceChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitOnTurnChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitTurnWaitValueChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitEnergyUsedChanged:
+      m_PersistentCalls:
+        m_Calls: []
+  - staticData: {fileID: 11400000, guid: 26cd2ed4e6522cc4aa4c7cfee922b2a7, type: 2}
+    transformPosition: {x: 11, y: 0, z: 0}
+    gridPositionX: 11
+    gridPositionY: 0
+    unitNumber: 2
+    unitName: Unit 2
+    unitIcon: {fileID: 21300000, guid: 95162c504f8a0bb45a000b830884b0fc, type: 3}
+    unitHealth: 2
+    unitMaxHealth: 2
+    unitAbilities:
+    - staticData: {fileID: 11400000, guid: 5dfd73f08f66abc4ab7a9c4c8bc07fdc, type: 2}
+      level: 0
+      investment: 1
+      effectiveEnergy: 1
+      effectiveRange: 1
+      effectiveUses: 0
+      effectiveTargeting: {fileID: 0}
+      targetStatusArray: []
+    - staticData: {fileID: 11400000, guid: 4778e2e326c33f04a86f4520b3b19419, type: 2}
+      level: 0
+      investment: 1
+      effectiveEnergy: 1
+      effectiveRange: 1
+      effectiveUses: 0
+      effectiveTargeting: {fileID: 0}
+      targetStatusArray: []
+    - staticData: {fileID: 11400000, guid: d9e56c3198ac0d14f830328dee4752a8, type: 2}
+      level: 0
+      investment: 1
+      effectiveEnergy: 1
+      effectiveRange: 0
+      effectiveUses: 0
+      effectiveTargeting: {fileID: 0}
+      targetStatusArray: []
+    unitStatuses: []
+    unitCanLandTraverse: 0
+    unitCanAirTraverse: 0
+    unitCanStopOnLand: 0
+    unitCanStopInAir: 0
+    unitOnTurn: 0
+    unitTurnWaitValue: 0
+    unitEnergyUsed: 0
+    hasCurrentDestination: 0
+    speed: 2
+    movePathLength: 0
+    eventTransformPositionChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitNumberChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitNameChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitIconChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitHealthChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitMaxHealthChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitAbilityAdded:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitAbilityRemoved:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitStatusAdded:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitStatusRemoved:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitCanLandTraverseChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitCanAirTraverseChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitCanStopOnLandChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitCanStopInAirChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitHasCellResidenceChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitCellResidenceChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitOnTurnChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitTurnWaitValueChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitEnergyUsedChanged:
+      m_PersistentCalls:
+        m_Calls: []
+  currentTurnUnit:
+    staticData: {fileID: 11400000, guid: 7fce7b71694295a458d406068a2adc5d, type: 2}
+    transformPosition: {x: 0, y: 0, z: 0}
+    gridPositionX: 0
+    gridPositionY: 0
+    unitNumber: 1
+    unitName: Unit 1
+    unitIcon: {fileID: 21300000, guid: 22cacc654a2cf844ba6c356d2aab9c59, type: 3}
+    unitHealth: 5
+    unitMaxHealth: 5
+    unitAbilities:
+    - staticData: {fileID: 11400000, guid: 5dfd73f08f66abc4ab7a9c4c8bc07fdc, type: 2}
+      level: 0
+      investment: 1
+      effectiveEnergy: 1
+      effectiveRange: 1
+      effectiveUses: 1
+      effectiveTargeting: {fileID: 0}
+      targetStatusArray: []
+    - staticData: {fileID: 11400000, guid: 4778e2e326c33f04a86f4520b3b19419, type: 2}
+      level: 0
+      investment: 1
+      effectiveEnergy: 1
+      effectiveRange: 1
+      effectiveUses: 1
+      effectiveTargeting: {fileID: 0}
+      targetStatusArray: []
+    - staticData: {fileID: 11400000, guid: d9e56c3198ac0d14f830328dee4752a8, type: 2}
+      level: 0
+      investment: 1
+      effectiveEnergy: 1
+      effectiveRange: 1
+      effectiveUses: 1
+      effectiveTargeting: {fileID: 0}
+      targetStatusArray: []
+    unitStatuses: []
+    unitCanLandTraverse: 0
+    unitCanAirTraverse: 0
+    unitCanStopOnLand: 0
+    unitCanStopInAir: 0
+    unitOnTurn: 1
+    unitTurnWaitValue: 0
+    unitEnergyUsed: 0
+    hasCurrentDestination: 0
+    speed: 2
+    movePathLength: 0
+    eventTransformPositionChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitNumberChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitNameChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitIconChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitHealthChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitMaxHealthChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitAbilityAdded:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitAbilityRemoved:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitStatusAdded:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitStatusRemoved:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitCanLandTraverseChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitCanAirTraverseChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitCanStopOnLandChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitCanStopInAirChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitHasCellResidenceChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitCellResidenceChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitOnTurnChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitTurnWaitValueChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    eventUnitEnergyUsedChanged:
+      m_PersistentCalls:
+        m_Calls: []
+  onEndTurn: {fileID: 11400000, guid: 66d9aa2aa5a39224583f3db8ccdc79c0, type: 2}

@@ -1,7 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using MVC.EventData;
 using MVC.Unit;
+using ScriptableObjects.EventSO;
 using UnityEngine;
+using UnityEvents;
+using Random = UnityEngine.Random;
 
 namespace ScriptableObjects.Manager
 {
@@ -15,10 +20,20 @@ namespace ScriptableObjects.Manager
         [SerializeField] private UnitModel currentTurnUnit;
 
         #endregion
+        #region Fields
+        [Header("Events")]
+        [SerializeField] private EventAbstractSO<UnityEventPlayerModelAndTransform> onEndTurn;
+
+        #endregion
         #region Properties
 
         public List<UnitModel> UnitsInTurnOrder { get => unitsInTurnOrder; private set => unitsInTurnOrder = value; }
         public UnitModel CurrentTurnUnit { get => currentTurnUnit; private set => currentTurnUnit = value; }
+
+        #endregion
+
+        #region Event Properties
+        public EventAbstractSO<UnityEventPlayerModelAndTransform> OnEndTurn { get => onEndTurn; private set => onEndTurn = value; }
 
         #endregion
         #region Constructors
@@ -29,10 +44,16 @@ namespace ScriptableObjects.Manager
         #endregion
         #region Methods
 
-        public void OnDisable()
+        private void OnEnable()
+        {
+            OnEndTurn.UnityEvent.AddListener(EndTurn);
+        }
+
+        private void OnDisable()
         {
             UnitsInTurnOrder = null;
             CurrentTurnUnit = null;
+            OnEndTurn.UnityEvent.RemoveListener(EndTurn);
         }
 
         public void Initialise(List<UnitModel> setUnitList)
@@ -51,7 +72,7 @@ namespace ScriptableObjects.Manager
             CurrentTurnUnit.InitialiseTurn();
         }
 
-        public void EndTurn()
+        public void EndTurn(PlayerAndTransformData context)
         {
             CurrentTurnUnit.EndTurn();
             int turnWaitValue = CurrentTurnUnit.UnitTurnWaitValue;

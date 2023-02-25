@@ -17,6 +17,7 @@ MonoBehaviour:
   displayIcon: {fileID: 21300000, guid: 7f6b08ca404bdcf4c8a092b1e5296c5a, type: 3}
   investment: 1
   energy: 1
+  turnWaitValueCost: 1
   minimumRange: 1
   maximumRange: 7777
   canTargetUnit: 0

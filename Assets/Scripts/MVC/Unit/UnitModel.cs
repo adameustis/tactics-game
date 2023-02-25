@@ -360,6 +360,7 @@ namespace MVC.Unit
         
         public void EndTurn()
         {
+            UnitTurnWaitValue += 5;
             UnitOnTurn = false;
             foreach (var ability in UnitAbilities)
                 ability.EffectiveUses = 0;

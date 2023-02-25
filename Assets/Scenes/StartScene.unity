@@ -275,12 +275,9 @@ GameObject:
   m_Component:
   - component: {fileID: 802697503}
   - component: {fileID: 802697516}
-  - component: {fileID: 802697517}
   - component: {fileID: 802697520}
-  - component: {fileID: 802697518}
   - component: {fileID: 802697514}
   - component: {fileID: 802697515}
-  - component: {fileID: 802697521}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -299,7 +296,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 973155986}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -360,42 +358,6 @@ MonoBehaviour:
     strPlayerName: 
     playerIcon: {fileID: 0}
     units: []
---- !u!114 &802697517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802697500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f713ff993e054ac19e8a45a1e717e83e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onUpdatePosition: {fileID: 11400000, guid: 1f523beb174713347ab89e7daddc1ab0, type: 2}
-  <EventSystem>k__BackingField: {fileID: 0}
-  <Raycaster>k__BackingField: {fileID: 1904161712}
-  <MainCamera>k__BackingField: {fileID: 1812853794}
-  <RayMaxDistance>k__BackingField: 100
-  <RayLayerMask>k__BackingField:
-    serializedVersion: 2
-    m_Bits: 2147483647
---- !u!114 &802697518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802697500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3bbce1e37441a7882d2cb65470fff0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Player>k__BackingField: {fileID: 802697516}
-  <Pointer>k__BackingField: {fileID: 802697517}
-  <MouseOverList>k__BackingField: []
-  <UIMouseOverList>k__BackingField: []
 --- !u!114 &802697520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,139 +385,31 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 802697521}
-        m_TargetAssemblyTypeName: MVC.Player.HumanPlayerInputController, Assembly-CSharp
-        m_MethodName: HandleInputSubmit
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 6e89e472-a613-4ec9-9807-8b0b4579e570
     m_ActionName: Player/Submit[/Mouse/leftButton,/Keyboard/e]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 802697521}
-        m_TargetAssemblyTypeName: MVC.Player.HumanPlayerInputController, Assembly-CSharp
-        m_MethodName: HandleInputCancel
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 6587034b-2f0e-422c-97f9-3556d407d7d1
     m_ActionName: Player/Cancel[/Mouse/rightButton,/Keyboard/q]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 802697521}
-        m_TargetAssemblyTypeName: MVC.Player.HumanPlayerInputController, Assembly-CSharp
-        m_MethodName: HandleInputUp
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: c0b0bbcc-518b-4228-bdec-ff9cf04544f6
     m_ActionName: Player/Up[/Keyboard/upArrow,/Keyboard/w]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 802697521}
-        m_TargetAssemblyTypeName: MVC.Player.HumanPlayerInputController, Assembly-CSharp
-        m_MethodName: HandleInputDown
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 4298c4c3-1e3a-4d3b-94bd-e8c4b3a336bb
     m_ActionName: Player/Down[/Keyboard/downArrow,/Keyboard/s]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 802697521}
-        m_TargetAssemblyTypeName: MVC.Player.HumanPlayerInputController, Assembly-CSharp
-        m_MethodName: HandleInputLeft
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 2440199a-57c1-4283-adcf-9455b6819a05
     m_ActionName: Player/Left[/Keyboard/leftArrow,/Keyboard/a]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 802697521}
-        m_TargetAssemblyTypeName: MVC.Player.HumanPlayerInputController, Assembly-CSharp
-        m_MethodName: HandleInputRight
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 4ea90314-93ec-43d3-941c-3550f2f40f6c
     m_ActionName: Player/Right[/Keyboard/rightArrow,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 802697517}
-        m_TargetAssemblyTypeName: MVC.Player.PlayerPointer, Assembly-CSharp
-        m_MethodName: HandlePlayerCursor
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 802697518}
-        m_TargetAssemblyTypeName: MVC.Player.PlayerMouseOverController, Assembly-CSharp
-        m_MethodName: HandleCursorInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 802697518}
-        m_TargetAssemblyTypeName: MVC.Player.PlayerMouseOverController, Assembly-CSharp
-        m_MethodName: HandleCursorInputUI
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: ee6273ae-84c1-46fc-a0a9-669e8ae3ce2e
     m_ActionName: Player/Cursor[/Mouse/position]
   - m_PersistentCalls:
@@ -563,19 +417,7 @@ MonoBehaviour:
     m_ActionId: b456af62-290b-46aa-8449-dfe20b2792ac
     m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 802697521}
-        m_TargetAssemblyTypeName: MVC.Player.HumanPlayerInputController, Assembly-CSharp
-        m_MethodName: HandleInputSubmit
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 5b02e754-0125-4e98-bdf8-b5d3e104a6a4
     m_ActionName: UI/Submit[/Keyboard/enter]
   - m_PersistentCalls:
@@ -615,32 +457,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &802697521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802697500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fc46c26cf134f89bf881d54c0a541df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <ThePlayer>k__BackingField: {fileID: 802697516}
-  <Pointer>k__BackingField: {fileID: 802697517}
-  <GenericInputCancelEvent>k__BackingField: {fileID: 11400000, guid: 17b0e1da174f83b46835097e1b4a71ae,
-    type: 2}
-  <GenericInputDownEvent>k__BackingField: {fileID: 11400000, guid: 92d2b48c3499f4d4bbe1c05c0b17604d,
-    type: 2}
-  <GenericInputLeftEvent>k__BackingField: {fileID: 11400000, guid: 56a836234f57d1d4488070a6f0525623,
-    type: 2}
-  <GenericInputRightEvent>k__BackingField: {fileID: 11400000, guid: 610bd98e92cd7594886805ffc5113d5a,
-    type: 2}
-  <GenericInputSubmitEvent>k__BackingField: {fileID: 11400000, guid: 7de4ebb9566eadc40bcdb2fb7620cdfb,
-    type: 2}
-  <GenericInputUpEvent>k__BackingField: {fileID: 11400000, guid: e1ff530b4a5726845950870d5ff0d2b6,
-    type: 2}
 --- !u!1 &858763460
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,6 +537,102 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858763460}
   m_CullTransparentMesh: 0
+--- !u!1 &973155985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 973155986}
+  - component: {fileID: 973155989}
+  - component: {fileID: 973155988}
+  - component: {fileID: 973155987}
+  m_Layer: 0
+  m_Name: Backup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &973155986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973155985}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 802697503}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &973155987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973155985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f713ff993e054ac19e8a45a1e717e83e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onUpdatePosition: {fileID: 11400000, guid: 1f523beb174713347ab89e7daddc1ab0, type: 2}
+  <EventSystem>k__BackingField: {fileID: 0}
+  <Raycaster>k__BackingField: {fileID: 1904161712}
+  <MainCamera>k__BackingField: {fileID: 1812853794}
+  <RayMaxDistance>k__BackingField: 100
+  <RayLayerMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 2147483647
+--- !u!114 &973155988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973155985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3bbce1e37441a7882d2cb65470fff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Player>k__BackingField: {fileID: 802697516}
+  <Pointer>k__BackingField: {fileID: 0}
+  <MouseOverList>k__BackingField: []
+  <UIMouseOverList>k__BackingField: []
+--- !u!114 &973155989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973155985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc46c26cf134f89bf881d54c0a541df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ThePlayer>k__BackingField: {fileID: 802697516}
+  <Pointer>k__BackingField: {fileID: 0}
+  <GenericInputCancelEvent>k__BackingField: {fileID: 11400000, guid: 17b0e1da174f83b46835097e1b4a71ae,
+    type: 2}
+  <GenericInputDownEvent>k__BackingField: {fileID: 11400000, guid: 92d2b48c3499f4d4bbe1c05c0b17604d,
+    type: 2}
+  <GenericInputLeftEvent>k__BackingField: {fileID: 11400000, guid: 56a836234f57d1d4488070a6f0525623,
+    type: 2}
+  <GenericInputRightEvent>k__BackingField: {fileID: 11400000, guid: 610bd98e92cd7594886805ffc5113d5a,
+    type: 2}
+  <GenericInputSubmitEvent>k__BackingField: {fileID: 11400000, guid: 7de4ebb9566eadc40bcdb2fb7620cdfb,
+    type: 2}
+  <GenericInputUpEvent>k__BackingField: {fileID: 11400000, guid: e1ff530b4a5726845950870d5ff0d2b6,
+    type: 2}
 --- !u!1 &1037883282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,27 +1176,27 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 451393422645fed44a0462496f95af92,
     type: 3}
-  m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_PointAction: {fileID: -7924980479364982499, guid: 451393422645fed44a0462496f95af92,
     type: 3}
-  m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_MoveAction: {fileID: -5767140722567131532, guid: 451393422645fed44a0462496f95af92,
     type: 3}
-  m_SubmitAction: {fileID: 2064916234097673511, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_SubmitAction: {fileID: 5935341983125541708, guid: 451393422645fed44a0462496f95af92,
     type: 3}
-  m_CancelAction: {fileID: -1967631576421560919, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_CancelAction: {fileID: 3232535095952180620, guid: 451393422645fed44a0462496f95af92,
     type: 3}
-  m_LeftClickAction: {fileID: 8056856818456041789, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_LeftClickAction: {fileID: 5098751425957230473, guid: 451393422645fed44a0462496f95af92,
     type: 3}
-  m_MiddleClickAction: {fileID: 3279352641294131588, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_MiddleClickAction: {fileID: 1963819901794759436, guid: 451393422645fed44a0462496f95af92,
     type: 3}
-  m_RightClickAction: {fileID: 3837173908680883260, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_RightClickAction: {fileID: 114217284556898902, guid: 451393422645fed44a0462496f95af92,
     type: 3}
-  m_ScrollWheelAction: {fileID: 4502412055082496612, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_ScrollWheelAction: {fileID: -7097673843864382208, guid: 451393422645fed44a0462496f95af92,
     type: 3}
-  m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_TrackedDevicePositionAction: {fileID: 3374961474938213474, guid: 451393422645fed44a0462496f95af92,
     type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_TrackedDeviceOrientationAction: {fileID: -9012224217766788029, guid: 451393422645fed44a0462496f95af92,
     type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0

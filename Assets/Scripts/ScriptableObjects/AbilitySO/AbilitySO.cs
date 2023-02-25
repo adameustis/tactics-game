@@ -20,6 +20,7 @@ public class AbilitySO : ScriptableObject
     [SerializeField] private Sprite displayIcon;
     [SerializeField] private int investment;
     [SerializeField] private int energy;
+    [SerializeField] private int turnWaitValueCost;
     [FormerlySerializedAs("range")] [SerializeField] private int minimumRange;
     [SerializeField] private int maximumRange;
     [SerializeField] private bool canTargetUnit;
@@ -42,6 +43,7 @@ public class AbilitySO : ScriptableObject
     public Sprite DisplayIcon { get => displayIcon; private set => displayIcon = value; }
     public int Investment { get => investment; private set => investment = value; }
     public int Energy { get => energy; private set => energy = value; }
+    public int TurnWaitValueCost { get => turnWaitValueCost; private set => turnWaitValueCost = value; }
     public int MinimumRange { get => minimumRange; private set => minimumRange = value; }
     public int MaximumRange { get => maximumRange; private set => maximumRange = value; }
     public bool CanTargetUnit { get => canTargetUnit; private set => canTargetUnit = value; }

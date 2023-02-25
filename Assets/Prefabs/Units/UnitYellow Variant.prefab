@@ -57,12 +57,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
         type: 3}
+      propertyPath: model.unitAbilities.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
       propertyPath: controller.model.unitCanStopOnLand
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
         type: 3}
       propertyPath: controller.model.unitCanLandTraverse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[0].investment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[0].staticData
+      value: 
+      objectReference: {fileID: 11400000, guid: 5dfd73f08f66abc4ab7a9c4c8bc07fdc,
+        type: 2}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[1].investment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[1].staticData
+      value: 
+      objectReference: {fileID: 11400000, guid: 4778e2e326c33f04a86f4520b3b19419,
+        type: 2}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[2].investment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[2].staticData
+      value: 
+      objectReference: {fileID: 11400000, guid: d9e56c3198ac0d14f830328dee4752a8,
+        type: 2}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[0].effectiveRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[1].effectiveRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[0].effectiveEnergy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[1].effectiveEnergy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392093265840437045, guid: 0627c29e1ff2bab429e413e2e98a343d,
+        type: 3}
+      propertyPath: model.unitAbilities.Array.data[2].effectiveEnergy
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8623663878638903048, guid: 0627c29e1ff2bab429e413e2e98a343d,

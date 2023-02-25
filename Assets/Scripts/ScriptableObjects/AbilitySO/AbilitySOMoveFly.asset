@@ -17,6 +17,7 @@ MonoBehaviour:
   displayIcon: {fileID: 21300000, guid: 68a91b3215cf5074ea3f5ceb6be39bae, type: 3}
   investment: 1
   energy: 1
+  turnWaitValueCost: 1
   minimumRange: 1
   maximumRange: 7777
   canTargetUnit: 0
@@ -26,5 +27,5 @@ MonoBehaviour:
   targeting: {fileID: 0}
   targetUnitPrefab: {fileID: 0}
   targetCellPrefab: {fileID: 0}
-  <TargetingPrefab>k__BackingField: {fileID: 3287414364099740128, guid: f56f01777bb7a684993999454f3e68c4,
-    type: 3}
+  targetingPrefab: {fileID: 0}
+  performingPrefab: {fileID: 0}
