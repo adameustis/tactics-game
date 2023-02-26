@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using MVC.EventData;
 using UnityEngine;
 using ScriptableObjects.EventSO.EventPlayerModelAndTransformSO;
@@ -12,7 +13,7 @@ namespace MVC.State
         #region Properties
         [field: Header("Fields")]
         [field: SerializeField] public StateMachine.StateMachine Machine { get; protected set; }
-        [field: SerializeField] public List<StateData> DataQueue { get; protected set; } = new();
+        [field: SerializeField] public List<PlayerAndTransformData> DataQueue { get; protected set; } = new();
         #endregion
         #region Event Properties
         [field: Header("Events")]
@@ -35,7 +36,7 @@ namespace MVC.State
         public virtual void EnterState(PlayerAndTransformData context)
         {
             gameObject.SetActive(true);
-            DataQueue.Add(new StateData(context)); // Can record more than context if necessary
+            DataQueue.Add(context);
             PublicOnEnter.UnityEvent.Invoke(context);
             LocalOnEnter.Invoke(context);
         }
@@ -43,8 +44,9 @@ namespace MVC.State
         public virtual void ReturnToState(PlayerAndTransformData context)
         {
             gameObject.SetActive(true);
-            PublicOnEnter.UnityEvent.Invoke(context);
-            LocalOnEnter.Invoke(context);
+            var returnedToStateData = DataQueue.Last();
+            PublicOnEnter.UnityEvent.Invoke(returnedToStateData);
+            LocalOnEnter.Invoke(returnedToStateData);
         }
         
         public virtual void ExitState(PlayerAndTransformData context, bool save)

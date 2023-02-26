@@ -40,7 +40,7 @@ namespace MVC.PerformingAbility
         {
             // Move our position a step closer to the target.
             var step =  Speed * Time.deltaTime; // calculate distance to move
-            var sourceUnit = Controller.Data.SourceCell.CellResidentUnit;
+            var sourceUnit = Controller.Data.SourceUnit;
             var targetCell = Controller.Data.TargetCell;
             
             sourceUnit.TransformPosition = Vector3.MoveTowards(sourceUnit.TransformPosition, targetCell.TransformPosition, step);

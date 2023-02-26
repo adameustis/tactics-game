@@ -278,6 +278,7 @@ GameObject:
   - component: {fileID: 802697520}
   - component: {fileID: 802697514}
   - component: {fileID: 802697515}
+  - component: {fileID: 802697521}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -389,7 +390,19 @@ MonoBehaviour:
     m_ActionId: 6e89e472-a613-4ec9-9807-8b0b4579e570
     m_ActionName: Player/Submit[/Mouse/leftButton,/Keyboard/e]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 802697521}
+        m_TargetAssemblyTypeName: MVC.Input.GenericInputAnnouncer, Assembly-CSharp
+        m_MethodName: InvokeInputCancel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6587034b-2f0e-422c-97f9-3556d407d7d1
     m_ActionName: Player/Cancel[/Mouse/rightButton,/Keyboard/q]
   - m_PersistentCalls:
@@ -421,7 +434,19 @@ MonoBehaviour:
     m_ActionId: 5b02e754-0125-4e98-bdf8-b5d3e104a6a4
     m_ActionName: UI/Submit[/Keyboard/enter]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 802697521}
+        m_TargetAssemblyTypeName: MVC.Input.GenericInputAnnouncer, Assembly-CSharp
+        m_MethodName: InvokeInputCancel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: a39527e7-ac1f-446b-8ae2-0d9c3881f46e
     m_ActionName: UI/Cancel[/Keyboard/escape]
   - m_PersistentCalls:
@@ -452,11 +477,48 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: ee1d2815-ef31-474f-88ca-92765422a175
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 802697521}
+        m_TargetAssemblyTypeName: MVC.Input.GenericInputAnnouncer, Assembly-CSharp
+        m_MethodName: InvokeInputMenu
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 13dc2589-e7fb-4330-b287-2f0ab5098ada
+    m_ActionName: Player/Submit1[/Mouse/leftButton,/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &802697521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802697500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 549fe50335b646c48f5b7b74776c69e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    player:
+      intPlayerNumber: 0
+      strPlayerName: 
+      playerIcon: {fileID: 0}
+      units: []
+    tf: {fileID: 0}
+  onInputCancel: {fileID: 11400000, guid: 17b0e1da174f83b46835097e1b4a71ae, type: 2}
+  onInputMenu: {fileID: 11400000, guid: 8812dafb8122eaf4fb4e2a9cfd5e597f, type: 2}
 --- !u!1 &858763460
 GameObject:
   m_ObjectHideFlags: 0

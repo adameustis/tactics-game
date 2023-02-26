@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06c0adf1bdcdd174e9a73b63686447a7, type: 3}
-  m_Name: EnterUsableAbilityBattleMenuItemState
+  m_Name: ExitVisibleEndTurnWarningState
   m_EditorClassIdentifier: 
   unityEvent:
     m_PersistentCalls:

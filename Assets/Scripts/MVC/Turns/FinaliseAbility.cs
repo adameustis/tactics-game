@@ -46,7 +46,7 @@ namespace MVC.Turns
 
         public void Finalise(TargetAreaData data)
         {
-            data.SourceCell.CellResidentUnit.UnitTurnWaitValue += data.Ability.Ability.TurnWaitValueCost;
+            data.SourceUnit.UnitTurnWaitValue += data.Ability.Ability.TurnWaitValueCost;
             
             if (MoveAbilities.Contains(data.Ability.Ability))
             {
@@ -58,11 +58,11 @@ namespace MVC.Turns
             Debug.Log("Ability Name: " + data.Ability.Ability.AbilityName);
             Debug.Log("Source Cell Name: " + data.SourceCell.StaticData.CellName);
             Debug.Log("Target Cell Name: " + data.TargetCell.StaticData.CellName);
-            Debug.Log("Source Unit: " + data.SourceCell.CellResidentUnit.UnitName);
+            Debug.Log("Source Unit: " + data.SourceUnit.UnitName);
             Debug.Log("Source Unit number of abilities: " + data.SourceCell.CellResidentUnit.UnitAbilities.Count);
-            Debug.Log("Source Unit number of abilities with conditions: " + data.SourceCell.CellResidentUnit.UnitAbilities.Count(ability => !MoveAbilities.Contains(ability.Ability)));
+            Debug.Log("Source Unit number of abilities with conditions: " + data.SourceUnit.UnitAbilities.Count(ability => !MoveAbilities.Contains(ability.Ability)));
             
-            foreach (var ability in data.SourceCell.CellResidentUnit.UnitAbilities.Where(ability => !MoveAbilities.Contains(ability.Ability)))
+            foreach (var ability in data.SourceUnit.UnitAbilities.Where(ability => !MoveAbilities.Contains(ability.Ability)))
                 ability.EffectiveUses = 0;
 
             OnContinueTurn.UnityEvent.Invoke(data);

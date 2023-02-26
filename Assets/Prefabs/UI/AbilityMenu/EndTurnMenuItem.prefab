@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7936517288015316528}
   - component: {fileID: 1521943298472882354}
   - component: {fileID: 7696559647975529446}
+  - component: {fileID: 773173013811967818}
   m_Layer: 5
   m_Name: EndTurnMenuItem
   m_TagString: Untagged
@@ -125,7 +126,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7938428899624662474}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 773173013811967818}
+        m_TargetAssemblyTypeName: MVC.Event.EventAnnouncer, Assembly-CSharp
+        m_MethodName: Announce
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7936517288015316528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,7 +211,26 @@ MonoBehaviour:
       cellGridPositionY: 0
       cellHasResidentUnit: 0
   uIButton: {fileID: 9208801569715502980}
-  onClickHandler: {fileID: 0}
+--- !u!114 &773173013811967818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050240605279686616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a962b236fa8450e82b45342a2cc4b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    player:
+      intPlayerNumber: 0
+      strPlayerName: 
+      playerIcon: {fileID: 0}
+      units: []
+    tf: {fileID: 0}
+  publicAnnouncement: {fileID: 0}
 --- !u!1 &8050806968733748568
 GameObject:
   m_ObjectHideFlags: 0

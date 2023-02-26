@@ -1,4 +1,6 @@
 ﻿using MVC.EventData;
+using MVC.SelectArea;
+using MVC.Target;
 using MVC.Unit;
 using ScriptableObjects.EventSO;
 using UnityEngine;
@@ -9,13 +11,25 @@ namespace ScriptableObjects.Manager
     [CreateAssetMenu(fileName = "UnitSelectionManagerSO", menuName = "ScriptableObjects/Manager/UnitSelectionManagerSO")]
     [System.Serializable] public class UnitSelectionManagerSO : ScriptableObject
     {
+        #region Fields
+
+        [Header("Fields")] 
+        [SerializeField] private UnitModel selectedUnit;
+
+        #endregion
+        #region Events
+
+        [Header("Events")] 
+        [SerializeField] private EventAbstractSO<UnityEventPlayerModelAndTransform> UnitSelectedState;
+
+        #endregion
         #region Properties
-        [field: Header("Fields")]
-        [field: SerializeField] public UnitController SelectedUnit { get; private set; }
+        public UnitModel SelectedUnit { get => selectedUnit; private set => selectedUnit = value; }
+
         #endregion
         #region Event Properties
-        [field: Header("Events")]
-        [field: SerializeField] public EventAbstractSO<UnityEventPlayerModelAndTransform> UnitSelectedState { get; private set; }
+        public EventAbstractSO<UnityEventPlayerModelAndTransform> UnitSelectedState1 { get => UnitSelectedState; private set => UnitSelectedState = value; }
+
         #endregion
         #region Event Subscriptions
         private void SubscribeToEvents() => UnitSelectedState.UnityEvent.AddListener(UnitSelectedStateHandler);
@@ -26,7 +40,10 @@ namespace ScriptableObjects.Manager
 
         public void UnitSelectedStateHandler(PlayerAndTransformData context)
         {
-            SelectedUnit = context.Tf.GetComponent<UnitController>();
+            //SelectedUnit = context.Tf.GetComponent<UnitController>();
+            
+            if(context is SelectAreaData eventData)
+                SelectedUnit = eventData.SourceCell.CellResidentUnit;
         }
     
         #endregion
